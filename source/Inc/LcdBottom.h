@@ -6,9 +6,27 @@
 #endif
 
 
-#define Const_LCDRAMLen 40
+//#define Const_LCDRAMLen 40
+ 
+enum            ENUMLCDRAMLIST
+{
+  _LCDM6_ = 0,
+  _LCDM7_ ,
+  _LCDM8_ ,
+  _LCDM9_ ,
+  _LCDM10_ ,
+  _LCDM11_ ,
+  _LCDM13_ ,
+  _LCDM14_ ,
+  _LCDM15_ ,
+  _LCDM16_ ,
+  _LCDM17_ ,
+  _LCDMEnd_ ,
+  Const_LCDRAMLen = _LCDMEnd_  ,
+} ;
+  
 
-LCDBOTTOMEXT uint8 guc_LCDRAM[Const_LCDRAMLen];
+LCDBOTTOMEXT uint8  guc_LCDRAM[Const_LCDRAMLen];
 
 void Disp_Full(void);
 void Disp_Clear(void);

@@ -2,7 +2,7 @@
 #                                                                              #
 #      IAR Universal Linker V5.7.0.39                                          #
 #                                                                              #
-#           Link time     =  05/Sep/2019  19:12:41                             #
+#           Link time     =  06/Sep/2019  12:14:21                             #
 #           Target CPU    =  x51                                               #
 #           List file     =  C:\worktop\galaxy_Thailand_9811b_62056_meter\sour #
 #                            ce\Debug\List\D143R-9821S.map                     #
@@ -3629,7 +3629,7 @@ XDATA_AN
            CtrlLCDV                0000285E 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 000004CC - 000004F3 (0x28 bytes), align: 0
+  Relative segment, address: XDATA 000004CC - 000004D6 (0xb bytes), align: 0
   Segment part 23.            Intra module refs:   Disp_Clear
                                                    Disp_Full
                                                    LCD_RAMUpdata
@@ -3687,7 +3687,7 @@ NEAR_CODE
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000818B - 0000822F (0xa5 bytes), align: 0
+  Relative segment, address: CODE 0000818B - 0000822D (0xa3 bytes), align: 0
   Segment part 33.            Intra module refs:   LCD_RAMUpdata
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
@@ -3759,29 +3759,29 @@ CODE_C
            UnitTable               000017D4 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008230 - 00008363 (0x134 bytes), align: 0
+  Relative segment, address: CODE 0000822E - 00008361 (0x134 bytes), align: 0
   Segment part 14.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Disp_Numb               00008230        ShowRefresh (Lcdshow)
+           Disp_Numb               0000822E        ShowRefresh (Lcdshow)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008364 - 00008477 (0x114 bytes), align: 0
+  Relative segment, address: CODE 00008362 - 00008475 (0x114 bytes), align: 0
   Segment part 15.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Disp_UnitPoint          00008364        ShowRefresh (Lcdshow)
+           Disp_UnitPoint          00008362        ShowRefresh (Lcdshow)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008478 - 000084F9 (0x82 bytes), align: 0
+  Relative segment, address: CODE 00008476 - 000084F7 (0x82 bytes), align: 0
   Segment part 16.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Disp_State              00008478        ShowRefresh (Lcdshow)
+           Disp_State              00008476        ShowRefresh (Lcdshow)
                is not allocated
                not allocated function
 
@@ -3793,44 +3793,44 @@ NEAR_CODE
   SEGMENTS IN THE MODULE
   ======================
 XDATA_Z
-  Relative segment, address: XDATA 000004F4 - 000004F4 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 000004D7 - 000004D7 (0x1 bytes), align: 0
   Segment part 8.             Intra module refs:   ShowSecondProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_ShowStCom           000004F4        BD_ProcFrame (Prcfrm)
+           guc_ShowStCom           000004D7        BD_ProcFrame (Prcfrm)
                                                    Var_Init (main)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 000004F5 - 000004F5 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 000004D8 - 000004D8 (0x1 bytes), align: 0
   Segment part 9.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_ShowEnergyFlag      000004F5        ReadCurEgy (DLT_645_2007)
+           guc_ShowEnergyFlag      000004D8        ReadCurEgy (DLT_645_2007)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 000004F6 - 000004F9 (0x4 bytes), align: 0
+  Relative segment, address: XDATA 000004D9 - 000004DC (0x4 bytes), align: 0
   Segment part 10.            Intra module refs:   ShowDataProc
                                                    ShowRefresh
                                                    ShowStateManage
                                                    ShowSysStart
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_ShowState           000004F6 
+           gul_ShowState           000004D9 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 000004FA - 0000050B (0x12 bytes), align: 0
+  Relative segment, address: XDATA 000004DD - 000004EE (0x12 bytes), align: 0
   Segment part 11.            Intra module refs:   ShowInitial
                                                    ShowKeyManage
                                                    ShowSecondProc
                                                    ShowSysStart
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gs_DispCont             000004FA        CfgCheck (FunCfg)
+           gs_DispCont             000004DD        CfgCheck (FunCfg)
                                                    KeyScan (Key)
                                                    Tamp_ChkPLL (TamperProc)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000050C - 00000514 (0x9 bytes), align: 0
+  Relative segment, address: XDATA 000004EF - 000004F7 (0x9 bytes), align: 0
   Segment part 12.            Intra module refs:   ShowDataProc
                                                    ShowKeyManage
                                                    ShowRefresh
@@ -3838,24 +3838,24 @@ XDATA_Z
                                                    ShowSysStart
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gs_DispStt              0000050C        Data_ClearMeter (Dataproc)
+           gs_DispStt              000004EF        Data_ClearMeter (Dataproc)
                                                    Tamp_ChkPLL (TamperProc)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000515 - 00000520 (0xc bytes), align: 0
+  Relative segment, address: XDATA 000004F8 - 00000503 (0xc bytes), align: 0
   Segment part 13.            Intra module refs:   ShowDataProc
                                                    ShowNumManage
                                                    ShowRefresh
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gs_LcdDisp              00000515 
+           gs_LcdDisp              000004F8 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000521 - 00000524 (0x4 bytes), align: 0
+  Relative segment, address: XDATA 00000504 - 00000507 (0x4 bytes), align: 0
   Segment part 14.            Intra module refs:   ShowDataProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_ShowId              00000521 
+           gul_ShowId              00000504 
     -------------------------------------------------------------------------
 CODE_C
   Relative segment, address: CODE 000017E0 - 0000180C (0x2d bytes), align: 0
@@ -3893,84 +3893,84 @@ CODE_C
            gCs_DispTab             00001862 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000084FA - 0000852D (0x34 bytes), align: 0
+  Relative segment, address: CODE 000084F8 - 0000852B (0x34 bytes), align: 0
   Segment part 34.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ShowSysStart            000084FA        App_Init (main)
+           ShowSysStart            000084F8        App_Init (main)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000852E - 0000854F (0x22 bytes), align: 0
+  Relative segment, address: CODE 0000852C - 0000854D (0x22 bytes), align: 0
   Segment part 35.            Intra module refs:   ShowSysStart
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ShowInitial             0000852E        CfgCheck (FunCfg)
+           ShowInitial             0000852C        CfgCheck (FunCfg)
                                                    RefreshPara (DataProtect)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008550 - 000085B9 (0x6a bytes), align: 0
+  Relative segment, address: CODE 0000854E - 000085B7 (0x6a bytes), align: 0
   Segment part 36.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ShowKeyManage           00008550        KeyProc (Key)
+           ShowKeyManage           0000854E        KeyProc (Key)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000085BA - 00008630 (0x77 bytes), align: 0
+  Relative segment, address: CODE 000085B8 - 0000862E (0x77 bytes), align: 0
   Segment part 37.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ShowSecondProc          000085BA        Data_SecProc (Dataproc)
+           ShowSecondProc          000085B8        Data_SecProc (Dataproc)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008631 - 00008679 (0x49 bytes), align: 0
+  Relative segment, address: CODE 0000862F - 00008677 (0x49 bytes), align: 0
   Segment part 38.            Intra module refs:   ShowRefresh
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ShowStateManage         00008631 
+           ShowStateManage         0000862F 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000867A - 00008C67 (0x5ee bytes), align: 0
+  Relative segment, address: CODE 00008678 - 00008C65 (0x5ee bytes), align: 0
   Segment part 39.            Intra module refs:   ShowDataProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ShowNumManage           0000867A 
+           ShowNumManage           00008678 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008C68 - 00008D71 (0x10a bytes), align: 0
+  Relative segment, address: CODE 00008C66 - 00008D6F (0x10a bytes), align: 0
   Segment part 40.            Intra module refs:   ShowDataProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SearchDispNO            00008C68 
+           SearchDispNO            00008C66 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008D72 - 00008E5D (0xec bytes), align: 0
+  Relative segment, address: CODE 00008D70 - 00008E5B (0xec bytes), align: 0
   Segment part 41.            Intra module refs:   ShowRefresh
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ShowDataProc            00008D72 
+           ShowDataProc            00008D70 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008E5E - 00008EA8 (0x4b bytes), align: 0
+  Relative segment, address: CODE 00008E5C - 00008EA6 (0x4b bytes), align: 0
   Segment part 43.            Intra module refs:   ShowKeyManage
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ShowRefresh             00008E5E        SysEventProc (main)
+           ShowRefresh             00008E5C        SysEventProc (main)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -4522,13 +4522,13 @@ SFR_AN
            SECINT                  000000DF 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000525 - 00000525 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000508 - 00000508 (0x1 bytes), align: 0
   Segment part 90.            Intra module refs:   PowOffSetFmcu
                                                    SetPLL3DOT2M
                                                    SetPLL800K
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_PllSta              00000525        App_Init (main)
+           guc_PllSta              00000508        App_Init (main)
                                                    CalRMS (EnergyBottom)
                                                    DelayXms (Api)
                                                    EnyB_JbPm_Updata (EnergyBottom)
@@ -4537,75 +4537,75 @@ XDATA_Z
                                                    Timer2Interrupt (System)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000526 - 00000526 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000509 - 00000509 (0x1 bytes), align: 0
   Segment part 91.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_PendSlpSta          00000526        Timer1Interrupt (System)
+           guc_PendSlpSta          00000509        Timer1Interrupt (System)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000527 - 00000528 (0x2 bytes), align: 0
+  Relative segment, address: XDATA 0000050A - 0000050B (0x2 bytes), align: 0
   Segment part 92.            Intra module refs:   GetBat
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gui_BatLowFlg           00000527        Pwr_ChkProc (Powmanger)
+           gui_BatLowFlg           0000050A        Pwr_ChkProc (Powmanger)
                                                    Pwr_DownProc (Powmanger)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000529 - 0000052C (0x4 bytes), align: 0
+  Relative segment, address: XDATA 0000050C - 0000050F (0x4 bytes), align: 0
   Segment part 93.            Intra module refs:   GetBat
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_CellVoltage         00000529        ReadVar (DLT_645_2007)
+           gul_CellVoltage         0000050C        ReadVar (DLT_645_2007)
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008EA9 - 00008F1D (0x75 bytes), align: 0
+  Relative segment, address: CODE 00008EA7 - 00008F1B (0x75 bytes), align: 0
   Segment part 105.           Intra module refs:   Mcu_Init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           IO_Init                 00008EA9 
+           IO_Init                 00008EA7 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008F1E - 00008F31 (0x14 bytes), align: 0
+  Relative segment, address: CODE 00008F1C - 00008F2F (0x14 bytes), align: 0
   Segment part 106.           Intra module refs:   Mcu_Init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Timer0             00008F1E 
+           Init_Timer0             00008F1C 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008F32 - 00008F5B (0x2a bytes), align: 0
+  Relative segment, address: CODE 00008F30 - 00008F59 (0x2a bytes), align: 0
   Segment part 107.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Timer1             00008F32        Pwr_SlpReset (Powmanger)
+           Init_Timer1             00008F30        Pwr_SlpReset (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008F5C - 00008F6B (0x10 bytes), align: 0
+  Relative segment, address: CODE 00008F5A - 00008F69 (0x10 bytes), align: 0
   Segment part 108.           Intra module refs:   Mcu_Init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Timer2             00008F5C 
+           Init_Timer2             00008F5A 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008F6C - 00008F77 (0xc bytes), align: 0
+  Relative segment, address: CODE 00008F6A - 00008F75 (0xc bytes), align: 0
   Segment part 109.           Intra module refs:   DelayOSC
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Delay1OSC               00008F6C 
+           Delay1OSC               00008F6A 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008F78 - 00008F90 (0x19 bytes), align: 0
+  Relative segment, address: CODE 00008F76 - 00008F8E (0x19 bytes), align: 0
   Segment part 110.           Intra module refs:   GetExtRTC
                                                    Mcu_RTCNormal
                                                    RTCWakeUpTm
@@ -4613,17 +4613,17 @@ NEAR_CODE
                                                    Sleep
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           DelayOSC                00008F78        Mea_Consumption_Dly (main)
+           DelayOSC                00008F76        Mea_Consumption_Dly (main)
                                                    Pwr_ChkProc (Powmanger)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008F91 - 00008FC5 (0x35 bytes), align: 0
+  Relative segment, address: CODE 00008F8F - 00008FC3 (0x35 bytes), align: 0
   Segment part 111.           Intra module refs:   Mcu_Init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RTCWakeUpTm             00008F91        Mea_Consumption_Dly (main)
+           RTCWakeUpTm             00008F8F        Mea_Consumption_Dly (main)
                                                    Pwr_ChkProc (Powmanger)
                                                    Pwr_DownProc (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
@@ -4631,181 +4631,181 @@ NEAR_CODE
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008FC6 - 00008FD7 (0x12 bytes), align: 0
+  Relative segment, address: CODE 00008FC4 - 00008FD5 (0x12 bytes), align: 0
   Segment part 112.           Intra module refs:   Mcu_Init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           EnableRTCInt            00008FC6 
+           EnableRTCInt            00008FC4 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00008FD8 - 00009006 (0x2f bytes), align: 0
+  Relative segment, address: CODE 00008FD6 - 00009004 (0x2f bytes), align: 0
   Segment part 114.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Mcu_Init                00008FD8        main (main)
+           Mcu_Init                00008FD6        main (main)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009007 - 00009075 (0x6f bytes), align: 0
+  Relative segment, address: CODE 00009005 - 00009073 (0x6f bytes), align: 0
   Segment part 116.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetPLL3DOT2M            00009007        SwitchMode (TamperProc)
+           SetPLL3DOT2M            00009005        SwitchMode (TamperProc)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009076 - 000090C6 (0x51 bytes), align: 0
+  Relative segment, address: CODE 00009074 - 000090C4 (0x51 bytes), align: 0
   Segment part 117.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           PowOffSetFmcu           00009076        Pwr_ChkProc (Powmanger)
+           PowOffSetFmcu           00009074        Pwr_ChkProc (Powmanger)
                                                    Pwr_SlpReset (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000090C7 - 00009136 (0x70 bytes), align: 0
+  Relative segment, address: CODE 000090C5 - 00009134 (0x70 bytes), align: 0
   Segment part 118.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetPLL800K              000090C7        SwitchMode (TamperProc)
+           SetPLL800K              000090C5        SwitchMode (TamperProc)
                                                    main (main)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009137 - 00009161 (0x2b bytes), align: 0
+  Relative segment, address: CODE 00009135 - 0000915F (0x2b bytes), align: 0
   Segment part 119.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MChannelCal             00009137        TimeEventProc (main)
+           MChannelCal             00009135        TimeEventProc (main)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009162 - 00009231 (0xd0 bytes), align: 0
+  Relative segment, address: CODE 00009160 - 0000922F (0xd0 bytes), align: 0
   Segment part 120.           Intra module refs:   MChannelCal
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetBat                  00009162        main (main)
+           GetBat                  00009160        main (main)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009232 - 00009249 (0x18 bytes), align: 0
+  Relative segment, address: CODE 00009230 - 00009247 (0x18 bytes), align: 0
   Segment part 121.           Intra module refs:   Mcu_Init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Uart               00009232 
+           Init_Uart               00009230 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000924A - 000092E3 (0x9a bytes), align: 0
+  Relative segment, address: CODE 00009248 - 000092E1 (0x9a bytes), align: 0
   Segment part 122.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           IOOFF                   0000924A        Pwr_ChkProc (Powmanger)
+           IOOFF                   00009248        Pwr_ChkProc (Powmanger)
                                                    Pwr_DownProc (Powmanger)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000092E4 - 000092ED (0xa bytes), align: 0
+  Relative segment, address: CODE 000092E2 - 000092EB (0xa bytes), align: 0
   Segment part 124.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           IntOFF                  000092E4        Pwr_ChkProc (Powmanger)
+           IntOFF                  000092E2        Pwr_ChkProc (Powmanger)
                                                    Pwr_DownProc (Powmanger)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000092EE - 00009307 (0x1a bytes), align: 0
+  Relative segment, address: CODE 000092EC - 00009305 (0x1a bytes), align: 0
   Segment part 125.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UARTOFF                 000092EE        Pwr_ChkProc (Powmanger)
+           UARTOFF                 000092EC        Pwr_ChkProc (Powmanger)
                                                    Pwr_DownProc (Powmanger)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009308 - 00009369 (0x62 bytes), align: 0
+  Relative segment, address: CODE 00009306 - 00009367 (0x62 bytes), align: 0
   Segment part 126.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MCUForPowerOff          00009308        Pwr_ChkProc (Powmanger)
+           MCUForPowerOff          00009306        Pwr_ChkProc (Powmanger)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000936A - 000093AE (0x45 bytes), align: 0
+  Relative segment, address: CODE 00009368 - 000093AC (0x45 bytes), align: 0
   Segment part 128.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SleepRTC                0000936A        Pwr_ChkProc (Powmanger)
+           SleepRTC                00009368        Pwr_ChkProc (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000093AF - 000093EF (0x41 bytes), align: 0
+  Relative segment, address: CODE 000093AD - 000093ED (0x41 bytes), align: 0
   Segment part 129.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Sleep                   000093AF        Pwr_ChkProc (Powmanger)
+           Sleep                   000093AD        Pwr_ChkProc (Powmanger)
                                                    Pwr_DownProc (Powmanger)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000093F0 - 000093F0 (0x1 bytes), align: 0
+  Relative segment, address: CODE 000093EE - 000093EE (0x1 bytes), align: 0
   Segment part 130.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           BgCtrFun                000093F0        TimeEventProc (main)
+           BgCtrFun                000093EE        TimeEventProc (main)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000093F1 - 00009433 (0x43 bytes), align: 0
+  Relative segment, address: CODE 000093EF - 00009431 (0x43 bytes), align: 0
   Segment part 131.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetExtRTC               000093F1        TimerProc (Timeproc)
+           GetExtRTC               000093EF        TimerProc (Timeproc)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009434 - 00009481 (0x4e bytes), align: 0
+  Relative segment, address: CODE 00009432 - 0000947F (0x4e bytes), align: 0
   Segment part 132.           Intra module refs:   Mcu_RTCNormal
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetExtRTC               00009434        TimerProc (Timeproc)
+           SetExtRTC               00009432        TimerProc (Timeproc)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009482 - 000094D2 (0x51 bytes), align: 0
+  Relative segment, address: CODE 00009480 - 000094D0 (0x51 bytes), align: 0
   Segment part 133.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Mcu_ChkSfr              00009482        main (main)
+           Mcu_ChkSfr              00009480        main (main)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000094D3 - 00009549 (0x77 bytes), align: 0
+  Relative segment, address: CODE 000094D1 - 00009547 (0x77 bytes), align: 0
   Segment part 134.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Mcu_RTCNormal           000094D3        App_Init (main)
+           Mcu_RTCNormal           000094D1        App_Init (main)
                                                    SwitchMode (TamperProc)
                calls direct, is not allocated
                not allocated function
@@ -4854,102 +4854,102 @@ CODE_C
   SEGMENTS IN THE MODULE
   ======================
 XDATA_Z
-  Relative segment, address: XDATA 0000052D - 00000531 (0x5 bytes), align: 0
+  Relative segment, address: XDATA 00000510 - 00000514 (0x5 bytes), align: 0
   Segment part 25.            Intra module refs:   Pwr_DownProc
                                                    Pwr_SlpReset
                                                    Pwr_WakeupProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gs_WakeUp               0000052D 
+           gs_WakeUp               00000510 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000532 - 00000532 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000515 - 00000515 (0x1 bytes), align: 0
   Segment part 26.            Intra module refs:   Pwr_SlpReset
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_SleepCnt            00000532        Var_Init (main)
+           guc_SleepCnt            00000515        Var_Init (main)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000533 - 00000536 (0x4 bytes), align: 0
+  Relative segment, address: XDATA 00000516 - 00000519 (0x4 bytes), align: 0
   Segment part 28.            Intra module refs:   Pwr_SlpReset
                                                    Pwr_WakeupProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_DataCP              00000533        Tamp_DspProc (TamperProc)
+           gul_DataCP              00000516        Tamp_DspProc (TamperProc)
                                                    Tamp_Sleep (TamperProc)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000537 - 0000053A (0x4 bytes), align: 0
+  Relative segment, address: XDATA 0000051A - 0000051D (0x4 bytes), align: 0
   Segment part 29.            Intra module refs:   Pwr_SlpReset
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_DatCFcnt            00000537        Eny_SlpEnergyProc (Energy)
+           gul_DatCFcnt            0000051A        Eny_SlpEnergyProc (Energy)
                                                    Tamp_Sleep (TamperProc)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000053B - 0000053B (0x1 bytes), align: 0
+  Relative segment, address: XDATA 0000051E - 0000051E (0x1 bytes), align: 0
   Segment part 30.            Intra module refs:   Pwr_SlpReset
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_DatCFrmd            0000053B        Eny_SlpEnergyProc (Energy)
+           guc_DatCFrmd            0000051E        Eny_SlpEnergyProc (Energy)
                                                    Tamp_Sleep (TamperProc)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000053C - 0000053D (0x2 bytes), align: 0
+  Relative segment, address: XDATA 0000051F - 00000520 (0x2 bytes), align: 0
   Segment part 31.            Intra module refs:   Pwr_SlpReset
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gui_DatCFdec            0000053C 
+           gui_DatCFdec            0000051F 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000053E - 00000541 (0x4 bytes), align: 0
+  Relative segment, address: XDATA 00000521 - 00000524 (0x4 bytes), align: 0
   Segment part 32.            Intra module refs:   Pwr_WakeupProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_Test                0000053E 
+           gul_Test                00000521 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000954A - 000095CA (0x81 bytes), align: 0
+  Relative segment, address: CODE 00009548 - 000095C8 (0x81 bytes), align: 0
   Segment part 51.            Intra module refs:   Pwr_DownProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Pwr_E2Save              0000954A        Eny_SlpEnergyProc (Energy)
+           Pwr_E2Save              00009548        Eny_SlpEnergyProc (Energy)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 000095CB - 00009651 (0x87 bytes), align: 0
+  Relative segment, address: CODE 000095C9 - 0000964F (0x87 bytes), align: 0
   Segment part 52.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Pwr_DownProc            000095CB        SysEventProc (main)
+           Pwr_DownProc            000095C9        SysEventProc (main)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009652 - 00009BF4 (0x5a3 bytes), align: 0
+  Relative segment, address: CODE 00009650 - 00009BF2 (0x5a3 bytes), align: 0
   Segment part 53.            Intra module refs:   Pwr_ChkProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Pwr_WakeupProc          00009652 
+           Pwr_WakeupProc          00009650 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009BF5 - 00009DD6 (0x1e2 bytes), align: 0
+  Relative segment, address: CODE 00009BF3 - 00009DD4 (0x1e2 bytes), align: 0
   Segment part 54.            Intra module refs:   Pwr_ChkProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Pwr_SlpReset            00009BF5 
+           Pwr_SlpReset            00009BF3 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009DD7 - 00009EAE (0xd8 bytes), align: 0
+  Relative segment, address: CODE 00009DD5 - 00009EAC (0xd8 bytes), align: 0
   Segment part 55.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Pwr_ChkProc             00009DD7        main (main)
+           Pwr_ChkProc             00009DD5        main (main)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -5034,30 +5034,30 @@ CODE_C
   SEGMENTS IN THE MODULE
   ======================
 XDATA_Z
-  Relative segment, address: XDATA 00000542 - 00000547 (0x6 bytes), align: 0
+  Relative segment, address: XDATA 00000525 - 0000052A (0x6 bytes), align: 0
   Segment part 6.             Intra module refs:   Encode645Frame
                                                    Judge645Addr
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_MeteAddr            00000542        WriteMeterAddr (DLT_645_2007)
+           guc_MeteAddr            00000525        WriteMeterAddr (DLT_645_2007)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000548 - 00000548 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 0000052B - 0000052B (0x1 bytes), align: 0
   Segment part 7.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_FactoryType         00000548        ADK_CalFun (ADKfunc)
+           guc_FactoryType         0000052B        ADK_CalFun (ADKfunc)
                                                    CalRMS (EnergyBottom)
                                                    ClearMeter (DLT_645_2007)
                                                    FactoryWR (DLT_645_2007)
                                                    Var_Init (main)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000549 - 00000550 (0x8 bytes), align: 0
+  Relative segment, address: XDATA 0000052C - 00000533 (0x8 bytes), align: 0
   Segment part 8.             Intra module refs:   JudgePassword
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gs_PassWordCtr          00000549 
+           gs_PassWordCtr          0000052C 
     -------------------------------------------------------------------------
 CODE_C
   Relative segment, address: CODE 00001903 - 00001926 (0x24 bytes), align: 0
@@ -5067,95 +5067,95 @@ CODE_C
            gs_CmdProc              00001903 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009EAF - 00009FAF (0x101 bytes), align: 0
+  Relative segment, address: CODE 00009EAD - 00009FAD (0x101 bytes), align: 0
   Segment part 14.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           BD_ProcFrame            00009EAF        Uart_Proc (ComApplication)
+           BD_ProcFrame            00009EAD        Uart_Proc (ComApplication)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 00009FB0 - 0000A0CA (0x11b bytes), align: 0
+  Relative segment, address: CODE 00009FAE - 0000A0C8 (0x11b bytes), align: 0
   Segment part 15.            Intra module refs:   BD_ProcFrame
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Judge645Frm             00009FB0 
+           Judge645Frm             00009FAE 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A0CB - 0000A149 (0x7f bytes), align: 0
+  Relative segment, address: CODE 0000A0C9 - 0000A147 (0x7f bytes), align: 0
   Segment part 16.            Intra module refs:   Judge645Frm
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           IsValidFrame            0000A0CB 
+           IsValidFrame            0000A0C9 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A14A - 0000A16C (0x23 bytes), align: 0
+  Relative segment, address: CODE 0000A148 - 0000A16A (0x23 bytes), align: 0
   Segment part 17.            Intra module refs:   Encode645Frame
                                                    IsValidFrame
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           DoSum                   0000A14A 
+           DoSum                   0000A148 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A16D - 0000A3E6 (0x27a bytes), align: 0
+  Relative segment, address: CODE 0000A16B - 0000A3E4 (0x27a bytes), align: 0
   Segment part 18.            Intra module refs:   BD_ProcFrame
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Decode645Frame          0000A16D 
+           Decode645Frame          0000A16B 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A3E7 - 0000A48C (0xa6 bytes), align: 0
+  Relative segment, address: CODE 0000A3E5 - 0000A48A (0xa6 bytes), align: 0
   Segment part 20.            Intra module refs:   Decode645Frame
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           JudgePassword           0000A3E7        ChangePassWord (DLT_645_2007)
+           JudgePassword           0000A3E5        ChangePassWord (DLT_645_2007)
                                                    ClearMeter (DLT_645_2007)
                                                    FactoryWR (DLT_645_2007)
                calls direct
                XSTACK = 0000000F ( 0000000E )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A48D - 0000A641 (0x1b5 bytes), align: 0
+  Relative segment, address: CODE 0000A48B - 0000A63F (0x1b5 bytes), align: 0
   Segment part 21.            Intra module refs:   Decode645Frame
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Judge645Addr            0000A48D 
+           Judge645Addr            0000A48B 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A642 - 0000A8B3 (0x272 bytes), align: 0
+  Relative segment, address: CODE 0000A640 - 0000A8B1 (0x272 bytes), align: 0
   Segment part 22.            Intra module refs:   BD_ProcFrame
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Encode645Frame          0000A642 
+           Encode645Frame          0000A640 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A8B4 - 0000A8D3 (0x20 bytes), align: 0
+  Relative segment, address: CODE 0000A8B2 - 0000A8D1 (0x20 bytes), align: 0
   Segment part 23.            Intra module refs:   Decode645Frame
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UnDo33                  0000A8B4 
+           UnDo33                  0000A8B2 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A8D4 - 0000A8F3 (0x20 bytes), align: 0
+  Relative segment, address: CODE 0000A8D2 - 0000A8F1 (0x20 bytes), align: 0
   Segment part 24.            Intra module refs:   Encode645Frame
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do33                    0000A8D4 
+           Do33                    0000A8D2 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -5242,104 +5242,104 @@ XDATA_AN
            ExInt3IFG               00002848 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A8F4 - 0000A8FB (0x8 bytes), align: 0
+  Relative segment, address: CODE 0000A8F2 - 0000A8F9 (0x8 bytes), align: 0
   Segment part 32.            Intra module refs:   EXINT0::??INTVEC 3
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           EXINT0                  0000A8F4 
+           EXINT0                  0000A8F2 
                interrupt function
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A8FC - 0000A903 (0x8 bytes), align: 0
+  Relative segment, address: CODE 0000A8FA - 0000A901 (0x8 bytes), align: 0
   Segment part 33.            Intra module refs:   Timer0Interrupt::??INTVEC 11
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Timer0Interrupt         0000A8FC 
+           Timer0Interrupt         0000A8FA 
                interrupt function
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A904 - 0000A90B (0x8 bytes), align: 0
+  Relative segment, address: CODE 0000A902 - 0000A909 (0x8 bytes), align: 0
   Segment part 34.            Intra module refs:   EXINT1::??INTVEC 19
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           EXINT1                  0000A904 
+           EXINT1                  0000A902 
                interrupt function
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A90C - 0000A928 (0x1d bytes), align: 0
+  Relative segment, address: CODE 0000A90A - 0000A926 (0x1d bytes), align: 0
   Segment part 35.            Intra module refs:   Timer1Interrupt::??INTVEC 27
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Timer1Interrupt         0000A90C 
+           Timer1Interrupt         0000A90A 
                interrupt function
                ISTACK = 00000000 ( 00000004 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A929 - 0000A97E (0x56 bytes), align: 0
+  Relative segment, address: CODE 0000A927 - 0000A97C (0x56 bytes), align: 0
   Segment part 36.            Intra module refs:   Timer2Interrupt::??INTVEC 43
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Timer2Interrupt         0000A929 
+           Timer2Interrupt         0000A927 
                interrupt function
                calls direct
                ISTACK = 00000000 ( 00000005 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A97F - 0000A992 (0x14 bytes), align: 0
+  Relative segment, address: CODE 0000A97D - 0000A990 (0x14 bytes), align: 0
   Segment part 37.            Intra module refs:   UATR1Interrupt::??INTVEC 59
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UATR1Interrupt          0000A97F 
+           UATR1Interrupt          0000A97D 
                interrupt function
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000A993 - 0000AA46 (0xb4 bytes), align: 0
+  Relative segment, address: CODE 0000A991 - 0000AA44 (0xb4 bytes), align: 0
   Segment part 38.            Intra module refs:   UATRAndCFInterrupt::??INTVEC 67
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UATRAndCFInterrupt      0000A993 
+           UATRAndCFInterrupt      0000A991 
                interrupt function
                calls direct
                ISTACK = 00000000 ( 00000006 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AA47 - 0000AB0D (0xc7 bytes), align: 0
+  Relative segment, address: CODE 0000AA45 - 0000AB0B (0xc7 bytes), align: 0
   Segment part 39.            Intra module refs:   UATRAndRTCInterrupt::??INTVEC 75
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UATRAndRTCInterrupt     0000AA47 
+           UATRAndRTCInterrupt     0000AA45 
                interrupt function
                calls direct
                ISTACK = 00000000 ( 00000006 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AB0E - 0000AB1C (0xf bytes), align: 0
+  Relative segment, address: CODE 0000AB0C - 0000AB1A (0xf bytes), align: 0
   Segment part 40.            Intra module refs:   PLLAndExINT3::??INTVEC 83
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           PLLAndExINT3            0000AB0E 
+           PLLAndExINT3            0000AB0C 
                interrupt function
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AB1D - 0000AB2B (0xf bytes), align: 0
+  Relative segment, address: CODE 0000AB1B - 0000AB29 (0xf bytes), align: 0
   Segment part 41.            Intra module refs:   TimerA::??INTVEC 91
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TimerA                  0000AB1D 
+           TimerA                  0000AB1B 
                interrupt function
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AB2C - 0000AB33 (0x8 bytes), align: 0
+  Relative segment, address: CODE 0000AB2A - 0000AB31 (0x8 bytes), align: 0
   Segment part 42.            Intra module refs:   PowerOffInterrupt::??INTVEC 99
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           PowerOffInterrupt       0000AB2C 
+           PowerOffInterrupt       0000AB2A 
                interrupt function
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
@@ -5436,7 +5436,7 @@ INTVEC
   SEGMENTS IN THE MODULE
   ======================
 XDATA_Z
-  Relative segment, address: XDATA 00000551 - 00000551 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000534 - 00000534 (0x1 bytes), align: 0
   Segment part 11.            Intra module refs:   SwitchMode
                                                    Tamp_BlanceProc
                                                    Tamp_ChkBlance
@@ -5446,19 +5446,19 @@ XDATA_Z
                                                    Tamp_Sleep
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_WorkMd              00000551        Data_SecProc (Dataproc)
+           guc_WorkMd              00000534        Data_SecProc (Dataproc)
                                                    EnyB_Open_Cf (EnergyBottom)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000552 - 00000555 (0x4 bytes), align: 0
+  Relative segment, address: XDATA 00000535 - 00000538 (0x4 bytes), align: 0
   Segment part 12.            Intra module refs:   Tamp_ChkUrms
                                                    Tamp_IntProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_Urms800k            00000552        CalRMS (EnergyBottom)
+           gul_Urms800k            00000535        CalRMS (EnergyBottom)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000556 - 00000559 (0x4 bytes), align: 0
+  Relative segment, address: XDATA 00000539 - 0000053C (0x4 bytes), align: 0
   Segment part 13.            Intra module refs:   Tamp_ChkBlance
                                                    Tamp_DspProc
                                                    Tamp_Init
@@ -5466,12 +5466,12 @@ XDATA_Z
                                                    Tamp_Sleep
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_I1rms800k           00000556        CalRMS (EnergyBottom)
+           gul_I1rms800k           00000539        CalRMS (EnergyBottom)
                                                    Pwr_SlpReset (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000055A - 0000055D (0x4 bytes), align: 0
+  Relative segment, address: XDATA 0000053D - 00000540 (0x4 bytes), align: 0
   Segment part 14.            Intra module refs:   Tamp_ChkBlance
                                                    Tamp_DspProc
                                                    Tamp_Init
@@ -5479,11 +5479,11 @@ XDATA_Z
                                                    Tamp_Sleep
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_I2rms800k           0000055A        Pwr_SlpReset (Powmanger)
+           gul_I2rms800k           0000053D        Pwr_SlpReset (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000055E - 0000055E (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000541 - 00000541 (0x1 bytes), align: 0
   Segment part 15.            Intra module refs:   Tamp_ChkIrms
                                                    Tamp_ChkPLL
                                                    Tamp_ChkUrms
@@ -5492,152 +5492,152 @@ XDATA_Z
                                                    Tamp_IntProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_PendSta             0000055E 
+           guc_PendSta             00000541 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000055F - 0000055F (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000542 - 00000542 (0x1 bytes), align: 0
   Segment part 16.            Intra module refs:   Tamp_ChkPLL
                                                    Tamp_Init
                                                    Tamp_IntProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_PendCnt             0000055F 
+           guc_PendCnt             00000542 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000560 - 00000563 (0x4 bytes), align: 0
+  Relative segment, address: XDATA 00000543 - 00000546 (0x4 bytes), align: 0
   Segment part 17.            Intra module refs:   Tamp_DspProc
                                                    Tamp_IntProc
                                                    Tamp_Sleep
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_I1DCval             00000560        Pwr_SlpReset (Powmanger)
+           gul_I1DCval             00000543        Pwr_SlpReset (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000564 - 00000567 (0x4 bytes), align: 0
+  Relative segment, address: XDATA 00000547 - 0000054A (0x4 bytes), align: 0
   Segment part 18.            Intra module refs:   Tamp_DspProc
                                                    Tamp_IntProc
                                                    Tamp_Sleep
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gul_I2DCval             00000564        Pwr_SlpReset (Powmanger)
+           gul_I2DCval             00000547        Pwr_SlpReset (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AB34 - 0000AB60 (0x2d bytes), align: 0
+  Relative segment, address: CODE 0000AB32 - 0000AB5E (0x2d bytes), align: 0
   Segment part 34.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_Init               0000AB34        App_Init (main)
+           Tamp_Init               0000AB32        App_Init (main)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AB61 - 0000ABA0 (0x40 bytes), align: 0
+  Relative segment, address: CODE 0000AB5F - 0000AB9E (0x40 bytes), align: 0
   Segment part 35.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_ChkPLL             0000AB61        Data_SecProc (Dataproc)
+           Tamp_ChkPLL             0000AB5F        Data_SecProc (Dataproc)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000ABA1 - 0000ABD0 (0x30 bytes), align: 0
+  Relative segment, address: CODE 0000AB9F - 0000ABCE (0x30 bytes), align: 0
   Segment part 36.            Intra module refs:   Tamp_ChkIrms
                                                    Tamp_ChkUrms
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MeterADSel              0000ABA1 
+           MeterADSel              0000AB9F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000ABD1 - 0000AC06 (0x36 bytes), align: 0
+  Relative segment, address: CODE 0000ABCF - 0000AC04 (0x36 bytes), align: 0
   Segment part 37.            Intra module refs:   Tamp_IntProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MeterADClose            0000ABD1 
+           MeterADClose            0000ABCF 
                calls direct
                XSTACK = 00000000 ( 0000000D )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AC07 - 0000AC41 (0x3b bytes), align: 0
+  Relative segment, address: CODE 0000AC05 - 0000AC3F (0x3b bytes), align: 0
   Segment part 38.            Intra module refs:   Tamp_ChkPLL
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_ChkUrms            0000AC07 
+           Tamp_ChkUrms            0000AC05 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AC42 - 0000AC7F (0x3e bytes), align: 0
+  Relative segment, address: CODE 0000AC40 - 0000AC7D (0x3e bytes), align: 0
   Segment part 39.            Intra module refs:   Tamp_DspProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_ChkIrms            0000AC42 
+           Tamp_ChkIrms            0000AC40 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AC80 - 0000AD11 (0x92 bytes), align: 0
+  Relative segment, address: CODE 0000AC7E - 0000AD0F (0x92 bytes), align: 0
   Segment part 40.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_IntProc            0000AC80        Timer2Interrupt (System)
+           Tamp_IntProc            0000AC7E        Timer2Interrupt (System)
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AD12 - 0000AD64 (0x53 bytes), align: 0
+  Relative segment, address: CODE 0000AD10 - 0000AD62 (0x53 bytes), align: 0
   Segment part 41.            Intra module refs:   Tamp_ChkPLL
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SwitchMode              0000AD12 
+           SwitchMode              0000AD10 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AD65 - 0000AE71 (0x10d bytes), align: 0
+  Relative segment, address: CODE 0000AD63 - 0000AE6F (0x10d bytes), align: 0
   Segment part 42.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_DspProc            0000AD65        Data_SecProc (Dataproc)
+           Tamp_DspProc            0000AD63        Data_SecProc (Dataproc)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AE72 - 0000AF3E (0xcd bytes), align: 0
+  Relative segment, address: CODE 0000AE70 - 0000AF3C (0xcd bytes), align: 0
   Segment part 43.            Intra module refs:   Tamp_ChkBlance
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           CalImbRate              0000AE72 
+           CalImbRate              0000AE70 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000AF3F - 0000B144 (0x206 bytes), align: 0
+  Relative segment, address: CODE 0000AF3D - 0000B142 (0x206 bytes), align: 0
   Segment part 44.            Intra module refs:   Tamp_BlanceProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_ChkBlance          0000AF3F 
+           Tamp_ChkBlance          0000AF3D 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B145 - 0000B18B (0x47 bytes), align: 0
+  Relative segment, address: CODE 0000B143 - 0000B189 (0x47 bytes), align: 0
   Segment part 45.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_BlanceProc         0000B145        Data_SecProc (Dataproc)
+           Tamp_BlanceProc         0000B143        Data_SecProc (Dataproc)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B18C - 0000B3A6 (0x21b bytes), align: 0
+  Relative segment, address: CODE 0000B18A - 0000B3A4 (0x21b bytes), align: 0
   Segment part 46.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_Sleep              0000B18C        Pwr_DownProc (Powmanger)
+           Tamp_Sleep              0000B18A        Pwr_DownProc (Powmanger)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -5691,32 +5691,32 @@ CODE_C
   SEGMENTS IN THE MODULE
   ======================
 XDATA_Z
-  Relative segment, address: XDATA 00000568 - 00000570 (0x9 bytes), align: 0
+  Relative segment, address: XDATA 0000054B - 00000553 (0x9 bytes), align: 0
   Segment part 6.             Intra module refs:   ClockBAK_RAM
                                                    GetSysClock
                                                    SoftClockCheck
                                                    TimerProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gs_DateTime             00000568        MChannelCal (McuDrive)
+           gs_DateTime             0000054B        MChannelCal (McuDrive)
                                                    Mcu_RTCNormal (McuDrive)
                                                    SetExtRTC (McuDrive)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000571 - 00000579 (0x9 bytes), align: 0
+  Relative segment, address: XDATA 00000554 - 0000055C (0x9 bytes), align: 0
   Segment part 7.             Intra module refs:   ClockBAK_RAM
                                                    SoftClockCheck
                                                    TimerProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gs_LastDateTime         00000571 
+           gs_LastDateTime         00000554 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000057A - 00000582 (0x9 bytes), align: 0
+  Relative segment, address: XDATA 0000055D - 00000565 (0x9 bytes), align: 0
   Segment part 8.             Intra module refs:   TimerProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gs_ClkTmp               0000057A        GetExtRTC (McuDrive)
+           gs_ClkTmp               0000055D        GetExtRTC (McuDrive)
     -------------------------------------------------------------------------
 CODE_C
   Relative segment, address: CODE 00001947 - 00001954 (0xe bytes), align: 0
@@ -5740,75 +5740,75 @@ CODE_C
            InitTM                  00001968        Mcu_RTCNormal (McuDrive)
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B3A7 - 0000B438 (0x92 bytes), align: 0
+  Relative segment, address: CODE 0000B3A5 - 0000B436 (0x92 bytes), align: 0
   Segment part 19.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TimerProc               0000B3A7        Data_SecProc (Dataproc)
+           TimerProc               0000B3A5        Data_SecProc (Dataproc)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B439 - 0000B470 (0x38 bytes), align: 0
+  Relative segment, address: CODE 0000B437 - 0000B46E (0x38 bytes), align: 0
   Segment part 24.            Intra module refs:   SoftClockCheck
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ClockCheck              0000B439 
+           ClockCheck              0000B437 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B471 - 0000B4BC (0x4c bytes), align: 0
+  Relative segment, address: CODE 0000B46F - 0000B4BA (0x4c bytes), align: 0
   Segment part 25.            Intra module refs:   TimerProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SoftClockCheck          0000B471 
+           SoftClockCheck          0000B46F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B4BD - 0000B590 (0xd4 bytes), align: 0
+  Relative segment, address: CODE 0000B4BB - 0000B58E (0xd4 bytes), align: 0
   Segment part 28.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetSysClock             0000B4BD        ShowNumManage (Lcdshow)
+           GetSysClock             0000B4BB        ShowNumManage (Lcdshow)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B591 - 0000B5B6 (0x26 bytes), align: 0
+  Relative segment, address: CODE 0000B58F - 0000B5B4 (0x26 bytes), align: 0
   Segment part 31.            Intra module refs:   ClockCheck
                                                    TimerProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RTCCheck                0000B591 
+           RTCCheck                0000B58F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B5B7 - 0000B5DD (0x27 bytes), align: 0
+  Relative segment, address: CODE 0000B5B5 - 0000B5DB (0x27 bytes), align: 0
   Segment part 32.            Intra module refs:   TimerProc
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ClockBAK_RAM            0000B5B7 
+           ClockBAK_RAM            0000B5B5 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B5DE - 0000B6D0 (0xf3 bytes), align: 0
+  Relative segment, address: CODE 0000B5DC - 0000B6CE (0xf3 bytes), align: 0
   Segment part 36.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ValidTime               0000B5DE        ComCheckFormat (DataProtect)
+           ValidTime               0000B5DC        ComCheckFormat (DataProtect)
                calls direct
                XSTACK = 00000000 ( 0000000D )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B6D1 - 0000B6D1 (0x1 bytes), align: 0
+  Relative segment, address: CODE 0000B6CF - 0000B6CF (0x1 bytes), align: 0
   Segment part 37.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SleepTimeProc           0000B6D1        Data_ClearMeter (Dataproc)
+           SleepTimeProc           0000B6CF        Data_ClearMeter (Dataproc)
                is not allocated
                not allocated function
 
@@ -5884,28 +5884,28 @@ XDATA_AN
            Txd2FS                  000028CF 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000583 - 00000583 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000566 - 00000566 (0x1 bytes), align: 0
   Segment part 21.            Intra module refs:   Uart2_Receive
                                                    Uart2_Transmit
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_DyUart2Over         00000583 
+           guc_DyUart2Over         00000566 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B6D2 - 0000B799 (0xc8 bytes), align: 0
+  Relative segment, address: CODE 0000B6D0 - 0000B797 (0xc8 bytes), align: 0
   Segment part 24.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart2_Receive           0000B6D2        UATRAndCFInterrupt (System)
+           Uart2_Receive           0000B6D0        UATRAndCFInterrupt (System)
                XSTACK = 00000000 ( 00000009 )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B79A - 0000B80F (0x76 bytes), align: 0
+  Relative segment, address: CODE 0000B798 - 0000B80D (0x76 bytes), align: 0
   Segment part 25.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart2_Transmit          0000B79A        UATRAndCFInterrupt (System)
+           Uart2_Transmit          0000B798        UATRAndCFInterrupt (System)
                calls direct
                XSTACK = 00000000 ( 00000009 )
 
@@ -5946,46 +5946,46 @@ XDATA_AN
            SBUF4                   00002837 
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000584 - 00000584 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000567 - 00000567 (0x1 bytes), align: 0
   Segment part 20.            Intra module refs:   Uart4_Dy10ms
                                                    Uart4_Receive
                                                    Uart4_Transmit
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_DyUart4Over         00000584 
+           guc_DyUart4Over         00000567 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B810 - 0000B87F (0x70 bytes), align: 0
+  Relative segment, address: CODE 0000B80E - 0000B87D (0x70 bytes), align: 0
   Segment part 21.            Intra module refs:   Uart4_Dy10ms
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Uart4              0000B810        Init_Uart (McuDrive)
+           Init_Uart4              0000B80E        Init_Uart (McuDrive)
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B880 - 0000B8B1 (0x32 bytes), align: 0
+  Relative segment, address: CODE 0000B87E - 0000B8AF (0x32 bytes), align: 0
   Segment part 22.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart4_Dy10ms            0000B880        Timer2Interrupt (System)
+           Uart4_Dy10ms            0000B87E        Timer2Interrupt (System)
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B8B2 - 0000B978 (0xc7 bytes), align: 0
+  Relative segment, address: CODE 0000B8B0 - 0000B976 (0xc7 bytes), align: 0
   Segment part 23.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart4_Receive           0000B8B2        UATRAndCFInterrupt (System)
+           Uart4_Receive           0000B8B0        UATRAndCFInterrupt (System)
                XSTACK = 00000000 ( 00000009 )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B979 - 0000B9D3 (0x5b bytes), align: 0
+  Relative segment, address: CODE 0000B977 - 0000B9D1 (0x5b bytes), align: 0
   Segment part 24.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart4_Transmit          0000B979        ComBom_StartSend (ComBottom)
+           Uart4_Transmit          0000B977        ComBom_StartSend (ComBottom)
                                                    UATRAndCFInterrupt (System)
                calls direct
                XSTACK = 00000000 ( 00000009 )
@@ -6114,13 +6114,13 @@ CODE_C
            BIT32MAP                00001977        SysE2ReadData (DataProtect)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000585 - 00000586 (0x2 bytes), align: 0
+  Relative segment, address: XDATA 00000568 - 00000569 (0x2 bytes), align: 0
   Segment part 18.            Intra module refs:   SysEventProc
                                                    Var_Init
                                                    main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gui_SystemEvent         00000585        ClearMeter (DLT_645_2007)
+           gui_SystemEvent         00000568        ClearMeter (DLT_645_2007)
                                                    ComBom_10msDy (ComBottom)
                                                    EnyB_IntCF (EnergyBottom)
                                                    FactoryWR (DLT_645_2007)
@@ -6129,31 +6129,31 @@ XDATA_Z
                                                    Uart4_Receive (Uart4)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000587 - 00000587 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 0000056A - 0000056A (0x1 bytes), align: 0
   Segment part 19.            Intra module refs:   TimeEventProc
                                                    Var_Init
                                                    main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_TimeEvent           00000587        TimerProc (Timeproc)
+           guc_TimeEvent           0000056A        TimerProc (Timeproc)
                                                    UATRAndRTCInterrupt (System)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000588 - 00000588 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 0000056B - 0000056B (0x1 bytes), align: 0
   Segment part 20.            Intra module refs:   Var_Init
                                                    main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_KeyEvent            00000588        KeyProc (Key)
+           guc_KeyEvent            0000056B        KeyProc (Key)
                                                    KeyScan (Key)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000589 - 0000058A (0x2 bytes), align: 0
+  Relative segment, address: XDATA 0000056C - 0000056D (0x2 bytes), align: 0
   Segment part 21.            Intra module refs:   Var_Init
                                                    main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gui_RefreshEvent        00000589        ADK_CalFun (ADKfunc)
+           gui_RefreshEvent        0000056C        ADK_CalFun (ADKfunc)
                                                    ComRWE2Para (DLT_645_2007)
                                                    FactoryWR (DLT_645_2007)
                                                    InitE2Data (InitPara)
@@ -6162,18 +6162,18 @@ XDATA_Z
                                                    Uart4_Dy10ms (Uart4)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000058B - 0000058B (0x1 bytes), align: 0
+  Relative segment, address: XDATA 0000056E - 0000056E (0x1 bytes), align: 0
   Segment part 22.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           guc_DjCheckFlg          0000058B        FactoryWR (DLT_645_2007)
+           guc_DjCheckFlg          0000056E        FactoryWR (DLT_645_2007)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000058C - 0000058D (0x2 bytes), align: 0
+  Relative segment, address: XDATA 0000056F - 00000570 (0x2 bytes), align: 0
   Segment part 24.            Intra module refs:   Var_Init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gui_SystemState         0000058C        ChangePassWord (DLT_645_2007)
+           gui_SystemState         0000056F        ChangePassWord (DLT_645_2007)
                                                    Data_DayProc (Dataproc)
                                                    Pwr_DownProc (Powmanger)
                                                    Pwr_SlpReset (Powmanger)
@@ -6182,13 +6182,13 @@ XDATA_Z
                                                    ShowStateManage (Lcdshow)
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 0000058E - 0000058F (0x2 bytes), align: 0
+  Relative segment, address: XDATA 00000571 - 00000572 (0x2 bytes), align: 0
   Segment part 25.            Intra module refs:   SysEventProc
                                                    Var_Init
                                                    main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           gui_SysSleepSta         0000058E 
+           gui_SysSleepSta         00000571 
     -------------------------------------------------------------------------
 CODE_AC
   Relative segment, address: CODE 00000400 - 000005FF (0x200 bytes), align: 0
@@ -6198,65 +6198,65 @@ CODE_AC
            codepsword              00000400 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000B9D4 - 0000BA23 (0x50 bytes), align: 0
+  Relative segment, address: CODE 0000B9D2 - 0000BA21 (0x50 bytes), align: 0
   Segment part 26.            Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Var_Init                0000B9D4 
+           Var_Init                0000B9D2 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BA24 - 0000BA95 (0x72 bytes), align: 0
+  Relative segment, address: CODE 0000BA22 - 0000BA93 (0x72 bytes), align: 0
   Segment part 27.            Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SysEventProc            0000BA24 
+           SysEventProc            0000BA22 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BA96 - 0000BB01 (0x6c bytes), align: 0
+  Relative segment, address: CODE 0000BA94 - 0000BAFF (0x6c bytes), align: 0
   Segment part 28.            Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TimeEventProc           0000BA96 
+           TimeEventProc           0000BA94 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BB02 - 0000BB50 (0x4f bytes), align: 0
+  Relative segment, address: CODE 0000BB00 - 0000BB4E (0x4f bytes), align: 0
   Segment part 29.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_CfG                0000BB02        Pwr_SlpReset (Powmanger)
+           Init_CfG                0000BB00        Pwr_SlpReset (Powmanger)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BB51 - 0000BB70 (0x20 bytes), align: 0
+  Relative segment, address: CODE 0000BB4F - 0000BB6E (0x20 bytes), align: 0
   Segment part 30.            Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           App_Init                0000BB51 
+           App_Init                0000BB4F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BB71 - 0000BBB5 (0x45 bytes), align: 0
+  Relative segment, address: CODE 0000BB6F - 0000BBB3 (0x45 bytes), align: 0
   Segment part 31.            Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Mea_Consumption_Dly     0000BB71 
+           Mea_Consumption_Dly     0000BB6F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BBB6 - 0000BC85 (0xd0 bytes), align: 0
+  Relative segment, address: CODE 0000BBB4 - 0000BC83 (0xd0 bytes), align: 0
   Segment part 32.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    0000BBB6        __call_main (CSTARTUP)
+           main                    0000BBB4        __call_main (CSTARTUP)
                calls direct, is not allocated
                not allocated function
 
@@ -6268,33 +6268,33 @@ NEAR_CODE
   SEGMENTS IN THE MODULE
   ======================
 XDATA_Z
-  Relative segment, address: XDATA 00000590 - 00000590 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000573 - 00000574 (0x2 bytes), align: 0
   Segment part 7.             Intra module refs:   debug_init
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           stgloballist            00000590 
+           stgloballist            00000573 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BC86 - 0000BCA4 (0x1f bytes), align: 0
+  Relative segment, address: CODE 0000BC84 - 0000BCA2 (0x1f bytes), align: 0
   Segment part 9.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           debug_ledshow           0000BC86        UATRAndRTCInterrupt (System)
+           debug_ledshow           0000BC84        UATRAndRTCInterrupt (System)
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 XDATA_Z
-  Relative segment, address: XDATA 00000591 - 00000591 (0x1 bytes), align: 0
+  Relative segment, address: XDATA 00000575 - 00000575 (0x1 bytes), align: 0
   Segment part 8.             Intra module refs:   debug_ledshow
            LOCAL                   ADDRESS         
            =====                   =======         
-           debug_ledshow::xxxx     00000591 
+           debug_ledshow::xxxx     00000575 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BCA5 - 0000BCB4 (0x10 bytes), align: 0
+  Relative segment, address: CODE 0000BCA3 - 0000BCB2 (0x10 bytes), align: 0
   Segment part 10.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           debug_init              0000BCA5        main (main)
+           debug_init              0000BCA3        main (main)
                is not allocated
                not allocated function
 
@@ -8724,7 +8724,7 @@ CODE_AC              CODE          000011C0 - 000011CC           D   rel    0
                      CODE          000011CE - 000011CE           1 
 CODE_C               CODE          000011CF - 000019F6         828   rel    0
 CODE_N               CODE               000019F7                     dse    0
-NEAR_CODE            CODE          000019F7 - 0000BCB4        A2BE   rel    0
+NEAR_CODE            CODE          000019F7 - 0000BCB2        A2BC   rel    0
 REGISTERS            DATA          00000000 - 00000007           8   rel    0
 __REG_BANK2          DATA          00000010 - 00000017           8   rel    0
 BREG                 BIT        00000020.0  -  00000020.7        8   rel    0
@@ -8746,7 +8746,7 @@ SFR_AN               DATA          00000080 - 00000080           1   rel    0
                      DATA          000000DF - 000000E0           2 
                      DATA          000000E8 - 000000E8           1 
 XSTACK               XDATA         00000001 - 00000200         200   rel    0
-XDATA_Z              XDATA         00000201 - 00000591         391   rel    0
+XDATA_Z              XDATA         00000201 - 00000575         375   rel    0
 XDATA_AN             XDATA         00002820 - 00002821           2   rel    0
                      XDATA         00002823 - 00002823           1 
                      XDATA         00002825 - 00002828           4 
@@ -8784,9 +8784,9 @@ ISTACK               IDATA         000000A0 - 000000FF          60   rel    0
                 *                                      *
                 ****************************************
 
- 45 927 bytes of CODE  memory (+ 1 292 absolute )
+ 45 925 bytes of CODE  memory (+ 1 292 absolute )
      26 bytes of DATA  memory (+    52 absolute )
-  1 425 bytes of XDATA memory (+    77 absolute )
+  1 397 bytes of XDATA memory (+    77 absolute )
     112 bytes of IDATA memory
       8 bits  of BIT   memory
 

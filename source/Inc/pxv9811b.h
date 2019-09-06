@@ -9,7 +9,7 @@ enum ENUMDEBUGLIST
 	_debugerrorbreak_,
 	_debugend_ ,
 };
-/*
+ 
 struct STSYSSTATE
 {
   char  bPWRUP:1;
@@ -20,30 +20,34 @@ struct STSYSSTATE
   char  bPOR:1;
   char  btemp21:2;
 };
-*/
+ 
 
 
-typedef struct  
+ 
+
+struct  STERRRLIST
 {
-  char  bPWRUP:1;
-  char  bPWRDN:1;
-  char  bRTC_CF:1;
-  char  bIO:1;
-  char  bbtemp11:1;
-  char  bPOR:1;
-  char  btemp21:2;
-}STSYSSTATE;
+  char                bExtJlParaErr:1;          //       计量参数外部初始化错误
+  char                btemp2:1;          //       计量参数外部初始化错误
+  char                btemp3:1;          //       计量参数外部初始化错误
+  char                btemp4:1;          //       计量参数外部初始化错误
+  char                btemp5:1;          //       计量参数外部初始化错误
+  char                btemp6:1;          //       计量参数外部初始化错误
+  char                btemp7:1;          //       计量参数外部初始化错误
+  char                btemp8:1;          //       计量参数外部初始化错误
+  
+};
+
 
 
 struct          STGLOBALlIST
 {
+  struct  STERRRLIST   sterrlist;
   char               bDebugMode:1;
-  char               bPwrup:1;
-  
+  char               bPwrup:1;  
 };
 
-//__no_init volatile  struct STSYSSTATE  stsysstate @ 0xa1;
-__no_init volatile    STSYSSTATE  stsysstate @ 0xa1;
+ 
 void            debug_init(void);
 void  debug_ledshow(void);
 char 		debugprintf( enum ENUMDEBUGLIST cErrno);

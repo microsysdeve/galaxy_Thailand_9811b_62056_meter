@@ -212,18 +212,20 @@ void RefreshLCDRAM(uint8 *p)
     uint8x  *pLCDM;
 
     pLCDM=(uint8x*)&LCDM0;
-    *pLCDM = p[0]&0xf8;       //2c00-0  
+
+    *(pLCDM+0x06) = p[ _LCDM6_];//2c04-1
+    *(pLCDM+0x07) = p[_LCDM7_ ];//2c08-2
+    *(pLCDM+0x08) = p[_LCDM8_ ];//2c09-3
+    *(pLCDM+0x09)= p[_LCDM9_ ];//2c12-4
+    *(pLCDM+0x0a)= p[ _LCDM10_];//2c13-5
+    *(pLCDM+0x0B)= p[_LCDM11_ ];//2c14-6
     
-    *(pLCDM+0x06) = p[1];//2c04-1
-    *(pLCDM+0x07) = p[2];//2c08-2
-    *(pLCDM+0x08) = p[3];//2c09-3
-    *(pLCDM+0x09)= p[4];//2c12-4
-    *(pLCDM+0x0a)= p[5];//2c13-5
-    *(pLCDM+0x0B)= p[6];//2c14-6
-    
-    *(pLCDM+0x0d)= p[7];//2c17-7
-    *(pLCDM+0x0e)= p[8];//2c17-7
-    *(pLCDM+0x0f)= p[9];//2c17-7
-    *(pLCDM+0x011)= p[10];//2c17-7
+    *(pLCDM+0x0d)= p[ _LCDM13_ ];//2c17-7
+    *(pLCDM+0x0e)= p[_LCDM14_];//2c17-7
+    *(pLCDM+0x0f)= p[_LCDM15_];//2c17-7
+    *(pLCDM+0x010)= p[_LCDM16_];//2c17-7
+    *(pLCDM+0x011)= p[_LCDM17_];//2c17-7
     
 }
+
+ 
