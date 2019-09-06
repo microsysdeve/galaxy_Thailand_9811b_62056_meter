@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-779237694
+Checksum=1450765076
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -17,14 +17,18 @@ MixedMode=1
 [SfrWindow]
 Show=1 1
 Sort=4 0
+[RegisterFilter]
+FilePath=_ ""
+UseFilter=_ 0
 [watch_formats]
 Fmt0={W}0:SysCtrl	4	0
 [Breakpoints]
-Bp0=_ "STD_DATA" "LCDSETTING4COM" 0 0 0 3 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\main.c}.316.5" 1 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\Key.c}.45.5" 1 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "Code:0xAC24" 1 0 0 0 "" 0 ""
-Count=4
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\Key.c}.45.5" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\ADKfunc.c}.426.5" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\Powmanger.c}.251.5" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\TamperProc.c}.156.5" 0 0 0 0 "" 0 ""
+Bp4=_ "STD_CODE" "{$PROJ_DIR$\Src\TamperProc.c}.282.5" 1 0 0 0 "" 0 ""
+Count=5
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

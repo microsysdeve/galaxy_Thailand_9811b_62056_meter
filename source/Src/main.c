@@ -288,8 +288,11 @@ bool Mea_Consumption_Dly(void)
 * @修改人:  Lwb (2011-7-20)
 * @修改内容:
 ===========================================================================================*/
+
 __near_func void main(void)
 {
+  
+  debug_init();
 MAINSTART:
     if(!(Systate&BIT0))      // 判断是否VDCIN低
     {  

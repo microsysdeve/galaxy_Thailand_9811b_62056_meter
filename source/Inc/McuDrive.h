@@ -32,8 +32,8 @@
 #define OSCSTATE()      (VERSION&BIT7)    //¾§Õñ 1ÆðÕñ/0Î´ÆðÕñ
 #define PORRESET()     ((Systate&BIT5))    //POR RST
 
-#define CLRWDT()    {WDTEN=0xA5;WDTCLR=0x5A;WDTEN=0xA5;WDTCLR=0x5A;}
 #define SLPWDT()    {WDTEN=0xA5;WDTCLR=0x5A;}
+#define CLRWDT()    {SLPWDT();SLPWDT()}
 
 #define RTC_SEC         0x00
 #define RTC_MIN         0x01

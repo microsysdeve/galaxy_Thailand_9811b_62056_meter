@@ -119,12 +119,9 @@ __interrupt void Timer1Interrupt(void)
 #pragma vector=0x2b               //ÖÐ¶ÏºÅ5,  Timer2
 __interrupt void Timer2Interrupt(void)
 {
-  static char           xxxx ;
+  
     TF2 = 0;
-    if ( xxxx++ & 1)
-            P9OD |=BIT5;
-    else
-            P9OD &=~BIT5;
+
     
     if(guc_PllSta == PLL_800K)
     {
@@ -277,6 +274,7 @@ __interrupt void UATRAndRTCInterrupt(void)
     uint8 ucTemp;
     ucTemp  = ExInt3IFG;
     ucTemp &= ExInt3IE;
+    debug_ledshow();
     if(ucTemp&BIT6)      //RTC
     {
         guc_TimeEvent|= flgEtTim_Second;

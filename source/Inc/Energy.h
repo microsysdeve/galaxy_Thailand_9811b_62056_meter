@@ -65,7 +65,7 @@ typedef struct
 //    uint16 uiEN3;                                //反向费率3有功增量
 //    uint16 uiEN4;                                //反向费率4有功增量
 
-    uint16 uiCRC;                                //电量增量CRC校验
+    uint16 uiCRC;                                //电量增量CRC校验 
 } ENERGYDATA;
 
 

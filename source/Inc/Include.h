@@ -47,7 +47,7 @@
 #include "Demand.h"
 #include "Version.h"
 #include "ADKFunc.h"
-
+#include "pxv9811b.h"
 
 VAREXT uint16 gui_SystemEvent;
 #define flgEtGlb_PowDown        0x01
