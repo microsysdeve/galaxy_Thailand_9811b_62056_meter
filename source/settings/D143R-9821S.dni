@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-1311482933
+Checksum=463816333
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -48,13 +48,11 @@ ActionState=1
 Enabled=0
 ShowSource=1
 [watch_formats]
-Fmt0={W}0:SysCtrl	4	0
+Fmt0={W}0:RamData.WDGTm	3	0
+Fmt1={W}0:SysCtrl	4	0
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\Energy.c}.115.9" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\Energy.c}.104.9" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\Energy.c}.50.17" 1 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\LcdBottom.c}.227.5" 1 0 0 0 "" 0 ""
-Count=4
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.25.2" 1 0 0 0 "" 0 ""
+Count=1
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

@@ -277,7 +277,7 @@
         </option>
         <option>
           <name>CCDefines</name>
-          <state></state>
+          <state>_METER_FAR_</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -452,6 +452,7 @@
         <option>
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\Inc</state>
+          <state>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\inc</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -2124,6 +2125,12 @@
     <name>$PROJ_DIR$\Src\BEBottom.C</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\bit_edge.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\bit_edge.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\ComApplication.C</name>
   </file>
   <file>
@@ -2145,7 +2152,25 @@
     <name>$PROJ_DIR$\Src\Demand.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\dfinit.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Disp.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\disp_format_lcd10329.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\disp_format_lcd10329.h</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\DLT_645_2007.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Drv_RTCSPK.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\eeprom.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\Energy.c</name>
@@ -2155,6 +2180,15 @@
   </file>
   <file>
     <name>$PROJ_DIR$\Src\FunCfg.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\GC_Use.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\globlvar.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\indata_oper.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\InitPara.c</name>
@@ -2175,7 +2209,13 @@
     <name>$PROJ_DIR$\Src\main.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\McuDrive.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Meter.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\Powmanger.c</name>
@@ -2184,7 +2224,16 @@
     <name>$PROJ_DIR$\Src\Prcfrm.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\PubData.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\public.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\pxv9811b.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\safedate.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\System.c</name>
