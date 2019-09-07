@@ -50,11 +50,7 @@
 #define BE_WP_1()           {BE_I2C_SDA_1();BE_I2C_CLK_1();}
 #define BE_WP_0()           {}
 
-uint8 BE_WriteP(uint32 address,uint8 *buff,uint8 Len);
-
-
-
-       
+uint8 BE_WriteP(uint32 address,uint8 *buff,uint8 Len);       
 uint8 BE_ReadP(uint32 address,uint8 *buff,uint8 Len);
 uint8 BE_ReadB(uint32 address,uint8 *buff);
 uint8 BE_ReadW(uint32 address,uint16 *buff);
@@ -62,6 +58,10 @@ uint8 BE_ReadW(uint32 address,uint16 *buff);
 
 #define Feed_WDT()     ;//CLRWDT() 
 
+//u8 Write_EEData (u8 * Buf, u16 Addr, u16 iLth)
+ //u8 Read_EEData (u8 * Buf, u16 Addr, u16 iLth)
+#define   Write_EEData1(datap,addr,len)      BE_WriteP(addr,datap,len)   	 
+#define   Read_EEData1(datap,addr,len)       BE_ReadP(addr,datap,len)
 
 #endif
 

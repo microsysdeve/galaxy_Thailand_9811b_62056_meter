@@ -61,5 +61,10 @@ uint8 CalCBRCount(uint8 xdata* str1,uint8 xdata* str2,uint8 xdata ucDay,uint8 xd
 uint8 CalRDJCount(uint8 xdata* str1,uint8 xdata* str2,uint8 xdata ucHour,uint8 xdata ucMin);
 uint16 HourAndMinToMin(uint8*Data);
 
+
+#define 		INTERRUPT_DISABLE()			{    EA = 0;}
+#define 		INTERRUPT_ENABLE()			{    EA = 1;}
+#define 		NOP_ASM()					{nop();}
+
 #endif
 

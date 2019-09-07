@@ -46,8 +46,8 @@ typedef union
 }GT_SYSWARUN;
 
 AP_DATAPROC_EXT GT_SYSWARUN  gut_SysWarn;
-AP_DATAPROC_EXT uint8x XDATA_RAMZONE[128];
-AP_DATAPROC_EXT uint8x XDATA_RAMZONE1[256];
+AP_DATAPROC_EXT uint8x XDATA_RAMZONE[16];  //pxdebug  //AP_DATAPROC_EXT uint8x XDATA_RAMZONE[128];
+AP_DATAPROC_EXT uint8x XDATA_RAMZONE1[11];   //pxdebug //AP_DATAPROC_EXT uint8x XDATA_RAMZONE1[256];
 
 /*******************************************************************************
 **电表运行特征字1

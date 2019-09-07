@@ -42,7 +42,7 @@ typedef struct s_com
     uint8   ucFrmHeadCnt;                                           // 帧头处理
     uint8   ucLen;                                                  // 收发的数据总长度
     uint8   ucPos;                                                  // 当前处理数据的位置,相当于指向ucBuf的一个指针
-    uint8   ucBuf[360];                                             // 通讯收发数据缓冲区
+      uint8   ucBuf[64];    //pxdebug                                         // 通讯收发数据缓冲区   //uint8   ucBuf[360];                                             // 通讯收发数据缓冲区
 }S_COM;
 
 COMBOTTOMEXT S_COM gs_ComGroup[Const_MaxComNum];                    // 通讯用的缓存
@@ -56,7 +56,7 @@ typedef struct
     uint8 ucSendPos;
     uint8 ucRevLen;
     uint8 ucRevPos;
-    volatile uint8 ucBuf[128];
+      volatile uint8 ucBuf[16];  //pxdebug  //volatile uint8 ucBuf[128];
 }S_7816COM;
 
 
