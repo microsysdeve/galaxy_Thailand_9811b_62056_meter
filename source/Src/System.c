@@ -1,6 +1,7 @@
 #define SYSTEMEXT
 
 #include "Include.h"
+#include "pubset.h"
 /*=========================================================================================\n
 * @function_name: EXINT0
 * @function_file: System.c
@@ -117,11 +118,18 @@ __interrupt void Timer1Interrupt(void)
 ===========================================================================================*/
 #pragma register_bank=2
 #pragma vector=0x2b               //ÖÐ¶ÏºÅ5,  Timer2
+
+
 __interrupt void Timer2Interrupt(void)
 {
-  
+void TIMER_ISR(void);  
     TF2 = 0;
-
+    Event_Ms =1;
+    
+     TIMER_ISR();
+    
+    
+    
     
     if(guc_PllSta == PLL_800K)
     {
@@ -274,11 +282,12 @@ __interrupt void UATRAndRTCInterrupt(void)
     uint8 ucTemp;
     ucTemp  = ExInt3IFG;
     ucTemp &= ExInt3IE;
-    debug_ledshow();
+  extern char c8025intno;
     if(ucTemp&BIT6)      //RTC
     {
         guc_TimeEvent|= flgEtTim_Second;
         ExInt3IFG&=(~BIT6);
+        c8025intno++;
     }
        
     if(ucTemp&BIT2)      //UART5·¢ËÍ

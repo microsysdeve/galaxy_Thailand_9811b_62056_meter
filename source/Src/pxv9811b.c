@@ -17,10 +17,11 @@ void            debug_init(void)
     stgloballist.bDebugMode =1;
     stgloballist.bPwrup =1;
 }
+  
 
-char 		debugprintf( enum ENUMDEBUGLIST cErrno)
+char 	debug_break( enum ENUMDEBUGLIST cErrno)
 {
-	if ( cErrno <_debugerrorbreak_)		       
+	if ( cErrno>_debugerrorbreak_)		       
 	cErrno +=1;
 	return cErrno;
 }

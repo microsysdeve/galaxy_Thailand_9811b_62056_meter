@@ -1255,3 +1255,10 @@ uint16 HourAndMinToMin(uint8*Data)
 }
 
 
+void FCpyTMe1m(uint8x *des,const uint8 code *src,uint8 len)
+{
+    while(len--)
+    {
+        *(des++)=*(src++);
+    }
+}

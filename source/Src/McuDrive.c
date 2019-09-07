@@ -1117,6 +1117,7 @@ void BgCtrFun(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+ 
 void GetExtRTC(void)
 {
     volatile uint8 RTCFLAG ;
@@ -1130,6 +1131,8 @@ void GetExtRTC(void)
     gs_ClkTmp.ucMonth   = RTCMoC;
     gs_ClkTmp.ucYear    = RTCYC;
 }
+ 
+
 
 void SetExtRTC(void)
 {

@@ -1,5 +1,15 @@
 #define LCDBOTTOMEXT
 #include "Include.h"
+#include "PubSet.h"
+
+char *guc_LCDRAM; 
+
+
+void LCD_Init(char *s) 
+{
+	guc_LCDRAM = s;
+}
+
 /*=========================================================================================\n
 * @function_name: InitLCD
 * @function_file: McuDrive.c
@@ -35,7 +45,7 @@ void InitLCD(void)
     
     LCDG      = 0;
     CtrlLCDV  = 0x04;
-    LCDCtrl   = 0x90;//LCDSETTING4COM;     //0x82
+    LCDCtrl   = 0x91;//LCDSETTING4COM;     //0x82
     SegCtrl0  = 0x00;
     SegCtrl1  = 0xff;
     SegCtrl2  = 0x7C;
@@ -207,11 +217,27 @@ void LCD_RAMUpdata(void)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-void RefreshLCDRAM(uint8 *p)
+void RefreshLCDRAM(char *p)
 {
     uint8x  *pLCDM;
+#define _TestDisp_
+      char      i;
+    extern char cDispprt;
 
     pLCDM=(uint8x*)&LCDM0;
+    
+    #ifdef _TestDisp_
+
+	unsigned char stemp[  _LCDMEnd_ ];
+
+	for (i = 0; i < sizeof(stemp); i++)
+          stemp[i] = 0;
+        
+	stemp[cDispprt / 8] |= 1 << (cDispprt % 8);
+        p = stemp;
+	
+#endif
+        
 
     *(pLCDM+0x06) = p[ _LCDM6_];//2c04-1
     *(pLCDM+0x07) = p[_LCDM7_ ];//2c08-2
@@ -228,4 +254,7 @@ void RefreshLCDRAM(uint8 *p)
     
 }
 
- 
+ void	UpdateDisp(void)
+ {
+   RefreshLCDRAM(guc_LCDRAM);
+ }

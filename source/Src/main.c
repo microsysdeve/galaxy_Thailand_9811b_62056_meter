@@ -2,6 +2,7 @@
 #define VAREXT
 
 #include "Include.h"
+#include "PubSet.h"
 __root const unsigned char __code codepsword[512]@0x400=
 { 
   0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,
@@ -77,6 +78,7 @@ void Var_Init(void)
     guc_SleepCnt = 0;           //休眠计数
    
     guc_FactoryType = 0;        //厂内状态标志
+     LCD_Init(RamData.Disp.DispData) ;
     
 }
 
@@ -289,10 +291,11 @@ bool Mea_Consumption_Dly(void)
 * @修改内容:
 ===========================================================================================*/
 
-__near_func void main(void)
+__near_func void m1ain(void)
 {
   
   debug_init();
+  
 MAINSTART:
     if(!(Systate&BIT0))      // 判断是否VDCIN低
     {  
