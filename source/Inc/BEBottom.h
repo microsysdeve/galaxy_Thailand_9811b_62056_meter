@@ -3,7 +3,7 @@
 
 #define _SW_SE_Type     0
 
-#define _SW_BE_Type  Const_AT24C64  //Const_AT24C04_08_16
+#define _SW_BE_Type  Const_AT24C256    //Const_AT24C04_08_16
 
 #define Const_AT24C04_08_16     16
 #define Const_AT24C64           64
@@ -50,8 +50,8 @@
 #define BE_WP_1()           {BE_I2C_SDA_1();BE_I2C_CLK_1();}
 #define BE_WP_0()           {}
 
-uint8 BE_WriteP(uint32 address,uint8 *buff,uint8 Len);       
-uint8 BE_ReadP(uint32 address,uint8 *buff,uint8 Len);
+uint8 BE_WriteP(uint32 address,uint8 *buff,uint16 Len);       
+uint8 BE_ReadP(uint32 address,uint8 *buff,uint16 Len);
 uint8 BE_ReadB(uint32 address,uint8 *buff);
 uint8 BE_ReadW(uint32 address,uint16 *buff);
 
@@ -60,8 +60,8 @@ uint8 BE_ReadW(uint32 address,uint16 *buff);
 
 //u8 Write_EEData (u8 * Buf, u16 Addr, u16 iLth)
  //u8 Read_EEData (u8 * Buf, u16 Addr, u16 iLth)
-#define   Write_EEData1(datap,addr,len)      BE_WriteP(addr,datap,len)   	 
-#define   Read_EEData1(datap,addr,len)       BE_ReadP(addr,datap,len)
+//#define   Write_EEData1(datap,addr,len)      BE_WriteP((uint32 )addr,datap,len)   	 
+//#define   Read_EEData1(datap,addr,len)       BE_ReadP((uint32 )addr,datap,len)
 
 #endif
 

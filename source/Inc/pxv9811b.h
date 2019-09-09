@@ -7,23 +7,14 @@ enum ENUMDEBUGLIST
 	_debugnull_ = 0,
 	_debugwdg_,
 	_debugerrorbreak_,
-	
+	_debug_app_nobreak_,
         _debug_errno_resetvector_,
 	_debug_errno_wdgout_,
-	 
+        _debug_errno_WriteEEprom_,
+	 _debug_errno_WriteEEpromError_,
 	_debug_errno_DataRestorestart_,
 	_debug_errno_flashdatarestore_,
 	_debug_errno_prog_reset_,
-
-	_debug_errno_intNmi_,
-	_debug_errno_intReserved_,
-	_debug_errno_intAddrErr_,
-	_debug_errno_harfault_,
-	_debug_errno_NMI_Handler_,
-	_debug_errno_SVC_Handler_,
-	_debug_errno_PendSV_Handler_,
-
-	_debug_app_nobreak_,
 	_debug_errno_null_,
 	_debug_errno_4428_UsercardOver_,
 	_debug_errno_KeyIn_,
@@ -45,8 +36,6 @@ struct STSYSSTATE
   char  btemp21:2;
 };
  
-
-
  
 
 struct  STERRRLIST
@@ -75,6 +64,6 @@ struct          STGLOBALlIST
 void            debug_init(void);
 void  debug_ledshow(void);
 char 	debug_break( enum ENUMDEBUGLIST cErrno);
-
+extern char     cDispprt;
 #endif
 

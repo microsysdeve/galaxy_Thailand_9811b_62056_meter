@@ -1,8 +1,9 @@
 #include "Include.h"
 #include "pxv9811b.h"
 
+char     cDispprt;
 struct          STGLOBALlIST  stgloballist;
-
+enum ENUMDEBUGLIST   cErrlistno;
 void  debug_ledshow(void)
 {
     static char           xxxx ;
@@ -20,10 +21,10 @@ void            debug_init(void)
   
 
 char 	debug_break( enum ENUMDEBUGLIST cErrno)
-{
+{cErrlistno = cErrno ;
 	if ( cErrno>_debugerrorbreak_)		       
-	cErrno +=1;
-	return cErrno;
+	cErrlistno = cErrno ;
+	return (cErrlistno +1) ;
 }
 
 /*

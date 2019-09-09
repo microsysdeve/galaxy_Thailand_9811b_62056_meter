@@ -78,7 +78,7 @@ void Var_Init(void)
     guc_SleepCnt = 0;           //休眠计数
    
     guc_FactoryType = 0;        //厂内状态标志
-     LCD_Init(RamData.Disp.DispData) ;
+    
     
 }
 

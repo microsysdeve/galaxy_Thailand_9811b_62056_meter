@@ -220,7 +220,7 @@ void LCD_RAMUpdata(void)
 void RefreshLCDRAM(char *p)
 {
     uint8x  *pLCDM;
-#define _TestDisp_
+//#define _TestDisp_
       char      i;
     extern char cDispprt;
 

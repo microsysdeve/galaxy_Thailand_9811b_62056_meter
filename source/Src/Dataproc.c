@@ -910,7 +910,9 @@ void Data_RecEnergy(void)
 ===========================================================================================*/
 void RecoverEnergyData(void)
 {
-    BE_ReadP(EEP_POWDWENERGY,(uint8*)XDATA_RAMZONE,12); 
+  return;  
+  /*
+  BE_ReadP(EEP_POWDWENERGY,(uint8*)XDATA_RAMZONE,12)
     uint16 CRC=Uint8_To_Uint16(XDATA_RAMZONE+10);
     if(CRC==do_CRC(XDATA_RAMZONE, 10))      //掉电保存数据正确
     {
@@ -936,6 +938,7 @@ void RecoverEnergyData(void)
     }
     
     gui_SystemState &= ~flgStSys_PowOff;
+  */
 }
 /*=========================================================================================\n
 * @function_name: JudgeCurTime
