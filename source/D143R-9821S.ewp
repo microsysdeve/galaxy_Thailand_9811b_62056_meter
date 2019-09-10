@@ -2194,6 +2194,9 @@
     <name>$PROJ_DIR$\Src\InitPara.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\InOut.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\Key.c</name>
   </file>
   <file>
@@ -2243,6 +2246,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\Src\Timeproc.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\TRx.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\Uart2.c</name>

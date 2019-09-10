@@ -1,6 +1,6 @@
 #define KEY_EXT
 #include "Include.h"
-
+#include "ioset.h"
 /*=========================================================================================\n
 * @function_name: Key_Init
 * @function_file: Key.c
@@ -16,15 +16,19 @@
 ===========================================================================================*/
 void Key_Init(void)
 {
+
     uint8 i;
 //    ClrEnable();
 //    CalEnable();
     KeyPortIn();
+    OpenPortIn();
+    #ifdef _DEL
     for(i=0;i<KeyNums;i++)
     {
         gs_KeyCtr[i].KeyThd=1;
         gs_KeyCtr[i].LgKeyThd=200;
     }
+#endif
 }
 
 /*=========================================================================================\n
@@ -40,6 +44,7 @@ void Key_Init(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+#ifdef _DEL
 void KeyScan(void)
 {
     if(KeyStPr())                                   //上翻键延时开启
@@ -70,7 +75,7 @@ void KeyScan(void)
     }
 
 }
-
+#endif  
 /*=========================================================================================\n
 * @function_name: LongKeyProc
 * @function_file: Key.c

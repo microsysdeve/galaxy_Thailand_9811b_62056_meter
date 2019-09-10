@@ -374,7 +374,7 @@ void DisableRTCInt(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-void Mcu_Init(void)
+void Mcu_I1nit(void)
 {
     PRCtrl0 = CONFIG_PRCTRL0;
     PRCtrl1 = CONFIG_PRCTRL1;  
@@ -969,7 +969,7 @@ uint8 SleepRTC(void)
 {
     uint8 i;
 
-    gs_KeyCtr[UpKey].Status=KeyRls;             //按键设置为释放
+   // gs_KeyCtr[UpKey].Status=KeyRls;             //按键设置为释放
     BE_I2C_SDA_1();
     BE_I2C_CLK_1();                     //I2C输出高
 //    FWC=0;

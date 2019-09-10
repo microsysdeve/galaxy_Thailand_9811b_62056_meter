@@ -6,14 +6,16 @@ enum ENUMDEBUGLIST
 {
 	_debugnull_ = 0,
 	_debugwdg_,
+        _debug_errno_DataRestorestart_,
+        _debug_errno_flashdatarestore_,
 	_debugerrorbreak_,
 	_debug_app_nobreak_,
         _debug_errno_resetvector_,
 	_debug_errno_wdgout_,
         _debug_errno_WriteEEprom_,
 	 _debug_errno_WriteEEpromError_,
-	_debug_errno_DataRestorestart_,
-	_debug_errno_flashdatarestore_,
+	
+	
 	_debug_errno_prog_reset_,
 	_debug_errno_null_,
 	_debug_errno_4428_UsercardOver_,

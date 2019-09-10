@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-1546240363
+Checksum=570987137
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -47,18 +47,28 @@ ActionState=1
 [Trace1]
 Enabled=0
 ShowSource=1
+[struct_types]
+Fmt0=strDispCode-Code	4	0
 [watch_formats]
 Fmt0={W}0:Addr	4	0
-Fmt1={W}0:P9OE	4	0
-Fmt2={W}0:RamData.WDGTm	3	0
-Fmt3={W}0:SysCtrl	4	0
-Fmt4={W}0:address	4	0
-Fmt5={W}0:cDispprt	3	0
-Fmt6={W}0:ui_E2Address	4	0
+Fmt1={W}0:Code	4	0
+Fmt2={W}0:Data	4	0
+Fmt3={W}0:Mode	4	0
+Fmt4={W}0:N	4	0
+Fmt5={W}0:Opt	4	0
+Fmt6={W}0:P9OE	4	0
+Fmt7={W}0:RamData.Disp.DispCode.Code	4	0
+Fmt8={W}0:RamData.WDGTm	3	0
+Fmt9={W}0:SysCtrl	4	0
+Fmt10={W}0:address	4	0
+Fmt11={W}0:cDispprt	3	0
+Fmt12={W}0:ctemp1	4	0
+Fmt13={W}0:ctemp2	4	0
+Fmt14={W}0:ui_E2Address	4	0
 [Breakpoints]
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.2" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Disp.c}.273.1" 1 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Disp.c}.331.3" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.224.25" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.427.3" 1 0 0 0 "" 0 ""
 Count=3
 [Log file]
 LoggingEnabled=_ 0

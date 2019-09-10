@@ -144,7 +144,7 @@ void TIMER_ISR(void);
         TL2 = 0x54;             //启动第一次进中断的时间设定
 //        Uart2_Dy10ms();         //485 
         Uart4_Dy10ms();         //485        
-        KeyScan();              //按键
+    //    KeyScan();              //按键
     
         ComBom_10msDy();
     

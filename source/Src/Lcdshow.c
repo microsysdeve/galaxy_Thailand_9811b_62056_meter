@@ -16,11 +16,13 @@
 void ShowSysStart(void)
 {
     ShowInitial();                  //显示参数初始化
+#ifdef _DEL
     guc_DyBgLed = gs_DispCont.ucFullShowTm;         //上电背光时间跟全屏时间一样
     gul_ShowState= 0x00;
     gs_DispStt.uiIndex = 0;         //全屏显示
     gs_DispStt.ucMode = Const_DispMode_Full;
     gs_DispStt.ucTmr = gs_DispCont.ucFullShowTm;    //持续时间5s
+#endif
 }
 /*=========================================================================================\n
 * @function_name: ShowInitial

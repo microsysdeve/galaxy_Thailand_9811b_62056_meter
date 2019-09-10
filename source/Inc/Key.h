@@ -36,20 +36,20 @@ typedef struct
     uint16 LgKeyThd;     //长按键门限值
 }KEYCTR;
 
-KEY_EXT KEYCTR  idata gs_KeyCtr[KeyNums];
+//KEY_EXT KEYCTR  idata gs_KeyCtr[KeyNums];
 
-KEY_EXT uint8       guc_DyBgLed;        // 背光延时控制寄存器
+//KEY_EXT uint8       guc_DyBgLed;        // 背光延时控制寄存器
 //KEY_EXT uint8       guc_DyLed;          // LED灯控制
-KEY_EXT uint16      gui_DyPgmOut;
-KEY_EXT uint16      gui_DyProDmOut;
+//KEY_EXT uint16      gui_DyPgmOut;
+//KEY_EXT uint16      gui_DyProDmOut;
 //KEY_EXT uint8       guc_PrOutTm;        //编程闭锁等退出时间
 //KEY_EXT uint8   guc_PowOffKeyTmCnt;
 
-KEY_EXT uint8   guc_PrKeyNewDown;       // 编程键是否新按下
-KEY_EXT uint8   guc_CoverStatus;        // 表盖状态
+//KEY_EXT uint8   guc_PrKeyNewDown;       // 编程键是否新按下
+//KEY_EXT uint8   guc_CoverStatus;        // 表盖状态
 //KEY_EXT uint8   guc_PoweroffCoverJl;    // 有电下是否开表盖
-KEY_EXT uint8   guc_CoverKeyDwCnt;
-KEY_EXT uint8   guc_CoverKeyUpCnt;
+//KEY_EXT uint8   guc_CoverKeyDwCnt;
+//KEY_EXT uint8   guc_CoverKeyUpCnt;
 
 
 

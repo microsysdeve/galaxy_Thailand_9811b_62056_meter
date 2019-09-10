@@ -67,9 +67,7 @@
 //Current指示
 //#define OpenCurrentLed()    {P0OD |= BIT1; P0OE &=~ BIT1; P0IE&=~BIT1; }
 //#define CloseCurrentLed()   {P0OD &=~BIT1; P0OE &=~ BIT1; P0IE&=~BIT1; }
-////按键
-#define KeyPortIn()     {P0OE|=BIT0;P0IE|=BIT0;}//P1IE|=BIT4;P1OE|=BIT4;P14FS=0;P9OE|=BIT0;P9IE|=BIT0;P9FC&=~BIT0;}        //                                               
-//
+ 
 //#define KeyUpEnable()   {P1IE|=BIT4;P1OE|=BIT4;P14FS=0;}
 //#define KeyUpDisable()  {P1IE&=(~BIT4);P1OE|=BIT4;}
 //#define KeyStUp()       (!(P1ID & BIT4))                // 上翻按键

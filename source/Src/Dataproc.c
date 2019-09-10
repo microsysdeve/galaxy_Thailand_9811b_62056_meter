@@ -150,6 +150,7 @@ void SetCRCWord(uint8 *WrodSt)
 ===========================================================================================*/
 void Data_ClearMeter(void)
 {
+#ifdef _DEL
 //    uint8 i,j;
     if(CheckCRCWord(guc_ClearWd))
     {
@@ -193,6 +194,7 @@ void Data_ClearMeter(void)
 //    }
         E2DataChk();
   }
+#endif
 }
 /*=========================================================================================\n
 * @function_name: Data_HourProc
