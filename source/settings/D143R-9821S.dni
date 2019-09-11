@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=570987137
+Checksum=630126984
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -67,8 +67,8 @@ Fmt13={W}0:ctemp2	4	0
 Fmt14={W}0:ui_E2Address	4	0
 [Breakpoints]
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.2" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.224.25" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.427.3" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\eeprom.c}.579.3" 1 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\eeprom.c}.609.3" 1 0 0 0 "" 0 ""
 Count=3
 [Log file]
 LoggingEnabled=_ 0
