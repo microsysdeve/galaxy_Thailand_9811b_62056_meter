@@ -60,7 +60,7 @@ Warning[w6]: Type conflict for external/entry "cKeyInput_Tm", in module Disp aga
 #                                                                              #
 #      IAR Universal Linker V5.7.0.39                                          #
 #                                                                              #
-#           Link time     =  11/Sep/2019  20:33:56                             #
+#           Link time     =  11/Sep/2019  21:54:33                             #
 #           Target CPU    =  x51                                               #
 #           List file     =  C:\worktop\galaxy_Thailand_9811b_62056_meter\sour #
 #                            ce\Debug\List\D143R-9821S.map                     #
@@ -612,11 +612,15 @@ SFR_AN
   Segment part 1. ROOT.       Intra module refs:   BE_I_ReadB
                                                    BE_I_Stop
                                                    BE_I_WriteB
+                                                   I2C_ACK (eeprom)
+                                                   I2C_FStop (eeprom)
+                                                   I2C_RByte (eeprom)
+                                                   I2C_Start (eeprom)
+                                                   I2C_Stop (eeprom)
+                                                   I2C_WByte (eeprom)
                                                    IOOFF (McuDrive)
                                                    IO_Init (McuDrive)
                                                    MCU_OnLIne_Init (InOut)
-                                                   Set_SDA_IN (eeprom)
-                                                   Set_SDA_OUT (eeprom)
                                                    UpBkltLED (Disp)
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
@@ -627,11 +631,15 @@ SFR_AN
   Segment part 2. ROOT.       Intra module refs:   BE_I_ReadB
                                                    BE_I_Stop
                                                    BE_I_WriteB
+                                                   I2C_ACK (eeprom)
+                                                   I2C_FStop (eeprom)
+                                                   I2C_RByte (eeprom)
+                                                   I2C_Start (eeprom)
+                                                   I2C_Stop (eeprom)
+                                                   I2C_WByte (eeprom)
                                                    IOOFF (McuDrive)
                                                    IO_Init (McuDrive)
                                                    MCU_OnLIne_Init (InOut)
-                                                   Set_SDA_IN (eeprom)
-                                                   Set_SDA_OUT (eeprom)
                                                    UpBkltLED (Disp)
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
@@ -2195,6 +2203,7 @@ SFR_AN
                                                    Pwr_SlpReset (Powmanger)
                                                    Pwr_WakeupProc (Powmanger)
                                                    Read_EEData (eeprom)
+                                                   Read_I2C (eeprom)
                                                    Up_LVSave_io (PubData)
                                                    Wait_Rst (mainapp)
                                                    Write_EEData (eeprom)
@@ -6273,43 +6282,21 @@ NEAR_CODE
                XSTACK = 00000051 ( 00000000 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000BFAD - 0000BFB3 (0x7 bytes), align: 0
-  Segment part 24.            Intra module refs:   I2C_ACK
-                                                   I2C_Start
-                                                   I2C_Stop
-                                                   I2C_WByte
+  Relative segment, address: CODE 0000BFAD - 0000C168 (0x1bc bytes), align: 0
+  Segment part 24.            Intra module refs:   Read_EEData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Set_SDA_OUT             0000BFAD 
-               XSTACK = 0000000B ( 00000000 )
-    -------------------------------------------------------------------------
-NEAR_CODE
-  Relative segment, address: CODE 0000BFB4 - 0000BFBA (0x7 bytes), align: 0
-  Segment part 25.            Intra module refs:   I2C_FStop
-                                                   I2C_RByte
-                                                   I2C_Start
-                                                   I2C_WByte
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           Set_SDA_IN              0000BFB4 
-               XSTACK = 0000000B ( 00000000 )
-    -------------------------------------------------------------------------
-NEAR_CODE
-  Relative segment, address: CODE 0000BFBB - 0000C176 (0x1bc bytes), align: 0
-  Segment part 27.            Intra module refs:   Read_EEData
-           ENTRY                   ADDRESS         REF BY
-           =====                   =======         ======
-           Read_EEData1            0000BFBB 
+           Read_EEData1            0000BFAD 
                calls direct
                XSTACK = 0000000F ( 00000018 )
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C177 - 0000C1F7 (0x81 bytes), align: 0
-  Segment part 28.            Intra module refs:   EEData_Safe_Read
+  Relative segment, address: CODE 0000C169 - 0000C1E9 (0x81 bytes), align: 0
+  Segment part 25.            Intra module refs:   EEData_Safe_Read
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Read_EEData             0000C177        ChkYMode (Meter)
+           Read_EEData             0000C169        ChkYMode (Meter)
                                                    Copy_FlashInfo (PubData)
                                                    Get645Data (TRx)
                                                    GetFeilv (Meter)
@@ -6328,20 +6315,20 @@ NEAR_CODE
                XSTACK = 0000000B ( 0000000F )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C1F8 - 0000C332 (0x13b bytes), align: 0
-  Segment part 29.            Intra module refs:   Write_EEData
+  Relative segment, address: CODE 0000C1EA - 0000C324 (0x13b bytes), align: 0
+  Segment part 26.            Intra module refs:   Write_EEData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write_EEData1           0000C1F8 
+           Write_EEData1           0000C1EA 
                calls direct
                XSTACK = 0000000F ( 00000055 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C333 - 0000C3E1 (0xaf bytes), align: 0
-  Segment part 30.
+  Relative segment, address: CODE 0000C325 - 0000C3D3 (0xaf bytes), align: 0
+  Segment part 27.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write_EEData            0000C333        Clr_EEData4 (PubData)
+           Write_EEData            0000C325        Clr_EEData4 (PubData)
                                                    Copy_FlashInfo (PubData)
                                                    DispData_init (indata_oper)
                                                    GetFeilv (Meter)
@@ -6353,131 +6340,126 @@ NEAR_CODE
                XSTACK = 00000002 ( 0000000F )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C3E2 - 0000C43C (0x5b bytes), align: 0
-  Segment part 31.            Intra module refs:   Send_I2C_Addr
+  Relative segment, address: CODE 0000C3D4 - 0000C42E (0x5b bytes), align: 0
+  Segment part 28.            Intra module refs:   Send_I2C_Addr
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           rev32                   0000C3E2 
+           rev32                   0000C3D4 
                XSTACK = 00000013 ( 00000004 )
                ISTACK = 00000000 ( 00000003 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C43D - 0000C44B (0xf bytes), align: 0
-  Segment part 32.            Intra module refs:   I2C_FStop
+  Relative segment, address: CODE 0000C42F - 0000C440 (0x12 bytes), align: 0
+  Segment part 29.            Intra module refs:   I2C_FStop
                                                    Read_I2C
                                                    Write_I2C_c
                                                    Write_I2C_x
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           I2C_Stop                0000C43D 
-               calls direct
+           I2C_Stop                0000C42F 
                XSTACK = 0000000D ( 00000000 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C44C - 0000C4A9 (0x5e bytes), align: 0
-  Segment part 33.            Intra module refs:   I2C_Start
+  Relative segment, address: CODE 0000C441 - 0000C4A4 (0x64 bytes), align: 0
+  Segment part 30.            Intra module refs:   I2C_Start
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           I2C_FStop               0000C44C 
+           I2C_FStop               0000C441 
                calls direct
                XSTACK = 0000000B ( 0000000B )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C4AA - 0000C51A (0x71 bytes), align: 0
-  Segment part 34.            Intra module refs:   Read_I2C
+  Relative segment, address: CODE 0000C4A5 - 0000C51E (0x7a bytes), align: 0
+  Segment part 31.            Intra module refs:   Read_I2C
                                                    Send_I2C_Addr
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           I2C_Start               0000C4AA 
+           I2C_Start               0000C4A5 
                calls direct
                XSTACK = 00000013 ( 0000000B )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C51B - 0000C529 (0xf bytes), align: 0
-  Segment part 35.            Intra module refs:   Read_I2C
+  Relative segment, address: CODE 0000C51F - 0000C530 (0x12 bytes), align: 0
+  Segment part 32.            Intra module refs:   Read_I2C
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           I2C_ACK                 0000C51B 
-               calls direct
+           I2C_ACK                 0000C51F 
                XSTACK = 0000000D ( 00000000 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C52A - 0000C571 (0x48 bytes), align: 0
-  Segment part 36.            Intra module refs:   Read_I2C
+  Relative segment, address: CODE 0000C531 - 0000C578 (0x48 bytes), align: 0
+  Segment part 33.            Intra module refs:   Read_I2C
                                                    Send_I2C_Addr
                                                    Write_I2C_c
                                                    Write_I2C_x
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           I2C_WByte               0000C52A 
-               calls direct
+           I2C_WByte               0000C531 
                XSTACK = 00000013 ( 00000000 )
-               ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C572 - 0000C592 (0x21 bytes), align: 0
-  Segment part 37.            Intra module refs:   Read_I2C
+  Relative segment, address: CODE 0000C579 - 0000C59A (0x22 bytes), align: 0
+  Segment part 34.            Intra module refs:   Read_I2C
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           I2C_RByte               0000C572 
-               calls direct
+           I2C_RByte               0000C579 
                XSTACK = 0000000D ( 00000000 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C593 - 0000C68C (0xfa bytes), align: 0
-  Segment part 38.            Intra module refs:   Read_I2C
+  Relative segment, address: CODE 0000C59B - 0000C694 (0xfa bytes), align: 0
+  Segment part 35.            Intra module refs:   Read_I2C
                                                    Write_I2C_c
                                                    Write_I2C_x
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Send_I2C_Addr           0000C593 
+           Send_I2C_Addr           0000C59B 
                calls direct
                XSTACK = 0000000D ( 00000013 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C68D - 0000C6FB (0x6f bytes), align: 0
-  Segment part 39.            Intra module refs:   Read_EEData1
+  Relative segment, address: CODE 0000C695 - 0000C709 (0x75 bytes), align: 0
+  Segment part 36.            Intra module refs:   Read_EEData1
                                                    Write_EEData1
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Read_I2C                0000C68D 
+           Read_I2C                0000C695 
                calls direct
                XSTACK = 00000055 ( 0000000D )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C6FC - 0000C75A (0x5f bytes), align: 0
-  Segment part 40.            Intra module refs:   Write_I2C
+  Relative segment, address: CODE 0000C70A - 0000C768 (0x5f bytes), align: 0
+  Segment part 37.            Intra module refs:   Write_I2C
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write_I2C_x             0000C6FC 
+           Write_I2C_x             0000C70A 
                calls direct
                XSTACK = 00000013 ( 0000000D )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C75B - 0000C7BA (0x60 bytes), align: 0
-  Segment part 41.            Intra module refs:   Write_I2C
+  Relative segment, address: CODE 0000C769 - 0000C7C8 (0x60 bytes), align: 0
+  Segment part 38.            Intra module refs:   Write_I2C
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write_I2C_c             0000C75B 
+           Write_I2C_c             0000C769 
                calls direct
                XSTACK = 00000013 ( 0000000D )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C7BB - 0000C7F6 (0x3c bytes), align: 0
-  Segment part 42.            Intra module refs:   Write_EEData1
+  Relative segment, address: CODE 0000C7C9 - 0000C804 (0x3c bytes), align: 0
+  Segment part 39.            Intra module refs:   Write_EEData1
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write_I2C               0000C7BB 
+           Write_I2C               0000C7C9 
                calls direct
                XSTACK = 00000055 ( 00000013 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C7F7 - 0000C823 (0x2d bytes), align: 0
-  Segment part 43.
+  Relative segment, address: CODE 0000C805 - 0000C831 (0x2d bytes), align: 0
+  Segment part 40.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           EEData_Safe_Read        0000C7F7        cFroze_Comp (mainapp)
+           EEData_Safe_Read        0000C805        cFroze_Comp (mainapp)
                                                    cGet_First_Data (indata_oper)
                calls direct, is not allocated
                not allocated function
@@ -6615,48 +6597,48 @@ XDATA_Z
   SEGMENTS IN THE MODULE
   ======================
 NEAR_CODE
-  Relative segment, address: CODE 0000C824 - 0000C8E1 (0xbe bytes), align: 0
+  Relative segment, address: CODE 0000C832 - 0000C8EF (0xbe bytes), align: 0
   Segment part 10.            Intra module refs:   Init_FlashData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           DispData_init           0000C824        Write_meterconfig (TRx)
+           DispData_init           0000C832        Write_meterconfig (TRx)
                calls direct
                XSTACK = 0000000B ( 0000000D )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000C8E2 - 0000CA76 (0x195 bytes), align: 0
+  Relative segment, address: CODE 0000C8F0 - 0000CA84 (0x195 bytes), align: 0
   Segment part 11.            Intra module refs:   cFlashinfo_Restore
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_FlashData          0000C8E2        WriteEXTEEPROM (TRx)
+           Init_FlashData          0000C8F0        WriteEXTEEPROM (TRx)
                calls direct
                XSTACK = 00000009 ( 0000000D )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CA77 - 0000CAFB (0x85 bytes), align: 0
+  Relative segment, address: CODE 0000CA85 - 0000CB09 (0x85 bytes), align: 0
   Segment part 13.            Intra module refs:   cFlashinfo_Restore
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cGet_First_Data         0000CA77 
+           cGet_First_Data         0000CA85 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CAFC - 0000CB8F (0x94 bytes), align: 0
+  Relative segment, address: CODE 0000CB0A - 0000CB9D (0x94 bytes), align: 0
   Segment part 14.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cFlashinfo_Restore      0000CAFC        data_restore (mainapp)
+           cFlashinfo_Restore      0000CB0A        data_restore (mainapp)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CB90 - 0000CBCC (0x3d bytes), align: 0
+  Relative segment, address: CODE 0000CB9E - 0000CBDA (0x3d bytes), align: 0
   Segment part 15.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            cFlashinfo_dianlian_backup
-                                   0000CB90        Reset_LVSave (PubData)
+                                   0000CB9E        Reset_LVSave (PubData)
                                                    Up_LVSave_io (PubData)
                calls direct
                XSTACK = 00000000 ( 0000000B )
@@ -6721,29 +6703,29 @@ CODE_AC
            codepsword              00000400 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CBCD - 0000CC1C (0x50 bytes), align: 0
+  Relative segment, address: CODE 0000CBDB - 0000CC2A (0x50 bytes), align: 0
   Segment part 26.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Var_Init                0000CBCD        main (mainapp)
+           Var_Init                0000CBDB        main (mainapp)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CC1D - 0000CC6B (0x4f bytes), align: 0
+  Relative segment, address: CODE 0000CC2B - 0000CC79 (0x4f bytes), align: 0
   Segment part 29.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_CfG                0000CC1D        Pwr_SlpReset (Powmanger)
+           Init_CfG                0000CC2B        Pwr_SlpReset (Powmanger)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CC6C - 0000CC8B (0x20 bytes), align: 0
+  Relative segment, address: CODE 0000CC7A - 0000CC99 (0x20 bytes), align: 0
   Segment part 30.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           App_Init                0000CC6C        main (mainapp)
+           App_Init                0000CC7A        main (mainapp)
                calls direct, is not allocated
                not allocated function
 
@@ -7066,73 +7048,73 @@ XDATA_Z
            USARTCOM                00000EC4        WBaud (TRx)
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CC8C - 0000CCD4 (0x49 bytes), align: 0
+  Relative segment, address: CODE 0000CC9A - 0000CCE2 (0x49 bytes), align: 0
   Segment part 33.            Intra module refs:   data_restore
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cFroze_Comp             0000CC8C 
+           cFroze_Comp             0000CC9A 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CCD5 - 0000CDF1 (0x11d bytes), align: 0
+  Relative segment, address: CODE 0000CCE3 - 0000CDFF (0x11d bytes), align: 0
   Segment part 34.            Intra module refs:   main
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           data_restore            0000CCD5 
+           data_restore            0000CCE3 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CDF2 - 0000CF14 (0x123 bytes), align: 0
+  Relative segment, address: CODE 0000CE00 - 0000CF22 (0x123 bytes), align: 0
   Segment part 35.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           main                    0000CDF2        __call_main (CSTARTUP)
+           main                    0000CE00        __call_main (CSTARTUP)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CF15 - 0000CF20 (0xc bytes), align: 0
+  Relative segment, address: CODE 0000CF23 - 0000CF2E (0xc bytes), align: 0
   Segment part 36.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Wait_Rst                0000CF15        CheckpChar (PubData)
+           Wait_Rst                0000CF23        CheckpChar (PubData)
                                                    cFlashinfo_Restore (indata_oper)
                calls direct
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CF21 - 0000CF45 (0x25 bytes), align: 0
+  Relative segment, address: CODE 0000CF2F - 0000CF53 (0x25 bytes), align: 0
   Segment part 38.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           DelayMS                 0000CF21        DelayTBOC1 (eeprom)
+           DelayMS                 0000CF2F        DelayTBOC1 (eeprom)
                                                    cGet_First_Data (indata_oper)
                calls direct
                XSTACK = 00000000 ( 00000009 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CF46 - 0000CF6D (0x28 bytes), align: 0
+  Relative segment, address: CODE 0000CF54 - 0000CF7B (0x28 bytes), align: 0
   Segment part 39.            Intra module refs:   TIMER_ISR
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Rtc_Sec_Change          0000CF46 
+           Rtc_Sec_Change          0000CF54 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CF6E - 0000CFAE (0x41 bytes), align: 0
+  Relative segment, address: CODE 0000CF7C - 0000CFBC (0x41 bytes), align: 0
   Segment part 40.            Intra module refs:   TIMER_ISR
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Time_Event_Check        0000CF6E 
+           Time_Event_Check        0000CF7C 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000CFAF - 0000D04B (0x9d bytes), align: 0
+  Relative segment, address: CODE 0000CFBD - 0000D059 (0x9d bytes), align: 0
   Segment part 41.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TIMER_ISR               0000CFAF        Timer2Interrupt (System)
+           TIMER_ISR               0000CFBD        Timer2Interrupt (System)
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
@@ -7144,11 +7126,11 @@ XDATA_Z
            TIMER_ISR::c100MSNum    00000EE5 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D04C - 0000D127 (0xdc bytes), align: 0
+  Relative segment, address: CODE 0000D05A - 0000D135 (0xdc bytes), align: 0
   Segment part 42.            Intra module refs:   TIMER_ISR
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Key_Funtion             0000D04C 
+           Key_Funtion             0000D05A 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 CODE_C
@@ -7173,29 +7155,29 @@ CODE_C
   SEGMENTS IN THE MODULE
   ======================
 NEAR_CODE
-  Relative segment, address: CODE 0000D128 - 0000D173 (0x4c bytes), align: 0
+  Relative segment, address: CODE 0000D136 - 0000D181 (0x4c bytes), align: 0
   Segment part 15.            Intra module refs:   Rev_4
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RevStr                  0000D128 
+           RevStr                  0000D136 
                XSTACK = 0000000B ( 0000000B )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D174 - 0000D1F6 (0x83 bytes), align: 0
+  Relative segment, address: CODE 0000D182 - 0000D204 (0x83 bytes), align: 0
   Segment part 17.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ChgMOD_1                0000D174        GetCntTime (Drv_RTCSPK)
+           ChgMOD_1                0000D182        GetCntTime (Drv_RTCSPK)
                                                    GetTimeCnt (Drv_RTCSPK)
                XSTACK = 00000000 ( 00000015 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D1F7 - 0000D236 (0x40 bytes), align: 0
+  Relative segment, address: CODE 0000D205 - 0000D244 (0x40 bytes), align: 0
   Segment part 18.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetFrozeMinCnt          0000D1F7        ChkYFroze (Meter)
+           GetFrozeMinCnt          0000D205        ChkYFroze (Meter)
                                                    GetFeilv (Meter)
                                                    Init_Data (GC_Use)
                                                    MStepFroze (Meter)
@@ -7204,22 +7186,22 @@ NEAR_CODE
                XSTACK = 00000000 ( 00000011 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D237 - 0000D252 (0x1c bytes), align: 0
+  Relative segment, address: CODE 0000D245 - 0000D260 (0x1c bytes), align: 0
   Segment part 20.            Intra module refs:   FpCharRam
                                                    NormCopy
                                                    RevCopy
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           tpCharInc               0000D237 
+           tpCharInc               0000D245 
                XSTACK = 0000000A ( 00000000 )
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D253 - 0000D289 (0x37 bytes), align: 0
+  Relative segment, address: CODE 0000D261 - 0000D297 (0x37 bytes), align: 0
   Segment part 21.            Intra module refs:   MvData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           NormCopy                0000D253        Get645Data (TRx)
+           NormCopy                0000D261        Get645Data (TRx)
                                                    ReadCardState (TRx)
                                                    ReadSafeData (TRx)
                                                    RxJDRecord (TRx)
@@ -7229,12 +7211,12 @@ NEAR_CODE
                XSTACK = 0000001A ( 0000000C )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D28A - 0000D2C0 (0x37 bytes), align: 0
+  Relative segment, address: CODE 0000D298 - 0000D2CE (0x37 bytes), align: 0
   Segment part 22.            Intra module refs:   MvData
                                                    MvDataAddr
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RevCopy                 0000D28A        Get645Data (TRx)
+           RevCopy                 0000D298        Get645Data (TRx)
                                                    ReadEEPROMFData (TRx)
                                                    ReadSTD (TRx)
                                                    ReadSafeData (TRx)
@@ -7245,23 +7227,23 @@ NEAR_CODE
                XSTACK = 0000001B ( 0000000C )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D2C1 - 0000D2EE (0x2e bytes), align: 0
+  Relative segment, address: CODE 0000D2CF - 0000D2FC (0x2e bytes), align: 0
   Segment part 23.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetpCharInc             0000D2C1        OutTTBL (TRx)
+           SetpCharInc             0000D2CF        OutTTBL (TRx)
                                                    OutYTBL (TRx)
                                                    ReadEvtState (TRx)
                                                    SetAAInc (TRx)
                ISTACK = 00000000 ( 00000003 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D2EF - 0000D6D1 (0x3e3 bytes), align: 0
+  Relative segment, address: CODE 0000D2FD - 0000D6DF (0x3e3 bytes), align: 0
   Segment part 24.            Intra module refs:   MvDataAddr
                                                    N_MvData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MvData                  0000D2EF        Get645Data (TRx)
+           MvData                  0000D2FD        Get645Data (TRx)
                                                    GetFLUse (TRx)
                                                    MvTimeYMDHMS (TRx)
                                                    OutHTBL (TRx)
@@ -7276,20 +7258,20 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000004 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D6D2 - 0000D950 (0x27f bytes), align: 0
+  Relative segment, address: CODE 0000D6E0 - 0000D95E (0x27f bytes), align: 0
   Segment part 25.            Intra module refs:   MoveDataLst
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MvDataAddr              0000D6D2 
+           MvDataAddr              0000D6E0 
                calls direct
                XSTACK = 00000009 ( 0000001D )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D951 - 0000D98C (0x3c bytes), align: 0
+  Relative segment, address: CODE 0000D95F - 0000D99A (0x3c bytes), align: 0
   Segment part 26.            Intra module refs:   Up_NormFroze
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MoveDataLst             0000D951        Get645Data (TRx)
+           MoveDataLst             0000D95F        Get645Data (TRx)
                                                    GetFLUse (TRx)
                                                    MStepFroze (Meter)
                                                    ReadEvtState (TRx)
@@ -7318,21 +7300,21 @@ NEAR_CODE
                XSTACK = 00000009 ( 00000009 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D98D - 0000D9CD (0x41 bytes), align: 0
+  Relative segment, address: CODE 0000D99B - 0000D9DB (0x41 bytes), align: 0
   Segment part 27.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           N_MvData                0000D98D        OutLTBL (TRx)
+           N_MvData                0000D99B        OutLTBL (TRx)
                                                    RxPriceRcd (TRx)
                calls direct
                XSTACK = 00000000 ( 0000000F )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D9CE - 0000D9D2 (0x5 bytes), align: 0
+  Relative segment, address: CODE 0000D9DC - 0000D9E0 (0x5 bytes), align: 0
   Segment part 28.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ClrRam                  0000D9CE        EEData_Fun_Init (eeprom)
+           ClrRam                  0000D9DC        EEData_Fun_Init (eeprom)
                                                    GetLRcdLst (TRx)
                                                    Init_FlashData (indata_oper)
                                                    Init_MCU (InOut)
@@ -7346,32 +7328,32 @@ NEAR_CODE
                calls direct
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D9D3 - 0000D9D7 (0x5 bytes), align: 0
+  Relative segment, address: CODE 0000D9E1 - 0000D9E5 (0x5 bytes), align: 0
   Segment part 29.            Intra module refs:   GetNewProgRcd
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetRam                  0000D9D3 
+           SetRam                  0000D9E1 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D9D8 - 0000D9FB (0x24 bytes), align: 0
+  Relative segment, address: CODE 0000D9E6 - 0000DA09 (0x24 bytes), align: 0
   Segment part 30.            Intra module refs:   ClrpCharRam
                                                    MvDataAddr
                                                    SetpCharRam
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           FpCharRam               0000D9D8 
+           FpCharRam               0000D9E6 
                calls direct
                XSTACK = 0000001B ( 00000008 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000D9FC - 0000DA0C (0x11 bytes), align: 0
+  Relative segment, address: CODE 0000DA0A - 0000DA1A (0x11 bytes), align: 0
   Segment part 31.            Intra module refs:   MvData
                                                    MvDataAddr
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ClrpCharRam             0000D9FC        FillNullData (TRx)
+           ClrpCharRam             0000DA0A        FillNullData (TRx)
                                                    Get645Data (TRx)
                                                    RxHLDRcd (TRx)
                                                    RxJDRecord (TRx)
@@ -7382,35 +7364,35 @@ NEAR_CODE
                XSTACK = 0000001B ( 00000009 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DA0D - 0000DA1D (0x11 bytes), align: 0
+  Relative segment, address: CODE 0000DA1B - 0000DA2B (0x11 bytes), align: 0
   Segment part 32.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetpCharRam             0000DA0D        FillNullData (TRx)
+           SetpCharRam             0000DA1B        FillNullData (TRx)
                                                    Get645Data (TRx)
                                                    RxJDRecord (TRx)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DA1E - 0000DA24 (0x7 bytes), align: 0
+  Relative segment, address: CODE 0000DA2C - 0000DA32 (0x7 bytes), align: 0
   Segment part 34.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Rev_4                   0000DA1E        WriteDisCharge (TRx)
+           Rev_4                   0000DA2C        WriteDisCharge (TRx)
                calls direct
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DA25 - 0000DAF8 (0xd4 bytes), align: 0
+  Relative segment, address: CODE 0000DA33 - 0000DB06 (0xd4 bytes), align: 0
   Segment part 36.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Get_Code_Lst            0000DA25        Get645Data (TRx)
+           Get_Code_Lst            0000DA33        Get645Data (TRx)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DAF9 - 0000DB30 (0x38 bytes), align: 0
+  Relative segment, address: CODE 0000DB07 - 0000DB3E (0x38 bytes), align: 0
   Segment part 37.            Intra module refs:   ClrRam
                                                    FpCharRam
                                                    MvData
@@ -7418,7 +7400,7 @@ NEAR_CODE
                                                    SetRam
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetRamData              0000DAF9        GetCntTime (Drv_RTCSPK)
+           SetRamData              0000DB07        GetCntTime (Drv_RTCSPK)
                                                    InitDispProg (Disp)
                                                    MCU_OnLIne_Init (InOut)
                                                    UpDisp (Disp)
@@ -7426,30 +7408,30 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000003 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DB31 - 0000DB6A (0x3a bytes), align: 0
+  Relative segment, address: CODE 0000DB3F - 0000DB78 (0x3a bytes), align: 0
   Segment part 38.            Intra module refs:   RevCopyRam
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RevCopyRam_c            0000DB31 
+           RevCopyRam_c            0000DB3F 
                XSTACK = 0000000F ( 00000008 )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DB6B - 0000DBA3 (0x39 bytes), align: 0
+  Relative segment, address: CODE 0000DB79 - 0000DBB1 (0x39 bytes), align: 0
   Segment part 39.            Intra module refs:   RevCopyRam
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RevCopyRam_x            0000DB6B 
+           RevCopyRam_x            0000DB79 
                XSTACK = 0000000F ( 00000008 )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DBA4 - 0000DBE1 (0x3e bytes), align: 0
+  Relative segment, address: CODE 0000DBB2 - 0000DBEF (0x3e bytes), align: 0
   Segment part 40.            Intra module refs:   MvData
                                                    RevCopy
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RevCopyRam              0000DBA4        GetCntTime (Drv_RTCSPK)
+           RevCopyRam              0000DBB2        GetCntTime (Drv_RTCSPK)
                                                    GetRTCTm (Drv_RTCSPK)
                                                    GetTimeCnt (Drv_RTCSPK)
                                                    ReadWriteTime (TRx)
@@ -7458,13 +7440,13 @@ NEAR_CODE
                XSTACK = 0000001C ( 0000000F )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DBE2 - 0000DBFE (0x1d bytes), align: 0
+  Relative segment, address: CODE 0000DBF0 - 0000DC0C (0x1d bytes), align: 0
   Segment part 41.            Intra module refs:   CheckDataAct
                                                    GetNewProgRcd
                                                    MvData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Copy_4                  0000DBE2        Get645Data (TRx)
+           Copy_4                  0000DBF0        Get645Data (TRx)
                                                    GetFHTime (PubData)
                                                    ReadEvtState (TRx)
                                                    ReadWriteTime (TRx)
@@ -7472,30 +7454,30 @@ NEAR_CODE
                XSTACK = 0000001A ( 0000000B )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DBFF - 0000DC1B (0x1d bytes), align: 0
+  Relative segment, address: CODE 0000DC0D - 0000DC29 (0x1d bytes), align: 0
   Segment part 44.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Cmp_4                   0000DBFF        Get645Data (TRx)
+           Cmp_4                   0000DC0D        Get645Data (TRx)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DC1C - 0000DC3D (0x22 bytes), align: 0
+  Relative segment, address: CODE 0000DC2A - 0000DC4B (0x22 bytes), align: 0
   Segment part 45.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Is_DispCode             0000DC1C        NextItem (Disp)
+           Is_DispCode             0000DC2A        NextItem (Disp)
                                                    UpDisp (Disp)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DC3E - 0000DC4B (0xe bytes), align: 0
+  Relative segment, address: CODE 0000DC4C - 0000DC59 (0xe bytes), align: 0
   Segment part 46.            Intra module refs:   BCD_Hex
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           HEX                     0000DC3E        GetFeilv (Meter)
+           HEX                     0000DC4C        GetFeilv (Meter)
                                                    GetTimeCnt (Drv_RTCSPK)
                                                    SetRTCCnt (Drv_RTCSPK)
                                                    WriteFLMode (TRx)
@@ -7503,11 +7485,11 @@ NEAR_CODE
                XSTACK = 00000017 ( 00000000 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DC4C - 0000DC5B (0x10 bytes), align: 0
+  Relative segment, address: CODE 0000DC5A - 0000DC69 (0x10 bytes), align: 0
   Segment part 47.            Intra module refs:   Hex_BCD
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           BCD                     0000DC4C        GetCntTime (Drv_RTCSPK)
+           BCD                     0000DC5A        GetCntTime (Drv_RTCSPK)
                                                    OutTTBL (TRx)
                                                    OutYTBL (TRx)
                                                    ReadVer (TRx)
@@ -7515,30 +7497,30 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DC5C - 0000DCA4 (0x49 bytes), align: 0
+  Relative segment, address: CODE 0000DC6A - 0000DCB2 (0x49 bytes), align: 0
   Segment part 50.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           CheckDataAct            0000DC5C        ChkYMode (Meter)
+           CheckDataAct            0000DC6A        ChkYMode (Meter)
                                                    UpDisp (Disp)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DCA5 - 0000DCFD (0x59 bytes), align: 0
+  Relative segment, address: CODE 0000DCB3 - 0000DD0B (0x59 bytes), align: 0
   Segment part 51.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           CheckKeyChg             0000DCA5        UpDisp (Disp)
+           CheckKeyChg             0000DCB3        UpDisp (Disp)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DCFE - 0000DDD3 (0xd6 bytes), align: 0
+  Relative segment, address: CODE 0000DD0C - 0000DDE1 (0xd6 bytes), align: 0
   Segment part 52.            Intra module refs:   MvData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Hex_BCD                 0000DCFE        ReadEEPROMFData (TRx)
+           Hex_BCD                 0000DD0C        ReadEEPROMFData (TRx)
                                                    ReadSTD (TRx)
                                                    ReadSafeData (TRx)
                                                    Up_BCDData (TRx)
@@ -7547,23 +7529,23 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DDD4 - 0000DE86 (0xb3 bytes), align: 0
+  Relative segment, address: CODE 0000DDE2 - 0000DE94 (0xb3 bytes), align: 0
   Segment part 53.            Intra module refs:   MvData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           BCD_Hex                 0000DDD4        WriteFLMode (TRx)
+           BCD_Hex                 0000DDE2        WriteFLMode (TRx)
                calls direct
                XSTACK = 0000001A ( 00000017 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DE87 - 0000DE8F (0x9 bytes), align: 0
+  Relative segment, address: CODE 0000DE95 - 0000DE9D (0x9 bytes), align: 0
   Segment part 54.            Intra module refs:   ClrRcdTime
                                                    SetRcdMin
                                                    UpEState
                                                    UpJDWriter
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Up_u32Data              0000DE87        ChangeTime (Drv_RTCSPK)
+           Up_u32Data              0000DE95        ChangeTime (Drv_RTCSPK)
                                                    ChkYFroze (Meter)
                                                    Do_JDOff (Meter)
                                                    MStepFroze (Meter)
@@ -7575,11 +7557,11 @@ NEAR_CODE
                XSTACK = 0000001B ( 00000000 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DE90 - 0000DEB6 (0x27 bytes), align: 0
+  Relative segment, address: CODE 0000DE9E - 0000DEC4 (0x27 bytes), align: 0
   Segment part 55.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Up_u16Data              0000DE90        Up_FrozeData (PubData)
+           Up_u16Data              0000DE9E        Up_FrozeData (PubData)
                                                    WriteFrozeDT (TRx)
                                                    WriteFrozeHM (TRx)
                calls direct
@@ -7587,12 +7569,12 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DEB7 - 0000DEDA (0x24 bytes), align: 0
+  Relative segment, address: CODE 0000DEC5 - 0000DEE8 (0x24 bytes), align: 0
   Segment part 56.            Intra module refs:   SetEBit
                                                    SetEvtState
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Up_u8Data               0000DEB7        GetFeilv (Meter)
+           Up_u8Data               0000DEC5        GetFeilv (Meter)
                                                    GetPrice (Meter)
                                                    ReadWriteActUseMode (TRx)
                                                    WBaud (TRx)
@@ -7606,11 +7588,11 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000003 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DEDB - 0000DEF1 (0x17 bytes), align: 0
+  Relative segment, address: CODE 0000DEE9 - 0000DEFF (0x17 bytes), align: 0
   Segment part 57.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ClrRcdTime              0000DEDB        Do_JDOff (Meter)
+           ClrRcdTime              0000DEE9        Do_JDOff (Meter)
                                                    GetAlmState (Meter)
                                                    GetFeilv (Meter)
                calls direct
@@ -7618,79 +7600,79 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DEF2 - 0000DF1F (0x2e bytes), align: 0
+  Relative segment, address: CODE 0000DF00 - 0000DF2D (0x2e bytes), align: 0
   Segment part 59.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetRcdMin               0000DEF2        SetRTCCnt (Drv_RTCSPK)
+           SetRcdMin               0000DF00        SetRTCCnt (Drv_RTCSPK)
                                                    WriteFrozeDT (TRx)
                calls direct
                XSTACK = 00000000 ( 00000013 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DF20 - 0000DF3A (0x1b bytes), align: 0
+  Relative segment, address: CODE 0000DF2E - 0000DF48 (0x1b bytes), align: 0
   Segment part 60.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UpJDWriter              0000DF20        ChkUseState (Meter)
+           UpJDWriter              0000DF2E        ChkUseState (Meter)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DF3B - 0000DF93 (0x59 bytes), align: 0
+  Relative segment, address: CODE 0000DF49 - 0000DFA1 (0x59 bytes), align: 0
   Segment part 61.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Up_NormFroze            0000DF3B        GetFeilv (Meter)
+           Up_NormFroze            0000DF49        GetFeilv (Meter)
                                                    data_restore (mainapp)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DF94 - 0000DFC5 (0x32 bytes), align: 0
+  Relative segment, address: CODE 0000DFA2 - 0000DFD3 (0x32 bytes), align: 0
   Segment part 62.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetTimeDiff             0000DF94        Get645Data (TRx)
+           GetTimeDiff             0000DFA2        Get645Data (TRx)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000DFC6 - 0000E051 (0x8c bytes), align: 0
+  Relative segment, address: CODE 0000DFD4 - 0000E05F (0x8c bytes), align: 0
   Segment part 64.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Up_ProgFroze            0000DFC6        ReadWriteActUseMode (TRx)
+           Up_ProgFroze            0000DFD4        ReadWriteActUseMode (TRx)
                                                    WriteFrozeDT (TRx)
                                                    WriteWeekTblNum (TRx)
                calls direct
                XSTACK = 00000000 ( 0000000D )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E052 - 0000E0EC (0x9b bytes), align: 0
+  Relative segment, address: CODE 0000E060 - 0000E0FA (0x9b bytes), align: 0
   Segment part 66.            Intra module refs:   CloseProgRecord
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetNewProgRcd           0000E052        RxProgRcd (TRx)
+           GetNewProgRcd           0000E060        RxProgRcd (TRx)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E0ED - 0000E123 (0x37 bytes), align: 0
+  Relative segment, address: CODE 0000E0FB - 0000E131 (0x37 bytes), align: 0
   Segment part 67.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           CloseProgRecord         0000E0ED        Init_Data (GC_Use)
+           CloseProgRecord         0000E0FB        Init_Data (GC_Use)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E124 - 0000E183 (0x60 bytes), align: 0
+  Relative segment, address: CODE 0000E132 - 0000E191 (0x60 bytes), align: 0
   Segment part 68.            Intra module refs:   ChkEvtState
                                                    CloseProgRecord
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetEBit                 0000E124        ChangeTime (Drv_RTCSPK)
+           SetEBit                 0000E132        ChangeTime (Drv_RTCSPK)
                                                    ChkAlmJD (Meter)
                                                    ChkUseState (Meter)
                                                    ChkYFroze (Meter)
@@ -7706,39 +7688,39 @@ NEAR_CODE
                XSTACK = 0000003B ( 00000009 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E184 - 0000E1A6 (0x23 bytes), align: 0
+  Relative segment, address: CODE 0000E192 - 0000E1B4 (0x23 bytes), align: 0
   Segment part 69.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UpEState                0000E184        ChkUseState (Meter)
+           UpEState                0000E192        ChkUseState (Meter)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E1A7 - 0000E1E1 (0x3b bytes), align: 0
+  Relative segment, address: CODE 0000E1B5 - 0000E1EF (0x3b bytes), align: 0
   Segment part 70.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetWeek                 0000E1A7        ReadWriteTime (TRx)
+           GetWeek                 0000E1B5        ReadWriteTime (TRx)
                                                    SetRTCCnt (Drv_RTCSPK)
                XSTACK = 00000000 ( 0000000F )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E1E2 - 0000E20C (0x2b bytes), align: 0
+  Relative segment, address: CODE 0000E1F0 - 0000E21A (0x2b bytes), align: 0
   Segment part 71.            Intra module refs:   SetEvtState
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ChkEvtState             0000E1E2        ClrEvtState (TRx)
+           ChkEvtState             0000E1F0        ClrEvtState (TRx)
                                                    Init_Data (GC_Use)
                calls direct, is recursive
                XSTACK = 00000009 ( 00000009 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E20D - 0000E287 (0x7b bytes), align: 0
+  Relative segment, address: CODE 0000E21B - 0000E295 (0x7b bytes), align: 0
   Segment part 72.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetEvtState             0000E20D        ChkUseState (Meter)
+           SetEvtState             0000E21B        ChkUseState (Meter)
                                                    EDataErr (PubData)
                                                    ReadWriteActUseMode (TRx)
                                                    ReadWriteTime (TRx)
@@ -7750,11 +7732,11 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E288 - 0000E2B1 (0x2a bytes), align: 0
+  Relative segment, address: CODE 0000E296 - 0000E2BF (0x2a bytes), align: 0
   Segment part 73.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RSet_WDG                0000E288        Init_Data (GC_Use)
+           RSet_WDG                0000E296        Init_Data (GC_Use)
                                                    Init_MCU (InOut)
                                                    MCU_OnLIne_Init (InOut)
                                                    Read_ELVSave (PubData)
@@ -7791,20 +7773,20 @@ XDATA_Z
            cErrlistno              00000EE9 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E2B2 - 0000E2C1 (0x10 bytes), align: 0
+  Relative segment, address: CODE 0000E2C0 - 0000E2CF (0x10 bytes), align: 0
   Segment part 12.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           debug_init              0000E2B2        main (mainapp)
+           debug_init              0000E2C0        main (mainapp)
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E2C2 - 0000E2D2 (0x11 bytes), align: 0
+  Relative segment, address: CODE 0000E2D0 - 0000E2E0 (0x11 bytes), align: 0
   Segment part 13.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           debug_break             0000E2C2        Init_FlashData (indata_oper)
+           debug_break             0000E2D0        Init_FlashData (indata_oper)
                                                    TIMER_ISR (mainapp)
                                                    Wait_Rst (mainapp)
                                                    Write_EEData1 (eeprom)
@@ -7832,89 +7814,89 @@ XDATA_Z
            stsafedateio            00000EEA 
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E2D3 - 0000E309 (0x37 bytes), align: 0
+  Relative segment, address: CODE 0000E2E1 - 0000E317 (0x37 bytes), align: 0
   Segment part 8.             Intra module refs:   cSafeData_checkdata
                                                    cSafeData_restoreData
                                                    nSafeData_struct_Init
                                                    nSafeData_update2bak
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           iGetsum                 0000E2D3 
+           iGetsum                 0000E2E1 
                XSTACK = 0000000F ( 00000009 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E30A - 0000E3AC (0xa3 bytes), align: 0
+  Relative segment, address: CODE 0000E318 - 0000E3BA (0xa3 bytes), align: 0
   Segment part 10.            Intra module refs:   cSafeData_restoreData
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           iVote                   0000E30A 
+           iVote                   0000E318 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E3AD - 0000E4B6 (0x10a bytes), align: 0
+  Relative segment, address: CODE 0000E3BB - 0000E4C4 (0x10a bytes), align: 0
   Segment part 11.            Intra module refs:   cSafeData_Data_Refreah
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cSafeData_checkdata     0000E3AD 
+           cSafeData_checkdata     0000E3BB 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E4B7 - 0000E603 (0x14d bytes), align: 0
+  Relative segment, address: CODE 0000E4C5 - 0000E611 (0x14d bytes), align: 0
   Segment part 12.            Intra module refs:   cSafeData_Data_Refreah
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cSafeData_restoreData   0000E4B7 
+           cSafeData_restoreData   0000E4C5 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E604 - 0000E629 (0x26 bytes), align: 0
+  Relative segment, address: CODE 0000E612 - 0000E637 (0x26 bytes), align: 0
   Segment part 13.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            cSafeData_Data_Refreah
-                                   0000E604        Read_ELVSave (PubData)
+                                   0000E612        Read_ELVSave (PubData)
                                                    Up_LVSave_io (PubData)
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E62A - 0000E6F9 (0xd0 bytes), align: 0
+  Relative segment, address: CODE 0000E638 - 0000E707 (0xd0 bytes), align: 0
   Segment part 14.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           nSafeData_update2bak    0000E62A        Reset_LVSave (PubData)
+           nSafeData_update2bak    0000E638        Reset_LVSave (PubData)
                                                    Up_BkLVSave (PubData)
                calls direct
                XSTACK = 00000000 ( 0000000B )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E6FA - 0000E708 (0xf bytes), align: 0
+  Relative segment, address: CODE 0000E708 - 0000E716 (0xf bytes), align: 0
   Segment part 15.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           nSafeData_set_upb       0000E6FA        Reset_LVSave (PubData)
+           nSafeData_set_upb       0000E708        Reset_LVSave (PubData)
                                                    Up_BkLVSave (PubData)
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E709 - 0000E716 (0xe bytes), align: 0
+  Relative segment, address: CODE 0000E717 - 0000E724 (0xe bytes), align: 0
   Segment part 16.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           nSafeData_res_upb       0000E709        Reset_LVSave (PubData)
+           nSafeData_res_upb       0000E717        Reset_LVSave (PubData)
                                                    Up_BkLVSave (PubData)
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 NEAR_CODE
-  Relative segment, address: CODE 0000E717 - 0000E7BD (0xa7 bytes), align: 0
+  Relative segment, address: CODE 0000E725 - 0000E7CB (0xa7 bytes), align: 0
   Segment part 17.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           nSafeData_struct_Init   0000E717        Read_ELVSave (PubData)
+           nSafeData_struct_Init   0000E725        Read_ELVSave (PubData)
                                                    Reset_LVSave (PubData)
                calls direct
                XSTACK = 00000002 ( 0000000B )
@@ -10973,11 +10955,11 @@ RCODE
   SEGMENTS IN THE MODULE
   ======================
 NEAR_CODE
-  Relative segment, address: CODE 0000E7BE - 0000E7FC (0x3f bytes), align: 0
+  Relative segment, address: CODE 0000E7CC - 0000E80A (0x3f bytes), align: 0
   Segment part 7.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           labs                    0000E7BE        ChkJDWaitAM (Meter)
+           labs                    0000E7CC        ChkJDWaitAM (Meter)
                XSTACK = 00000000 ( 0000000F )
 
     *************************************************************************
@@ -11006,7 +10988,7 @@ CODE_AC              CODE          000011C0 - 000011CC           D   rel    0
                      CODE          000011CE - 000011CE           1 
 CODE_C               CODE          000011CF - 000028EF        1721   rel    0
 CODE_N               CODE               000028F0                     dse    0
-NEAR_CODE            CODE          000028F0 - 0000E7FC        BF0D   rel    0
+NEAR_CODE            CODE          000028F0 - 0000E80A        BF1B   rel    0
 REGISTERS            DATA          00000000 - 00000007           8   rel    0
 __REG_BANK2          DATA          00000010 - 00000017           8   rel    0
 BREG                 BIT        00000020.0  -  00000020.7        8   rel    0
@@ -11064,7 +11046,7 @@ ISTACK               IDATA         000000A0 - 000000FF          60   rel    0
                 *                                      *
                 ****************************************
 
- 56 658 bytes of CODE  memory (+ 1 292 absolute )
+ 56 672 bytes of CODE  memory (+ 1 292 absolute )
      26 bytes of DATA  memory (+    52 absolute )
   3 836 bytes of XDATA memory (+    77 absolute )
      96 bytes of IDATA memory
