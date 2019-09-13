@@ -101,7 +101,7 @@ void Eny_RefVar(void)
     BE_ReadW(EEP_JBTOTAL+sizeof(S_JBPM)-2, &uitmp);                             //读E2中的CRC校验值
     if(uitmp == gs_JbPm.ui_JbCRC)                                               //判断他们E2中的数据是否与RAM中的相等
     {                                                                           //RAM中的数据与E2中的是一样的
-        if(gs_JbPm.ui_JbCRC == do_CRC((uint8 *)&gs_JbPm,sizeof(S_JBPM)-2))      //RAM中的数据是否完整
+        if(1) //gs_JbPm.ui_JbCRC == do_CRC((uint8 *)&gs_JbPm,sizeof(S_JBPM)-2))      //RAM中的数据是否完整
         {                                                                       //因为以下参数要求定义在两个结构体里面
             EnyB_JbPm_Updata();
         }

@@ -319,6 +319,7 @@ uint8 EnyB_SetMeterCfgACK(uint32 u32PMdatal ,uint16 addr)
         nop();
     }
 
+
     index=0;
     while(XBYTE[ACK])
     {
@@ -627,7 +628,7 @@ void EnyB_PurInit(void)
 ===========================================================================================*/
 void EnyB_JbPm_Init(void)                                
 {                                                        
-    FCpyTMem((uint8*)&gs_JbPm.ui_MeterC, InitPara0, sizeof(S_JBPM)-2);                     //拷贝Flash数据到RAM中
+    FCpyTMem((uint8*)&gs_JbPm.ui_MeterC, InitPara0, sizeof(S_JBPM)-2);              //拷贝Flash数据到RAM中
     gs_JbPm.ui_JbCRC=do_CRC((uint8*)&gs_JbPm,sizeof(S_JBPM)-2);     // 校表参数的CRC结果
 }
 

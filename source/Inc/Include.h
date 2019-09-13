@@ -113,7 +113,7 @@ VAREXT uint16 gui_SysSleepSta;
 
 
 
-
+#define                 _ChipDataSet_Bz_                0x12345678
 
 
 

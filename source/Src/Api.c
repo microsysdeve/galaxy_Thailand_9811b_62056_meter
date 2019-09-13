@@ -999,6 +999,7 @@ void MemInvertCpy(uint8x *des,uint8x *src,uint8 len)
 ===========================================================================================*/
 //#pragma location = "BANK0"
 //__banked_func 
+/*
 void FCpyTMem(uint8x *des,const uint8 code *src,uint8 len)
 {
     while(len--)
@@ -1026,7 +1027,7 @@ void FCpyTMem2(uint8x *des,const uint8 code *src,uint8 len)
         *(des++)=*(src++);
     }
 }
-
+*/
 
 /*=========================================================================================\n
 * @function_name: MemCpy

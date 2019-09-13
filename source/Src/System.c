@@ -288,6 +288,7 @@ __interrupt void UATRAndRTCInterrupt(void)
         guc_TimeEvent|= flgEtTim_Second;
         ExInt3IFG&=(~BIT6);
         c8025intno++;
+       
     }
        
     if(ucTemp&BIT2)      //UART5·¢ËÍ

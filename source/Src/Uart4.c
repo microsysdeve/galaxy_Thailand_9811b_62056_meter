@@ -19,7 +19,8 @@ uint8   guc_DyUart4Over;        //模拟串口超时保护
 ===========================================================================================*/
 void Init_Uart4(uint8 ucBode)
 {
-
+volatile char    stemp[5],j;
+int i;
     if(ucBode>=5)
     {
         ucBode=2;                           //默认2400
@@ -45,6 +46,32 @@ void Init_Uart4(uint8 ucBode)
 #else
     Uart4_RevEn();
 #endif
+   /* 
+    SCON4&=(~BIT4);
+    
+                while (1)
+                {
+                  for ( j =0;j<255;j++)
+                  {
+                   SLPWDT();               //800k喂狗
+                   SCON4 &=~BIT1;
+          ACC =j;
+                      if(P==0)                                        //校验位
+                    {
+                        SCON2&=(~BIT3);
+                    }
+                    else
+                    {
+                        SCON2|=(BIT3);
+                    }
+                    
+       SBUF4 =j;
+       for ( i =0 ;i < 100;i++)
+       asm("nop");
+                  }
+       
+                }
+     */           
 }
 
 /*=========================================================================================\n

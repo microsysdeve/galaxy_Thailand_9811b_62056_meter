@@ -52,7 +52,9 @@ uint8 CompareTime(uint8  *Tm1,uint8 *Tm2);
 void MemInvertCpy(uint8 *des,uint8 *src,uint8 len);
 void MemCpy(uint8 *des,uint8 *src,uint8 len);
 void MemSet(uint8* des,uint8 value,uint8 len);
-void FCpyTMem(uint8x *des,const uint8 code *src,uint8 len);
+//void FCpyTMem(uint8x *des,const uint8 code *src,uint8 len);
+void CopyRam(unsigned char  *Dst, unsigned char  const *Src, unsigned short  Length); //Public.c
+#define FCpyTMem(des,src,len) CopyRam((unsigned char  *)des,(unsigned char *)src ,(uint16)len)
 void FCpyTMem1(uint8x *des,const uint8 code *src,uint8 len);
 void FCpyTMem2(uint8x *des,const uint8 code *src,uint8 len);
 void DelayXms(uint8 num);
