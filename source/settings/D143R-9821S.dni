@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-431057712
+Checksum=138709520
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -72,6 +72,11 @@ Fmt18={W}0:ctemp1	4	0
 Fmt19={W}0:ctemp2	4	0
 Fmt20={W}0:ltemp	4	0
 Fmt21={W}0:ui_E2Address	4	0
+Fmt22={W}0:uitmp	4	0
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\Energy.c}.50.17" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\Energy.c}.106.13" 1 0 0 0 "" 0 ""
+Count=2
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -79,11 +84,6 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.75.1" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\Energy.c}.50.17" 1 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.104.11" 1 0 0 0 "" 0 ""
-Count=3
 [Aliases]
 Count=0
 SuppressDialog=0

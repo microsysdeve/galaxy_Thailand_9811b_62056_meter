@@ -68,7 +68,9 @@ uint8 WriteMeterAddr(S_FRAMEINFO *s_FrmInfo);
 uint8 ChangePassWord(S_FRAMEINFO *s_FrmInfo);
 uint8 ChangeBode(S_FRAMEINFO *s_FrmInfo);
 uint8 ClearMaxXL(S_FRAMEINFO *s_FrmInfo);
-uint8 ClearMeter(S_FRAMEINFO *s_FrmInfo);
+//uint8 ClearMeter(S_FRAMEINFO *s_FrmInfo);
+#define   ClearMeter(a)   {} 
+
 uint8 ClearEvent(S_FRAMEINFO *s_FrmInfo);
 uint8 BroadcastTime(S_FRAMEINFO *s_FrmInfo);
 uint8 Freeze(S_FRAMEINFO *s_FrmInfo);
@@ -76,11 +78,15 @@ uint8 SecPulsCtrl(S_FRAMEINFO *s_FrmInfo);
 uint8 MidFindID(Word32 id, S_CORETAB code* tab, uint8 num);
 uint8 ReadAccuEgy(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable);
 uint8 ReadZHLYEgy(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable);
-uint8 ReadCurEgy(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable);
+//uint8 ReadCurEgy(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable);
+#define  ReadCurEgy(a,b) {} 
+
 uint8 ReadHisEgy(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable);
 uint8 FunToBeDef(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable);
 uint8 FactoryRD(S_FRAMEINFO *s_FrmInfo);
-uint8 FactoryWR(S_FRAMEINFO *s_FrmInfo);
+//uint8 FactoryWR(S_FRAMEINFO *s_FrmInfo);
+#define  FactoryWR(a)  {}
+
 uint8 ComRWE2Para(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable);
 uint8 ReadVar(S_FRAMEINFO *s_FrmInfo, S_CORETAB code * CTable);
 

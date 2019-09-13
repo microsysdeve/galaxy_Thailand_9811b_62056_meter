@@ -30,7 +30,8 @@ uint8 Pwr_DownProc(void);
 void Pwr_WakeupProc(void);
 void Pwr_SleepProc(void);
 void Pwr_LcdSet(void);
-void Pwr_E2Save(void);
+//void Pwr_E2Save(void);
+#define Pwr_E2Save()  {} 
 void Pwr_SlpReset(void);
 bool Pwr_ChkProc(void);
 

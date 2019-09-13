@@ -98,8 +98,8 @@ void Eny_JbPm_UpdateRam(uint8 *pjb)
 void Eny_RefVar(void)
 {
     uint16 uitmp;
-    BE_ReadW(EEP_JBTOTAL+sizeof(S_JBPM)-2, &uitmp);                             //读E2中的CRC校验值
-    if(uitmp == gs_JbPm.ui_JbCRC)                                               //判断他们E2中的数据是否与RAM中的相等
+   // BE_ReadW(EEP_JBTOTAL+sizeof(S_JBPM)-2, &uitmp);                             //读E2中的CRC校验值
+    if(1) //(uitmp == gs_JbPm.ui_JbCRC)                                               //判断他们E2中的数据是否与RAM中的相等
     {                                                                           //RAM中的数据与E2中的是一样的
         if(1) //gs_JbPm.ui_JbCRC == do_CRC((uint8 *)&gs_JbPm,sizeof(S_JBPM)-2))      //RAM中的数据是否完整
         {                                                                       //因为以下参数要求定义在两个结构体里面
@@ -131,11 +131,13 @@ void Eny_RefVar(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+/*
 void Eny_RefCalcType(void)
 {
     //BE_ReadB(EEP_YGCALC,&guc_EPCalcType);               //刷新计量方式字
     guc_EPCalcType=0x05;
 }
+*/
 /*=========================================================================================\n
 * @function_name: Eny_JbPm_MeterConst
 * @function_file: EnergyBottom.c
@@ -184,6 +186,8 @@ void Eny_JbPm_MeterConst(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+
+/*
 void Eny_EnergyClrCur(uint8 ucType)
 {                       
     if(ucType & ENERGY_CLR_RAM)
@@ -207,7 +211,7 @@ void Eny_EnergyClrCur(uint8 ucType)
 
     }
 }
- 
+ */
 /*=========================================================================================\n
 * @function_name: Eny_PurCheckRAMEny
 * @function_file: Energy.c
@@ -221,6 +225,7 @@ void Eny_EnergyClrCur(uint8 ucType)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+/*
 void Eny_PurCheckRAMEny(void)
 {
     ENERGYACTIVE sEA;
@@ -245,7 +250,7 @@ void Eny_PurCheckRAMEny(void)
         }
     }
 }
-
+*/
 /*=========================================================================================\n
 * @function_name: Eny_CheckEnergy
 * @function_file: Energy.c
@@ -260,6 +265,7 @@ void Eny_PurCheckRAMEny(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+/*
 void Eny_CheckEnergy(void)
 {
     uint8   ucErr = 0;
@@ -285,7 +291,7 @@ void Eny_CheckEnergy(void)
         Eny_EnergyClrCur(ENERGY_CLR_RAM);                                       // 清零
     }                                                                       
 }
- 
+ */
 /*=========================================================================================\n
 * @function_name: Eny_CheckEnergyActiveRAM
 * @function_file: Energy.c
@@ -301,8 +307,10 @@ void Eny_CheckEnergy(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+/*
 uint8 Eny_CheckEnergyActiveRAM(void)
 {
+   return ENERGY_ERR_NONE;
     //验证数据CRC校验
     if(do_CRC((uint8*)&gs_EnergyA, sizeof(ENERGYACTIVE)- 2) != gs_EnergyA.uiCRC)
     {
@@ -311,7 +319,7 @@ uint8 Eny_CheckEnergyActiveRAM(void)
     
     return ENERGY_ERR_NONE;
 }
- 
+ */
 /*=========================================================================================\n
 * @function_name: Eny_GetEp1
 * @function_file: Energy.c
@@ -330,6 +338,7 @@ uint8 Eny_CheckEnergyActiveRAM(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+/*
 int16 Eny_GetEp1(uint8 index, uint8 fee)                 
 {
     int16 iRet=0;
@@ -396,7 +405,7 @@ int16 Eny_GetEp1(uint8 index, uint8 fee)
     }
     return iRet;
 }
- 
+ */
 /*=========================================================================================\n
 * @function_name: Eny_EnergyActiveSave
 * @function_file: Energy.c
@@ -411,6 +420,7 @@ int16 Eny_GetEp1(uint8 index, uint8 fee)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+#ifdef _DEL
 void Eny_EnergyActiveSave(void)
 {
     uint8 ucFlg = 0;
@@ -440,19 +450,19 @@ void Eny_EnergyActiveSave(void)
     
     //如果E2数据CRC有效,则用E2数据覆盖RAM数据,当E2数据CRC不正确时,RAM数据CRC正确,那么相信RAM数据
     //如果都不正确,都将会用主E2的数据覆盖RAM数据
-    if(ucFlg == 0)
-    {
-        if(do_CRC ((uint8*)&gs_EnergyA, sizeof(ENERGYACTIVE) - 2) != gs_EnergyA.uiCRC)
-        {
-            //如果电量都不正确，则都不处理，直接返回。
-            return;
-        }
-    }
+   // if(ucFlg == 0)
+    //{
+     //   if(do_CRC ((uint8*)&gs_EnergyA, sizeof(ENERGYACTIVE) - 2) != gs_EnergyA.uiCRC)
+      //  {
+       //     //如果电量都不正确，则都不处理，直接返回。
+       //     return;
+       // }
+    //}
 
-    if(ucFlg == 1)
-    {
-        MemCpy((void*)&gs_EnergyA, (void*)&sEA, sizeof(ENERGYACTIVE));
-    }
+    //if(ucFlg == 1)
+   // {
+    //    MemCpy((void*)&gs_EnergyA, (void*)&sEA, sizeof(ENERGYACTIVE));
+   // }
 
     {
           //正向有功
@@ -515,7 +525,7 @@ void Eny_EnergyActiveSave(void)
     #endif
     }
 }
- 
+ #endif
 /*=========================================================================================\n
 * @function_name: Eny_EnergyProc
 * @function_file: Energy.c
@@ -537,12 +547,13 @@ void Eny_EnergyProc(void)
     uint8*  p;                                          // 合相有功能量的指针
     uint16*  p1;
     uint8 ucSaveflg;
+    uint8 ctemp=0;
                                              
     ucSaveflg=0;                                                    
     Eny_CheckEnergy();                                  // 检查电量有效性
                                                         
     p = (uint8*)&gs_Energy;                             // 能量数据;
-    p1 = (uint16*)&gs_EnergyData;
+    p1 = (uint16*)&ctemp ;//gs_EnergyData;
                        
     for (i=0; i<sizeof(gs_Energy); i++,p++,p1++)
     {                                                   // 检查有功脉冲标志（电量达到MAX_E，向EEPROM中写一次）
@@ -565,13 +576,14 @@ void Eny_EnergyProc(void)
             ucSaveflg=0x55;                                              
         }                                               
     }                                                   
+RamData.ImpBfr +=ctemp;//gs_EnergyData;//
 
-    gs_EnergyData.uiCRC = do_CRC((uint8 *)&gs_EnergyData, sizeof(ENERGYDATA)-2);  // 电量增量CRC校验
-    MemCpy((void*)&gs_EnergyData_bak, (void*)&gs_EnergyData, sizeof(ENERGYDATA));
-    if(ucSaveflg==0x55)
-    {
-        Eny_EnergyActiveSave();
-    }
+  //  gs_EnergyData.uiCRC = do_CRC((uint8 *)&gs_EnergyData, sizeof(ENERGYDATA)-2);  // 电量增量CRC校验
+//    MemCpy((void*)&gs_EnergyData_bak, (void*)&gs_EnergyData, sizeof(ENERGYDATA));
+ //   if(ucSaveflg==0x55)
+  //  {
+   //     Eny_EnergyActiveSave();
+   // }
 }
 /*=========================================================================================\n
 * @function_name: WriteHisEP
@@ -586,6 +598,7 @@ void Eny_EnergyProc(void)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+/*
 void WriteHisEP(void)
 {
     if(Eny_CheckEnergyActiveRAM() != ENERGY_ERR_NONE)
@@ -602,7 +615,7 @@ void WriteHisEP(void)
     }
     DataProcWriteRound2(R2_MOVE,LSDLID,(uint8*)&gs_EnergyA);    //写入历史电量
 }
-
+*/
 /*=========================================================================================\n
 * @function_name: MonthLYDL
 * @function_file: Energy.c
@@ -769,11 +782,11 @@ void Eny_SlpEnergyProc(void)
         cnt = gs_PowerCf.uc_Pz / guc_GateCF;
         gs_PowerCf.uc_Pz -= guc_GateCF*cnt;                                //对CF脉冲进行分频，将分频结果进行能量累加
         gs_Energy.ucPz   += guc_UnitCF*cnt;
-        gs_EnergyData.uiEPZ += gs_Energy.ucPz;
+     //px  complete   gs_EnergyData.uiEPZ += gs_Energy.ucPz;
         gs_Energy.ucPz = 0;
-        gs_EnergyData.uiCRC = do_CRC((uint8 *)&gs_EnergyData, sizeof(ENERGYDATA)-2);  // 电量增量CRC校验
-        MemCpy((void*)&gs_EnergyData_bak, (void*)&gs_EnergyData, sizeof(ENERGYDATA));
-        if((gs_EnergyData.uiEPZ > SAVEVALUE)||(gs_EnergyData.uiENZ > SAVEVALUE)) // 判别是否需要写入
+       //px  complete   gs_EnergyData.uiCRC = do_CRC((uint8 *)&gs_EnergyData, sizeof(ENERGYDATA)-2);  // 电量增量CRC校验
+     //px  complete   MemCpy((void*)&gs_EnergyData_bak, (void*)&gs_EnergyData, sizeof(ENERGYDATA));
+      //px  complete   if((gs_EnergyData.uiEPZ > SAVEVALUE)||(gs_EnergyData.uiENZ > SAVEVALUE)) // 判别是否需要写入
         {
           Eny_EnergyActiveSave(); 
         }

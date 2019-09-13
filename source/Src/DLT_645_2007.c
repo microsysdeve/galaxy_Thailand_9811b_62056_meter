@@ -326,6 +326,7 @@ extern const uint8 code InitPara0[sizeof(S_JBPM)-2];
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+#ifdef _DEL
 uint8 FactoryWR(S_FRAMEINFO *s_FrmInfo)
 {
     uint8 i;
@@ -686,6 +687,8 @@ uint8 FactoryWR(S_FRAMEINFO *s_FrmInfo)
     return Ret_OK;
 }
 
+#endif
+
 #define BYTE(num, n)        *((uint8 code*)&(num) + (n))
 /*=========================================================================================\n
 * @function_name: MidFindID
@@ -926,6 +929,7 @@ uint8 ChangeBode(S_FRAMEINFO *s_FrmInfo)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+/*
 uint8 ClearMeter(S_FRAMEINFO *s_FrmInfo)
 {
     if(s_FrmInfo->ucAtb != Const_Addr_Normal)               //正常地址
@@ -958,6 +962,7 @@ uint8 ClearMeter(S_FRAMEINFO *s_FrmInfo)
     SetCRCWord(guc_ClearWd);
     return Ret_OK;
 }
+*/
  
 /*=========================================================================================\n
 * @function_name: ClearEvent
@@ -1818,7 +1823,7 @@ uint8 ReadCurEgyN(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable)
     return Ret_OK;
 }
 
-
+/*
 uint8 ReadCurEgy(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable)
 {
     int16 Eadd;
@@ -1918,7 +1923,8 @@ uint8 ReadCurEgy(S_FRAMEINFO *s_FrmInfo, S_CORETAB code* CTable)
     }
     return Ret_OK;
 }
- 
+
+ */
 /*=========================================================================================\n
 * @function_name: ReadHisEgy
 * @function_file: DLT_645_2007.c

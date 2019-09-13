@@ -79,11 +79,11 @@ typedef struct
     uint16  uiCRC;                              //CRC校验和
 }ENERGYACTIVE;
 
-AP_ENERGYEXT ENERGYDATA gs_EnergyData;          //当前电量增量
-AP_ENERGYEXT ENERGYDATA gs_EnergyData_bak;      //当前电量增量备份
-AP_ENERGYEXT ENERGYACTIVE gs_EnergyA;           //当前电量有功部分(不包含增量)
-AP_ENERGYEXT uint8 guc_EPCalcType;              //组合有功方式字
-
+//AP_ENERGYEXT ENERGYDATA gs_EnergyData;          //当前电量增量
+//AP_ENERGYEXT ENERGYDATA gs_EnergyData_bak;      //当前电量增量备份
+//AP_ENERGYEXT ENERGYACTIVE gs_EnergyA;           //当前电量有功部分(不包含增量)
+//AP_ENERGYEXT uint8 guc_EPCalcType;              //组合有功方式字
+#define  guc_EPCalcType         FlashInfo.SetInfo.ActUseMode              //组合有功方式字
 //结构定义，用于实现能量的标定
 typedef struct meterc 
 {                                                    
@@ -125,20 +125,28 @@ const S_METERC code gs_MeterConstT[MeterConstLen]=      //根据表常数，确定CF的分
 
 void TaskEnergy(void);
 void Eny_EnergyProc(void);
-void Eny_EnergyClrCur(uint8 ucType);
-void Eny_CheckEnergy(void);
-uint8 Eny_CheckEnergyActiveRAM(void);
-int16 Eny_GetEp1(uint8 index, uint8 fee);
-void Eny_EnergyActiveSave(void);
-void Eny_PurCheckRAMEny(void);
-void Eny_RefCalcType(void);
+//void Eny_EnergyClrCur(uint8 ucType);
+#define  Eny_EnergyClrCur(A)   {} //
+//void Eny_CheckEnergy(void);
+#define  Eny_CheckEnergy()  {}
 
+//uint8 Eny_CheckEnergyActiveRAM(void);
+#define Eny_CheckEnergyActiveRAM()   (ENERGY_ERR_NONE)
+//int16 Eny_GetEp1(uint8 index, uint8 fee);
+#define Eny_GetEp1(a,b)                       (0)          
+//void Eny_EnergyActiveSave(void);
+#define  Eny_EnergyActiveSave()  {}
+//void Eny_PurCheckRAMEny(void);
+#define Eny_PurCheckRAMEny()                    {}
+//void Eny_RefCalcType(void);
+#define  Eny_RefCalcType()  {}
 void Eny_JbPm_GetE2(void);
 void Eny_RefVar(void);
 void Eny_JbPm_MeterConst(void);
 void Eny_JbPm_UpdateRam(uint8 *pjb);
 void EnergyCBRManage(void);
-void WriteHisEP(void);
+//void WriteHisEP(void);
+#define WriteHisEP()   {} 
 void SaveJSTime(uint32 time);
 void MonthLYDL(uint8 uc_Save);
 void Eny_SlpEnergyProc(void);

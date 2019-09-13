@@ -48,8 +48,6 @@
 #define ADCM2X    BIT7
 
 
-
-
  
 #define Const_MaxCf     0x05//最大脉冲数
 #define ADCFRE   819200
@@ -99,7 +97,10 @@ typedef struct
     uint16 ui_JbCRC;    // 校表参数的CRC结果
 }S_JBPM;
 
-ENERGYBOTTOMEXT S_JBPM gs_JbPm;            //校表参数
+//ENERGYBOTTOMEXT S_JBPM gs_JbPm;            //校表参数
+#define   gs_JbPm  (*((S_JBPM *)FlashInfo.ChipSet))
+
+
 ENERGYBOTTOMEXT uint32 u32PMdatal;
 ENERGYBOTTOMEXT uint8  u8PMdatah;
 

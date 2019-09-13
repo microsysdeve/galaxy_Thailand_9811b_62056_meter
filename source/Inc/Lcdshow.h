@@ -267,7 +267,8 @@ enum
 void ShowSysStart(void);
 void ShowInitial(void);
 void ShowSecondProc(void);
-void ShowDataProc(void);
+//void ShowDataProc(void);
+#define  ShowDataProc()  {}
 void ShowNumManage(uint32 ulID, uint8 ucSubNo);
 void ShowRefresh(void);
 void PowOffShowRefresh(void);

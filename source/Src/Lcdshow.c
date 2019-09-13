@@ -302,6 +302,7 @@ void ShowStateManage(void)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+/*
 void ShowNumManage(uint32 ulID,uint8 ucSubNo)
 {
     uint32  ulNum;
@@ -563,6 +564,7 @@ void ShowNumManage(uint32 ulID,uint8 ucSubNo)
     gs_LcdDisp.ulNum1Msk = ulMsk;
     CLRWDT();  
 }
+*/
 /*=========================================================================================\n
 * @function_name: SearchDispNO
 * @function_file: Lcdshow.c
@@ -638,6 +640,7 @@ uint8 SearchDispNO(Word32 ulID)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+/*
 void ShowDataProc(void)
 {
     uint16  uiAddr;                  //E2中各类显示相关表的地址
@@ -706,6 +709,7 @@ void ShowDataProc(void)
 
 
 }
+*/
 /*=========================================================================================\n
 * @function_name: ShowRefreshTime
 * @function_file: Lcdshow.c

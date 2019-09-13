@@ -16,10 +16,10 @@
 ===========================================================================================*/
 const PFUNC code FunList[] = 
 {
-    ADK_ReadVar,                    //0x00   阿迪克集抄
+    //ADK_ReadVar,                    //0x00   阿迪克集抄
     ComReadRunCode,                 //0x01 读取运行状态字
     ReadAccuEgy,                    //0x02 读取周期电量
-    ReadCurEgy,                     //0x03 读取当前的电量
+  //  ReadCurEgy,                     //0x03 读取当前的电量
     ReadHisEgy,                     //0x04 读取历史的电量ReadHisEgy
     ComRWE2Para,                    //0x05 读取E2参数
     ComMeterConst,                  //0x06 读取电表常数 

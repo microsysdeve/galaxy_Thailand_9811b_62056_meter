@@ -15,6 +15,7 @@
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+#ifdef _DEL 
 uint8 ADK_CalFun(S_FRAMEINFO *s_FrmInfo)
 {
     //厂内，电量<1kwh
@@ -64,6 +65,7 @@ uint8 ADK_CalFun(S_FRAMEINFO *s_FrmInfo)
     }             
     return Ret_OK;
 }
+
 /*=========================================================================================\n
 * @function_name: ParaInit
 * @function_file: DLT_645_2007.c
@@ -114,6 +116,7 @@ uint8 ParaInit(S_FRAMEINFO *s_FrmInfo)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+
 uint8 ADK_ReadVar(S_FRAMEINFO *s_FrmInfo, S_CORETAB code * CTable)
 {
     int16 Eadd;
@@ -170,6 +173,7 @@ uint8 ADK_ReadVar(S_FRAMEINFO *s_FrmInfo, S_CORETAB code * CTable)
     s_FrmInfo->ucLen = 21;
     return Ret_OK;
 }
+
 /*=========================================================================================\n
 * @function_name: ADK_ReadVar
 * @function_file: DLT_645_2007.c
@@ -265,6 +269,7 @@ uint8 ADK_ReadFlash(S_FRAMEINFO *s_FrmInfo, S_CORETAB code * CTable)
     s_FrmInfo->ucLen = CTable->ucLen;
     return Ret_OK;
 }
+#endif
 //以下校表部分
 /*=========================================================================================\n
 * @function_name: CalculateSC

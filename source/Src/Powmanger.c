@@ -81,6 +81,8 @@ void Pwr_LcdSet(void)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+
+/*
 void Pwr_E2Save(void)
 {
     uint16 CRC;
@@ -92,6 +94,7 @@ void Pwr_E2Save(void)
     MemCpy(XDATA_RAMZONE+10,(uint8*)&CRC,2);
     BE_WriteP(EEP_POWDWENERGY,(uint8*)XDATA_RAMZONE,12);
 }
+*/
 /*=========================================================================================\n
 * @function_name: Pwr_DownProc
 * @function_file: System.c

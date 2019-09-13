@@ -41,7 +41,8 @@ ADK_EXT uint8 guc_ADKcal;           //阿迪克校表命令
 /*以下函数声明*/
 uint8 ADK_CalFun(S_FRAMEINFO *s_FrmInfo);
 uint8 ParaInit(S_FRAMEINFO *s_FrmInfo);
-uint8 ADK_ReadVar(S_FRAMEINFO *s_FrmInfo, S_CORETAB code * CTable);
+//uint8 ADK_ReadVar(S_FRAMEINFO *s_FrmInfo, S_CORETAB code * CTable);
+#define  ADK_ReadVar(a,b) {}
 uint8 ADK_Backup(S_FRAMEINFO *s_FrmInfo, S_CORETAB code * CTable);
 void ADK_AutoChkPW(uint8);
 void ADK_AutoChkTinyPW(uint8);
