@@ -661,11 +661,19 @@ uint8 SetPLL800K(uint8 MEA)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+void Bat_State_Fun( enum ENBATSATU *cStatu ,unsigned short  *iBat);
 void MChannelCal(void)
 {
+  extern enum ENBATSATU       cBatStatu ;
+  if (    cBatStatu > _enBatOver_ )
+             return ;
+  else
+            Bat_State_Fun( &cBatStatu  ,RamData.VBat);
     if((gs_DateTime.ucSecond==0x05))
     {
-        GetBat();                                                   //获取电池电压
+        //GetBat();                                                   //获取电池电压
+       cBatStatu = _enBatSetChanel_ ;
+      
     }else  if((gs_DateTime.ucSecond==0x07)||(gs_DateTime.ucSecond==0x08))
     {
         if(CtrlADC5!=0x81)
@@ -693,9 +701,60 @@ void MChannelCal(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+
+
+
+void Bat_State_Fun( enum ENBATSATU *cStatu ,unsigned short  *iBat)
+{
+    static      unsigned short   iMainState ;
+     Word32 tempvalue;
+    short               itemp ;
+    extern volatile unsigned short iTime_Isr_no;
+  switch ( *cStatu)
+  {
+    
+  case _enBatSetChanel_: 
+        CtrlADC5=0x92;                              //M2通道开启电池测量功能
+        iMainState = iTime_Isr_no ;        
+        *cStatu *=2;
+        break;
+  case      _enBatWait_:
+        if ( iMainState ==  iTime_Isr_no )
+            break;
+        else
+        {
+            itemp =  abs(iTime_Isr_no  - iMainState);
+            if ( itemp >2 )
+                *cStatu *=2;
+        }
+        break;
+    case _enBatGetData_:
+      tempvalue.lword=EnyB_ReadMeterParaACK(DATAOM);
+       if(tempvalue.byte[3]>0x80)                  //电池悬空的时候读取可能是负值
+        {
+            tempvalue.lword=(~tempvalue.lword)+1;
+        }
+        tempvalue.lword = tempvalue.lword >> 16;
+        tempvalue.lword = ((tempvalue.lword*100+5069)/5959);
+         *iBat =tempvalue.lword;
+          CtrlADC5=0x81;      //切换到温度测量
+          *cStatu *=2;
+          break;
+
+    
+    case _enBatOver_:
+    *cStatu *=2;
+          break;
+          
+    case  _enBatNull_ :
+    case _enBatEnd_:
+      break;
+  }
+}
+/*
 void GetBat(void)
 {
-    Word32 tempvalue;
+    volatile Word32 tempvalue;
 //    {
         CtrlADC5=0x97;                              //M2通道开启电池测量功能
 
@@ -751,6 +810,8 @@ void GetBat(void)
         CtrlADC5=0x81;      //切换到温度测量
 //    }
 }
+
+*/
 /*=========================================================================================\n
 * @function_name: ChangeBodeProc
 * @function_file: McuDrive.c

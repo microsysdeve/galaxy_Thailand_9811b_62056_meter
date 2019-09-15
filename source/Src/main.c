@@ -323,7 +323,7 @@ MAINSTART:
     SLPWDT();               //800k喂狗
     App_Init();             //系统应用层初始化
     SLPWDT();               //800k喂狗
-    Mea_Init();             //计量初始化           
+    // Mea_Init();             //计量初始化           
     SLPWDT();               //800k喂狗   
     Var_Init();             //系统参数初始化-应该能放到appinit中
     SLPWDT();               //800k喂狗

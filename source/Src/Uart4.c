@@ -73,7 +73,53 @@ int i;
                 }
      */           
 }
+void Init_Uart41(uint8 ucBode,uint8 uctype)
+{
+//  if(uctype==0x00)                            //62056-21
+    {
+        if(ucBode>=6)
+        {
+            ucBode=0;                           //默认2400
+        }
+    }
+//  else                                        //645 规约
+//  {
+//      if(ucBode>=6)
+//      {
+//          ucBode=3;                           //默认2400
+//      }
+//  }
 
+    TMOD4 = 0x20;                               // 8-bit counter with auto-reload
+    TCON4 =BaudRateTable[ucBode].Type;          //时钟选择CLK  clear SMOD  SET  T1M,TR1
+    TL41=TH41=BaudRateTable[ucBode].THValue;    //波特率设置
+//    if(uctype==0x00)                            //62056-21
+    {
+        SCON4 = 0x50;                           //数据位8位,7位数据位+1校验位
+    }
+//    else
+//    {
+//        SCON4=0xD0;                             //数据位9位,8位数据位+1校验位
+//    }
+    P2OD |= BIT1;
+    P2OE &= ~BIT1;                      //Uart4发送口输出允许
+    P2IE &= ~BIT1;                      //Uart4发送口输入禁止
+    P2OE |= BIT0;                       //Uart4接收口输出禁止
+    P2IE |= BIT0;                       //Uart4接收口输入允许
+    P20FS=2;                            //P2.0配置成RXD
+    P21FS=2;                            //P2.1配置成TXD
+
+    EIE|=BIT0;
+    ExInt2IE&=~BIT2;
+    SCON4&=~(BIT0+BIT1);
+    ExInt2IFG&=~(BIT2+BIT3);
+    ExInt2IE|=BIT3;
+#ifdef RS485_TWOLINE
+    Uart4_CtrIoIdle();
+#else
+    Uart4_RevEn();
+#endif
+}
 /*=========================================================================================\n
 * @function_name: Uart4_Dy10ms
 * @function_file: Uart4.c

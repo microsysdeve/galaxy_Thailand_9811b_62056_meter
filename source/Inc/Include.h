@@ -49,6 +49,7 @@
 #include "ADKFunc.h"
 #include "pxv9811b.h"
 #include "pubset.h"
+#include "Ptl_1107.h"
 
 VAREXT uint16 gui_SystemEvent;
 #define flgEtGlb_PowDown        0x01

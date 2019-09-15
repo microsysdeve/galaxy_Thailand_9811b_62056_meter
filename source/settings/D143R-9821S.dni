@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=138709520
+Checksum=-1564988221
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -75,8 +75,7 @@ Fmt21={W}0:ui_E2Address	4	0
 Fmt22={W}0:uitmp	4	0
 [Breakpoints]
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\Energy.c}.50.17" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\Energy.c}.106.13" 1 0 0 0 "" 0 ""
-Count=2
+Count=1
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
