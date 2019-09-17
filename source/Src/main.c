@@ -239,7 +239,7 @@ void App_Init(void)
 {
     Demand_Init();          //初始化需量参数
     DataSecurityInit();
-    ShowSysStart();         //显示上电初始化
+    //ShowSysStart();         //显示上电初始化
     Mcu_RTCNormal(guc_PllSta);         //RTC默认初始化
     Tamp_Init();
     EnyB_Init();

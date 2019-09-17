@@ -112,8 +112,10 @@ uint32 EnyB_ReadMeterParaACK(uint16 addr)
     u32PMdatal=XBYTE[addr];                          //读取真实地址，加载数据到缓冲
     WaitACK();
     if (XBYTE[ACK])
+    {
+      debug_break(_debug_errno_EnyB_ReadMeterParaACK_);
       return false;
-    
+    }
 //    u32PMdatal=(uint32)XBYTE[BUFF0];
 //    temp=(uint32)XBYTE[BUFF1]<<8;
 //    u32PMdatal+= temp;
@@ -296,6 +298,11 @@ uint8 EnyB_SetMeterCfgACK(uint32 u32PMdatal ,uint16 addr)
     uint8 index;
     volatile uint32 temp;
     index=0;
+    
+    void            Value_put ( unsigned long lData, unsigned short iAddr ) ;
+    extern unsigned  long  iReg[];
+    
+     Value_put ( u32PMdatal, addr );
     
     XBYTE[INVD]=0XCC;
     XBYTE[INVD]=0x00;
@@ -570,6 +577,7 @@ void Mea_Init(void)
     InitPMDSP(MEA3D2M);   //PM DSP init，设置计量值，防止乱出脉冲
     SLPWDT();
     EnyB_PurInit();       //计量模块上电初始化
+     _CfPluse_OutEnable() ;
 }
 /*=========================================================================================\n
 * @function_name: EnyB_SetMeterRule
@@ -752,7 +760,7 @@ uint32 CalRMS(uint16 addr)
 
              if(gs_SysRunSt.Pdir==true)   //反向添加负号
              {
-                 TempValue1|=0x800000;
+                 _NegLogeo_Set(TempValue1);//=0x800000;
              }
         }
         break;
@@ -782,7 +790,7 @@ uint32 CalRMS(uint16 addr)
 
              if(gs_SysRunSt.Pdir==true)   //反向添加负号
              {
-                 TempValue1|=0x800000;
+                  _NegLogeo_Set(TempValue1);//|=0x800000;
              }
         }
         break;
@@ -864,7 +872,7 @@ uint32 CalRMS(uint16 addr)
             
             if(gs_SysRunSt.Pdir==true)   //反向添加负号
             {
-                TempValue1|=0x800000;
+               _NegLogeo_Set(TempValue1);//|=0x800000;
             }
         }
         break;
@@ -917,7 +925,7 @@ uint32 CalRMS(uint16 addr)
             
             if(gs_SysRunSt.Pdir==true)   //反向添加负号
             {
-                TempValue1|=0x800000;
+                _NegLogeo_Set(TempValue1);//|=0x800000;
             }
         }
         break;
@@ -987,9 +995,9 @@ uint16 CalCos(void)
     Word32 temp_res,temp_ui;
     temp_p = CalRMS(DATAP);
     flag=0;
-    if(temp_p&0x800000)     //负功率
+    if(temp_p&_NegLogo_)   //0x800000)     //负功率
     {
-        temp_p&=~0x800000;  //功率取正
+        temp_p&=~_NegLogo_ ;//0x800000;  //功率取正
         flag=1;
     }
     temp_p = BCD2Hex(temp_p);

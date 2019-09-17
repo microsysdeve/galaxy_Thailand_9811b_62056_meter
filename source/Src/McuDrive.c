@@ -385,7 +385,9 @@ void Mcu_I1nit(void)
     Init_Uart();            //Uart初始化
     Init_Timer0();          //注明？ms
     Init_Timer2();          //初始化定时器2
-    Key_Init();              //按键初始化
+   // Key_Init();              //按键初始化
+    KeyPortIn();
+    OpenPortIn();
     RTCWakeUpTm(RTC_DAY, 0);   //RTC初始化 1HOUR
     EnableRTCInt();         //开启RTC秒中断
 }
@@ -606,7 +608,7 @@ uint8 SetPLL800K(uint8 MEA)
         i++;
         if(i>50)
         {
-            return false;       //在一定时间内没有锁定
+         debug_break( _debug_errno_SetPLL800K_FAIL1_) ;   return false;       //在一定时间内没有锁定
         }
     }
     
@@ -617,7 +619,7 @@ uint8 SetPLL800K(uint8 MEA)
         i++;
         if(i>20)
         {
-            return false;       //在一定时间内没有锁定
+            debug_break( _debug_errno_SetPLL800K_FAIL2_) ;   return false;       //在一定时间内没有锁定
         }
     }
     
@@ -630,7 +632,7 @@ uint8 SetPLL800K(uint8 MEA)
             i++;
             if(i>20)
             {
-                return false;       //在一定时间内没有锁定
+               debug_break( _debug_errno_SetPLL800K_FAIL3_) ;    return false;       //在一定时间内没有锁定
             }
         }
     }

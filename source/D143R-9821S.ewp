@@ -2122,9 +2122,6 @@
     <name>$PROJ_DIR$\Src\Api.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$\Src\BEBottom.C</name>
-  </file>
-  <file>
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\bit_edge.c</name>
   </file>
   <file>
@@ -2197,16 +2194,7 @@
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\InOut.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$\Src\Key.c</name>
-  </file>
-  <file>
     <name>$PROJ_DIR$\Src\LcdBottom.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\Src\Lcdmiddle.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\Src\Lcdshow.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\main.c</name>

@@ -102,7 +102,7 @@ union byte_def
     #define false 0==1
 #endif
 
-/* another normal use */
+/* another normal use 
 #define     BIT0        0x01
 #define     BIT1        0x02
 #define     BIT2        0x04
@@ -111,6 +111,7 @@ union byte_def
 #define     BIT5        0x20
 #define     BIT6        0x40
 #define     BIT7        0x80
+*/
 
 #define     EBIT0       0x0001
 #define     EBIT1       0x0002
@@ -146,6 +147,7 @@ union byte_def
 #define     EBIT31      0x80000000
 
 #ifdef __MAIN__
+/*
 const uint8 code BIT8MAP[]=
 {
     BIT0,BIT1,BIT2,BIT3,BIT4,BIT5,BIT6,BIT7
@@ -158,6 +160,7 @@ const uint32 code BIT32MAP[]=
     EBIT16,EBIT17,EBIT18,EBIT19,EBIT20,EBIT21,EBIT22,EBIT23,
     EBIT24,EBIT25,EBIT26,EBIT27,EBIT28,EBIT29,EBIT30,EBIT31,       
 };
+*/
 #else
 extern const uint8 code  BIT8MAP[];
 extern const uint32 code BIT32MAP[];

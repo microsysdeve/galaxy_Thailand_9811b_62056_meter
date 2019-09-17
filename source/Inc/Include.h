@@ -117,6 +117,8 @@ VAREXT uint16 gui_SysSleepSta;
 
 #define                 _ChipDataSet_Bz_                0x12345678
 
+#define                   _NegLogo_  0x800000
+#define                   _NegLogeo_Set(a)   { a |=_NegLogo_;}
 
 
 #endif

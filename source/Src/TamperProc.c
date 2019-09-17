@@ -302,11 +302,11 @@ void Tamp_DspProc(void)
         gul_I1DCval = EnyB_ReadMeterParaACK(DATAIDI1);
         gul_I2DCval = EnyB_ReadMeterParaACK(DATAIDI2);
     }
-    if(gul_I1DCval & 0x80000000)   //负值
+    if(gul_I1DCval & _NegLogo_ )//0x80000000)   //负值
     {
         gul_I1DCval = ~gul_I1DCval + 1;
     }
-    if(gul_I2DCval & 0x80000000)   //负值
+    if(gul_I2DCval & _NegLogo_ )//0x80000000)   //负值
     {
         gul_I2DCval = ~gul_I2DCval + 1;
     }

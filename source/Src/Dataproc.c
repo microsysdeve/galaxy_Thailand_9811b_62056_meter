@@ -288,7 +288,7 @@ void Data_SecProc(void)
 //        CloseCurrentLed();        
     }
     CLRWDT();    
-    ShowSecondProc();
+    //ShowSecondProc();
     CLRWDT();
 }
 /*=========================================================================================\n

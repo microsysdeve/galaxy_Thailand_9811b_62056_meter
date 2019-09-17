@@ -57,11 +57,7 @@ uint8 BE_ReadW(uint32 address,uint16 *buff);
 
 
 #define Feed_WDT()     ;//CLRWDT() 
-
-//u8 Write_EEData (u8 * Buf, u16 Addr, u16 iLth)
- //u8 Read_EEData (u8 * Buf, u16 Addr, u16 iLth)
-//#define   Write_EEData1(datap,addr,len)      BE_WriteP((uint32 )addr,datap,len)   	 
-//#define   Read_EEData1(datap,addr,len)       BE_ReadP((uint32 )addr,datap,len)
+ 
 
 #endif
 
