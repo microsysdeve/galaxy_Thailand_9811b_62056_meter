@@ -661,18 +661,15 @@ uint8 SetPLL800K(uint8 MEA)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-void Bat_State_Fun( enum ENBATSATU *cStatu ,unsigned short  *iBat);
+ 
+
 void MChannelCal(void)
 {
-  extern enum ENBATSATU       cBatStatu ;
-  if (    cBatStatu > _enBatOver_ )
-             return ;
-  else
-            Bat_State_Fun( &cBatStatu  ,RamData.VBat);
+ 
     if((gs_DateTime.ucSecond==0x05))
     {
         //GetBat();                                                   //获取电池电压
-       cBatStatu = _enBatSetChanel_ ;
+       
       
     }else  if((gs_DateTime.ucSecond==0x07)||(gs_DateTime.ucSecond==0x08))
     {
@@ -702,33 +699,9 @@ void MChannelCal(void)
 * @修改内容: 
 ===========================================================================================*/
 
-
-
-void Bat_State_Fun( enum ENBATSATU *cStatu ,unsigned short  *iBat)
+unsigned short Adc_DataGet(void)
 {
-    static      unsigned short   iMainState ;
      Word32 tempvalue;
-    short               itemp ;
-    extern volatile unsigned short iTime_Isr_no;
-  switch ( *cStatu)
-  {
-    
-  case _enBatSetChanel_: 
-        CtrlADC5=0x92;                              //M2通道开启电池测量功能
-        iMainState = iTime_Isr_no ;        
-        *cStatu *=2;
-        break;
-  case      _enBatWait_:
-        if ( iMainState ==  iTime_Isr_no )
-            break;
-        else
-        {
-            itemp =  abs(iTime_Isr_no  - iMainState);
-            if ( itemp >2 )
-                *cStatu *=2;
-        }
-        break;
-    case _enBatGetData_:
       tempvalue.lword=EnyB_ReadMeterParaACK(DATAOM);
        if(tempvalue.byte[3]>0x80)                  //电池悬空的时候读取可能是负值
         {
@@ -736,18 +709,66 @@ void Bat_State_Fun( enum ENBATSATU *cStatu ,unsigned short  *iBat)
         }
         tempvalue.lword = tempvalue.lword >> 16;
         tempvalue.lword = ((tempvalue.lword*100+5069)/5959);
-         *iBat =tempvalue.lword;
-          CtrlADC5=0x81;      //切换到温度测量
-          *cStatu *=2;
-          break;
-
+        return (unsigned short )tempvalue.lword;
+}
+char     cAdcApp_Get( struct  STLVDBUF   *stp)
+{
+      vol_fileter( stp,(unsigned char ) Adc_DataGet());
+        return  vol_Get( stp );
+}
+ 
+#define       _start_adc_Conver(control ,iIso , statu) { CtrlADC5 = control ; iIso  = iTime_Isr_no ; (statu)++;}          
+ 
+extern  struct  STLVDBUF  stAdcData[_adc_end_];
+void Adc_Function( enum ENADCSTATU *cStatu )
+{
+    static      unsigned short   iMainState ;  
+    short               itemp ;
+    extern volatile unsigned short iTime_Isr_no;
+  switch ( *cStatu)
+  {
     
-    case _enBatOver_:
-    *cStatu *=2;
+  case _enAdc_BatSetChanel_: 
+        _start_adc_Conver(0x92, iMainState ,*cStatu);          
+    break;
+        
+    case    _enAdc_BatWait_:
+    case    _enAdc_In0Wait_:
+    case    _enAdc_In1Wait_:
+     case  _enAdc_TempWait_:    
+        if ( iMainState ==  iTime_Isr_no )
+            break;
+        else
+        {
+            itemp =  abs(iTime_Isr_no  - iMainState);
+            if ( itemp >2 )
+                (*cStatu)++;
+        }
+        break;
+        
+    case  _enAdc_BatGetData_:
+        RamData.VBat[0]= cAdcApp_Get(  &(stAdcData[_adc_bat_]));
+         _start_adc_Conver(0x96, iMainState ,*cStatu);
           break;
           
-    case  _enBatNull_ :
-    case _enBatEnd_:
+  case _enAdc_In0DataGet_:
+      
+        RamData.iLvdin0=  cAdcApp_Get(  &(stAdcData[_adc_lvdin0_]));   
+          _start_adc_Conver(0x97, iMainState ,*cStatu);
+          
+    break;
+    
+  case _enAdc_In1DataGet_:
+          RamData.iLvdin1=  cAdcApp_Get(  &(stAdcData[_adc_lvdin1_]));      
+           _start_adc_Conver(0x81, iMainState ,*cStatu);
+        break;
+        
+  case _enAdc_TempDataGet_:  
+    (*cStatu)++;
+    break;
+    
+    case  _enAdc_Null_ :
+    case _enAdc_StatuEnd_: 
       break;
   }
 }
@@ -1244,6 +1265,7 @@ void Mcu_ChkSfr(void)
     {
         IE=0xA2;
     }
+    
 
     if(guc_CfOpenFlg==false)
     {

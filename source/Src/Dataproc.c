@@ -255,7 +255,7 @@ void Data_MinProc(void)
 ===========================================================================================*/
 void Data_SecProc(void)
 {
-    TimerProc();                                //在有电下均处理
+  //  TimerProc();                                //在有电下均处理
     CLRWDT();
     EnyB_Open_Cf();
     CLRWDT();

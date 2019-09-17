@@ -45,7 +45,7 @@ void InitLCD(void)
     
     LCDG      = 0;
     CtrlLCDV  = 0x04;
-    LCDCtrl   = 0x91;//LCDSETTING4COM;     //0x82
+    LCDCtrl   = 0x92;//LCDSETTING4COM;     //0x82
     SegCtrl0  = 0x00;
     SegCtrl1  = 0xff;
     SegCtrl2  = 0x7C;
