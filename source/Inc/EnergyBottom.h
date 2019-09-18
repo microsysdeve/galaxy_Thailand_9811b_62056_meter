@@ -193,7 +193,8 @@ void EnyB_OpenAutoCheck(void);
 void EnyB_AutoChkInrms(uint16 ui_SdCurrent);
 void EnyB_JbPm_Updata(void);
 void EnyB_InitCFInt(void);
-void EnyB_IntCF(void);
+//void EnyB_IntCF(void);
+#define  EnyB_IntCF()   {}
 void EnyB_Check_Irms(void);
 void EnyB_AutoChkSP(void);
  

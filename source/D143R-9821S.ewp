@@ -453,6 +453,7 @@
           <name>CCIncludePath2</name>
           <state>$PROJ_DIR$\Inc</state>
           <state>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\inc</state>
+          <state>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -2161,9 +2162,6 @@
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\disp_format_lcd10329.h</name>
   </file>
   <file>
-    <name>$PROJ_DIR$\Src\DLT_645_2007.c</name>
-  </file>
-  <file>
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Drv_RTCSPK.c</name>
   </file>
   <file>
@@ -2212,9 +2210,6 @@
     <name>$PROJ_DIR$\Src\Powmanger.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$\Src\Prcfrm.c</name>
-  </file>
-  <file>
     <name>$PROJ_DIR$\Src\Ptl_1107.c</name>
   </file>
   <file>
@@ -2228,6 +2223,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\safedate.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\streamio.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\System.c</name>

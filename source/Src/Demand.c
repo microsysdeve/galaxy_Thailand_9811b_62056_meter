@@ -79,12 +79,14 @@ void Demand_250ms(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+#ifdef _DEL
 void Demand_EnergyPulse(void)
 {
     gs_DemanCalcData.uiEnergy ++;  			//对应项的能量增加，单位等于常数分之一kwh
     //脉冲对应时间 等于 本次计算的总计时
     gs_DemanCalcData.uiEnergyTime = gs_DemanCalcData.uiTotalTime;
 }
+#endif
 /*=========================================================================================\n
 * @function_name: ResetMinuteDemand
 * @function_file: Demand.c

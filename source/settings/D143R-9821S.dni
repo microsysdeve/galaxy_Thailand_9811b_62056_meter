@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1776523212
+Checksum=-1774626409
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -89,27 +89,26 @@ Fmt17={W}0:SCON4	4	0
 Fmt18={W}0:SysCtrl	4	0
 Fmt19={W}0:TCON4	4	0
 Fmt20={W}0:TH41	4	0
-Fmt21={W}0:TempValue1	4	0
-Fmt22={W}0:addr	4	0
-Fmt23={W}0:address	4	0
-Fmt24={W}0:cDispprt	3	0
-Fmt25={W}0:ctemp1	4	0
-Fmt26={W}0:ctemp2	4	0
-Fmt27={W}0:gul_Urms800k	4	0
-Fmt28={W}0:iReg	4	1
-Fmt29={W}0:iRegList[i]	4	0
-Fmt30={W}0:iReg[i]	4	0
-Fmt31={W}0:ltemp	4	0
-Fmt32={W}0:result	4	0
-Fmt33={W}0:stGaljl	4	0
-Fmt34={W}0:u32PMdatal	4	0
-Fmt35={W}0:ui_E2Address	4	0
-Fmt36={W}0:uitmp	4	0
-[Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.26.2" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.115.12" 1 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.106.21" 0 0 0 0 "" 0 ""
-Count=3
+Fmt21={W}0:TL41	4	0
+Fmt22={W}0:TempValue1	4	0
+Fmt23={W}0:addr	4	0
+Fmt24={W}0:address	4	0
+Fmt25={W}0:cDispprt	3	0
+Fmt26={W}0:ctemp1	4	0
+Fmt27={W}0:ctemp2	4	0
+Fmt28={W}0:gul_Urms800k	4	0
+Fmt29={W}0:iAddr	4	0
+Fmt30={W}0:iReg	4	1
+Fmt31={W}0:iRegList[i]	4	0
+Fmt32={W}0:iReg[i]	4	0
+Fmt33={W}0:lData	4	0
+Fmt34={W}0:ltemp	4	0
+Fmt35={W}0:result	4	0
+Fmt36={W}0:stGaljl	4	0
+Fmt37={W}0:u32PMdatal	4	0
+Fmt38={W}0:ui_E2Address	4	0
+Fmt39={W}0:uitmp	4	0
+Fmt40={W}0:zp.bjlcalgetchanel	4	0
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -117,6 +116,11 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Meter.c}.753.2" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.26.2" 1 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.244.25" 1 0 0 0 "" 0 ""
+Count=3
 [Aliases]
 Count=0
 SuppressDialog=0

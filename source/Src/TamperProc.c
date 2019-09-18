@@ -249,6 +249,7 @@ void SwitchMode(uint8 ucLastMd)
 {  
     CLRWDT();
     EA = 0;
+   debug_break( _debug_errno_ChangeClkSource_);
     if((guc_WorkMd&0xF0) != 0x00)
     {
         SetPLL3DOT2M(MEA_ON);       

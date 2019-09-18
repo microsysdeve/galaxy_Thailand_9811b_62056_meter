@@ -9,20 +9,22 @@ enum ENUMDEBUGLIST
 	_debugwdg_,
         _debug_errno_DataRestorestart_,
         _debug_errno_flashdatarestore_,
-        	
+        	 _debug_errno_CFIn_,
 	_debug_errno_prog_reset_,
 	
 	_debug_errno_4428_UsercardOver_,
 	_debug_errno_KeyIn_,
 	_debug_app_uart2_int_,
         _debug_errno_ParaSCPWRITE_,
-	_debugerrorbreak_,
-	_debug_app_nobreak_,
+	_debugerrorbreak_, //===========================
+	_debug_app_nobreak_ =_debugerrorbreak_,
         _debug_errno_resetvector_,
 	_debug_errno_wdgout_,
         _debug_errno_WriteEEprom_,
 	 _debug_errno_WriteEEpromError_,
-	 
+	_debug_errno_JLChangeChanelL_,
+        _debug_errno_JLChangeChanelN_,
+        _debug_errno_ChangeClkSource_,
 _debug_errno_SetPLL800K_FAIL1_,
 _debug_errno_SetPLL800K_FAIL2_,
 _debug_errno_SetPLL800K_FAIL3_,

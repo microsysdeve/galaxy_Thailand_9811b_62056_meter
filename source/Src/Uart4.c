@@ -1,4 +1,5 @@
 #include "Include.h"
+#include "streamio.h"
 
 //变量声明
 uint8   guc_DyUart4Over;        //模拟串口超时保护
@@ -46,9 +47,9 @@ int i;
 #else
     Uart4_RevEn();
 #endif
-   /* 
+    /*
     SCON4&=(~BIT4);
-    
+    goto a1;
                 while (1)
                 {
                   for ( j =0;j<255;j++)
@@ -71,7 +72,23 @@ int i;
                   }
        
                 }
-     */           
+a1:    
+                SCON4|=(BIT4);
+                SCON4&=~BIT0;
+                j =0;
+                while (1)
+                {
+                       if (  SCON4 & BIT0)
+                       {
+                              stemp[j++] = SBUF4;
+                              if ( j>=sizeof(stemp))
+                                  j =0;
+                             SCON4&=~BIT0;
+                       }
+                           SLPWDT();
+                }
+    */
+              
 }
 void Init_Uart41(uint8 ucBode,uint8 uctype)
 {
@@ -166,6 +183,8 @@ void Uart4_Dy10ms(void)
 ===========================================================================================*/
 void Uart4_Receive(void)
 {
+  extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+  struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_R485_Chanel_]);
     uint8 temp,temp1;
     guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
     //这里可以做奇偶校验判断
@@ -177,7 +196,22 @@ void Uart4_Receive(void)
     {
         return;
     }
+    stream_rece_fun_645( usartcomp,temp1);
+    if (usartcomp->bEventRec645) {
+				//do {
+			//		unitp->INTE.reg = unitp->INTE.reg & 0xff80;//_DISABLE_USART0_RECE_INT_);
+			//	} while (unitp->INTE.reg & 0x7f);
+			} else {
+			//	if (flag & 0x4) {
+			//		// iReRece =0x66;
+			//		flag &= 0xb;
+			//		goto a1;
+			//	}
 
+			}
+
+    return ;
+#ifdef DEL
     //处于空闲状态或已经处于uart接收状态
     gs_ComGroup[ComIndex_Uart4].ucPort   = Port_Uart4;
 
@@ -217,6 +251,7 @@ void Uart4_Receive(void)
             }
         }
     }
+#endif
 }
 /*=========================================================================================\n
 * @function_name: Uart4_Transmit
@@ -234,7 +269,7 @@ void Uart4_Receive(void)
 void Uart4_Transmit(void)
 {
     guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
-
+#ifdef DEL
     if(gs_ComGroup[ComIndex_Uart4].ucPort   == Port_Uart4)
     {   //处于空闲状态或已经处于uart接收状态
         if(gs_ComGroup[ComIndex_Uart4].ucStt == ComStt_Send)
@@ -285,5 +320,6 @@ void Uart4_Transmit(void)
         #endif
         }
     }
+#endif
 }
 

@@ -97,6 +97,7 @@ void Var_Init(void)
 ===========================================================================================*/
 void SysEventProc(void)
 {
+  
     if(gui_SystemEvent & flgEtGlb_PowDown)              
     {                                                   
         Pwr_DownProc();                  //µÙµÁ¥¶¿Ì

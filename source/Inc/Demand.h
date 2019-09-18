@@ -55,7 +55,8 @@ void      ResetMinuteDemand(uint8 type);  // º¯ÊýÉùÃ÷
 void      Demand_Calc(void);
 void      Demand_1s(void);
 void      Demand_250ms(void);
-void      Demand_EnergyPulse(void);
+//void      Demand_EnergyPulse(void);
+#define       Demand_EnergyPulse()  {} //    (void);
 void      Demand_Proc(void);
 void      ClearDemand(uint8 type);
 //void      DemandClrCur(void);

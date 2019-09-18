@@ -100,6 +100,7 @@ void Uart2_Receive(void)
     {
         return;
     }
+#ifdef DEL
     //处于空闲状态或已经处于uart接收状态
     gs_ComGroup[ComIndex_Uart2].ucPort   = Port_Uart2;
 
@@ -141,6 +142,7 @@ void Uart2_Receive(void)
             }
         }
     }
+#endif
 }
 /*=========================================================================================\n
 * @function_name: Uart2_Transmit
@@ -158,7 +160,7 @@ void Uart2_Receive(void)
 void Uart2_Transmit(void)
 {
     guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
-
+#ifdef DEL
     if(gs_ComGroup[ComIndex_Uart2].ucPort   == Port_Uart2)
     {   //处于空闲状态或已经处于uart接收状态
         if(gs_ComGroup[ComIndex_Uart2].ucStt == ComStt_Send)
@@ -203,5 +205,6 @@ void Uart2_Transmit(void)
             Uart2_RevEn();
         }
     }
+#endif
 }
 

@@ -12,6 +12,7 @@
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+#ifdef DEL
 void ComApp_Proc(void)
 {
     uint8 i;
@@ -54,3 +55,4 @@ void Uart_Proc(uint8 port)
         ComBom_Init(port);
     }
 }
+#endif

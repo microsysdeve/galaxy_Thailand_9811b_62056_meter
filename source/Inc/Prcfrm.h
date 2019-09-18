@@ -86,7 +86,7 @@ extern const S_CMDPROC code gs_CmdProc[];//√¸¡Ó”Î¥¶¿Ì
 
 
 
-CM_PRCFRM_EXT uint8 guc_MeteAddr[6];
+//CM_PRCFRM_EXT uint8 guc_MeteAddr[6];
 CM_PRCFRM_EXT uint8 guc_FactoryType;
 CM_PRCFRM_EXT S_PWCTR gs_PassWordCtr;
 

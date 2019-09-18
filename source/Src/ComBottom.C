@@ -15,6 +15,7 @@
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+#ifdef _DEL
 void ComBom_Init(uint8 ucNo)
 {
     //清空接收缓存
@@ -30,6 +31,7 @@ void ComBom_Init(uint8 ucNo)
         gs_ComGroup[ucNo].ucOverTmr = 0;                // 定时器无效状态
     }
 }
+#endif
 
 /*=========================================================================================\n
 * @function_name: ComBom_InitAll
@@ -68,6 +70,7 @@ void ComBom_InitAll(void)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+#ifdef del
 void ComBom_StartSend(uint8 ucNo)
 {
     gs_ComGroup[ucNo].ucStt = ComStt_Send;              // 将该COM口设置成发送转换
@@ -94,6 +97,7 @@ void ComBom_StartSend(uint8 ucNo)
         ComBom_Init(ucNo);                              // 无效，初始化COM
     }
 }
+#endif
 /*=========================================================================================\n
 * @function_name: ComBom_1msDy
 * @function_file: ComBottom.C
@@ -107,6 +111,7 @@ void ComBom_StartSend(uint8 ucNo)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+#ifdef DEL
 void ComBom_10msDy(void)
 {
     uint8 i;
@@ -123,5 +128,5 @@ void ComBom_10msDy(void)
         }
     }
 }
-
+#endif
 

@@ -12,7 +12,7 @@ uint8 DoNothing(S_FRAMEINFO *s_FrmInfo)
 const S_CMDPROC code gs_CmdProc[] =
 {
     {0x11,RWData},                      //读数据
-  //  {0x12,FactoryWR},                      //读后续数据 RWData
+    {0x12,FactoryWR},                      //读后续数据 RWData
     {0x14,RWData},                      //写数据
     {0x13,ReadMeterAddr},               //读通讯地址
     {0x15,WriteMeterAddr},              //写通讯地址
@@ -20,15 +20,15 @@ const S_CMDPROC code gs_CmdProc[] =
    // {0x16,Freeze},                      //冻结命令
     //{0x17,ChangeBode},                  //更改通讯速率
     {0x18,ChangePassWord},              //更改密码
-   // {0x1A,ClearMeter},                  //电表清零
+    {0x1A,ClearMeter},                  //电表清零
    //{0x1C,SwitchCtrl},
    // {0x1B,ClearEvent},                  //事件清零
    // {0x1D,SecPulsCtrl},                 //多功能端子输出信号控制
     {0x1F,ParaInit},                    //参数初始化
     {0x01,FactoryRD},                   //厂内读
- //   {0x02,FactoryWR},                   //厂内写
-  //  {0x04,FactoryWR},                   //厂内写
-   // {0x0f,FactoryWR},                   //厂内写
+    {0x02,FactoryWR},                   //厂内写
+    {0x04,FactoryWR},                   //厂内写
+    {0x0f,FactoryWR},                   //厂内写
     //{0x03,CmpCode},                     //数据比对
 };
 

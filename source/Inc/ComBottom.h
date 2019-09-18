@@ -24,7 +24,7 @@ const GS_BaudRate code BaudRateTable[5] =
 {
    {0xe4,   0x82},  //600
    {0xf2,   0x82},  //1200
-    {0xf5,   0x22},  //2400  {0xd5,   0x22},  //2400
+   {0xd5,   0x22},  //2400
    {0xd5,   0xa2},  //4800
    {0xeb,   0xa2},  //9600
 };
@@ -42,10 +42,10 @@ typedef struct s_com
     uint8   ucFrmHeadCnt;                                           // 帧头处理
     uint8   ucLen;                                                  // 收发的数据总长度
     uint8   ucPos;                                                  // 当前处理数据的位置,相当于指向ucBuf的一个指针
-      uint8   ucBuf[64];    //pxdebug                                         // 通讯收发数据缓冲区   //uint8   ucBuf[360];                                             // 通讯收发数据缓冲区
+      uint8   ucBuf[1];    //pxdebug                                         // 通讯收发数据缓冲区   //uint8   ucBuf[360];                                             // 通讯收发数据缓冲区
 }S_COM;
 
-COMBOTTOMEXT S_COM gs_ComGroup[Const_MaxComNum];                    // 通讯用的缓存
+//COMBOTTOMEXT S_COM gs_ComGroup[Const_MaxComNum];                    // 通讯用的缓存
 
 
 typedef struct
@@ -56,7 +56,7 @@ typedef struct
     uint8 ucSendPos;
     uint8 ucRevLen;
     uint8 ucRevPos;
-      volatile uint8 ucBuf[16];  //pxdebug  //volatile uint8 ucBuf[128];
+     volatile uint8 ucBuf[128];
 }S_7816COM;
 
 
@@ -69,11 +69,12 @@ COMBOTTOMEXT uint8 guc_485Bode;         //485波特率
 COMBOTTOMEXT uint8 guc_BodeDely;        //波特率切换延时
 COMBOTTOMEXT uint8 guc_ComSendDy;       //通讯回复延时，20ms
 //函数
-void ComBom_Init(uint8 ucNo);
+//void ComBom_Init(uint8 ucNo);
+#define  ComBom_Init(a)  {} 
 void ComBom_InitAll(void);
 void ComBom_StartSend(uint8 ucNo);
-void ComBom_10msDy(void);
-
+//void ComBom_10msDy(void);
+#define  ComBom_10msDy( ) {}
 
 
 #endif

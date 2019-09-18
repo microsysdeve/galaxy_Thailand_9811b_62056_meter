@@ -218,6 +218,8 @@ __interrupt void UATRAndCFInterrupt(void)
         ExInt2IFG&=(~BIT7);
         //ÓÃ»§´úÂë
         EnyB_IntCF();
+        RamData.ImpBfr+=100;
+        debug_break( _debug_errno_CFIn_) ;
         Demand_EnergyPulse();       
     }
     

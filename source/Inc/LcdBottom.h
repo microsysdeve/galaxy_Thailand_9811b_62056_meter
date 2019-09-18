@@ -28,7 +28,7 @@ enum            ENUMLCDRAMLIST
 
 //LCDBOTTOMEXT uint8  guc_LCDRAM[Const_LCDRAMLen];
 
-extern  char   *guc_LCDRAM;
+//extern  char   *guc_LCDRAM;
 
 void Disp_Full(void);
 void Disp_Clear(void);

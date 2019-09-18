@@ -2,12 +2,14 @@
 #include "Include.h"
 #include "PubSet.h"
 
-char *guc_LCDRAM; 
+//char *guc_LCDRAM; 
+
+#define         guc_LCDRAM  RamData.Disp.DispData
 
 
 void LCD_Init(char *s) 
 {
-	guc_LCDRAM = s;
+	//guc_LCDRAM = s;
 }
 
 /*=========================================================================================\n

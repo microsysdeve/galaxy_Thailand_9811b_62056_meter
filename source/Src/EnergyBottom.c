@@ -15,6 +15,8 @@
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+uint8  guc_FactoryType;
+
 void EnyB_Init(void)
 {
     gs_PDirCnt.ucDirCnt = 0;
@@ -653,6 +655,7 @@ void EnyB_JbPm_Init(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+#ifdef _DEL
 void EnyB_IntCF(void)                       
 {
     uint8 *pCfZ;
@@ -672,7 +675,7 @@ void EnyB_IntCF(void)
         pEyZ=&gs_Energy.ucPz;                                   //正向能量
         pCfZ=&gs_PowerCf.uc_Pz;                                 //正向脉冲数
 //    }
-
+    RamData.CF_Buf
 
     (*pCfZ)++;                                                  //总能量累加
     if(*pCfZ >= guc_GateCF)                                     //判别是否需要走字
@@ -704,6 +707,7 @@ void EnyB_IntCF(void)
 //        }
 //    }
 }
+#endif
 /*=========================================================================================\n
 * @function_name: CalRMS
 * @function_file: EnergyBottom.c
@@ -1212,4 +1216,20 @@ void EnyB_JbPm_Updata(void)
     // {
         // CtrlADC4&=~BIT4;            //减少偏置电流
     // }
+}
+
+
+void    Enyb_Reg_ModBif( uint16 iAddr ,  char bitnum, char bitoper)
+{
+  uint32  lData  ;
+
+  unsigned long lValue = 1 << bitnum;
+
+   lData = EnyB_ReadMeterParaACK(iAddr); 
+  if ( _Bit_Res_ == bitoper)
+    lData &= (~lValue);
+  else if (_Bit_Set_ == bitoper)
+    lData |= lValue;
+  EnyB_SetMeterCfgACK(lData  ,iAddr);
+  
 }
