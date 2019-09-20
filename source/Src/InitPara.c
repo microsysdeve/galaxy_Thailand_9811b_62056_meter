@@ -14,9 +14,10 @@ enum   ENUMDEF
          _Ib_= 5,
          _HFCONST_L_ =0x17c6254,//0x1d5584a ,
          _HFCONST_N_ =0x17c6254,//0x1d5584a ,
-         _HFCONST800K_ =0x2336761b ,
+         _HFCONST800K_ =0xe15c8d7 ,
+         _HFCONST32K_ =0x34730a4,
          _QDConst_L_= 0xfec164,
-         _QDConst_N_= 0xfec164,
+         _QDConst_N_= _QDConst_L_,
 };
 
 #define      _format4(n)      (n&0xff),((n>>8)&0xff),((n>>16)&0xff),((n>>24)&0xff)
@@ -29,10 +30,9 @@ const uint8 code InitPara0[sizeof(S_JBPM)-2]=
     _format2( _StandVol_*100),//0xd8,0x59,     //标称电压 240.00
     _format2( _Ib_ *1000) ,// 0x88,0x13,     //标称电流 5.000
     _format4(_HFCONST_L_),//0x4a,0x58,0xd5,0x01,//有功能量脉冲门限值
-    _format4(_HFCONST800K_),//0x1B,0x76,0x36,0x23,//800K常数计量门限
-    
+    _format4(_HFCONST800K_),//0x1B,0x76,0x36,0x23,//800K常数计量门限    
     _format4(_QDConst_L_),//0x00,0x1B,0xB7,0x00,//有功能量潜动门限值
-    _format4(_HFCONST_N_),//0x4a,0x58,0xd5,0x01,//I2常数门限
+    _format4(_HFCONST32K_),//0x4a,0x58,0xd5,0x01,//I2常数门限
     0x00,0x00,0x00,0x00,//有功比差值
     0x00,0x00,0x00,0x00,//无功比差值
      _format4(0x03130463),//   0x00,0x00,0x00,0x00,//电压有效值比差

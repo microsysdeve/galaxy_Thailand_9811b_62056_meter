@@ -2,7 +2,7 @@
 #include "streamio.h"
 
 //变量声明
-uint8   guc_DyUart4Over;        //模拟串口超时保护
+//uint8   guc_DyUart4Over;        //模拟串口超时保护
 /*=========================================================================================\n
 * @function_name: Init_Uart4
 * @function_file: Uart4.c
@@ -90,6 +90,7 @@ a1:
     */
               
 }
+#ifdef DEL
 void Init_Uart41(uint8 ucBode,uint8 uctype)
 {
 //  if(uctype==0x00)                            //62056-21
@@ -137,6 +138,7 @@ void Init_Uart41(uint8 ucBode,uint8 uctype)
     Uart4_RevEn();
 #endif
 }
+#endif
 /*=========================================================================================\n
 * @function_name: Uart4_Dy10ms
 * @function_file: Uart4.c
@@ -150,9 +152,11 @@ void Init_Uart41(uint8 ucBode,uint8 uctype)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+#ifdef DEL
 void Uart4_Dy10ms(void)
 {
-    guc_DyUart4Over--;
+  
+    //guc_DyUart4Over--;
     if(0x00== guc_DyUart4Over)
     {
         Init_Uart4(guc_485Bode);        // 初始化模拟串口
@@ -168,6 +172,7 @@ void Uart4_Dy10ms(void)
         }
     }
 }
+#endif
 /*=========================================================================================\n
 * @function_name: Uart4_Receive
 * @function_file: Uart4.c
@@ -186,7 +191,7 @@ void Uart4_Receive(void)
   extern volatile struct STSCIBUF USARTCOM[_Com_End_];
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_R485_Chanel_]);
     uint8 temp,temp1;
-    guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
+    //guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
     //这里可以做奇偶校验判断
     ACC=SBUF4;                          //ACC 奇校验
     temp=P;
@@ -196,7 +201,7 @@ void Uart4_Receive(void)
     {
         return;
     }
-    stream_rece_fun_645( usartcomp,temp1);
+    stream_rece_fun_645( usartcomp,SBUF4);
     if (usartcomp->bEventRec645) {
 				//do {
 			//		unitp->INTE.reg = unitp->INTE.reg & 0xff80;//_DISABLE_USART0_RECE_INT_);
@@ -266,9 +271,32 @@ void Uart4_Receive(void)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+
+#define    _BitYX(SReg,SendData)   {ACC=SendData ; if(P==0) { SReg&=(~BIT3); }  else{SReg|=(BIT3);}}
+                   
+                    
 void Uart4_Transmit(void)
 {
-    guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
+  unsigned char ctemp;
+  extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+  struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_R485_Chanel_]);
+  
+  if (usartcomp->cStatu < _end_sendcom) 
+  {
+	ctemp  = stream_send_fun_645(usartcomp);
+        _BitYX(SCON4,ctemp) ;   
+        SBUF4 = ctemp;
+	resetWdt();
+        if (0 == --(usartcomp->cHead))
+          usartcomp->cStatu++;
+	} else {
+			do {
+				usartcomp->cSilence = 1;
+		} while (1 != usartcomp->cSilence);
+	}
+
+	return;
+    //guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
 #ifdef DEL
     if(gs_ComGroup[ComIndex_Uart4].ucPort   == Port_Uart4)
     {   //处于空闲状态或已经处于uart接收状态
@@ -321,5 +349,6 @@ void Uart4_Transmit(void)
         }
     }
 #endif
+    
 }
 

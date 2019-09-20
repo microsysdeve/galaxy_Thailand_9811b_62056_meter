@@ -13,7 +13,8 @@
 
 
 void Init_Uart4(uint8 ucBode);
-void Uart4_Dy10ms(void);
+//void Uart4_Dy10ms(void);
+#define  Uart4_Dy10ms()   {} 
 void Uart4_Receive(void);
 void Uart4_Transmit(void);
 
