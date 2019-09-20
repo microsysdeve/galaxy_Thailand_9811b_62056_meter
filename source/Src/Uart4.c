@@ -22,7 +22,10 @@ void Init_Uart4(uint8 ucBode)
 {
 volatile char    stemp[5],j;
 int i;
-    if(ucBode>=5)
+
+  _UartInit(ucBode,TMOD4,TCON4,TL41,TH41,SCON4);
+  ucBode =_bps2400_;
+   if(ucBode>=5)
     {
         ucBode=2;                           //д╛хо2400
     }
@@ -47,9 +50,9 @@ int i;
 #else
     Uart4_RevEn();
 #endif
-    /*
+    
     SCON4&=(~BIT4);
-    goto a1;
+  //  goto a1;
                 while (1)
                 {
                   for ( j =0;j<255;j++)
@@ -72,6 +75,7 @@ int i;
                   }
        
                 }
+                /*
 a1:    
                 SCON4|=(BIT4);
                 SCON4&=~BIT0;

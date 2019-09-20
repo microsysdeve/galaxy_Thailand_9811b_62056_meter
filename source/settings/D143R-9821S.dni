@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1342969423
+Checksum=1362467415
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -113,7 +113,8 @@ Fmt40={W}0:zp.bjlcalgetchanel	4	0
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.26.2" 1 0 0 0 "" 0 ""
 Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.280.3" 0 0 0 0 "" 0 ""
 Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.280.3" 0 0 0 0 "" 0 ""
-Count=3
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.26.3" 1 0 0 0 "" 0 ""
+Count=4
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

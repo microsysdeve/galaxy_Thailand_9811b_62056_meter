@@ -2,7 +2,7 @@
 #define __TYPEDEF_H__
 
 
-#define  nop()  __no_operation()
+#define  nop()              __no_operation()
 //#define                        __disable_interrupt()
 //#define                       __enable_interrupt()
 #define  idata  __idata
@@ -47,7 +47,7 @@ typedef signed long xdata   int32x;
 //------------------------------
 
 typedef void* Object;           //定义任意类型为Object
-typedef const char * string;    //定义字符串类型
+typedef const char code * string;    //定义字符串类型
 
 
 //------------------------------
@@ -66,7 +66,7 @@ typedef union
 {
     uint32 lword;
     uint16 word[2];
-    uint8  byte[4]; 
+    uint8  byte[4];
 }Word32;
 
 typedef union
@@ -76,7 +76,7 @@ typedef union
 }Word40;
 
 
-struct bit_def 
+struct bit_def
 {
     char    b0:1;
     char    b1:1;
@@ -88,7 +88,7 @@ struct bit_def
     char    b7:1;
 };
 
-union byte_def 
+union byte_def
 {
     struct bit_def bite;
     unsigned char  byte;
@@ -102,7 +102,7 @@ union byte_def
     #define false 0==1
 #endif
 
-/* another normal use 
+/* another normal use */
 #define     BIT0        0x01
 #define     BIT1        0x02
 #define     BIT2        0x04
@@ -111,7 +111,6 @@ union byte_def
 #define     BIT5        0x20
 #define     BIT6        0x40
 #define     BIT7        0x80
-*/
 
 #define     EBIT0       0x0001
 #define     EBIT1       0x0002
@@ -147,7 +146,6 @@ union byte_def
 #define     EBIT31      0x80000000
 
 #ifdef __MAIN__
-/*
 const uint8 code BIT8MAP[]=
 {
     BIT0,BIT1,BIT2,BIT3,BIT4,BIT5,BIT6,BIT7
@@ -160,7 +158,8 @@ const uint32 code BIT32MAP[]=
     EBIT16,EBIT17,EBIT18,EBIT19,EBIT20,EBIT21,EBIT22,EBIT23,
     EBIT24,EBIT25,EBIT26,EBIT27,EBIT28,EBIT29,EBIT30,EBIT31,       
 };
-*/
+
+
 #else
 extern const uint8 code  BIT8MAP[];
 extern const uint32 code BIT32MAP[];
@@ -180,7 +179,7 @@ extern const uint32 code BIT32MAP[];
 #define SA_VAR_CHECK(X)  {if(X){return ERR_VAR;}}
 #define SA_OK()      {return ERR_OK;}
 
- 
+
 
 
 #endif

@@ -17,17 +17,18 @@ uint8   guc_DyUart2Over;        //模拟串口超时保护
 ===========================================================================================*/
 void Init_Uart2(uint8 ucBode)
 {    
-
-    if(ucBode>=5)
+_UartInit(ucBode,TMOD2,TCON2,TL21,TH21,SCON2);
+/*
+    if(ucBode>=_bpsend_)
     {
-        ucBode=1;                           //默认2400
+        ucBode=_bps2400_;                           //默认2400
     }
 
     TMOD2 = 0x20;                               // 8-bit counter with auto-reload
     TCON2 =BaudRateTable[ucBode].Type;          //时钟选择CLK  clear SMOD  SET  T1M,TR1
     TL21=TH21=BaudRateTable[ucBode].THValue;    //波特率设置
     SCON2=0xD0;                                 //数据位9位,8位数据位+1校验位
-
+*/
     P2OE &= ~BIT5;                      //Uart4发送口输出允许
     P2IE &= ~BIT5;                      //Uart4发送口输入禁止
     P2OE |= BIT4;                       //Uart4接收口输出禁止

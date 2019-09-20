@@ -19,9 +19,24 @@ typedef struct
     uint8   Type;              //T1M和SMOD的取值
 }GS_BaudRate;
 
-#ifdef COMBOTTOMSELT
-const GS_BaudRate code BaudRateTable[5] =
+enum  ENUMBPSNUM
 {
+        _bps300_ = 0,
+	_bps600_ ,
+	_bps1200_  ,
+	_bps2400_,
+	_bps4800_,
+	_bps9600_, 
+	_bpsend_,
+};
+
+#ifdef COMBOTTOMSELT
+
+
+
+const GS_BaudRate code BaudRateTable[_bpsend_] =
+{
+  // {0xc7,   0x82},  //300
    {0xe4,   0x82},  //600
    {0xf2,   0x82},  //1200
    {0xd5,   0x22},  //2400
@@ -31,6 +46,8 @@ const GS_BaudRate code BaudRateTable[5] =
 #else 
 extern const GS_BaudRate code BaudRateTable[5];
 #endif
+
+#define _UartInit(bpsno,TMODx,TCONx,TLx,THx,SCONx) {if(bpsno>=_bpsend_) bpsno=_bps2400_; TMODx = 0x20;TCONx=BaudRateTable[bpsno].Type; TLx=THx=BaudRateTable[bpsno].THValue;SCONx=0xD0;}   
 
 //变量
 typedef struct s_com
@@ -42,7 +59,7 @@ typedef struct s_com
     uint8   ucFrmHeadCnt;                                           // 帧头处理
     uint8   ucLen;                                                  // 收发的数据总长度
     uint8   ucPos;                                                  // 当前处理数据的位置,相当于指向ucBuf的一个指针
-      uint8   ucBuf[1];    //pxdebug                                         // 通讯收发数据缓冲区   //uint8   ucBuf[360];                                             // 通讯收发数据缓冲区
+    uint8   ucBuf[1];    //pxdebug                                         // 通讯收发数据缓冲区   //uint8   ucBuf[360];                                             // 通讯收发数据缓冲区
 }S_COM;
 
 //COMBOTTOMEXT S_COM gs_ComGroup[Const_MaxComNum];                    // 通讯用的缓存

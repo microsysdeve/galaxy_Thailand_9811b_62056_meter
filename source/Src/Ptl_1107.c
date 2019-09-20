@@ -72,12 +72,11 @@ const uint8 code guc_InitCmd[]=
 * @修改内容:  
 ===========================================================================================*/
 const char as[]="";
-const GS_IECCOM code  gs_OBSCom[]=
+const GS_IECCOM    gs_OBSCom[]=
 {   //obsi              uint             param     atb           pfindex  
 
-    //当前电量
-    { (string  )as,    0x00,      0,     0x00},
-    /*{ "1.8.0",            "*kWh)\r\n",    0x00,       IEC_RO,     0x00},
+    //当前电量 
+    { "1.8.0",            "*kWh)\r\n",    0x00,       IEC_RO,     0x00},
     { "1.8.1",          "*kWh)\r\n",    0x01,       IEC_RO,     0x00},
     { "1.8.2",          "*kWh)\r\n",    0x02,       IEC_RO,     0x00},
     { "1.8.3",          "*kWh)\r\n",    0x03,       IEC_RO,     0x00},
@@ -257,8 +256,7 @@ const GS_IECCOM code  gs_OBSCom[]=
     //清零命令
     {"FF.0.0",          ")",            0x00,       IEC_WO,     0x08},
     {"FF.0.1",          ")",            0x01,       IEC_WO,     0x09},
-    {"FF.0.2",          ")",            0x02,       IEC_WO,     0x09},
-*/
+ 
 };
 
 const uint8 code Cosnt_OBSLen=dim(gs_OBSCom);
@@ -1287,11 +1285,11 @@ uint8 JbMode(S_COM *ComProcCtr)
         //调整bps到2400
         if(ComProcCtr->ucPort==ComIndex_Uart4)
         {
-         //px-opt   Init_Uart41(3, 0);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
+          Init_Uart4(3);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
         }
         else
         {
-      //px-opt      Init_Uart21(3, 0);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
+          Init_Uart2 (3);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
         }
         DelayXms(100);                                                 //睡眠20ms
         gs_PtlCrt.uc_ComStep=Com_PRdWr;
