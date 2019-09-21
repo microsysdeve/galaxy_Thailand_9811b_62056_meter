@@ -23,7 +23,7 @@ void            debug_init(void)
 char 	debug_break( enum ENUMDEBUGLIST cErrno)
 {cErrlistno = cErrno ;
 	if ( cErrno>_debugerrorbreak_)		       
-	cErrlistno = cErrno+2 ;
+	cErrlistno = cErrno ;
 	return (cErrlistno +1) ;
 }
 

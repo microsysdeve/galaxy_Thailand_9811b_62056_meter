@@ -17,7 +17,11 @@
 #define PosDataLen      0x09        //数据区长度在帧里面位置
 #define Max645FrmLen    0xf0        //645帧最大长度
 
+#define LeadChar62056Num    0x30        //前导符个数
+#define Min62056FrmLen      0x05        //最小帧长度
 
+#define  Prtl_645           0xAA
+#define  Prtl_1107          0x00
 
 enum
 {//表地址类型
@@ -87,6 +91,7 @@ extern const S_CMDPROC code gs_CmdProc[];//命令与处理
 
 
 //CM_PRCFRM_EXT uint8 guc_MeteAddr[6];
+#define guc_MeteAddr  FlashInfo.SafeInfo.TRx_Num
 CM_PRCFRM_EXT uint8 guc_FactoryType;
 CM_PRCFRM_EXT S_PWCTR gs_PassWordCtr;
 
@@ -97,14 +102,17 @@ uint8 DoNothing(S_FRAMEINFO *s_FrmInfo);
 uint8 BD_ProcFrame(S_COM *ComProcCtr);
 uint8 Judge645Frm(S_COM* psCom, S_FRAMEINFO* sFrm);
 uint8 IsValidFrame(uint8* pucBuf, uint8 ucFrmLen);
+uint8 IsValid62056Frame(uint8* pucBuf, uint8 ucFrmLen);
+uint8 Judge62056Frm(S_COM* psCom);
 uint8 DoSum(uint8* pucBuf, uint8 ucLen);
 uint8 Decode645Frame(S_FRAMEINFO* sFrm);
 uint8 Judge645Addr(S_FRAMEINFO* sFrm);
-uint8 JudgePassword(uint8* buff);
+//uint8 JudgePassword(uint8* buff);
 void UnDo33(uint8* pucBuf, uint8 ucLen);
 void Do33(uint8* pucBuf, uint8 ucLen);
 uint8 Encode645Frame(S_COM* psCom, S_FRAMEINFO* sFrm);
-void PwBs_DyOut(void);
+
+
 
 
 #endif

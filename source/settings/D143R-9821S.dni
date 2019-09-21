@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1362467415
+Checksum=2001780600
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -109,12 +109,6 @@ Fmt37={W}0:u32PMdatal	4	0
 Fmt38={W}0:ui_E2Address	4	0
 Fmt39={W}0:uitmp	4	0
 Fmt40={W}0:zp.bjlcalgetchanel	4	0
-[Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.26.2" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.280.3" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.280.3" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.26.3" 1 0 0 0 "" 0 ""
-Count=4
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -122,6 +116,9 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.283.3" 0 0 0 0 "" 0 ""
+Count=1
 [Aliases]
 Count=0
 SuppressDialog=0

@@ -36,7 +36,7 @@ enum  ENUMBPSNUM
 
 const GS_BaudRate code BaudRateTable[_bpsend_] =
 {
-  // {0xc7,   0x82},  //300
+   {0xc7,   0x82},  //300
    {0xe4,   0x82},  //600
    {0xf2,   0x82},  //1200
    {0xd5,   0x22},  //2400
@@ -44,7 +44,7 @@ const GS_BaudRate code BaudRateTable[_bpsend_] =
    {0xeb,   0xa2},  //9600
 };
 #else 
-extern const GS_BaudRate code BaudRateTable[5];
+extern const GS_BaudRate code BaudRateTable[_bpsend_];
 #endif
 
 #define _UartInit(bpsno,TMODx,TCONx,TLx,THx,SCONx) {if(bpsno>=_bpsend_) bpsno=_bps2400_; TMODx = 0x20;TCONx=BaudRateTable[bpsno].Type; TLx=THx=BaudRateTable[bpsno].THValue;SCONx=0xD0;}   
@@ -59,7 +59,7 @@ typedef struct s_com
     uint8   ucFrmHeadCnt;                                           // 帧头处理
     uint8   ucLen;                                                  // 收发的数据总长度
     uint8   ucPos;                                                  // 当前处理数据的位置,相当于指向ucBuf的一个指针
-    uint8   ucBuf[1];    //pxdebug                                         // 通讯收发数据缓冲区   //uint8   ucBuf[360];                                             // 通讯收发数据缓冲区
+    uint8   ucBuf[100];    //pxdebug                                         // 通讯收发数据缓冲区   //uint8   ucBuf[360];                                             // 通讯收发数据缓冲区
 }S_COM;
 
 //COMBOTTOMEXT S_COM gs_ComGroup[Const_MaxComNum];                    // 通讯用的缓存

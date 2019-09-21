@@ -113,7 +113,7 @@ VAREXT uint16 gui_SysSleepSta;
 #define  _IsSecuProduct  (gui_SystemState&flgStSys_Program)
 #define _SYS_IS_PWR_OFF  (gui_SystemState&flgStSys_PowOff)
 
-
+#define  gs_ComGroup  (*(( S_COM *)(&USARTCOM[0])));                    // 通讯用的缓存
 
 #define                 _ChipDataSet_Bz_                0x12345678
 
@@ -121,5 +121,9 @@ VAREXT uint16 gui_SysSleepSta;
 #define                   _NegLogeo_Set(a)   { a |=_NegLogo_;}
 
 
+#define        R485Com      (*(( S_COM *)(&USARTCOM[0])))
+#define              IRCom        (*(( S_COM *)(&USARTCOM[0])))
+
+#define                 OpenGJLed()             {}
 #endif
 

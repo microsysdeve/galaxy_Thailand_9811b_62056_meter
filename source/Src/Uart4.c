@@ -18,14 +18,24 @@
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+#define                 _Parity_Set(SCONx)              { SCONx |=(BIT3);}
+#define                 _Parity_Set(SCONx)              { SCONx&=(~BIT3);}
+
+
+#define       _EvenMod( cData , SCONx)    { ACC = cData;if( 0 == P) SCONx&=(~BIT3);else SCONx|=(BIT3);}
+#define       _OddMod( cData , SCONx)    { ACC = cData;if (P)   SCONx&=(~BIT3);else SCONx|=(BIT3);}
+#define       _SendOper( cData,SBUFx)   {SBUFx = cData;}
+ 
+	
+ 
 void Init_Uart4(uint8 ucBode)
 {
 volatile char    stemp[5],j;
-int i;
-
+ int i;
+ ucBode =_bps2400_;
   _UartInit(ucBode,TMOD4,TCON4,TL41,TH41,SCON4);
-  ucBode =_bps2400_;
-   if(ucBode>=5)
+ 
+  /*if(ucBode>=5)
     {
         ucBode=2;                           //默认2400
     }
@@ -34,7 +44,8 @@ int i;
     TCON4 = BaudRateTable[ucBode].Type;          //时钟选择CLK  clear SMOD  SET  T1M,TR1
     TL41  = TH41 = BaudRateTable[ucBode].THValue;    //波特率设置
     SCON4 = 0xD0;                                 //数据位9位,8位数据位+1校验位
-
+*/
+  //SCON4 = 0x50;     
     P2OE &= ~BIT1;                      //Uart4发送口输出允许
     P2IE &= ~BIT1;                      //Uart4发送口输入禁止
     P2OE |= BIT0;                       //Uart4接收口输出禁止
@@ -52,30 +63,26 @@ int i;
 #endif
     
     SCON4&=(~BIT4);
-  //  goto a1;
+    /*
+   goto a1;
                 while (1)
                 {
                   for ( j =0;j<255;j++)
                   {
                    SLPWDT();               //800k喂狗
-                   SCON4 &=~BIT1;
-          ACC =j;
-                      if(P==0)                                        //校验位
-                    {
-                        SCON2&=(~BIT3);
-                    }
-                    else
-                    {
-                        SCON2|=(BIT3);
-                    }
-                    
-       SBUF4 =j;
-       for ( i =0 ;i < 100;i++)
-       asm("nop");
-                  }
-       
+                   SCON4 &=~BIT1;         
+                  _EvenMod(j,SCON4)  ;
+                   _SendOper(j,SBUF4);
+       for ( i =0 ;i < 1000;i++)
+       {
+            if (SCON4 & BIT1)
+            goto a2;
+          asm("nop"); asm("nop"); asm("nop");
+        }       
+                  a2:
                 }
-                /*
+                
+                }
 a1:    
                 SCON4|=(BIT4);
                 SCON4&=~BIT0;
@@ -91,7 +98,7 @@ a1:
                        }
                            SLPWDT();
                 }
-    */
+   */
               
 }
 #ifdef DEL
@@ -205,6 +212,7 @@ void Uart4_Receive(void)
     {
         return;
     }
+#ifdef _ComUSE645_
     stream_rece_fun_645( usartcomp,SBUF4);
     if (usartcomp->bEventRec645) {
 				//do {
@@ -218,6 +226,9 @@ void Uart4_Receive(void)
 			//	}
 
 			}
+#else
+  stream_rece_fun ( usartcomp,SBUF4);
+#endif
 
     return ;
 #ifdef DEL

@@ -1,5 +1,7 @@
 #define COMBOTTOMEXT
 #include "Include.h"
+extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+
 /*=========================================================================================\n
 * @function_name: ComBom_Init
 * @function_file: ComBottom.C
@@ -70,7 +72,7 @@ void ComBom_InitAll(void)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-#ifdef del
+ 
 void ComBom_StartSend(uint8 ucNo)
 {
     gs_ComGroup[ucNo].ucStt = ComStt_Send;              // 将该COM口设置成发送转换
@@ -97,7 +99,7 @@ void ComBom_StartSend(uint8 ucNo)
         ComBom_Init(ucNo);                              // 无效，初始化COM
     }
 }
-#endif
+ 
 /*=========================================================================================\n
 * @function_name: ComBom_1msDy
 * @function_file: ComBottom.C

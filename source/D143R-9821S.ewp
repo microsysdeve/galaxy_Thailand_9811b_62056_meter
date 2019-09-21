@@ -2210,6 +2210,9 @@
     <name>$PROJ_DIR$\Src\Powmanger.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\Src\Prcfrm.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\Ptl_1107.c</name>
   </file>
   <file>
