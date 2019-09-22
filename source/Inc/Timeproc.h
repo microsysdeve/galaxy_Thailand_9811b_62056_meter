@@ -45,6 +45,7 @@ enum CLOCKTYPE
     Const_YYMMDDhhmmss,     //日,月,年,秒,分,时,
     Const_YYMMDDhhmm,       //分,时,日,月,年
     Const_hhmmssYYMMDDWW,   //星期,日,月,年,秒,分,时,
+    Const_WW,               //星期
 };
 
 typedef struct strTimeData

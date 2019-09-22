@@ -207,6 +207,7 @@ void EnyB_Open_Cf(void);
 void EnyB_FstPluseProc(void);
 
 uint32 CalRMS(uint16 addr);
+#define EnyB_CalRMS(addr)  CalRMS(addr)
 uint16 CalCos(void);
 uint32 EnyB_ReadMeterParaACK(uint16 addr);
 uint8 EnyB_SetMeterCfgACK(uint32 u32PMdatal ,uint16 addr);

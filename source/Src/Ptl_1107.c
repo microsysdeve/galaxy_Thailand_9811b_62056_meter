@@ -56,7 +56,9 @@ const uint8 code guc_InitCmd[]=
     AS_SOH,'V','G',AS_STX,'C','L','R','-','0','0',AS_ETX,0x60,
 };
 
-
+#define BE_ReadP(a,b,c)   {}  //gs_E2DataTable[index].uiE2Adrr,ASCII,8);
+#define  EnyB_IBAutoCheck()   {}  //g
+#define  EnyB_AutoChkAngle()   {}  //g
 
 /*=========================================================================================\n
 * @function_name: gs_OBSCom
@@ -346,8 +348,7 @@ uint8 FindObsiPoint(uint8* Obsi,uint8 len)
     uint8 i;
     for(i=0;i<Cosnt_OBSLen;i++)
     {
-     //px_opt    if(ApiCodeBufCmp((uint8 code*)gs_OBSCom[i].pOBS,Obsi,len)==CMP_EQU)//比较字符串
-      
+        if(ApiCodeBufCmp((uint8 code*)gs_OBSCom[i].pOBS,Obsi,len)==CMP_EQU)//比较字符串
         {
             return i;
         }
@@ -679,7 +680,6 @@ uint32 DateAndTimeProc(uint8 index,uint8 cmd,void *pvoid)
     uint8 ASCII[8];
     uint8 len;
     uint8 DtorTm=0xff;
-    #ifdef  pxopt
     if(Const_DataCOmWR!=cmd)
     {
         switch(index)
@@ -734,7 +734,6 @@ uint32 DateAndTimeProc(uint8 index,uint8 cmd,void *pvoid)
         len=8;
     }
     MemCpy(pvoid,ASCII,len);
-#endif
     return len;
 }
 /*=========================================================================================\n

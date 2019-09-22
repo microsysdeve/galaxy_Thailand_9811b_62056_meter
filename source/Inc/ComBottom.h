@@ -63,7 +63,7 @@ typedef struct s_com
 }S_COM;
 
 //COMBOTTOMEXT S_COM gs_ComGroup[Const_MaxComNum];                    // 通讯用的缓存
-
+extern S_COM *gs_ComGroup;
 
 typedef struct
 {

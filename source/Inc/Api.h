@@ -49,8 +49,10 @@ void SumplementNegtive(uint8 ucLen, uint8* p);
 uint16 IntBCD2Hex(uint16 x);
 void MoveBuffer(uint8* sbuff, uint8* tbuff, uint16 length);
 uint8 CompareTime(uint8  *Tm1,uint8 *Tm2);
-void MemInvertCpy(uint8 *des,uint8 *src,uint8 len);
-void MemCpy(uint8 *des,uint8 *src,uint8 len);
+//void MemInvertCpy(uint8 *des,uint8 *src,uint8 len);
+#define MemInvertCpy(des,src,len)  RevCopyRam(des,(char *)src,(unsigned short)len)
+//void MemCpy(uint8 *des,uint8 *src,uint8 len);
+#define MemCpy(des,src, len)   CopyRam(des,(char *)src,(unsigned short)len)
 void MemSet(uint8* des,uint8 value,uint8 len);
 //void FCpyTMem(uint8x *des,const uint8 code *src,uint8 len);
 void CopyRam(unsigned char  *Dst, unsigned char  const *Src, unsigned short  Length); //Public.c

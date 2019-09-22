@@ -113,7 +113,6 @@ VAREXT uint16 gui_SysSleepSta;
 #define  _IsSecuProduct  (gui_SystemState&flgStSys_Program)
 #define _SYS_IS_PWR_OFF  (gui_SystemState&flgStSys_PowOff)
 
-#define  gs_ComGroup  (*(( S_COM *)(&USARTCOM[0])));                    // 通讯用的缓存
 
 #define                 _ChipDataSet_Bz_                0x12345678
 

@@ -972,7 +972,7 @@ uint8 CompareTime(uint8  *Tm1,uint8 *Tm2)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-void MemInvertCpy(uint8x *des,uint8x *src,uint8 len)
+void MemInvertC1py(uint8x *des,uint8x *src,uint8 len)
 {
     while(len--)
     {
@@ -1046,7 +1046,7 @@ void FCpyTMem2(uint8x *des,const uint8 code *src,uint8 len)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-void MemCpy(uint8x *des,uint8x *src,uint8 len)
+void MemC1py(uint8x *des,uint8x *src,uint8 len)
 {
     while(len--)
     {
@@ -1258,6 +1258,132 @@ uint16 HourAndMinToMin(uint8*Data)
 
 void FCpyTMe1m(uint8x *des,const uint8 code *src,uint8 len)
 {
+    while(len--)
+    {
+        *(des++)=*(src++);
+    }
+}
+
+
+/*=========================================================================================\n
+* @function_name: ASCII2BCD
+* @function_file: Api.c
+* @描述: 
+* 
+* 
+* @参数： 
+* @param:BCD     输出的BCD码
+* @param:Ascii   输入ASCII
+* @param:len     输入的ascii的长度
+* 
+* @返回： 
+* @return: uint8   输出BCD码的长度
+* @作者:  Lwb (2011-9-14)
+* @备注: 
+*-------------------------------------------------------------------------------------------
+* @修改人:  
+* @修改内容:  
+===========================================================================================*/
+uint8 ASCII2BCD(uint8*BCD,uint8*Ascii,uint8 len)
+{
+	uint8 i;
+    for(i=0;i<len/2;i++)
+    {
+//      BCD[i]=(Ascii[i*2]-0x30)<<4;
+//      BCD[i]|=((Ascii[i*2+1]-0x30)&0x0f);
+
+        BCD[i]=(Ascii[len-i*2-2]-0x30)<<4;
+        BCD[i]|=((Ascii[len-i*2-1]-0x30)&0x0f);
+    }
+
+    return len/2;  //传入的BCD码必须是偶数
+
+//  if(len%2)                                   //len为奇数的时候
+//  {
+//      BCD[len/2]=((Ascii[len-1]-0x30)&0x0f);
+//  }
+//  return (len+1)/2;
+}
+
+/*=========================================================================================\n
+* @function_name: BCD2ASCII
+* @function_file: Api.c
+* @描述: BCD 转 ASCII 码
+* 
+* @param: BCD   
+* @param: Ascii  
+* @param: len 
+* 
+* @return: uint8   
+* @作者: lwb (2014/2/28)
+* @备注:   
+*-------------------------------------------------------------------------------------------
+* @修改人: 
+* @修改内容:  
+===========================================================================================*/
+uint8 BCD2ASCII(uint8*BCD,uint8*Ascii,uint8 len)
+{
+    uint8 AsciiLen=0;
+	uint8 i;
+    for(i=0;i<len;i++)
+    {
+        Ascii[AsciiLen++]=0x30+((BCD[len-1-i]&0xF0)>>4);
+        Ascii[AsciiLen++]=0x30+(BCD[len-1-i]&0x0F);
+    }
+    return AsciiLen;
+}
+/*=========================================================================================\n
+* @function_name: StrCpy
+* @function_file: Api.c
+* @描述:
+*
+*
+* @参数:
+* @param:des
+* @param:src
+* @param:len
+* @返回:
+* @作者:   lwb (2012-04-05)
+* @备注:
+*-------------------------------------------------------------------------------------------
+* @修改人:
+* @修改内容:
+===========================================================================================*/
+uint8 StrLen(const uint8 code *src)
+{
+    uint8 i,len;
+    i=0;
+    len=0;    
+    while((src[i++]!='\0')
+         &&(len<200))
+    {
+      len++;
+    }
+    
+    return len;  
+}
+/*=========================================================================================\n
+* @function_name: StrCpy
+* @function_file: Api.c
+* @描述:
+*
+*
+* @参数:
+* @param:des
+* @param:src
+* @返回:
+* @作者:   lwb (2012-04-05)
+* @备注:
+*-------------------------------------------------------------------------------------------
+* @修改人:
+* @修改内容:
+===========================================================================================*/
+void StrCpy(uint8* des,const uint8 code *src)
+{
+    uint8 len;
+    len=StrLen(src);
+    CopyRam(des,(char *)src,len);
+    return;
     while(len--)
     {
         *(des++)=*(src++);
