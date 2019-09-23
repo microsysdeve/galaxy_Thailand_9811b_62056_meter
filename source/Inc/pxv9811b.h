@@ -25,10 +25,14 @@ enum ENUMDEBUGLIST
 	_debug_errno_JLChangeChanelL_,
         _debug_errno_JLChangeChanelN_,
         _debug_errno_ChangeClkSource_,
+        
 _debug_errno_SetPLL800K_FAIL1_,
 _debug_errno_SetPLL800K_FAIL2_,
 _debug_errno_SetPLL800K_FAIL3_,
 _debug_errno_EnyB_ReadMeterParaACK_,
+_debug_errno_62056_frame_CrcFAIL_,
+_debug_errno_62056_frame_FunFAIL_,
+
 	_debug_errno_end_,
 };
  

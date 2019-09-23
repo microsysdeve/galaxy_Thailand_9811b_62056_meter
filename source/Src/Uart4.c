@@ -295,7 +295,7 @@ void Uart4_Transmit(void)
   unsigned char ctemp;
   extern volatile struct STSCIBUF USARTCOM[_Com_End_];
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_R485_Chanel_]);
-  
+ #ifdef  _ComUSE645_
   if (usartcomp->cStatu < _end_sendcom) 
   {
 	ctemp  = stream_send_fun_645(usartcomp);
@@ -311,8 +311,12 @@ void Uart4_Transmit(void)
 	}
 
 	return;
-    //guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
-#ifdef DEL
+#else
+  
+  
+
+  // guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
+
     if(gs_ComGroup[ComIndex_Uart4].ucPort   == Port_Uart4)
     {   //处于空闲状态或已经处于uart接收状态
         if(gs_ComGroup[ComIndex_Uart4].ucStt == ComStt_Send)

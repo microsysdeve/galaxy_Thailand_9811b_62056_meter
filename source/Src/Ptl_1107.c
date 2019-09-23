@@ -348,7 +348,7 @@ uint8 FindObsiPoint(uint8* Obsi,uint8 len)
     uint8 i;
     for(i=0;i<Cosnt_OBSLen;i++)
     {
-        if(ApiCodeBufCmp((uint8 code*)gs_OBSCom[i].pOBS,Obsi,len)==CMP_EQU)//比较字符串
+        if(ApiCodeBufCmp((uint8 *)gs_OBSCom[i].pOBS,(uint8 code *)Obsi,len)==CMP_EQU)//比较字符串
         {
             return i;
         }
@@ -1185,10 +1185,12 @@ uint8 ContinueRead(S_COM *ComProcCtr)
 uint8 JbComHd(S_COM *ComProcCtr)
 {	
 	uint8 i;
-    uint8  MeterID[7],RevID[14];//AscZeroCnt=0;
+    //uint8  MeterID[7],
+#define                 MeterID               FlashInfo.SafeInfo.TRx_Num
+    uint8 RevID[14];//AscZeroCnt=0;
 
 
-    
+    return Ret_OK;     
     if(CmpStr(ComProcCtr->ucBuf,guc_InitCmd, sizeof(guc_InitCmd))==Ret_OK)
     {//初始化
         SetCRCWord(guc_InitWd);
@@ -1200,7 +1202,7 @@ uint8 JbComHd(S_COM *ComProcCtr)
         return Ret_OK;
     }
 
-    BE_ReadP(EEP_COMADD,MeterID,4);                    //读取表地址
+    CopyRam( MeterID , FlashInfo.SafeInfo.TRx_Num ,4) ;//BE_ReadP(EEP_COMADD,MeterID,4);                    //读取表地址
     BCD2ASCII(MeterID,RevID,4);
     
     if(CmpStr(ComProcCtr->ucBuf,guc_Frmhd, dim(guc_Frmhd)))
@@ -1284,11 +1286,11 @@ uint8 JbMode(S_COM *ComProcCtr)
         //调整bps到2400
         if(ComProcCtr->ucPort==ComIndex_Uart4)
         {
-          Init_Uart4(3);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
+          Init_Uart4(_bps2400_);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
         }
         else
         {
-          Init_Uart2 (3);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
+          Init_Uart2 (_bps2400_);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
         }
         DelayXms(100);                                                 //睡眠20ms
         gs_PtlCrt.uc_ComStep=Com_PRdWr;

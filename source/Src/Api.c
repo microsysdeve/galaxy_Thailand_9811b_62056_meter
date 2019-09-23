@@ -629,7 +629,7 @@ uint8 ApiRevBufCmp(uint8* pucCompare, uint8* pucCompared, uint8 ucLen)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-uint8 ApiCodeBufCmp(uint8* pucCompare, const uint8 code* pucCompared, uint8 ucLen)
+uint8 ApiCodeBufCmp(uint8* code pucCompare, const uint8 code* pucCompared, uint8 ucLen)
 {   
     while(ucLen > 0)                        //循环，逐个字节的进行对比
     {

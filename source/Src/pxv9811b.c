@@ -3,7 +3,7 @@
 
 char     cDispprt;
 struct          STGLOBALlIST  stgloballist;
-enum ENUMDEBUGLIST   cErrlistno;
+volatile enum ENUMDEBUGLIST   cErrlistno;
 void  debug_ledshow(void)
 {
     static char           xxxx ;
@@ -22,8 +22,11 @@ void            debug_init(void)
 
 char 	debug_break( enum ENUMDEBUGLIST cErrno)
 {cErrlistno = cErrno ;
-	if ( cErrno>_debugerrorbreak_)		       
-	cErrlistno = cErrno ;
+	if ( cErrno>_debugerrorbreak_)	
+        {
+            cErrlistno = cErrno+1 ;
+            cErrlistno = cErrno-1 ;
+        }
 	return (cErrlistno +1) ;
 }
 
@@ -113,4 +116,23 @@ void            Value_put ( unsigned long lData, unsigned short iAddr )
 void   iReg_Clear(void)
 {
     ClrRam( (char *)iReg, sizeof(iReg));
+}
+uint8 StrLen(const uint8 code *src);
+const char stemp1[] = "/?!\r\n";	//"\/?!\r\n";   //2f 3f 21 0d 0a
+const char  sAsk[]= { 0xAF,0x3F,0x21,0x8D,0x0A,0};
+void   init62056frm(S_COM *ComProcCtrl)
+{
+  gs_PtlCrt.uc_ComStep = 0;
+  
+  
+     ComProcCtrl->ucPort=Port_Uart4;
+     ComProcCtrl->ucLen = (unsigned char)StrLen(stemp1);;
+     ComProcCtrl->ucPos = 0;
+     ComProcCtrl->ucFrmHeadCnt=0;
+        //初始化通讯状态
+      ComProcCtrl->ucStt =0;// ComStt_Idle;
+     ComProcCtrl->ucRecvTmr = 0;                // 定时器无效状态
+     ComProcCtrl->ucOverTmr = 0;                // 定时器无效状态
+        CopyRam(ComProcCtrl->ucBuf,(char *)stemp1,ComProcCtrl->ucLen);
+        return ;
 }

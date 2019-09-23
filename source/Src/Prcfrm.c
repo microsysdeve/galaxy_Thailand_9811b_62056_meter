@@ -44,9 +44,11 @@ const uint8 code ComProc_Len=dim(gs_ComProc);
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+extern const ComFPro code gs_ComProc[];
+ volatile uint8 iResult;;
 uint8 BD_ProcFrame(S_COM *ComProcCtr)
 {
-//    uint8 i;
+   
 //    S_FRAMEINFO s_FrmInfo;                              //开辟临时缓存来处理信息
     //判断是1107规约的还是645规约的
 //    s_FrmInfo.ucPort=ComProcCtr->ucPort;
@@ -71,11 +73,13 @@ uint8 BD_ProcFrame(S_COM *ComProcCtr)
  
             if(Judge62056Frm(ComProcCtr) == Ret_Err)  //判断62056帧是否是合法帧
             {
+              debug_break( _debug_errno_62056_frame_CrcFAIL_ );
                 return Ret_Err;
             }
-            
-            if(gs_ComProc[gs_PtlCrt.uc_ComStep](ComProcCtr))
+            iResult = gs_ComProc[gs_PtlCrt.uc_ComStep](ComProcCtr); 
+            if ( iResult ) //if(gs_ComProc[gs_PtlCrt.uc_ComStep](ComProcCtr))
             {
+             debug_break( _debug_errno_62056_frame_FunFAIL_ );
                 return Ret_Err;
             }
             else
@@ -91,11 +95,11 @@ uint8 BD_ProcFrame(S_COM *ComProcCtr)
             if((gs_PtlCrt.uc_ComStep==Com_HD&&guc_BodeDely==0)
                ||(gs_PtlCrt.uc_ComStep==Com_BpsCk))
             {
-                Init_Uart4(0);//, 0);        // 初始化模拟串口
+                Init_Uart4(_bps300_);//, 0);        // 初始化模拟串口
             }
             else
             {
-                Init_Uart4(3);//,  0);        // 初始化模拟串口
+                Init_Uart4(_bps2400_);//,  0);        // 初始化模拟串口
             }
         }
         else
@@ -103,11 +107,11 @@ uint8 BD_ProcFrame(S_COM *ComProcCtr)
             if((gs_PtlCrt.uc_ComStep==Com_HD&&guc_BodeDely==0)
                ||(gs_PtlCrt.uc_ComStep==Com_BpsCk))
             {
-                Init_Uart2(0);//, ,0);        //初始化红外
+                Init_Uart2(_bps300_);//, ,0);        //初始化红外
             }
             else
             {
-                Init_Uart2(3);//,, 0);        //初始化红外
+                Init_Uart2(_bps2400_);//,, 0);        //初始化红外
             }
         }
 
