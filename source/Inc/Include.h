@@ -124,5 +124,6 @@ VAREXT uint16 gui_SysSleepSta;
 #define              IRCom        (*(( S_COM *)(&USARTCOM[0])))
 
 #define                 OpenGJLed()             {}
+uint8 BCD2ASCII(uint8*BCD,uint8*Ascii,uint8 len) ;
 #endif
 

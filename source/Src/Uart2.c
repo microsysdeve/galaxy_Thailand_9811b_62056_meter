@@ -1,5 +1,5 @@
 #include "Include.h"
-
+#include "streamio.h"
 //变量声明
 uint8   guc_DyUart2Over;        //模拟串口超时保护
 /*=========================================================================================\n
@@ -74,6 +74,26 @@ void Uart2_Dy10ms(void)
         }
     }
 }
+void Uart2_Receiveio(void)
+{
+
+//    uint8 temp,temp1;
+    guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
+
+    //处于空闲状态或已经处于uart接收状态
+    gs_ComGroup[ComIndex_Uart2].ucPort   = Port_Uart2;
+
+    gs_ComGroup[ComIndex_Uart2].ucRecvTmr = Const_DyRvPack;     //设置数据包接收超时时间
+
+    if((gs_ComGroup[ComIndex_Uart2].ucStt == ComStt_Idle)
+       ||(gs_ComGroup[ComIndex_Uart2].ucStt == ComStt_Recv))        //当前是空闲的状态的话，判断是否是帧头68
+    {
+        if(gs_ComGroup[ComIndex_Uart2].ucLen < Const_MaxBufLen)     //判断 com中的buf是否溢出
+        {                                                           //防止缓存溢出
+            gs_ComGroup[ComIndex_Uart2].ucBuf[gs_ComGroup[ComIndex_Uart2].ucLen++] = (SBUF2&0x7F);//数据存入缓冲区，指针加加
+        }
+    }
+}
 /*=========================================================================================\n
 * @function_name: Uart2_Receive
 * @function_file: Uart2.c
@@ -89,7 +109,9 @@ void Uart2_Dy10ms(void)
 ===========================================================================================*/
 void Uart2_Receive(void)
 {
-
+extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+  struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_IR_Chanel_]);
+ 
     uint8 temp,temp1;
     guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
     //这里可以做奇偶校验判断
@@ -101,6 +123,25 @@ void Uart2_Receive(void)
     {
         return;
     }
+    #ifdef _ComUSE645_
+    stream_rece_fun_645( usartcomp,SBUF2);
+    if (usartcomp->bEventRec645) {
+				//do {
+			//		unitp->INTE.reg = unitp->INTE.reg & 0xff80;//_DISABLE_USART0_RECE_INT_);
+			//	} while (unitp->INTE.reg & 0x7f);
+			} else {
+			//	if (flag & 0x4) {
+			//		// iReRece =0x66;
+			//		flag &= 0xb;
+			//		goto a1;
+			//	}
+
+			}
+#else
+    Uart2_Receiveio();
+      return ;
+  stream_rece_fun ( usartcomp,SBUF2);
+#endif
 #ifdef DEL
     //处于空闲状态或已经处于uart接收状态
     gs_ComGroup[ComIndex_Uart2].ucPort   = Port_Uart2;

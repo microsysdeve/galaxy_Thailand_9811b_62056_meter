@@ -86,12 +86,12 @@ COMBOTTOMEXT uint8 guc_485Bode;         //485波特率
 COMBOTTOMEXT uint8 guc_BodeDely;        //波特率切换延时
 COMBOTTOMEXT uint8 guc_ComSendDy;       //通讯回复延时，20ms
 //函数
-//void ComBom_Init(uint8 ucNo);
-#define  ComBom_Init(a)  {} 
+void ComBom_Init(uint8 ucNo);
+ 
 void ComBom_InitAll(void);
 void ComBom_StartSend(uint8 ucNo);
-//void ComBom_10msDy(void);
-#define  ComBom_10msDy( ) {}
+void ComBom_10msDy(void);
+
 
 
 #endif

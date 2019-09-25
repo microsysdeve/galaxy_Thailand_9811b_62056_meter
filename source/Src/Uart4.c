@@ -2,7 +2,12 @@
 #include "streamio.h"
 
 //变量声明
-//uint8   guc_DyUart4Over;        //模拟串口超时保护
+uint8   guc_DyUart4Over;        //模拟串口超时保护
+
+
+
+
+
 /*=========================================================================================\n
 * @function_name: Init_Uart4
 * @function_file: Uart4.c
@@ -26,13 +31,49 @@
 #define       _OddMod( cData , SCONx)    { ACC = cData;if (P)   SCONx&=(~BIT3);else SCONx|=(BIT3);}
 #define       _SendOper( cData,SBUFx)   {SBUFx = cData;}
  
-	
+
+  
+ char          cCalbitNum ( unsigned char ctemp)
+  {
+      char      i ,j;     
+      for ( j =0,i = 0 ;i < 8 ;i++,ctemp>>=1)
+        j +=(ctemp&1)?1:0;
+    return j;
+  }
+  
+char            c7bitParity_Set(unsigned char *cData , enum PARITYLIST cparty)
+{
+        unsigned char ctemp = (cCalbitNum (*cData & 0x7f)) & 1;        
+        unsigned char  ctemp1 = (*cData & 0x80)?1:0;        
+        ctemp -=ctemp1;
+        (*cData) &=0x7f;
+          
+      switch (cparty)
+      {
+      case _Parity_Null_ :        
+          return  SUCCESS;
+          
+      case _Parity_Even_ :
+          if ( 0 == ctemp )                   
+                  return SUCCESS;
+            break;
+            
+      case  _Parity_Odd_ :
+        if ( ctemp )                  
+                return SUCCESS;
+            break;
+      }
+        return  FAIL;
+      
+}
+
+
  
 void Init_Uart4(uint8 ucBode)
 {
 volatile char    stemp[5],j;
  int i;
- ucBode =_bps2400_;
+ //ucBode =_bps9600_;
   _UartInit(ucBode,TMOD4,TCON4,TL41,TH41,SCON4);
  
   /*if(ucBode>=5)
@@ -61,10 +102,15 @@ volatile char    stemp[5],j;
 #else
     Uart4_RevEn();
 #endif
-    
-    SCON4&=(~BIT4);
     /*
-   goto a1;
+    SCON4&=(~BIT4);
+     gs_ComGroup[ComIndex_Uart4].ucPort   = Port_Uart4;
+
+    gs_ComGroup[ComIndex_Uart4].ucRecvTmr = Const_DyRvPack;     //设置数据包接收超时时间
+gs_ComGroup[ComIndex_Uart4].ucLen =0;
+    gs_ComGroup[ComIndex_Uart4].ucStt  = ComStt_Idle;
+      
+ goto a1;
                 while (1)
                 {
                   for ( j =0;j<255;j++)
@@ -87,19 +133,22 @@ a1:
                 SCON4|=(BIT4);
                 SCON4&=~BIT0;
                 j =0;
+                EA=1;
                 while (1)
                 {
-                       if (  SCON4 & BIT0)
+                     SLPWDT();
+                     continue;
+                        if (  SCON4 & BIT0)
                        {
                               stemp[j++] = SBUF4;
                               if ( j>=sizeof(stemp))
                                   j =0;
                              SCON4&=~BIT0;
                        }
-                           SLPWDT();
+                        
                 }
    */
-              
+            
 }
 #ifdef DEL
 void Init_Uart41(uint8 ucBode,uint8 uctype)
@@ -184,6 +233,28 @@ void Uart4_Dy10ms(void)
     }
 }
 #endif
+
+void Uart4_Receiveio( unsigned char cData )
+{
+//    uint8 temp,temp1;
+    guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
+    //这里可以做奇偶校验判断
+
+    //处于空闲状态或已经处于uart接收状态
+    gs_ComGroup[ComIndex_Uart4].ucPort   = Port_Uart4;
+
+    gs_ComGroup[ComIndex_Uart4].ucRecvTmr = Const_DyRvPack;     //设置数据包接收超时时间
+
+    if((gs_ComGroup[ComIndex_Uart4].ucStt == ComStt_Idle) 
+      ||(gs_ComGroup[ComIndex_Uart4].ucStt == ComStt_Recv))            //这个判断是防止发送的时候有接收中断进入的可能
+    {
+        if(gs_ComGroup[ComIndex_Uart4].ucLen < Const_MaxBufLen)     //判断 com中的buf是否溢出
+        {
+            //防止缓存溢出
+            gs_ComGroup[ComIndex_Uart4].ucBuf[gs_ComGroup[ComIndex_Uart4].ucLen++] = cData ;//数据存入缓冲区，指针加加
+        }
+    }
+}
 /*=========================================================================================\n
 * @function_name: Uart4_Receive
 * @function_file: Uart4.c
@@ -204,7 +275,9 @@ void Uart4_Receive(void)
     uint8 temp,temp1;
     //guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
     //这里可以做奇偶校验判断
-    ACC=SBUF4;                          //ACC 奇校验
+   
+#ifdef _ComUSE645_
+     ACC=SBUF4;                          //ACC 奇校验
     temp=P;
     temp1=(SCON4>>2)&BIT0;              //偶校验
 
@@ -212,7 +285,6 @@ void Uart4_Receive(void)
     {
         return;
     }
-#ifdef _ComUSE645_
     stream_rece_fun_645( usartcomp,SBUF4);
     if (usartcomp->bEventRec645) {
 				//do {
@@ -227,6 +299,10 @@ void Uart4_Receive(void)
 
 			}
 #else
+    unsigned char ctemp = SBUF4;
+     if ( SUCCESS == c7bitParity_Set(&ctemp ,_Parity_Even_))
+        Uart4_Receiveio(ctemp);      
+      return ;
   stream_rece_fun ( usartcomp,SBUF4);
 #endif
 
@@ -331,25 +407,10 @@ void Uart4_Transmit(void)
                 ComBom_Init(ComIndex_Uart4);//将uart4 端口对应的 COM初始化
             }else
             {
-//              if(gs_ComGroup[ComIndex_Uart4].ucFrmHeadCnt<4)
-//              {
-//                  SCON4|=(BIT3);
-//                  SBUF4=0xfe;
-//                  gs_ComGroup[ComIndex_Uart4].ucFrmHeadCnt++;
-//              }else
-                {
-                    //这里可以做奇偶校验运算
+//          //这里可以做奇偶校验运算
                     ACC = gs_ComGroup[ComIndex_Uart4].ucBuf[gs_ComGroup[ComIndex_Uart4].ucPos]; //计算校验位
-                    if(P==0)                                        //校验位
-                    {
-                        SCON4&=(~BIT3);
-                    }
-                    else
-                    {
-                        SCON4|=(BIT3);
-                    }
-                    SBUF4 = gs_ComGroup[ComIndex_Uart4].ucBuf[gs_ComGroup[ComIndex_Uart4].ucPos++]; 
-                }
+                    SBUF4 = gs_ComGroup[ComIndex_Uart4].ucBuf[gs_ComGroup[ComIndex_Uart4].ucPos++]| ((uint8)P)<<7;; 
+               
             #ifdef RS485_TWOLINE
                 Uart4_CtrIoIdle();
             #else

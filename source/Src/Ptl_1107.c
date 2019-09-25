@@ -1190,7 +1190,7 @@ uint8 JbComHd(S_COM *ComProcCtr)
     uint8 RevID[14];//AscZeroCnt=0;
 
 
-    return Ret_OK;     
+        
     if(CmpStr(ComProcCtr->ucBuf,guc_InitCmd, sizeof(guc_InitCmd))==Ret_OK)
     {//初始化
         SetCRCWord(guc_InitWd);
@@ -1203,8 +1203,8 @@ uint8 JbComHd(S_COM *ComProcCtr)
     }
 
     CopyRam( MeterID , FlashInfo.SafeInfo.TRx_Num ,4) ;//BE_ReadP(EEP_COMADD,MeterID,4);                    //读取表地址
+
     BCD2ASCII(MeterID,RevID,4);
-    
     if(CmpStr(ComProcCtr->ucBuf,guc_Frmhd, dim(guc_Frmhd)))
     {
         //判断是否带地址的 / ? x x x x x x x x ! Cr lf

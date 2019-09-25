@@ -17,9 +17,10 @@ extern volatile struct STSCIBUF USARTCOM[_Com_End_];
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-#ifdef _DEL
+ #ifndef _ComUSE645_
 void ComBom_Init(uint8 ucNo)
 {
+  debug_break( _debug_errno_ComBom_Init_);
     //清空接收缓存
     if(ucNo < Const_MaxComNum)                          // 增加长度保护限制
     {
@@ -33,7 +34,7 @@ void ComBom_Init(uint8 ucNo)
         gs_ComGroup[ucNo].ucOverTmr = 0;                // 定时器无效状态
     }
 }
-#endif
+
 
 /*=========================================================================================\n
 * @function_name: ComBom_InitAll
@@ -75,31 +76,22 @@ void ComBom_InitAll(void)
  
 void ComBom_StartSend(uint8 ucNo)
 {
-    gs_ComGroup[ucNo].ucStt = ComStt_Send;              // 将该COM口设置成发送转换
-    gs_ComGroup[ucNo].ucFrmHeadCnt=0;
+ gs_ComGroup[ucNo].ucStt = ComStt_Send;              // 将该COM口设置成发送转换
+//    gs_ComGroup[ucNo].ucFrmHeadCnt=0;
     if(gs_ComGroup[ucNo].ucPort == Port_Uart4)
     {
-        Uart4_Transmit();                               // uart6 启动发送 
+        Uart4_Transmit();                               // uart4启动发送
     }
-//    else if(gs_ComGroup[ucNo].ucPort == Port_Uart2)
-//    {
-//        EXIF|=BIT4;
-//        ExInt2IFG|=BIT0;
-//        P25FS=2;
-//        P2OE&=(~BIT5);
-//        ExInt2IE|=(BIT0);
-//      //  Uart2_Transmit();                              // 模拟串口启动发送
-//    }
-//    else if(gs_ComGroup[ucNo].ucPort == Port_Uart1)
-//    {
-//        Uart1_Transmit();
-//    }
+    else if(gs_ComGroup[ucNo].ucPort == Port_Uart2)
+    {
+        Uart2_Transmit();                              // 模拟串口启动发送
+    }
     else
     {
         ComBom_Init(ucNo);                              // 无效，初始化COM
     }
 }
- 
+ #endif
 /*=========================================================================================\n
 * @function_name: ComBom_1msDy
 * @function_file: ComBottom.C
@@ -113,7 +105,7 @@ void ComBom_StartSend(uint8 ucNo)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-#ifdef DEL
+#ifndef _ComUSE645_
 void ComBom_10msDy(void)
 {
     uint8 i;

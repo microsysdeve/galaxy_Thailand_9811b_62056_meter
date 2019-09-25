@@ -19,7 +19,7 @@ extern   volatile struct STSCIBUF USARTCOM[_Com_End_];
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-#ifdef DEL
+#ifndef _ComUSE645_
 void ComApp_Proc(void)
 {
     uint8 i;
