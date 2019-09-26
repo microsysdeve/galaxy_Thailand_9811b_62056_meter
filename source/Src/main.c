@@ -78,7 +78,8 @@ void Var_Init(void)
     guc_SleepCnt = 0;           //休眠计数
    
     guc_FactoryType = 0;        //厂内状态标志
-    
+    gs_PtlCrt.uc_ComStep=0;
+    gs_PtlCrt.uc_CompLevel=0;
     
 }
 
