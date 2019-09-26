@@ -30,9 +30,7 @@ uint8   guc_DyUart4Over;        //模拟串口超时保护
 #define       _EvenMod( cData , SCONx)    { ACC = cData;if( 0 == P) SCONx&=(~BIT3);else SCONx|=(BIT3);}
 #define       _OddMod( cData , SCONx)    { ACC = cData;if (P)   SCONx&=(~BIT3);else SCONx|=(BIT3);}
 #define       _SendOper( cData,SBUFx)   {SBUFx = cData;}
- 
-
-  
+   
  char          cCalbitNum ( unsigned char ctemp)
   {
       char      i ,j;     
@@ -43,9 +41,7 @@ uint8   guc_DyUart4Over;        //模拟串口超时保护
   
 char            c7bitParity_Set(unsigned char *cData , enum PARITYLIST cparty)
 {
-        unsigned char ctemp = (cCalbitNum (*cData & 0x7f)) & 1;        
-        unsigned char  ctemp1 = (*cData & 0x80)?1:0;        
-        ctemp -=ctemp1;
+        unsigned char ctemp = (cCalbitNum (*cData))&1;                        
         (*cData) &=0x7f;
           
       switch (cparty)
@@ -64,6 +60,33 @@ char            c7bitParity_Set(unsigned char *cData , enum PARITYLIST cparty)
             break;
       }
         return  FAIL;
+      
+}
+
+
+char           c7bitParity_Get(unsigned char cData , enum PARITYLIST cparty)
+{
+  
+       unsigned char ctemp ;                        
+        (cData) &=0x7f;
+        ctemp = (cCalbitNum (cData))&1;                        
+          
+      switch (cparty)
+      {
+      case _Parity_Null_ :        
+          return  SUCCESS;
+          
+      case _Parity_Even_ :          
+          if (  ctemp )   
+              (cData) |=0x80;           
+            break;
+            
+      case  _Parity_Odd_ :
+        if ( 0 == ctemp )            
+              (cData) |=0x80;                           
+            break;
+      }
+        return cData; 
       
 }
 
@@ -110,15 +133,17 @@ volatile char    stemp[5],j;
 gs_ComGroup[ComIndex_Uart4].ucLen =0;
     gs_ComGroup[ComIndex_Uart4].ucStt  = ComStt_Idle;
       
- goto a1;
+ 
                 while (1)
                 {
-                  for ( j =0;j<255;j++)
+                  for ( j =0;j<128;j++)
                   {
                    SLPWDT();               //800k喂狗
                    SCON4 &=~BIT1;         
-                  _EvenMod(j,SCON4)  ;
-                   _SendOper(j,SBUF4);
+                  //_EvenMod(j,SCON4)  ;
+                   //_SendOper(j,SBUF4);
+                   SCON4|=(BIT3);
+                   SBUF4 =   c7bitParity_Get(j,  _Parity_Even_);
        for ( i =0 ;i < 1000;i++)
        {
             if (SCON4 & BIT1)
@@ -147,7 +172,7 @@ a1:
                        }
                         
                 }
-   */
+    */
             
 }
 #ifdef DEL
@@ -212,16 +237,18 @@ void Init_Uart41(uint8 ucBode,uint8 uctype)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-#ifdef DEL
+ 
 void Uart4_Dy10ms(void)
 {
-  
-    //guc_DyUart4Over--;
+   if ( guc_DyUart4Over )
+   {
+      guc_DyUart4Over--;
     if(0x00== guc_DyUart4Over)
     {
         Init_Uart4(guc_485Bode);        // 初始化模拟串口
         ComBom_Init(ComIndex_Uart4);    //将uart4 端口对应的 COM初始化
     }
+   }
 
     if(guc_BodeDely>0)                  //波特率切换
     {
@@ -232,7 +259,7 @@ void Uart4_Dy10ms(void)
         }
     }
 }
-#endif
+ 
 
 void Uart4_Receiveio( unsigned char cData )
 {
@@ -408,8 +435,8 @@ void Uart4_Transmit(void)
             }else
             {
 //          //这里可以做奇偶校验运算
-                    ACC = gs_ComGroup[ComIndex_Uart4].ucBuf[gs_ComGroup[ComIndex_Uart4].ucPos]; //计算校验位
-                    SBUF4 = gs_ComGroup[ComIndex_Uart4].ucBuf[gs_ComGroup[ComIndex_Uart4].ucPos++]| ((uint8)P)<<7;; 
+              SCON4|=(BIT3);
+              SBUF4 =  c7bitParity_Get(gs_ComGroup[ComIndex_Uart4].ucBuf[gs_ComGroup[ComIndex_Uart4].ucPos++],_Parity_Even_);                   
                
             #ifdef RS485_TWOLINE
                 Uart4_CtrIoIdle();

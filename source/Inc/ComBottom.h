@@ -82,7 +82,8 @@ typedef struct
 
 
 
-COMBOTTOMEXT uint8 guc_485Bode;         //485波特率
+//COMBOTTOMEXT uint8 guc_485Bode;         //485波特率
+#define guc_485Bode  FlashInfo.SetInfo.Baud[0]
 COMBOTTOMEXT uint8 guc_BodeDely;        //波特率切换延时
 COMBOTTOMEXT uint8 guc_ComSendDy;       //通讯回复延时，20ms
 //函数

@@ -28,7 +28,7 @@ const uint8 code guc_FrmADrrhd[]=
 
 const uint8 code guc_BpsCheck[]=
 {
-    '/','L','U','N','3','<','1','>','L','U','N','1','0',//'0','0','0','\r','\n'
+    '/','L','U','N',0x30+_bps300_,'<','1','>','L','U','N','1','0',//'0','0','0','\r','\n'
 };//回复识别帧头，确定波特率
 
 const uint8 code guc_ACKHd1[6]=

@@ -48,7 +48,7 @@ void ComApp_Proc(void)
 ===========================================================================================*/
 void Uart_Proc(uint8 port)
 {
-    S_COM* psCom = ((S_COM*)&gs_ComGroup + port);
+    S_COM* psCom = (S_COM*)(gs_ComGroup + port);
     if(port >= Const_MaxComNum)
     {
         ComBom_InitAll();           //初始化所有COM

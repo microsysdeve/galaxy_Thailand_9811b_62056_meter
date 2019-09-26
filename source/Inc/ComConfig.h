@@ -7,11 +7,12 @@
 #define Const_BPS_2400      2               //
 #define Const_BPS_4800      3               //
 #define Const_BPS_9600      4               //
-
+/*
 #define Const_MaxComNum     1               // 以下为对应的buf序号，如果三个共用一个buf，则全部为0，如果分开，则根据实际分开
-#define ComIndex_Uart4      0               //  485
+#define ComIndex_Uart4      _R485_Chanel_               //  485
 #define ComIndex_Uart2      1               //  红外
 #define ComIndex_Uart1      2               //  载波
+*/
 //端口
 #define Const_MaxPortNum    1               // 总的端口数
 #define Port_Uart4          0               // 端口与COM的对应关系

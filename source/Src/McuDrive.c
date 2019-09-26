@@ -850,7 +850,7 @@ void GetBat(void)
 ===========================================================================================*/
 void Init_Uart(void)
 {
-    guc_485Bode=2;
+    guc_485Bode=_bps300_;
 //    Init_Uart2(guc_485Bode);
 //    ComBom_Init(ComIndex_Uart2);    //将uart2 端口对应的 COM初始化
     Init_Uart4(_bps300_);//guc_485Bode);

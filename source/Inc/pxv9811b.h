@@ -16,6 +16,7 @@ enum ENUMDEBUGLIST
 	_debug_errno_KeyIn_,
 	_debug_app_uart2_int_,
         _debug_errno_ParaSCPWRITE_,
+        _debug_errno_ComBom_Init_,
 	_debugerrorbreak_, //===========================
 	_debug_app_nobreak_ =_debugerrorbreak_,
         _debug_errno_resetvector_,
@@ -25,7 +26,7 @@ enum ENUMDEBUGLIST
 	_debug_errno_JLChangeChanelL_,
         _debug_errno_JLChangeChanelN_,
         _debug_errno_ChangeClkSource_,
-        _debug_errno_ComBom_Init_,
+        
 _debug_errno_SetPLL800K_FAIL1_,
 _debug_errno_SetPLL800K_FAIL2_,
 _debug_errno_SetPLL800K_FAIL3_,

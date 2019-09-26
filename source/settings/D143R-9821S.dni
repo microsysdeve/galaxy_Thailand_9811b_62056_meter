@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=534334654
+Checksum=-1913991098
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -121,13 +121,10 @@ LoggingEnabled=_ 0
 LogFile=_ ""
 [Breakpoints]
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.13" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\streamio.c}.267.4" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.423.1" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.423.13" 0 0 0 0 "" 0 ""
-Bp4=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.396.1" 0 0 0 0 "" 0 ""
-Bp5=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.133.17" 1 0 0 0 "" 0 ""
-Bp6=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.396.5" 0 0 0 0 "" 0 ""
-Count=7
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\McuDrive.c}.730.3" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\ComBottom.C}.119.17" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.248.9" 0 0 0 0 "" 0 ""
+Count=4
 [Aliases]
 Count=0
 SuppressDialog=0
