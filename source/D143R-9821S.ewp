@@ -2135,16 +2135,10 @@
     <name>$PROJ_DIR$\Src\ComBottom.C</name>
   </file>
   <file>
-    <name>$PROJ_DIR$\Src\ComCoretab.c</name>
-  </file>
-  <file>
     <name>$PROJ_DIR$\Src\cstartup.s51</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\Dataproc.c</name>
-  </file>
-  <file>
-    <name>$PROJ_DIR$\Src\DataProtect.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\Demand.c</name>

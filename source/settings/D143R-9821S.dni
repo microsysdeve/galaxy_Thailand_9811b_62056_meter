@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-1913991098
+Checksum=983424680
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -99,19 +99,27 @@ Fmt27={W}0:ctemp1	4	0
 Fmt28={W}0:ctemp2	4	0
 Fmt29={W}0:gs_ComGroup[0].ucPort	4	0
 Fmt30={W}0:gul_Urms800k	4	0
-Fmt31={W}0:iAddr	4	0
-Fmt32={W}0:iReg	4	1
-Fmt33={W}0:iRegList[i]	4	0
-Fmt34={W}0:iReg[i]	4	0
-Fmt35={W}0:lData	4	0
-Fmt36={W}0:len	4	0
-Fmt37={W}0:ltemp	4	0
-Fmt38={W}0:result	4	0
-Fmt39={W}0:stGaljl	4	0
-Fmt40={W}0:u32PMdatal	4	0
-Fmt41={W}0:ui_E2Address	4	0
-Fmt42={W}0:uitmp	4	0
-Fmt43={W}0:zp.bjlcalgetchanel	4	0
+Fmt31={W}0:i	3	0
+Fmt32={W}0:iAddr	4	0
+Fmt33={W}0:iReg	4	1
+Fmt34={W}0:iRegList[i]	4	0
+Fmt35={W}0:iReg[i]	4	0
+Fmt36={W}0:lData	4	0
+Fmt37={W}0:len	4	0
+Fmt38={W}0:ltemp	4	0
+Fmt39={W}0:result	4	0
+Fmt40={W}0:stGaljl	4	0
+Fmt41={W}0:u32PMdatal	4	0
+Fmt42={W}0:ui_E2Address	4	0
+Fmt43={W}0:uitmp	4	0
+Fmt44={W}0:zp.bjlcalgetchanel	4	0
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.13" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "Code:0x32CF" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1067.5" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Prcfrm.c}.80.13" 1 0 0 0 "" 0 ""
+Bp4=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1205.5" 1 0 0 0 "" 0 ""
+Count=5
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -119,12 +127,6 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.13" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\McuDrive.c}.730.3" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\ComBottom.C}.119.17" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Uart4.c}.248.9" 0 0 0 0 "" 0 ""
-Count=4
 [Aliases]
 Count=0
 SuppressDialog=0

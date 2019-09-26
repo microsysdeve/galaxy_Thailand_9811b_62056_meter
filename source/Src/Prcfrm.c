@@ -9,14 +9,15 @@ uint8 DoNothing(S_FRAMEINFO *s_FrmInfo)
 命令与对应的函数处理
 命令字， 属性， 处理函数(在另外一个文件中定义的)
 ==============================================================================*/
-const S_CMDPROC code gs_CmdProc[] =
+/*const S_CMDPROC code gs_CmdProc[] =
 {
-    {0x11,RWData},                  //读数据
+   //============ {0x11,RWData},                  //读数据
 //  {0x13,ReadMeterAddr},           //读通讯地址
-    {0x01,FactoryRD},               //厂内读
+  //====================================  {0x01,FactoryRD},               //厂内读
 //opt     {0x02,FactoryWR},               //厂内写
+ {0x11,NULL}, 
 };
-
+*/
 
 const ComFPro code gs_ComProc[]=
 {
@@ -99,7 +100,7 @@ uint8 BD_ProcFrame(S_COM *ComProcCtr)
             }
             else
             {
-                Init_Uart4(_bps2400_);//,  0);        // 初始化模拟串口
+                Init_Uart4(_bps300_);// Init_Uart4(_bps2400_);//,  0);        // 初始化模拟串口
             }
         }
         else

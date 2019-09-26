@@ -25,15 +25,15 @@ const uint8 code guc_FrmADrrhd[]=
 {   
   '/','?',0xaa,0xaa,0xaa,0xaa,0xaa,0xaa,0xaa,0xaa,'!','\r','\n'         //"/?xxxxxx!CRLF"
 };
-
+#define                 _defbps_    _bps300_
 const uint8 code guc_BpsCheck[]=
 {
-    '/','L','U','N',0x30+_bps300_,'<','1','>','L','U','N','1','0',//'0','0','0','\r','\n'
+    '/','L','U','N',0x30+_defbps_,'<','1','>','L','U','N','1','0',//'0','0','0','\r','\n'
 };//回复识别帧头，确定波特率
 
 const uint8 code guc_ACKHd1[6]=
 {
-    AS_ACK,'0','3',0xAA,'\r','\n'
+    AS_ACK,'0',0x30+_defbps_,0xAA,'\r','\n'
 };//ACK 0 Z（3）2400BPS 
 
 const uint8 code  guc_PgAck[]=
@@ -277,8 +277,8 @@ const uint8 code Cosnt_OBSLen=dim(gs_OBSCom);
 ===========================================================================================*/
  const PFOBSProc code gs_OBSFuction[]=
 {
-    //px opt ReadCurEgy,                 //读取当前有功电量   0
-    //px opt ReadHisEgy,                 //读取历史有功电量   1
+     ReadCurEgy,                 //读取当前有功电量   0
+    ReadHisEgy,                 //读取历史有功电量   1
     ReadHisDemad,               //读取历史需量      2
     ReadBodyOpOrMdTrDate,       //开表盖和线盖事件   3
     ReadPowDnJl,                //掉电记录         4
@@ -348,7 +348,7 @@ uint8 FindObsiPoint(uint8* Obsi,uint8 len)
     uint8 i;
     for(i=0;i<Cosnt_OBSLen;i++)
     {
-        if(ApiCodeBufCmp((uint8 *)gs_OBSCom[i].pOBS,(uint8 code *)Obsi,len)==CMP_EQU)//比较字符串
+        if(ApiCodeBufCmp((uint8 code  *)gs_OBSCom[i].pOBS,(uint8   *)Obsi,len)==CMP_EQU)//比较字符串
         {
             return i;
         }
@@ -553,7 +553,7 @@ uint8 JudgeOBSPsw(uint8 *buff,uint8 ucLevel)
 * @修改人:
 * @修改内容:  
 ===========================================================================================*/
-#ifdef PX_OPT
+
 uint32 ReadCurEgy(uint8 index,uint8 cmd,void *pvoid)
 {
     Word32 Data;
@@ -561,7 +561,7 @@ uint32 ReadCurEgy(uint8 index,uint8 cmd,void *pvoid)
     uint8 ASCII[9];
     //取得某个电量增量
     Eadd = Eny_GetEp1(0, index);    
-    Data.lword = gs_EnergyA.lCP[index]; 
+    Data.lword = 0;//  pxopt     gs_EnergyA.lCP[index]; 
  
     Data.lword += Eadd;
     Data.lword= Hex2BCD(Data.lword);        //首先转化为BCD码
@@ -571,7 +571,7 @@ uint32 ReadCurEgy(uint8 index,uint8 cmd,void *pvoid)
     MemCpy(((uint8*)pvoid)+6,ASCII+5,3);
     return 9;
 }
-#endif
+
 /*=========================================================================================\n
 * @function_name: ReadHisEgy
 * @function_file: Ptl_1107.c
@@ -591,7 +591,7 @@ uint32 ReadCurEgy(uint8 index,uint8 cmd,void *pvoid)
 * @修改人:
 * @修改内容:  
 ===========================================================================================*/
-#ifdef PX_OPT
+ 
 uint32 ReadHisEgy(uint8 index,uint8 cmd,void *pvoid)
 {
     uint8 ucMonth=(0xf0&index)>>4;
@@ -606,7 +606,7 @@ uint32 ReadHisEgy(uint8 index,uint8 cmd,void *pvoid)
     MemCpy(((uint8*)pvoid)+6,ASCII+5,3);
     return 9;
 }
-#endif
+ 
 /*=========================================================================================\n
 * @function_name: ReadHisDemad
 * @function_file: Ptl_1107.c
@@ -625,13 +625,13 @@ uint32 ReadHisEgy(uint8 index,uint8 cmd,void *pvoid)
 ===========================================================================================*/
 uint32 ReadHisDemad(uint8 index,uint8 cmd,void *pvoid)
 {
-  #ifdef  pxopt
+ 
     uint8 ucMonth=(0xf0&index)>>4;
     uint8 offset=0x0f&index;
     Word32 Data;
     uint8 buff[8];
     uint8 ASCII[10];
-    DataProcRead2Slice(LSXLID,ucMonth,offset*4,8,buff);
+  //opt   DataProcRead2Slice(LSXLID,ucMonth,offset*4,8,buff);
     Data.lword=0;
     MemCpy(Data.byte,buff,3);
 
@@ -652,7 +652,7 @@ uint32 ReadHisDemad(uint8 index,uint8 cmd,void *pvoid)
     BCD2ASCII(buff+3,ASCII,5);      //把日期转化成ASCii
     DateAndTmFormat(ASCII);         //转化日期和时间的格式
     MemCpy(((uint8*)pvoid)+12,ASCII,14);
-#endif
+
     return 26;
 }
 /*=========================================================================================\n
@@ -758,14 +758,14 @@ uint32 ReadBodyOpOrMdTrDate(uint8 index,uint8 cmd,void *pvoid)
     uint8 ASCII[20];
     uint8 ucMonth=(0xf0&index)>>4;
     uint8 uctype=0x0f&index;
-#ifdef PX_OPT
+ 
     if(uctype==0x01)                //读开表盖时间
     {
-        DataProcRead2Slice(KBGJLID, ucMonth, 0, 5, ucbuf); 
+   //opt      DataProcRead2Slice(KBGJLID, ucMonth, 0, 5, ucbuf); 
     }
     else                            //读开线盖时间和次数
     {
-        DataProcRead2Slice(KXGJLID, ucMonth, 0, 6, ucbuf); 
+    //opt     DataProcRead2Slice(KXGJLID, ucMonth, 0, 6, ucbuf); 
     }
 
     BCD2ASCII(ucbuf,ASCII,5);               //把日期转化成ASCii
@@ -783,7 +783,7 @@ uint32 ReadBodyOpOrMdTrDate(uint8 index,uint8 cmd,void *pvoid)
         MemCpy(((uint8*)pvoid)+16,ASCII,2);
         return 18;
     }
-#endif
+ 
 }
 /*=========================================================================================\n
 * @function_name: DoNoting
@@ -1286,7 +1286,7 @@ uint8 JbMode(S_COM *ComProcCtr)
         //调整bps到2400
         if(ComProcCtr->ucPort==ComIndex_Uart4)
         {
-          Init_Uart4(_bps2400_);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
+        //  Init_Uart4(_bps2400_);        // 初始化模拟串口,由于这个是波特率固定的所以不需要切换波特率
         }
         else
         {

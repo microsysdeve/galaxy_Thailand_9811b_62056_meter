@@ -40,7 +40,7 @@ uint16 IntHex2BCD(uint16 hex);
 uint16 do_CRC(uint8 xdata *str,uint8 len);
 uint8 ApiBufCmp(uint8* pucCompare, uint8* pucCompared, uint8 ucLen);
 uint8 ApiRevBufCmp(uint8* pucCompare, uint8* pucCompared, uint8 ucLen);
-uint8 ApiCodeBufCmp(uint8*   pucCompare, const uint8 code* pucCompared, uint8 ucLen);
+uint8 ApiCodeBufCmp(uint8 code  *pucCompare, const uint8 * pucCompared, uint8 ucLen);
 void ApiConData(uint8* buff, uint8 Len);
 uint8 JudgeIsNum(uint8* pucBuf, uint8 ucLen);
 uint8 APIByteBCD2HEX(uint8 ucBCD);
