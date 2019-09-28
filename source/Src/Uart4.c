@@ -125,7 +125,7 @@ volatile char    stemp[5],j;
 #else
     Uart4_RevEn();
 #endif
-    /*
+  /*
     SCON4&=(~BIT4);
      gs_ComGroup[ComIndex_Uart4].ucPort   = Port_Uart4;
 
@@ -154,6 +154,7 @@ gs_ComGroup[ComIndex_Uart4].ucLen =0;
                 }
                 
                 }
+                  
 a1:    
                 SCON4|=(BIT4);
                 SCON4&=~BIT0;

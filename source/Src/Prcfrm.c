@@ -620,6 +620,7 @@ uint8 Decode645Frame(S_FRAMEINFO* sFrm)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+#ifdef DEL
 uint8 Judge645Addr(S_FRAMEINFO* sFrm)
 {
     uint8 i;
@@ -670,6 +671,7 @@ uint8 Judge645Addr(S_FRAMEINFO* sFrm)
     }
     return Ret_OK;
 }
+#endif
 /*=========================================================================================\n
 * @function_name: Encode645Frame
 * @function_file: Prcfrm.c

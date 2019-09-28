@@ -155,6 +155,7 @@ typedef struct
     uint8  uclen;           //数据长度
 }GS_E2PARA;
 
+#ifdef _DEL
 const  GS_E2PARA code PageCRCAddr[]=
 {
     {InitPara0,     EEP_JBTOTAL,    sizeof(InitPara0),  },
@@ -162,6 +163,7 @@ const  GS_E2PARA code PageCRCAddr[]=
 //    {InitPara2,     EEP_LXTABLE,    sizeof(InitPara2),  },
     //{InitPara3,     EEP_JXTABLE,    sizeof(InitPara3),  },
 };
+
 
 /*=========================================================================================\n
 * @function_name: InitE2Data
@@ -207,6 +209,7 @@ void InitE2Data(void)
     Data_ClearMeter();                                          //电表清零
     gui_RefreshEvent|=(flgEtPara_EnyBottom+flgEtPara_Config+flgEtPara_Show);
 }
+#endif
 /*=========================================================================================\n
 * @function_name: InitE2Data
 * @function_file: InitPara.c

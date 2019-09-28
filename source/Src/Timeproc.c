@@ -639,6 +639,23 @@ void GetYYMMDDhhmm(uint8* pucBuf)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+uint8 DataCheck(uint8 ucNum, uint8* p, S_DATACHK code* psDC)
+{//用以判断数据的合法性,即判断数据是否在表格设定的上下限范围之内,如果还需要用默认参数进行替代的话,则用默认参数更新
+    uint8 i;
+
+    for(i=0; i<ucNum; i++,p++,psDC++)
+    {//注意ucMin可能是0,而这里*p又是uint8型的
+        if((*p < psDC->ucMin) || (*p > psDC->ucMax))
+        {
+            //不使用默认值的话就认为这个函数当前功能只是用于判断数据合法性的
+            return Const_Data_Err;
+
+        }
+    }
+
+    return Const_Data_OK;
+}
+
 uint8 RTCCheck(uint8* pucClk)
 {
     if(DataCheck(7, pucClk, (S_DATACHK code *)&gCs_ClkChkTab) == Const_Data_OK)   //时钟数据极限判断

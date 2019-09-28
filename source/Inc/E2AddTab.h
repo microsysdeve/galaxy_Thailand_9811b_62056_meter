@@ -73,10 +73,17 @@
 
 
 
-                               
+     /*                          
 
 //下面是第3页地址
-#define EEP_COMADD      0x0080  //通讯地址,6Bytes
+enum  {
+ EEP_COMADD =    _Dftset_start_	,//((unsigned short)&FlashInfo.SafeInfo.TRx_Num),  // 0x0080  //通讯地址,6Bytes
+  EEP_CBR1  =  ((unsigned short)&FlashInfo.SafeInfo.FrozeDT[0][0]),  //     //结算日        0x01
+     EEP_CBR2  =  ((unsigned short)&FlashInfo.SafeInfo.FrozeDT[1][0]),  //      //结算日        0x02
+     EEP_CBR3=  ((unsigned short)&FlashInfo.SafeInfo.FrozeDT[2][0])  //     //结算日        0x03
+    }；
+    
+    */
 #define EEP_METERNO     0x0086  //表号 ,6Bytes
 #define EEP_645PASSWD1  0x008C  //第0级密码
 #define EEP_645PASSWD2  0x008F  //第1级密码

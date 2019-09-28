@@ -277,7 +277,7 @@ const uint8 code Cosnt_OBSLen=dim(gs_OBSCom);
 ===========================================================================================*/
  const PFOBSProc code gs_OBSFuction[]=
 {
-     ReadCurEgy,                 //读取当前有功电量   0
+    ReadCurEgy,                 //读取当前有功电量   0
     ReadHisEgy,                 //读取历史有功电量   1
     ReadHisDemad,               //读取历史需量      2
     ReadBodyOpOrMdTrDate,       //开表盖和线盖事件   3
@@ -811,14 +811,15 @@ uint32 DoNoting(uint8 index,uint8 cmd,void *pvoid)
     pvoid=pvoid;
     return 0;
 }
-
+ 
 const GSE2DATA  code gs_E2DataTable[]=
 {
-    { EEP_COMADD,      ASC2BCD,     4},     //表号         0x00
-    #ifdef PX_OPT
-    { EEP_CBR1,        ASC2BCD,     2},     //结算日        0x01
-    { EEP_CBR2,        ASC2BCD,     2},     //结算日        0x02
-    { EEP_CBR3,        ASC2BCD,     2},     //结算日        0x03
+    { ((unsigned short)&FlashInfo.SafeInfo.TRx_Num),      ASC2BCD,     4},     //表号         0x00
+   
+    { ((unsigned short)&FlashInfo.SetInfo.FrozeDT[0][0]),        ASC2BCD,     2},     //结算日        0x01
+    { ((unsigned short)&FlashInfo.SetInfo.FrozeDT[1][0]),        ASC2BCD,     2},     //结算日        0x02
+    { ((unsigned short)&FlashInfo.SetInfo.FrozeDT[2][0]),        ASC2BCD,     2},     //结算日        0x03
+ #ifdef PX_OPT
     { EEP_XLZQ,        ASC2BCD,     1},     //需量周期      0x04
     { EEP_MANUDATE,    ASC2BCD,     3},     //生产日期      0x05
     { EEP_JBDATE,      ASC2BCD,     3},     //校表日期      0x06
@@ -827,8 +828,6 @@ const GSE2DATA  code gs_E2DataTable[]=
     { EEP_RDPASSWORD,  0x00,        8},     //等级1密码     0x09
     { EEP_WRPASSWORD,  0x00,        8},     //等级2密码     0x0A
     { EEP_BATTERYSTAT, ASC2BCD,     1},     //电池状态      0x0b
-
-
     { EEP_WORK_FEE_TIME,ASC2BCD,    16},    //工作日费率时间 0x0c
     { EEP_SAT_FEE_TIME, ASC2BCD,    16},    //星期六费率时间 0x0d
     { EEP_SUN_FEE_TIME, ASC2BCD,    16},    //星期日费率时间 0x0e
@@ -863,7 +862,7 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
 {
     uint8 ucData[16];
     uint8 ASCII[32];
-#ifdef  pxopt
+ 
     if(Const_DataCOmWR==cmd)                    //写
     {
         if(gs_E2DataTable[index].ucAtb&ASC2BCD)
@@ -883,14 +882,14 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
                 ASCII[2*i]=(ucData[i]&0x0F);
                 ASCII[2*i+1]=((ucData[i]&0xF0)>>4);
             }
-            BE_WriteP(gs_E2DataTable[index].uiE2Adrr,ASCII,8);
+          //opt =============   BE_WriteP(gs_E2DataTable[index].uiE2Adrr,ASCII,8);
         }else
         {
-            BE_WriteP(gs_E2DataTable[index].uiE2Adrr,ucData,gs_E2DataTable[index].ucLen);
+        //opt =============     BE_WriteP(gs_E2DataTable[index].uiE2Adrr,ucData,gs_E2DataTable[index].ucLen);
         }
         if((index>=0x0C)&&(index<=0x11))    //费率修改
         {
-            BE_WriteP(EEP_FEEMDATE,(uint8*)&gs_DateTime.ucMinute,5);
+          //opt =============BE_WriteP(EEP_FEEMDATE,(uint8*)&gs_DateTime.ucMinute,5);
             gui_RefreshEvent|=flgEtPara_Fee;
         }
         return 0;
@@ -901,7 +900,7 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
     {
         if(index==0x0b)
         {
-            ucData[0]=guc_MeterSysSta;
+            ucData[0]=0;//opt =====================guc_MeterSysSta;     //ucData[0]=guc_MeterSysSta;
         }
         else if((index>=0x0f)&&(index<=0x11))        //费率
         {
@@ -914,7 +913,8 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
         } 
         else 
         {
-            BE_ReadP(gs_E2DataTable[index].uiE2Adrr,ucData,gs_E2DataTable[index].ucLen);
+          //opt====================  BE_ReadP(gs_E2DataTable[index].uiE2Adrr,ucData,gs_E2DataTable[index].ucLen);
+          CopyRam ( ucData,(char *)(gs_E2DataTable[index].uiE2Adrr),gs_E2DataTable[index].ucLen);
         }
  
 
@@ -933,7 +933,7 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
             return 14;
         }
     }
-#endif
+ 
     MemCpy(pvoid,ASCII,gs_E2DataTable[index].ucLen*2);
     return gs_E2DataTable[index].ucLen*2;
 }

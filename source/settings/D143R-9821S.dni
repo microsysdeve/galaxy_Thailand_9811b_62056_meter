@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=983424680
+Checksum=-952025123
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -113,13 +113,6 @@ Fmt41={W}0:u32PMdatal	4	0
 Fmt42={W}0:ui_E2Address	4	0
 Fmt43={W}0:uitmp	4	0
 Fmt44={W}0:zp.bjlcalgetchanel	4	0
-[Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.13" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "Code:0x32CF" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1067.5" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Prcfrm.c}.80.13" 1 0 0 0 "" 0 ""
-Bp4=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1205.5" 1 0 0 0 "" 0 ""
-Count=5
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -127,6 +120,13 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[Breakpoints]
+Bp0=_ "STD_CODE" "Code:0x32CF" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.923.9" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\Prcfrm.c}.68.9" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.13" 1 0 0 0 "" 0 ""
+Bp4=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.248.5" 0 0 0 0 "" 0 ""
+Count=5
 [Aliases]
 Count=0
 SuppressDialog=0
