@@ -241,6 +241,7 @@ void Init_Uart41(uint8 ucBode,uint8 uctype)
  
 void Uart4_Dy10ms(void)
 {
+#ifndef _ComUSE645_
    if ( guc_DyUart4Over )
    {
       guc_DyUart4Over--;
@@ -259,6 +260,7 @@ void Uart4_Dy10ms(void)
             gui_RefreshEvent |= flgEtPara_Bode;
         }
     }
+#endif
 }
  
 

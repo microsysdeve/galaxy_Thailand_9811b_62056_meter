@@ -145,13 +145,14 @@ void TIMER_ISR(void);
 //        Uart2_Dy10ms();         //485 
         Uart4_Dy10ms();         //485        
     //    KeyScan();              //°´¼ü
-    
+ #ifndef  _ComUSE645_
         ComBom_10msDy();
     
         if(guc_ComSendDy!=0)
         {
             guc_ComSendDy--;
         }
+#endif
         
         guc_Dmd250msCnt++;
         if(guc_Dmd250msCnt>=25)
