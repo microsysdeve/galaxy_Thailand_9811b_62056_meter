@@ -30,7 +30,7 @@ char 	debug_break( enum ENUMDEBUGLIST cErrno)
 	return (cErrlistno +1) ;
 }
 
-       
+   
       const unsigned short   iRegList[] =
       {
        PMCtrl1 ,//        0x2878      //PM¿ØÖÆ¼Ä´æÆ÷1

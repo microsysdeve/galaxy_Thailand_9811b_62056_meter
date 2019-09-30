@@ -180,15 +180,15 @@
         </option>
         <option>
           <name>General Idata Stack Size</name>
-          <state>0x60</state>
+          <state>0x70</state>
         </option>
         <option>
           <name>General Pdata Stack Size</name>
-          <state>0x80</state>
+          <state>0x90</state>
         </option>
         <option>
           <name>General Xdata Stack Size</name>
-          <state>0x200</state>
+          <state>0x280</state>
         </option>
         <option>
           <name>General Ext Stack Size</name>
@@ -2154,6 +2154,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\disp_format_lcd10329.h</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Drv_DispKey.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Drv_RTCSPK.c</name>
