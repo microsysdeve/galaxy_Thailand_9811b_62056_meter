@@ -253,6 +253,7 @@ uint8 Judge62056Frm(S_COM* psCom)
     {
         if(psCom->ucLen < (Min62056FrmLen + i))          //收到的数据至少需要满足最小帧长度
         {
+         	debug_break(_debug_errno_62056_frame_CrcFAIL1_);
             return Ret_Err;
         }
                                                     //判断是否是有效帧
@@ -265,6 +266,7 @@ uint8 Judge62056Frm(S_COM* psCom)
             return Ret_OK;                          //返回有效帧
         }
     }
+   	debug_break( _debug_errno_62056_frame_CrcFAIL2_);
     return Ret_Err;                                     //非有效帧
 }
 

@@ -17,20 +17,23 @@ enum ENUMDEBUGLIST
 	_debug_app_uart2_int_,
         _debug_errno_ParaSCPWRITE_,
         _debug_errno_ComBom_Init_,
-	_debugerrorbreak_, //===========================
-	_debug_app_nobreak_ =_debugerrorbreak_,
-        _debug_errno_resetvector_,
-	_debug_errno_wdgout_,
-        _debug_errno_WriteEEprom_,
-	 _debug_errno_WriteEEpromError_,
-	_debug_errno_JLChangeChanelL_,
+        _debug_errno_JLChangeChanelL_,
         _debug_errno_JLChangeChanelN_,
         _debug_errno_ChangeClkSource_,
         
 _debug_errno_SetPLL800K_FAIL1_,
 _debug_errno_SetPLL800K_FAIL2_,
 _debug_errno_SetPLL800K_FAIL3_,
+	_debugerrorbreak_, //===========================
+	_debug_app_nobreak_ =_debugerrorbreak_,
+        _debug_errno_resetvector_,
+	_debug_errno_wdgout_,
+        _debug_errno_WriteEEprom_,
+	 _debug_errno_WriteEEpromError_,
+	
 _debug_errno_EnyB_ReadMeterParaACK_,
+_debug_errno_62056_frame_CrcFAIL1_,
+_debug_errno_62056_frame_CrcFAIL2_,
 _debug_errno_62056_frame_CrcFAIL_,
 _debug_errno_62056_frame_FunFAIL_,
 
