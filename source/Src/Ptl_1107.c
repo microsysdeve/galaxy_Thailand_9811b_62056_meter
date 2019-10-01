@@ -1,6 +1,7 @@
 #define	AP_1107_EXT
 #include "Include.h"
 
+
 const uint8 code guc_PcComEd[]=
 {
     AS_SOH, 'B','0',AS_ETX,//0x71
@@ -808,10 +809,11 @@ uint32 ReadBodyOpOrMdTrDate(uint8 index,uint8 cmd,void *pvoid)
     {
       ((uint8*)pvoid)[14]=')';
       ((uint8*)pvoid)[15]='(';        
-      ltemp = GetFrozeCnt(_FROZE_EOPEN_1_) - index ;
+      ltemp = GetFrozeCnt(_FROZE_EOPEN_1_) + (FlashInfo.FrozeCnt[_FROZE_EK_1_]&1)?1:0;      
+      ltemp -= index ;
       ctemp = ( ltemp < 0) ? 0:ltemp;
       ctemp = BCD(ctemp) ;
-      BCD2ASCII((char *)&ctemp,((uint8*)pvoid)+16,1); //    BCD2ASCII(ucbuf,ASCII+5,1);         //把日期转化成次数
+      BCD2ASCII((char *)&ctemp,((uint8*)pvoid)+16,1); //    BCD2ASCII(ucbuf,ASCII+5,1);         //把日期转化成次数      
       return 18;
     }
  

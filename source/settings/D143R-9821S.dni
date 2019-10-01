@@ -122,6 +122,13 @@ Fmt45={W}0:u32PMdatal	4	0
 Fmt46={W}0:ui_E2Address	4	0
 Fmt47={W}0:uitmp	4	0
 Fmt48={W}0:zp.bjlcalgetchanel	4	0
+[Log file]
+LoggingEnabled=_ 0
+LogFile=_ ""
+Category=_ 0
+[TermIOLog]
+LoggingEnabled=_ 0
+LogFile=_ ""
 [Breakpoints]
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.13" 1 0 0 0 "" 0 ""
 Bp1=_ "STD_CODE" "Code:0x407A" 0 0 0 0 "" 0 ""
@@ -131,17 +138,10 @@ Bp4=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Drv_RTCSPK.c}.195.
 Bp5=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\public.c}.554.2" 0 0 0 0 "" 0 ""
 Bp6=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\GC_Use.c}.453.2" 0 0 0 0 "" 0 ""
 Bp7=_ "STD_CODE" "{$PROJ_DIR$\Src\Prcfrm.c}.75.16" 0 0 0 0 "" 0 ""
-Bp8=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1494.29" 0 0 0 0 "" 0 ""
+Bp8=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1496.29" 0 0 0 0 "" 0 ""
 Bp9=_ "STD_CODE" "{$PROJ_DIR$\Src\Prcfrm.c}.80.13" 0 0 0 0 "" 0 ""
-Bp10=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1493.29" 0 0 0 0 "" 0 ""
+Bp10=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1495.29" 0 0 0 0 "" 0 ""
 Count=11
-[Log file]
-LoggingEnabled=_ 0
-LogFile=_ ""
-Category=_ 0
-[TermIOLog]
-LoggingEnabled=_ 0
-LogFile=_ ""
 [Aliases]
 Count=0
 SuppressDialog=0

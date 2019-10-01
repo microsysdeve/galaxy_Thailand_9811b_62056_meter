@@ -106,7 +106,7 @@
           
           
           
-        <item>cErrlistno</item><item>RamData.WDGTm</item><item>FlashInfo</item><item>TH41</item><item>TL41</item><item>TCON4</item><item>SBUF4</item><item>TMOD4</item><item>pCode</item><item>gs_PtlCrt.uc_ComStep</item><item>gs_ComGroup[0]</item><item>Cnt</item><item>Src</item><item>ComData</item><item>ASCII</item><item>gs_DateTime</item><item>ltemp</item><item>ctemp</item><item></item></expressions>
+        <item>cErrlistno</item><item>RamData.WDGTm</item><item>FlashInfo</item><item>TH41</item><item>TL41</item><item>TCON4</item><item>SBUF4</item><item>TMOD4</item><item>pCode</item><item>gs_PtlCrt.uc_ComStep</item><item>gs_ComGroup[0]</item><item>Cnt</item><item>Src</item><item>ComData</item><item>ASCII</item><item>gs_DateTime</item><item>ltemp</item><item>ctemp</item><item/></expressions>
         <col-names>
           
           
