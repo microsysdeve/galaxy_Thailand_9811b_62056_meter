@@ -513,6 +513,7 @@ uint8 CalcWeek(uint8 ucYear, uint8 ucMonth, uint8 ucDay)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+#ifdef OPT
 void GetSysClock(uint8* pucBuf, uint8 ucType)
 {
     switch(ucType)
@@ -552,6 +553,7 @@ void GetSysClock(uint8* pucBuf, uint8 ucType)
         break;
     }
 }
+#endif
 /**=============================================================================================\n
  * @function_name: SetSysClock
  * @function_file: AP_timeproc.c
@@ -886,4 +888,44 @@ void SleepTimeProc(void)
 //    }
 //
 //    ClockBAK_RAM();                                                             //备份时钟
+}
+/*===========================================================================================*/
+void GetClockIo(S_TIMEDATA gs_DateTime, uint8* pucBuf, uint8 ucType)
+{
+    switch(ucType)
+    {
+    case Const_YYMMDDWW:
+        *(pucBuf++) = gs_DateTime.ucWeek;
+        //注意,这里不需要break
+    case Const_YYMMDD:
+        *(pucBuf++) = gs_DateTime.ucDay;
+        *(pucBuf++) = gs_DateTime.ucMonth;
+        *(pucBuf++) = gs_DateTime.ucYear;
+        break;
+    case Const_hhmmss:
+        *(pucBuf++) = gs_DateTime.ucSecond;
+        *(pucBuf++) = gs_DateTime.ucMinute;
+        *(pucBuf++) = gs_DateTime.ucHour;
+        break;
+    case Const_YYMMDDhhmmss:
+        *(pucBuf++) = gs_DateTime.ucSecond;
+    case Const_YYMMDDhhmm:
+        *(pucBuf++) = gs_DateTime.ucMinute;
+        *(pucBuf++) = gs_DateTime.ucHour;
+        *(pucBuf++) = gs_DateTime.ucDay;
+        *(pucBuf++) = gs_DateTime.ucMonth;
+        *(pucBuf++) = gs_DateTime.ucYear;
+        break;
+    case Const_hhmmssYYMMDDWW:
+        *(pucBuf++) = gs_DateTime.ucSecond;
+        *(pucBuf++) = gs_DateTime.ucMinute;
+        *(pucBuf++) = gs_DateTime.ucHour;
+        *(pucBuf++) = gs_DateTime.ucWeek;
+        *(pucBuf++) = gs_DateTime.ucDay;
+        *(pucBuf++) = gs_DateTime.ucMonth;
+        *(pucBuf++) = gs_DateTime.ucYear;
+        break;
+    default:
+        break;
+    }
 }

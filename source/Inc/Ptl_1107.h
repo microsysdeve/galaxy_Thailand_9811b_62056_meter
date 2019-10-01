@@ -190,4 +190,19 @@ uint32 ReadInsData(uint8 index,uint8 cmd,void *pvoid);
 uint8 ContinueRead(S_COM *ComProcCtr);
 uint8 FindObsiPoint(uint8* Obsi,uint8 len);
 
+ enum ENUMOBSMFUNLIST 
+{
+    _ReadCurEgy_ = 0,                 //读取当前有功电量   0
+    _ReadHisEgy_,                 //读取历史有功电量   1
+    _ReadHisDemad_,               //读取历史需量      2
+    _ReadBodyOpOrMdTrDate_,       //开表盖和线盖事件   3
+    _ReadPowDnJl_,                //掉电记录         4
+    _E2DataProc_,                 //读取E2数据       5
+    _DateAndTimeProc_,            //读取日期和时间    6 
+    _ReadInsData_,                //读取瞬时数据      7
+    _ClearMeterProc_,             //清零电量处理      8
+    _AutoJB_,                     //自动校表
+    _ENUMOBSMFUNLIST_End_, 
+
+};
 #endif 

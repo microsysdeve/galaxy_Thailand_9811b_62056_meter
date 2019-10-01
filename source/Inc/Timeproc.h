@@ -121,7 +121,10 @@ extern const uint8 code InitTM[];
 
 
 void TimerProc(void);                           //软时钟走时函数，每秒调用
-void GetSysClock(uint8* pucBuf, uint8 ucType);  //获取系统时钟
+void GetClockIo(S_TIMEDATA gs_DateTime, uint8* pucBuf, uint8 ucType);
+#define GetSysClock(pbuf,type)          GetClockIo(gs_DateTime,pbuf,type)
+//void GetSysClock(uint8* pucBuf, uint8 ucType);  //获取系统时钟
+
 void SetSysClock(uint8* pucBuf, uint8 ucType);  //设置系统时钟
 void ClockBAK_RAM(void);                        //备份RAM时钟
 void ClockBAK_E2(void);                         //备份E2时钟
