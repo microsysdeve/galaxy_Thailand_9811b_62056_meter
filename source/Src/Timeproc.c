@@ -19,6 +19,7 @@ void TimerProc(void)
     if(RTCCheck((uint8*)&gs_ClkTmp) == Const_Data_OK)                       //外部时钟数据,BCD码判断,时间合法性判断是否有效
     {
         MemCpy((void*)&gs_DateTime, (void*)&gs_ClkTmp, 7);
+#ifdef _DEL
         if (((int16)gs_LastDateTime.ucSecond - gs_DateTime.ucSecond) > 30)
         {
             guc_TimeEvent |= flgEtTim_Minute;                                 //过分事件
@@ -44,6 +45,7 @@ void TimerProc(void)
         {
             guc_TimeEvent |= flgEtTim_Year;
         }
+#endif
     }
     else
     {

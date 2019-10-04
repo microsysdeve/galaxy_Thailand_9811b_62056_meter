@@ -2117,9 +2117,6 @@
     </settings>
   </configuration>
   <file>
-    <name>$PROJ_DIR$\Src\ADKfunc.c</name>
-  </file>
-  <file>
     <name>$PROJ_DIR$\Src\Api.c</name>
   </file>
   <file>

@@ -61,7 +61,9 @@ VAREXT uint16 gui_SystemEvent;
 #define flgEtGlb_ClearMeter     0x40
 #define flgEtGlb_DemadProc      0x80
 
-VAREXT uint8 guc_TimeEvent;
+VAREXT uint8 ctemp111;
+#define  guc_TimeEvent  ctemp111
+//VAREXT uint8 guc_TimeEvent;
 #define flgEtTim_Second   0x01
 #define flgEtTim_Minute   0x02
 #define flgEtTim_Hour     0x04
@@ -69,7 +71,8 @@ VAREXT uint8 guc_TimeEvent;
 #define flgEtTim_Day      0x10
 #define flgEtTim_Year     0x20
 
-VAREXT uint8 guc_KeyEvent;
+#define   guc_KeyEvent ctemp111
+//VAREXT uint8 guc_KeyEvent;
 #define flgEtKey_Up             0x01
 #define flgEtKey_Pr             0x02
 
