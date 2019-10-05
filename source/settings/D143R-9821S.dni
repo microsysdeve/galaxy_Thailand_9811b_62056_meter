@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=789395656
+Checksum=-1321121112
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -125,7 +125,7 @@ Fmt48={W}0:ui_E2Address	4	0
 Fmt49={W}0:uitmp	4	0
 Fmt50={W}0:zp.bjlcalgetchanel	4	0
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.27.13" 1 0 0 0 "" 0 ""
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1147.9" 0 0 0 0 "" 0 ""
 Count=1
 [Log file]
 LoggingEnabled=_ 0

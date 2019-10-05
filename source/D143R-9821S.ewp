@@ -67,7 +67,7 @@
         </option>
         <option>
           <name>Start of extended stack</name>
-          <state>0x002000</state>
+          <state></state>
         </option>
         <option>
           <name>Calling convention</name>
@@ -114,11 +114,11 @@
         </option>
         <option>
           <name>CodeBankReg</name>
-          <state>0xa0</state>
+          <state>0xA0</state>
         </option>
         <option>
           <name>CodeBankStart</name>
-          <state>0x8000</state>
+          <state>0x3500</state>
         </option>
         <option>
           <name>CodeBankSize</name>
@@ -150,7 +150,7 @@
         </option>
         <option>
           <name>RTLibraryPath</name>
-          <state>$TOOLKIT_DIR$\LIB\CLIB\cl-pli-nlxc-1e16x01.r51</state>
+          <state>$TOOLKIT_DIR$\LIB\CLIB\cl-pli-blxc-1e16x01.r51</state>
         </option>
         <option>
           <name>Input variant</name>
@@ -208,11 +208,11 @@
         </option>
         <option>
           <name>CodeBankNrOfs</name>
-          <state>0x04</state>
+          <state>0x10</state>
         </option>
         <option>
           <name>CodeBankRegMask</name>
-          <state>0x03</state>
+          <state>0xFF</state>
         </option>
         <option>
           <name>GeneralMisraRules98</name>
@@ -225,7 +225,7 @@
         </option>
         <option>
           <name>PDATA 16-31 register address</name>
-          <state>0xEA</state>
+          <state></state>
         </option>
         <option>
           <name>General Far22 Heap Size</name>

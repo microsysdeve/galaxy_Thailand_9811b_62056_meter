@@ -26,8 +26,8 @@ const uint8 code guc_FrmADrrhd[]=
 {   
   '/','?',0xaa,0xaa,0xaa,0xaa,0xaa,0xaa,0xaa,0xaa,'!','\r','\n'         //"/?xxxxxx!CRLF"
 };
-//#define                 _defbps_    _bps300_
-#define                 _defbps_    _bps2400_
+ #define                 _defbps_    _bps300_
+//#define                 _defbps_    _bps2400_
 const uint8 code guc_BpsCheck[]=
 {
     '/','L','U','N',0x30+_defbps_,'<','1','>','L','U','N','1','0',//'0','0','0','\r','\n'
@@ -75,102 +75,105 @@ const uint8 code guc_InitCmd[]=
 * @修改人:
 * @修改内容:  
 ===========================================================================================*/
+    
+    
+    
 const char as[]="";
 const GS_IECCOM    gs_OBSCom[]=
 {   //obsi              uint             param     atb           pfindex  
 
     //当前电量 
-    { "1.8.0",            "*kWh)\r\n",    0x00,     IEC_RO,     _ReadCurEgy_},
-    { "1.8.1",          "*kWh)\r\n",    0x01,       IEC_RO,     _ReadCurEgy_},
-    { "1.8.2",          "*kWh)\r\n",    0x02,       IEC_RO,     _ReadCurEgy_},
-    { "1.8.3",          "*kWh)\r\n",    0x03,       IEC_RO,     _ReadCurEgy_},
-    { "1.8.4",          "*kWh)\r\n",    0x04,       IEC_RO,     _ReadCurEgy_},
+    { "1.8.0",          "*kWh)\r\n",    _code645_00000000_,       IEC_RO,       _ReadCurEgy_},
+    { "1.8.1",          "*kWh)\r\n",    _code645_00010000_-_code645_00000000_,       IEC_RO,     _ReadCurEgy_},
+    { "1.8.2",          "*kWh)\r\n",    _code645_00020000_-_code645_00000000_,       IEC_RO,     _ReadCurEgy_},
+    //{ "1.8.3",          "*kWh)\r\n",     _code645_00010000-_code645_00000000,      IEC_RO,     _ReadCurEgy_},
+    //{ "1.8.4",          "*kWh)\r\n",     _code645_00020000-_code645_00000000,      IEC_RO,     _ReadCurEgy_},
 
-
+ 
     //上1月电量
-    { "1.8.0*1",        "*kWh)\r\n",    0x00,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*1",        "*kWh)\r\n",    0x01,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*1",        "*kWh)\r\n",    0x02,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*1",        "*kWh)\r\n",    0x03,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*1",        "*kWh)\r\n",    0x04,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*1",        "*kWh)\r\n",    _code645_00000001_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*1",        "*kWh)\r\n",    _code645_00010001_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*1",        "*kWh)\r\n",    _code645_00020001_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*1",        "*kWh)\r\n",    0x03,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*1",        "*kWh)\r\n",    0x04,       IEC_RO,     _ReadHisEgy_},
 
     //上2月电量
-    { "1.8.0*2",        "*kWh)\r\n",    0x10,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*2",        "*kWh)\r\n",    0x11,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*2",        "*kWh)\r\n",    0x12,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*2",        "*kWh)\r\n",    0x13,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*2",        "*kWh)\r\n",    0x14,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*2",        "*kWh)\r\n",    _code645_00000002_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*2",        "*kWh)\r\n",    _code645_00010002_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*2",        "*kWh)\r\n",    _code645_00020002_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+   // { "1.8.3*2",        "*kWh)\r\n",    0x13,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*2",        "*kWh)\r\n",    0x14,       IEC_RO,     _ReadHisEgy_},
 
 
     //上3月电量
-    { "1.8.0*3",        "*kWh)\r\n",    0x20,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*3",        "*kWh)\r\n",    0x21,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*3",        "*kWh)\r\n",    0x22,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*3",        "*kWh)\r\n",    0x23,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*3",        "*kWh)\r\n",    0x24,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*3",        "*kWh)\r\n",    _code645_00000003_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*3",        "*kWh)\r\n",    _code645_00010003_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*3",        "*kWh)\r\n",    _code645_00020003_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*3",        "*kWh)\r\n",    0x23,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*3",        "*kWh)\r\n",    0x24,       IEC_RO,     _ReadHisEgy_},
 
     //上4月电量
-    { "1.8.0*4",        "*kWh)\r\n",    0x30,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*4",        "*kWh)\r\n",    0x31,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*4",        "*kWh)\r\n",    0x32,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*4",        "*kWh)\r\n",    0x33,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*4",        "*kWh)\r\n",    0x34,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*4",        "*kWh)\r\n",    _code645_00000004_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*4",        "*kWh)\r\n",    _code645_00010004_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*4",        "*kWh)\r\n",    _code645_00020004_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*4",        "*kWh)\r\n",    0x33,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*4",        "*kWh)\r\n",    0x34,       IEC_RO,     _ReadHisEgy_},
 
     //上5月电量
-    { "1.8.0*5",        "*kWh)\r\n",    0x40,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*5",        "*kWh)\r\n",    0x41,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*5",        "*kWh)\r\n",    0x42,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*5",        "*kWh)\r\n",    0x43,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*5",        "*kWh)\r\n",    0x44,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*5",        "*kWh)\r\n",    _code645_00000005_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*5",        "*kWh)\r\n",    _code645_00010005_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_}, 
+    { "1.8.2*5",        "*kWh)\r\n",    _code645_00020005_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*5",        "*kWh)\r\n",    0x43,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*5",        "*kWh)\r\n",    0x44,       IEC_RO,     _ReadHisEgy_},
 
     //上6月电量
-    { "1.8.0*6",        "*kWh)\r\n",    0x50,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*6",        "*kWh)\r\n",    0x51,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*6",        "*kWh)\r\n",    0x52,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*6",        "*kWh)\r\n",    0x53,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*6",        "*kWh)\r\n",    0x54,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*6",        "*kWh)\r\n",    _code645_00000006_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*6",        "*kWh)\r\n",    _code645_00010006_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*6",        "*kWh)\r\n",    _code645_00020006_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*6",        "*kWh)\r\n",    0x53,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*6",        "*kWh)\r\n",    0x54,       IEC_RO,     _ReadHisEgy_},
 
     //上7月电量
-    { "1.8.0*7",        "*kWh)\r\n",    0x60,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*7",        "*kWh)\r\n",    0x61,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*7",        "*kWh)\r\n",    0x62,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*7",        "*kWh)\r\n",    0x63,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*7",        "*kWh)\r\n",    0x64,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*7",        "*kWh)\r\n",    _code645_00000007_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*7",        "*kWh)\r\n",    _code645_00010007_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*7",        "*kWh)\r\n",    _code645_00020007_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*7",        "*kWh)\r\n",    0x63,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*7",        "*kWh)\r\n",    0x64,       IEC_RO,     _ReadHisEgy_},
 
     //上8月电量
-    { "1.8.0*8",        "*kWh)\r\n",    0x70,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*8",        "*kWh)\r\n",    0x71,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*8",        "*kWh)\r\n",    0x72,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*8",        "*kWh)\r\n",    0x73,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*8",        "*kWh)\r\n",    0x74,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*8",        "*kWh)\r\n",    _code645_00000008_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*8",        "*kWh)\r\n",    _code645_00010008_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*8",        "*kWh)\r\n",    _code645_00020008_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*8",        "*kWh)\r\n",    0x73,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*8",        "*kWh)\r\n",    0x74,       IEC_RO,     _ReadHisEgy_},
 
     //上9月电量
-    { "1.8.0*9",        "*kWh)\r\n",    0x80,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*9",        "*kWh)\r\n",    0x81,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*9",        "*kWh)\r\n",    0x82,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*9",        "*kWh)\r\n",    0x83,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*9",        "*kWh)\r\n",    0x84,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*9",        "*kWh)\r\n",    _code645_00000009_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*9",        "*kWh)\r\n",    _code645_00010009_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*9",        "*kWh)\r\n",    _code645_00020009_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*9",        "*kWh)\r\n",    0x83,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*9",        "*kWh)\r\n",    0x84,       IEC_RO,     _ReadHisEgy_},
 
     //上10月电量
-    { "1.8.0*10",       "*kWh)\r\n",    0x90,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*10",       "*kWh)\r\n",    0x91,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*10",       "*kWh)\r\n",    0x92,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*10",       "*kWh)\r\n",    0x93,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*10",       "*kWh)\r\n",    0x94,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*10",       "*kWh)\r\n",    _code645_0000000A_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*10",       "*kWh)\r\n",    _code645_0001000A_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*10",       "*kWh)\r\n",    _code645_0002000A_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*10",       "*kWh)\r\n",    0x93,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*10",       "*kWh)\r\n",    0x94,       IEC_RO,     _ReadHisEgy_},
 
     //上11月电量
-    { "1.8.0*11",       "*kWh)\r\n",    0xA0,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*11",       "*kWh)\r\n",    0xA1,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*11",       "*kWh)\r\n",    0xA2,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*11",       "*kWh)\r\n",    0xA3,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*11",       "*kWh)\r\n",    0xA4,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*11",       "*kWh)\r\n",    _code645_0000000B_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*11",       "*kWh)\r\n",    _code645_0001000B_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*11",       "*kWh)\r\n",    _code645_0002000B_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*11",       "*kWh)\r\n",    0xA3,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*11",       "*kWh)\r\n",    0xA4,       IEC_RO,     _ReadHisEgy_},
 
     //上12月电量
-    { "1.8.0*12",       "*kWh)\r\n",    0xB0,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.1*12",       "*kWh)\r\n",    0xB1,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.2*12",       "*kWh)\r\n",    0xB2,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.3*12",       "*kWh)\r\n",    0xB3,       IEC_RO,     _ReadHisEgy_},
-    { "1.8.4*12",       "*kWh)\r\n",    0xB4,       IEC_RO,     _ReadHisEgy_},
+    { "1.8.0*12",       "*kWh)\r\n",    _code645_0000000C_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.1*12",       "*kWh)\r\n",    _code645_0001000C_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    { "1.8.2*12",       "*kWh)\r\n",    _code645_0002000C_-_code645_prevbase_,   IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.3*12",       "*kWh)\r\n",    0xB3,       IEC_RO,     _ReadHisEgy_},
+    //{ "1.8.4*12",       "*kWh)\r\n",    0xB4,       IEC_RO,     _ReadHisEgy_},
 
 
     {"1.6.0",           ")",            0x00,       IEC_RO,     0x02},    //当前最大需量及发生时间
@@ -558,15 +561,38 @@ uint8 JudgeOBSPsw(uint8 *buff,uint8 ucLevel)
 
 uint32 ReadCurEgy(uint8 index,uint8 cmd,void *pvoid)
 {
+    char        ctemp;
     Word32 Data;
     int16 Eadd;
     uint8 ASCII[9];
+    strDispCode  pCode = { 0x0000000 ,0};
     //取得某个电量增量
-    Eadd = Eny_GetEp1(0, index);    
-    Data.lword = 0;//  pxopt     gs_EnergyA.lCP[index]; 
- 
-    Data.lword += Eadd;
-    Data.lword =123456;
+    switch ( index)
+    {
+    case   _code645_00000000_ - _code645_00000000_ :
+          pCode.Code = 0x0 ;
+          break;
+    case   _code645_00010000_- _code645_00000000_ :
+          pCode.Code = 0x00010000;
+          break;
+    case     _code645_00020000_- _code645_00000000_ :
+        pCode.Code =0x00020000;
+        break;
+        
+    } 
+    tpChar = ComData ;
+    ctemp = RamData.InDisp;
+    RamData.InDisp = 0;
+    Get645Data( &pCode );    
+    RamData.InDisp = ctemp;    
+    
+    //Eadd = Eny_GetEp1(0, index);    
+    //Data.lword =  gs_EnergyA.lCP[index]; 
+    //Data.lword += Eadd;
+    //Data.lword =123456;
+    Data.lword = *((uint32 *)ComData);
+    if ( Data.lword & 0x80000000)
+        Data.lword &=0x7fffffff;
     Data.lword= Hex2BCD(Data.lword);        //首先转化为BCD码
     BCD2ASCII(Data.byte,ASCII,4);
     MemCpy(pvoid,ASCII,5);
@@ -594,14 +620,32 @@ uint32 ReadCurEgy(uint8 index,uint8 cmd,void *pvoid)
 * @修改人:
 * @修改内容:  
 ===========================================================================================*/
- 
+
 uint32 ReadHisEgy(uint8 index,uint8 cmd,void *pvoid)
 {
-    uint8 ucMonth=(0xf0&index)>>4;
-    uint8 offset=0x0f&index;
+    char        ctemp,cMonth ,cType;
+   // uint8 ucMonth=(0xf0&index)>>4;
+    //uint8 offset=0x0f&index;
     Word32 Data;
     uint8 ASCII[9];
-    DataProcRead2Slice(LSDLID,ucMonth,offset*4,4,Data.byte);
+    //DataProcRead2Slice(LSDLID,ucMonth,offset*4,4,Data.byte);
+     strDispCode  pCode = { 0x0000000 ,0};
+    //取得某个电量增量
+     cMonth = index /3;
+     cType = index % 3;
+     pCode.Code =  cType;
+     pCode.Code <<=16;
+       pCode.Code+= cMonth ;
+     
+    tpChar = ComData ;
+    ctemp = RamData.InDisp;
+    RamData.InDisp = 0;
+    Get645Data( &pCode );
+    RamData.InDisp = ctemp;    
+    Data.lword = *((uint32 *)ComData);
+     if ( Data.lword & 0x80000000)
+        Data.lword &=0x7fffffff;
+     
     Data.lword= Hex2BCD(Data.lword);    //首先转化为BCD码
     BCD2ASCII(Data.byte,ASCII,4);
     MemCpy(pvoid,ASCII,5);
@@ -1063,7 +1107,7 @@ uint32 ReadPowDnJl(uint8 index,uint8 cmd,void *pviod)
     uint8 ucbuf[10];
     uint8 ASCII[15];
     uint8 ucMonth=(0xf0&index)>>4;
-    DataProcRead2Slice(DDJLID, ucMonth, 0, 10, ucbuf); 
+   //opt  DataProcRead2Slice(DDJLID, ucMonth, 0, 10, ucbuf); 
     BCD2ASCII(ucbuf,ASCII,5);               //把日期转化成ASCii
     DateAndTmFormat(ASCII);                 //转化日期和时间的格式
     MemCpy((uint8*)pviod,ASCII,14);
