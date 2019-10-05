@@ -229,6 +229,7 @@ void Data_HourProc(void)
 ===========================================================================================*/
 void Data_MinProc(void)
 {
+  return;
 //    getTimeZone();                                      //·ÑÂÊÇÐ»»
     CLRWDT();
     Eny_RefVar();

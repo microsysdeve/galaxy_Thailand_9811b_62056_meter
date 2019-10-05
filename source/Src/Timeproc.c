@@ -365,7 +365,7 @@ uint8 SoftClockCheck(void)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-uint8 CheckTime(void)
+uint8 CheckTi1me(void)
 {
 //#ifndef _SW_EXT_RTC
 //    SoftClockCheck();
