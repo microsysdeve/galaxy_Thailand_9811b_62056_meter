@@ -33,7 +33,7 @@ void InitLCD(void)
     P4OE |= 0x03;           // P4.0~P4.1
     P5OE |= 0xff;           // P5.0~P5.7
 //    P6OE |= 0x0f;           // P6.0~P6.3
-    P7OE |= 0x3f;           // P7.0~P7.5
+ //   P7OE |= 0x3f;           // P7.0~P7.5
 //    P8OE |= 0x04;           // P8.2 
 //   P9OE |= 0x01;           // P9.0
     
@@ -41,7 +41,7 @@ void InitLCD(void)
     P4IE &=~ 0x03;          // P4.0~P4.1
     P5IE &=~ 0xff;          // P5.0~P5.7
 //    P6IE &=~ 0x0f;          // P6.0~P6.3
-    P7IE &=~ 0x3f;          // P7.0~P7.5
+  //  P7IE &=~ 0x3f;          // P7.0~P7.5
 //    P8IE &=~ 0x04;          // P8.2 
 //    P9IE &=~ 0x01;          // P9.0
     

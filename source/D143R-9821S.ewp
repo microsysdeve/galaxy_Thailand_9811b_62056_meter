@@ -150,7 +150,7 @@
         </option>
         <option>
           <name>RTLibraryPath</name>
-          <state>$TOOLKIT_DIR$\LIB\CLIB\cl-pli-blxc-1e16x01.r51</state>
+          <state>$TOOLKIT_DIR$\LIB\CLIB\cl-pli-nlxc-1e16x01.r51</state>
         </option>
         <option>
           <name>Input variant</name>
@@ -2117,6 +2117,9 @@
     </settings>
   </configuration>
   <file>
+    <name>$PROJ_DIR$\Src\adcfun.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\Api.c</name>
   </file>
   <file>
@@ -2214,6 +2217,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\public.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\pwroffidsp.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\pxv9811b.c</name>

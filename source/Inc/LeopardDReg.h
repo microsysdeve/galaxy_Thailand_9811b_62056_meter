@@ -319,7 +319,16 @@ __no_init volatile unsigned char xdata     ExInt5OV    _at_	ExInt5_BASE+0x04;	//
 #define BUFF3	        0x2883		//PM写缓存[31:24]
 #define INVD		    0x2884		//计量读写使能寄存器		
 #define ACK		        0X2885		//PM状态寄存器
+
 //计量控制
+#define   _Chip9911_
+
+#ifdef   _Chip9911_
+#define                _ChipOffset_   0x1000
+#else
+#define                _ChipOffset_   0x000
+#endif
+
 #define PMCtrl1         0x2878      //PM控制寄存器1
 #define PMCtrl2         0x2879      //PM控制寄存器2
 #define PMCtrl3         0x287a      //PM控制寄存器3
@@ -330,63 +339,63 @@ __no_init volatile unsigned char xdata     ExInt5OV    _at_	ExInt5_BASE+0x04;	//
 #define CRPST           0x287F      //防潜标志寄存器
 #define IDET            0x2886      //电流检测
 
-#define IDETTH          0x1002      //电流检测门限值寄存器
+#define IDETTH          (0x1002+_ChipOffset_)      //电流检测门限值寄存器
 //原始波形寄存器
-#define DATAOIU         0x1005      //瞬时电压原始值
-#define DATAOII1        0x100A      //通道I1瞬时电流原始值
-#define DATAOII2        0x100F      //通道I2瞬时电流原始值
-#define DATAIAU         0x1051      //瞬时电压交流值
-#define DATAIAI1        0x1052      //通道I1瞬时电流交流值
-#define DATAIAI2        0x1053      //通道I2瞬时电流交流值
-#define DATAIDU         0x103A      //瞬时电压直流值
-#define DATAIDI1        0x1041      //通道I1瞬时电流直流值
-#define DATAIDI2        0x1048      //通道I2瞬时电流直流值
+#define DATAOIU         (0x1005+_ChipOffset_)      //瞬时电压原始值
+#define DATAOII1        (0x100A+_ChipOffset_)      //通道I1瞬时电流原始值
+#define DATAOII2        (0x100F+_ChipOffset_)      //通道I2瞬时电流原始值
+#define DATAIAU         (0x1051+_ChipOffset_)      //瞬时电压交流值
+#define DATAIAI1        (0x1052+_ChipOffset_)      //通道I1瞬时电流交流值
+#define DATAIAI2        (0x1053+_ChipOffset_)      //通道I2瞬时电流交流值
+#define DATAIDU         (0x103A+_ChipOffset_)      //瞬时电压直流值
+#define DATAIDI1        (0x1041+_ChipOffset_)      //通道I1瞬时电流直流值
+#define DATAIDI2        (0x1048+_ChipOffset_)      //通道I2瞬时电流直流值
 
 
 //功率/电流数据寄存器
-#define DATAIP          0x10d1
-#define DATAIQ          0X10D2
-#define RMSIU           0x10d3
-#define RMSII1          0x10D4
-#define RMSII2          0x10d5
-#define DATAP           0X10D6
-#define DATAQ           0x10d7
-#define RMSU            0x10D8
-#define RMSI1           0x10d9
-#define RMSI2           0x10da
-#define DATAAP1         0x10db
-#define DATAAP2         0x10dc
+#define DATAIP          (0x10d1+_ChipOffset_)
+#define DATAIQ          (0x10D2+_ChipOffset_)
+#define RMSIU           (0x10d3+_ChipOffset_)
+#define RMSII1          (0x10D4+_ChipOffset_)
+#define RMSII2          (0x10d5+_ChipOffset_)
+#define DATAP           (0x10D6+_ChipOffset_)
+#define DATAQ           (0x10d7+_ChipOffset_)
+#define RMSU            (0x10D8+_ChipOffset_)
+#define RMSI1           (0x10d9+_ChipOffset_)
+#define RMSI2           (0x10da+_ChipOffset_)
+#define DATAAP1         (0x10db+_ChipOffset_)
+#define DATAAP2         (0x10dc+_ChipOffset_)
 
 //功率/有效值比差寄存器
-#define SCP             0x10e8
-#define SCQ             0x10e9
-#define SCU             0x10ea
-#define SCI1            0x10eb
-#define SCI2            0x10ec
-#define PARAPC          0x10ed
-#define PARAQC          0x10ee
-#define PARABPF         0x10ef
+#define SCP             (0x10e8+_ChipOffset_)
+#define SCQ             (0x10e9+_ChipOffset_)
+#define SCU             (0x10ea+_ChipOffset_)
+#define SCI1            (0x10eb+_ChipOffset_)
+#define SCI2            (0x10ec+_ChipOffset_)
+#define PARAPC          (0x10ed+_ChipOffset_)
+#define PARAQC          (0x10ee+_ChipOffset_)
+#define PARABPF         (0x10ef+_ChipOffset_)
 //能量累加寄存器/能量脉冲计数器
-#define PPCNT           0x10f0
-#define NPCNT           0x10f1
-#define PPCFCNT         0x10f2
-#define NPCFCNT         0x10f3
-#define PQCNT           0x10f6
-#define NQCNT           0x10f7
-#define PQCFCNT         0x10f8
-#define NQCFCNT         0x10f9
+#define PPCNT           (0x10f0+_ChipOffset_)
+#define NPCNT           (0x10f1+_ChipOffset_)
+#define PPCFCNT         (0x10f2+_ChipOffset_)
+#define NPCFCNT         (0x10f3+_ChipOffset_)
+#define PQCNT           (0x10f6+_ChipOffset_)
+#define NQCNT           (0x10f7+_ChipOffset_)
+#define PQCFCNT         (0x10f8+_ChipOffset_)
+#define NQCFCNT         (0x10f9+_ChipOffset_)
 //门限值寄存器/常数功率值寄存器
-#define GATEP           0x10f4
-#define GATECP          0x10f5
-#define GATEQ           0x10fa
-#define GATECQ          0x10fb
-#define DATACP          0x10fc
+#define GATEP           (0x10f4+_ChipOffset_)
+#define GATECP          (0x10f5+_ChipOffset_)
+#define GATEQ           (0x10fa+_ChipOffset_)
+#define GATECQ          (0x10fb+_ChipOffset_)
+#define DATACP          (0x10fc+_ChipOffset_)
 //频率值寄存器
-#define DATAFREQ        0x10fd
+#define DATAFREQ        (0x10fd+_ChipOffset_)
 //M通道数据寄存器
-#define DATAOM          0x10ce
-#define DATADM          0x10cf
-#define DATAADM         0x10d0
+#define DATAOM          (0x10ce+_ChipOffset_)
+#define DATADM          (0x10cf+_ChipOffset_)
+#define DATAADM         (0x10d0+_ChipOffset_)
 
 /************  WDT  ************/
 sfr WDTEN      _at_  0xce;	                        //WDT使能，密钥0xa5

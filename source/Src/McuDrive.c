@@ -121,8 +121,8 @@ void IO_Init(void)
 		P7.6	/SEG15     输出0
 		P7.7	/SEG16     输出0
 	*/  
-	P7OE = 0xff;   //允许输出
-    P7IE = 0;   //禁止输入
+	P7OE = 0xFf;   //允许输出
+    P7IE = 0x00;   //禁止输入
     //P7OD = 0;   //输出0
 	/*  IO      管脚       作用
 		P8.0	/SEG17     
@@ -147,11 +147,11 @@ void IO_Init(void)
 		P9.6	/CF1       CF1      
 		P9.7	/NO USE
 	*/	
-    P9OE = 0;   //允许输出
-    P9IE = 0;   //禁止输入
+    P9OE = 0xf3;   //允许输出
+    P9IE = 0x09;   //禁止输入
     P9OD = 0;   //输出0
 //    P9FS = BIT6;
-    
+     _multiOut_Nor();
     CloseFD();
 }
 /*=========================================================================================\n
@@ -701,79 +701,6 @@ void MChannelCal(void)
 * @修改内容: 
 ===========================================================================================*/
 
-unsigned short Adc_DataGet(void)
-{
-     Word32 tempvalue;
-      tempvalue.lword=EnyB_ReadMeterParaACK(DATAOM);
-       if(tempvalue.byte[3]>0x80)                  //电池悬空的时候读取可能是负值
-        {
-            tempvalue.lword=(~tempvalue.lword)+1;
-        }
-        tempvalue.lword = tempvalue.lword >> 16;
-        tempvalue.lword = ((tempvalue.lword*100+5069)/5959);
-        return (unsigned short )tempvalue.lword;
-}
-char     cAdcApp_Get( struct  STLVDBUF   *stp)
-{
-      vol_fileter( stp,(unsigned char ) Adc_DataGet());
-        return  vol_Get( stp );
-}
- 
-#define       _start_adc_Conver(control ,iIso , statu) { CtrlADC5 = control ; iIso  = iTime_Isr_no ; (statu)++;}          
- 
-extern  struct  STLVDBUF  stAdcData[_adc_end_];
-void Adc_Function( enum ENADCSTATU *cStatu )
-{
-    static      unsigned short   iMainState ;  
-    short               itemp ;
-    extern volatile unsigned short iTime_Isr_no;
-  switch ( *cStatu)
-  {
-    
-  case _enAdc_BatSetChanel_: 
-        _start_adc_Conver(0x92, iMainState ,*cStatu);          
-    break;
-        
-    case    _enAdc_BatWait_:
-    case    _enAdc_In0Wait_:
-    case    _enAdc_In1Wait_:
-     case  _enAdc_TempWait_:    
-        if ( iMainState ==  iTime_Isr_no )
-            break;
-        else
-        {
-            itemp =  abs(iTime_Isr_no  - iMainState);
-            if ( itemp >2 )
-                (*cStatu)++;
-        }
-        break;
-        
-    case  _enAdc_BatGetData_:
-        RamData.VBat[0]= cAdcApp_Get(  &(stAdcData[_adc_bat_]));
-         _start_adc_Conver(0x96, iMainState ,*cStatu);
-          break;
-          
-  case _enAdc_In0DataGet_:
-      
-        RamData.iLvdin0=  cAdcApp_Get(  &(stAdcData[_adc_lvdin0_]));   
-          _start_adc_Conver(0x97, iMainState ,*cStatu);
-          
-    break;
-    
-  case _enAdc_In1DataGet_:
-          RamData.iLvdin1=  cAdcApp_Get(  &(stAdcData[_adc_lvdin1_]));      
-           _start_adc_Conver(0x81, iMainState ,*cStatu);
-        break;
-        
-  case _enAdc_TempDataGet_:  
-    (*cStatu)++;
-    break;
-    
-    case  _enAdc_Null_ :
-    case _enAdc_StatuEnd_: 
-      break;
-  }
-}
 /*
 void GetBat(void)
 {
@@ -1016,6 +943,7 @@ void MCUForPowerOff(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+/*
 void SwichPluseOutType(uint8 type)
 {
     if(type==0)
@@ -1029,7 +957,7 @@ void SwichPluseOutType(uint8 type)
         P9OE&=(~BIT3);
     }
 }
-
+*/
 
 /*=========================================================================================\n
 * @function_name: SleepRTC
@@ -1219,8 +1147,6 @@ void GetExtRTC(void)
     gs_ClkTmp.ucYear    = RTCYC;
 }
  
-
-
 void SetExtRTC(void)
 {
     //RTC允许写 

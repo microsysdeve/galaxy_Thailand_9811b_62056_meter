@@ -54,7 +54,7 @@
 //#define OpenBeiGuang()      {if(CalRMS(RMSIU)>1540){P2OD|=BIT5;P2OE&=(~BIT5);}else if(CalRMS(RMSIU)<1430){P2OD&=(~BIT5);P2OE&=(~BIT5);}}
 //#define OpenBeiGuang()      {P2OD |= BIT5; P2OE &=~ BIT5; P2IE&=~BIT5;  P25FS=0;}
 //关闭背光
-#define CloseBeiGuang()     {P0OE&=(~BIT1);P0OD&=(~BIT1);}//{P2OD &=~BIT5; P2OE &=~ BIT5; P2IE&=~BIT5;  P25FS=0;}
+#define CloseBeiGuang()    {} // {P0OE&=(~BIT1);P0OD&=(~BIT1);}//{P2OD &=~BIT5; P2OE &=~ BIT5; P2IE&=~BIT5;  P25FS=0;}
 ////Power指示
 ////#define OpenPowerLed()      //{P1OD |= BIT1; P1OE &=~ BIT1; P1IE&=~BIT1; P11FS=0;}
 ////#define ClosePowerLed()     //{P1OD &=~BIT1; P1OE &=~ BIT1; P1IE&=~BIT1; P11FS=0;}
@@ -82,17 +82,17 @@
 
 #define      _KeyBItDef_              BIT1
 
-#define KeyPrEnable()    {P1IE|=_KeyBItDef_ ;P1OE|=_KeyBItDef_ ;} //{P0IE|=BIT0;P0OE|=BIT0;}
-#define KeyPrDisable()   {P1IE&=(~_KeyBItDef_ );P1OE|=_KeyBItDef_ ;}  // P0IE&=(~BIT0);P0OE|=BIT0;}
-#define KeyStPr()       ((P1ID & BIT1)?0:1)// (!(P0ID & BIT0))               // 编程按键
+#define KeyPrEnable()   {} // {P1IE|=_KeyBItDef_ ;P1OE|=_KeyBItDef_ ;} //{P0IE|=BIT0;P0OE|=BIT0;}
+#define KeyPrDisable()  {} // {P1IE&=(~_KeyBItDef_ );P1OE|=_KeyBItDef_ ;}  // P0IE&=(~BIT0);P0OE|=BIT0;}
+#define KeyStPr()       (0) //((P1ID & BIT1)?0:1)// (!(P0ID & BIT0))               // 编程按键
 
 
 ////硬件接口预留
 //#define KeyBgEnable()    {P1IE|=BIT3;P1OE|=BIT3;P13FS=0;}
 //#define KeyBgDisable()    {P1IE&=(~BIT3);P1OE|=BIT3;}
 //#define KeyStBg()       (!(P1ID&BIT3))                           //表盖检测按键
-#define OpenFD()     {P9OE |=BIT0;P9IE &= (~BIT0);P9FS&= (~BIT0);}//开放电使能
-#define CloseFD()    {P9OE &= (~BIT0);P9IE &= (~BIT0);P9OD &= ~BIT0;P9FS&= (~BIT0);}//关放电使能
+#define OpenFD()     {} //{P9OE |=BIT0;P9IE &= (~BIT0);P9FS&= (~BIT0);}//开放电使能
+#define CloseFD()    {} //{P9OE &= (~BIT0);P9IE &= (~BIT0);P9OD &= ~BIT0;P9FS&= (~BIT0);}//关放电使能
 
 //#define DetEnable()  {P1OE|=BIT4;P1IE|=BIT4;P14FS=0;}	       //电压检测使能
 //#define DetDisable() {P1OE&=(~BIT4);P1IE|=BIT4;P14FS=0;}	   //

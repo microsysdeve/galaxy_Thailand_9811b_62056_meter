@@ -638,7 +638,7 @@ bool Pwr_ChkProc(void)
     if(i >= CONFIG_DELAY && !POWERUP())        //청든
     {  
 #if (MEA_SLP_FMCU == 1)      
-        if(PowOffSetFmcu(PLL_3D2M) == 0)   //MCU학3.2M
+       if(PowOffSetFmcu(PLL_3D2M) == 0)   //MCU학3.2M
         {
           return false;
         }

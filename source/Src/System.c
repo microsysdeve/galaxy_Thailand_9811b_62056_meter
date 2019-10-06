@@ -21,7 +21,7 @@
 #pragma vector=0x03               //中断号0,外部中断0
 __interrupt void EXINT0(void)
 {
-  
+  debug_break(_debug_int_0_); 
 }
 
 /*=========================================================================================\n
@@ -76,6 +76,7 @@ __interrupt void Timer0Interrupt(void)
 __interrupt void EXINT1(void)
 {
   
+   debug_break(_debug_int_2_);
 }
 
 /*=========================================================================================\n
@@ -100,6 +101,7 @@ __interrupt void Timer1Interrupt(void)
     TF1 = 0;
     guc_PendSlpSta = 0;        // 结束挂起标志
     TR1 = 0;                // 关定时器1    
+    debug_break(_debug_int_3_);
 }
 /*=========================================================================================\n
 * @function_name: Timer2Interrupt
@@ -127,9 +129,6 @@ void TIMER_ISR(void);
     Event_Ms =1;
     
      TIMER_ISR();
-    
-    
-    
     
     if(guc_PllSta == PLL_800K)
     {
@@ -351,11 +350,31 @@ __interrupt void UATRAndRTCInterrupt(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+
 #pragma register_bank=2
 #pragma vector=0x53               //中断号10,  外部中断3、PLL频率锁定中断
 __interrupt void PLLAndExINT3(void)
 {
+ volatile uint8 ucTemp;
+   extern volatile unsigned short  iExtPort_Intno;
+   extern volatile unsigned short  iKey_Intno ;
+   
+    ucTemp  = ExInt4IFG ;
+    ucTemp &= ExInt4IE;  
+  
     EXIF&=(~BIT6);  
+    debug_break(_debug_int_10_);
+    
+    if(ucTemp & BIT3) 
+    {        
+        iExtPort_Intno++;
+         ExInt4IFG &=~BIT3;
+    }
+    if(ucTemp & BIT2) 
+    {        
+      iKey_Intno++;
+           ExInt4IFG &=~BIT2;
+    }
 }
 
 
@@ -364,6 +383,7 @@ __interrupt void PLLAndExINT3(void)
 __interrupt void TimerA(void)
 {
     EXIF&=(~BIT7);    
+    debug_break(_debug_int_11_);
 }
 
 /*=========================================================================================\n
@@ -385,7 +405,7 @@ __interrupt void TimerA(void)
 #pragma vector=0x63               //中断号10,  外部中断3、PLL频率锁定中断
 __interrupt void PowerOffInterrupt(void)
 {
-  
+  debug_break(_debug_int_12_);
 }
  
  
