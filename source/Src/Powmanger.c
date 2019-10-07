@@ -20,11 +20,11 @@ void Pwr_DownChk(void)
 {
     guc_ChkPowDn <<= 1;
 #if (CONFIG_PT == 0)
-    if(!(Systate&BIT0))      // 判断是否电压低
+    if(!_IsUpIo())      // 判断是否电压低
 #else
-    if(!(Systate&BIT0) && PwrDetLow())      // 判断是否电压低
+    if(!_IsUpIo() && PwrDetLow())      // 判断是否电压低
 #endif
-//    if(!(Systate&BIT0) && PwrDetLow())      // 判断是否电压低
+//    if(!_IsUpIo() && PwrDetLow())      // 判断是否电压低
     {
         guc_ChkPowDn |=0x1;                 // 把当前电压状态存入寄存器，只有连续有低电平才可以判定是下电
     }

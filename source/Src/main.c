@@ -3,6 +3,7 @@
 
 #include "Include.h"
 #include "PubSet.h"
+#include "powerevent.h"
 __root const unsigned char __code codepsword[512]@0x400=
 { 
   0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,0xff,
@@ -267,7 +268,7 @@ bool Mea_Consumption_Dly(void)
       SLPWDT();               //800kŒππ∑
       DelayOSC(20);
     }
-    if(!(Systate&BIT0))      // ≈–∂œ «∑ÒµÁ—πµÕ
+    if(!_IsUpIo())      // ≈–∂œ «∑ÒµÁ—πµÕ
     {
       RTCWakeUpTm(RTC_SETSEC, 6);
       
@@ -299,7 +300,7 @@ __near_func void m1ain(void)
   debug_init();
   
 MAINSTART:
-    if(!(Systate&BIT0))      // ≈–∂œ «∑ÒVDCINµÕ
+    if(!_IsUpIo())      // ≈–∂œ «∑ÒVDCINµÕ
     {  
         if(SetPLL800K(MEA_OFF) == 0)   //MCU«–800K
         {

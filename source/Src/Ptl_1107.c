@@ -1,6 +1,14 @@
 #define	AP_1107_EXT
 #include "Include.h"
-
+struct            ST645CommTimeFormat
+{
+    unsigned char               cSec;
+    unsigned char               cMin;
+    unsigned char               cHour;
+    unsigned char               cDay;
+    unsigned char               cMonth;
+    unsigned char               cYear;
+};
 
 const uint8 code guc_PcComEd[]=
 {
@@ -208,21 +216,19 @@ const GS_IECCOM    gs_OBSCom[]=
     {"96.71*11",        ")",            0xb,       IEC_RO,     _ReadBodyOpOrMdTrDate_},    //上11次开端钮盖时间及次数
     {"96.71*12",        ")",            0xc,       IEC_RO,     _ReadBodyOpOrMdTrDate_},    //上12次开端钮盖时间及次数
 
-
-
-    {"96.7.1",          ")",            0x00,       IEC_RO,     _ReadPowDnJl_},    //掉电总次数
-    {"96.77.1*1",       ")",            0x00,       IEC_RO,     _ReadPowDnJl_},    //上1次掉电时间和结束时间
-    {"96.77.1*2",       ")",            0x10,       IEC_RO,     _ReadPowDnJl_},    //上2次掉电时间和结束时间
-    {"96.77.1*3",       ")",            0x20,       IEC_RO,     _ReadPowDnJl_},    //上3次掉电时间和结束时间
-    {"96.77.1*4",       ")",            0x30,       IEC_RO,     _ReadPowDnJl_},    //上4次掉电时间和结束时间
-    {"96.77.1*5",       ")",            0x40,       IEC_RO,     _ReadPowDnJl_},    //上5次掉电时间和结束时间
-    {"96.77.1*6",       ")",            0x50,       IEC_RO,     _ReadPowDnJl_},    //上6次掉电时间和结束时间
-    {"96.77.1*7",       ")",            0x60,       IEC_RO,     _ReadPowDnJl_},    //上7次掉电时间和结束时间
-    {"96.77.1*8",       ")",            0x70,       IEC_RO,     _ReadPowDnJl_},    //上8次掉电时间和结束时间
-    {"96.77.1*9",       ")",            0x80,       IEC_RO,     _ReadPowDnJl_},    //上9次掉电时间和结束时间
-    {"96.77.1*10",      ")",            0x90,       IEC_RO,     _ReadPowDnJl_},    //上10次掉电时间和结束时间
-    {"96.77.1*11",      ")",            0xA0,       IEC_RO,     _ReadPowDnJl_},    //上11次掉电时间和结束时间
-    {"96.77.1*12",      ")",            0xB0,       IEC_RO,     _ReadPowDnJl_},    //上12次掉电时间和结束时间
+    {"96.7.1",          ")",      _code645_03110000_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //掉电总次数
+    {"96.77.1*1",       ")",      _code645_03110001_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上1次掉电时间和结束时间
+    {"96.77.1*2",       ")",      _code645_03110002_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上2次掉电时间和结束时间
+    {"96.77.1*3",       ")",      _code645_03110003_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上3次掉电时间和结束时间
+    {"96.77.1*4",       ")",      _code645_03110004_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上4次掉电时间和结束时间
+    {"96.77.1*5",       ")",      _code645_03110005_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上5次掉电时间和结束时间
+    {"96.77.1*6",       ")",      _code645_03110006_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上6次掉电时间和结束时间
+    {"96.77.1*7",       ")",      _code645_03110007_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上7次掉电时间和结束时间
+    {"96.77.1*8",       ")",      _code645_03110008_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上8次掉电时间和结束时间
+    {"96.77.1*9",       ")",      _code645_03110009_-_code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上9次掉电时间和结束时间
+    {"96.77.1*10",      ")",      _code645_0311000A_- _code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上10次掉电时间和结束时间
+    //{"96.77.1*11",      ")",      _code645_03110000_ _code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上11次掉电时间和结束时间
+    //{"96.77.1*12",      ")",      _code645_03110000_ _code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上12次掉电时间和结束时间
 
     //表号
     {"0.0.0",           ")",            0x00,       IEC_RW,     0x05},
@@ -800,15 +806,7 @@ uint32 DateAndTimeProc(uint8 index,uint8 cmd,void *pvoid)
 * @修改内容:  
 ===========================================================================================*/
 
-struct            ST645CommTimeFormat
-{
-    unsigned char               cSec;
-    unsigned char               cMin;
-    unsigned char               cHour;
-    unsigned char               cDay;
-    unsigned char               cMonth;
-    unsigned char               cYear;
-};
+
 uint32 ReadBodyOpOrMdTrDate(uint8 index,uint8 cmd,void *pvoid)
 {
     uint8 *ucbuf;//[10];
@@ -1102,6 +1100,7 @@ uint32 ReadInsData(uint8 index,uint8 cmd,void *pvoid)
 * @修改人: 
 * @修改内容:  
 ===========================================================================================*/
+/*
 uint32 ReadPowDnJl(uint8 index,uint8 cmd,void *pviod)
 {
     uint8 ucbuf[10];
@@ -1117,6 +1116,36 @@ uint32 ReadPowDnJl(uint8 index,uint8 cmd,void *pviod)
     MemCpy( ((uint8*)pviod)+15,ASCII,14);
     return 29;
  }
+*/
+uint32 ReadPowDnJl(uint8 index,uint8 cmd,void *pvoid)
+{
+    uint8 ucbuf[10],ctemp;
+    uint8 ASCII[15];
+    struct   ST645CommTimeFormat *stp =(struct   ST645CommTimeFormat *)ComData; 
+    strDispCode  pCode = { 0x03110000 ,0};     
+    pCode.Code +=index;
+     
+    if ( index )
+      debug_break(50);
+    tpChar = ComData ;
+    ctemp = RamData.InDisp;
+    RamData.InDisp = 0;
+    Get645Data( &pCode );    
+    RamData.InDisp = ctemp;    
+     
+   
+    BCD2ASCII(&(stp->cMin),ASCII,5);               //把日期转化成ASCii
+    DateAndTmFormat(ASCII);                 //转化日期和时间的格式
+    MemCpy((uint8*)pvoid,ASCII,14);
+    ((uint8*)pvoid)[14]=',';
+    
+    stp++;
+    BCD2ASCII(&(stp->cMin),ASCII,5);             //把日期转化成ASCii
+    DateAndTmFormat(ASCII);                 //转化日期和时间的格式
+    MemCpy( ((uint8*)pvoid)+15,ASCII,14);
+    return 29;
+ }
+
 /*=========================================================================================\n
 * @function_name: RdData
 * @function_file: Ptl_1107.c

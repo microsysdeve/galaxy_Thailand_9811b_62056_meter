@@ -55,7 +55,7 @@ struct STADCFUN
   volatile unsigned char cPwpDn0;
 
 };
-
+extern struct STADCFUN stAdcFun;
 void Adc_DataInit (void);
 void vol_fileter (struct STLVDBUF *stp, char cVol);
 unsigned char vol_Get (struct STLVDBUF *stp);
@@ -64,15 +64,12 @@ char adc_appfun (void);
 #define                 _IsLVol()      ( stAdcFun.cLvdin0_HighTm >= _cLvdFilter_ )
 #define                 _IsNVol()      ( stAdcFun.cLvdin1_HighTm >= _cLvdFilter_ )
 
-
 #define                 _IsUpEvent()   ( stAdcFun.cPwpUp1 >= _cLvdFilter_ )
 #define                 _IsDnEvent()   ( stAdcFun.cPwpDn1>= _cLvdFilter_ )
 
-
-#define                 _IsUpIo() (Systate&BIT0)
-#define                 _IsDnIo()       (Systate&BIT1)
-
-extern struct STADCFUN stAdcFun;
 #define _Adc_DataInit_Data()            {ClrRam((char *)&stAdcFun,sizeof(stAdcFun));}
 #define _Adc_DataInit_state()           {stAdcFun.cBatStatu  = _enAdc_BatSetChanel_;}
+
+
+
 #endif

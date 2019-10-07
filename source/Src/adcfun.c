@@ -2,7 +2,7 @@
 #include "Include.h"
 #include "PubSet.h"
 #include "adcfun.h"
-
+#include "powerevent.h"
 struct STADCFUN stAdcFun;
 
 

@@ -1,7 +1,9 @@
 #define MCUDRIVEEXT
 #define RTCCPTEXT
 #include "Include.h"
+#include "powerevent.h"
 #define V98x1A1
+
 /*=========================================================================================\n
 * @function_name: IO_Init
 * @function_file: main.c
@@ -989,7 +991,7 @@ uint8 SleepRTC(void)
     BE_I2C_CLK_1();                     //I2C输出高
 //    FWC=0;
 //    FSC=0;
-//    if((Systate&BIT0)==0x01)
+//    if(_IsUpIo())
 //    {   
 //        return false;
 //    }
@@ -998,7 +1000,7 @@ uint8 SleepRTC(void)
 //    for(i=0;i<20;i++);          //等待
 
 //    PMG=1; //关闭计量时钟
-    if((Systate&BIT0)==0x01)
+    if(_IsUpIo())
     {   
         return false;
     }
@@ -1009,7 +1011,7 @@ uint8 SleepRTC(void)
 //    MEAFRQ=0; 
 //    while(MEAFRQ);
 
-    if((Systate&BIT0)==BIT0)
+    if(_IsUpIo())
     {   
         return false; 
     }
@@ -1054,7 +1056,7 @@ uint8 Sleep(void)
     // RTCWakeUpTm(RTC_SEC);
     //gui_SystemState |= flgStSys_PowOff;    //置掉电状态
 
-    if((Systate&BIT0)==0x01)    //有电
+    if(_IsUpIo())    //有电
     {   
         return false;
     }
@@ -1069,7 +1071,7 @@ uint8 Sleep(void)
 //
 //    PMG=1;                  //关闭计量时钟
 
-    if((Systate&BIT0)==0x01)
+    if(_IsUpIo())
     {   
         return false;
     }
@@ -1080,7 +1082,7 @@ uint8 Sleep(void)
 //    MEAFRQ=0;
 //    while(MEAFRQ);
 
-    if((Systate&BIT0)==0x01)
+    if(_IsUpIo())
     {   
         return false; 
     }

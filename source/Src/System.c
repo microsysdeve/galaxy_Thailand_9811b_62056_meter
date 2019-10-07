@@ -358,7 +358,7 @@ __interrupt void PLLAndExINT3(void)
  volatile uint8 ucTemp;
    extern volatile unsigned short  iExtPort_Intno;
    extern volatile unsigned short  iKey_Intno ;
-   
+   extern const  unsigned 	char		cExtWakt_RunTm;
     ucTemp  = ExInt4IFG ;
     ucTemp &= ExInt4IE;  
   
@@ -367,12 +367,12 @@ __interrupt void PLLAndExINT3(void)
     
     if(ucTemp & BIT3) 
     {        
-        iExtPort_Intno++;
+        iExtPort_Intno++;RamData.iIntPowkey = cExtWakt_RunTm;
          ExInt4IFG &=~BIT3;
     }
     if(ucTemp & BIT2) 
     {        
-      iKey_Intno++;
+      iKey_Intno++;RamData.iIntPowkey = cExtWakt_RunTm;
            ExInt4IFG &=~BIT2;
     }
 }
