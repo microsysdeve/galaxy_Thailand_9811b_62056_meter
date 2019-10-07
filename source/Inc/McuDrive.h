@@ -101,13 +101,16 @@
 
 #define MEA_ON     0xFF
 #define MEA_OFF    0x00
-
-#define PLL_OSC    0x00
-#define PLL_800K   0x01
-#define PLL_3D2M   0x04
-#define PLL_6D5M   0x08
-#define PLL_13M    0x10
-#define PLL_26M    0x20
+enum            ENUMPLLOSCLIST
+{
+    PLL_OSC=0x00,
+    PLL_800K=0x01,
+    PLL_3D2M=0x04,
+    _PLL_END_,
+    PLL_6D5M=0x08,
+    PLL_13M=0x10,
+    PLL_26M=0x20,
+};
 
 
 

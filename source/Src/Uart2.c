@@ -1,6 +1,14 @@
 #include "Include.h"
 #include "streamio.h"
+#include "uartiobase.h"
 //变量声明
+#define Uart2_CtrIoIdle()  {} 
+enum   ENUMZBCONTROL
+{
+    _zb_exist =0,  //0, 带有38kHz 载波；1,不带有载波。 
+    _zb_noexti,
+};
+
 uint8   guc_DyUart2Over;        //模拟串口超时保护
 /*=========================================================================================\n
 * @function_name: Init_Uart2
@@ -17,18 +25,12 @@ uint8   guc_DyUart2Over;        //模拟串口超时保护
 ===========================================================================================*/
 void Init_Uart2(uint8 ucBode)
 {    
-_UartInit(ucBode,TMOD2,TCON2,TL21,TH21,SCON2);
-/*
-    if(ucBode>=_bpsend_)
-    {
-        ucBode=_bps2400_;                           //默认2400
-    }
-
-    TMOD2 = 0x20;                               // 8-bit counter with auto-reload
-    TCON2 =BaudRateTable[ucBode].Type;          //时钟选择CLK  clear SMOD  SET  T1M,TR1
-    TL21=TH21=BaudRateTable[ucBode].THValue;    //波特率设置
-    SCON2=0xD0;                                 //数据位9位,8位数据位+1校验位
-*/
+  unsigned char j;
+  unsigned long i;
+  char  stemp[10];
+  
+_UartInit(ucBode,TMOD2,TCON2,TL21,TH21,SCON2); 
+ 
     P2OE &= ~BIT5;                      //Uart4发送口输出允许
     P2IE &= ~BIT5;                      //Uart4发送口输入禁止
     P2OE |= BIT4;                       //Uart4接收口输出禁止
@@ -36,11 +38,61 @@ _UartInit(ucBode,TMOD2,TCON2,TL21,TH21,SCON2);
     P24FS=2;                            //P2.0配置成RXD
     P25FS=2;                            //P2.1配置成TXD
     
-    Txd2FS = 1;
+    Txd2FS = _zb_noexti;
     ExInt2IE|=BIT0;
     ExInt2IE|=BIT1;
     EIE|=BIT0;
-  
+    //====================
+    /*
+    SCON2&=(~BIT4);
+     gs_ComGroup[ComIndex_Uart2].ucPort   = Port_Uart4;
+
+    gs_ComGroup[ComIndex_Uart2].ucRecvTmr = Const_DyRvPack;     //设置数据包接收超时时间
+gs_ComGroup[ComIndex_Uart2].ucLen =0;
+    gs_ComGroup[ComIndex_Uart2].ucStt  = ComStt_Idle;
+      
+ 
+                while (1)
+                {
+                  for ( j =0;j<128;j++)
+                  {
+                   SLPWDT();               //800k喂狗
+                   SCON2 &=~BIT1;         
+                  //_EvenMod(j,SCON4)  ;
+                   //_SendOper(j,SBUF4);
+                   SCON2|=(BIT3);
+                   SBUF2 =   c7bitParity_Get(j,  _Parity_Even_);
+       for ( i =0 ;i < 1000;i++)
+       {
+            if (SCON2 & BIT1)
+            goto a2;
+          asm("nop"); asm("nop"); asm("nop");
+        }       
+                  a2:
+                }
+                
+                }
+                  
+a1:    
+                SCON2|=(BIT4);
+                SCON2&=~BIT0;
+                j =0;
+                EA=1;
+                while (1)
+                {
+                     SLPWDT();
+                     continue;
+                        if (  SCON2 & BIT0)
+                       {
+                              stemp[j++] = SBUF2;
+                              if ( j>=sizeof(stemp))
+                                  j =0;
+                             SCON2&=~BIT0;
+                       }
+                        
+                }
+    */
+    
 }
 
 /*=========================================================================================\n
@@ -58,6 +110,7 @@ _UartInit(ucBode,TMOD2,TCON2,TL21,TH21,SCON2);
 ===========================================================================================*/
 void Uart2_Dy10ms(void)
 {
+  #ifndef _ComUSE645_
     guc_DyUart2Over--;
     if(0x00== guc_DyUart2Over)
     {
@@ -73,24 +126,27 @@ void Uart2_Dy10ms(void)
             gui_RefreshEvent|=flgEtPara_Bode;
         }
     }
+    #endif
 }
-void Uart2_Receiveio(void)
-{
 
+void Uart2_Receiveio( unsigned char cData )
+{
 //    uint8 temp,temp1;
     guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
+    //这里可以做奇偶校验判断
 
     //处于空闲状态或已经处于uart接收状态
     gs_ComGroup[ComIndex_Uart2].ucPort   = Port_Uart2;
 
     gs_ComGroup[ComIndex_Uart2].ucRecvTmr = Const_DyRvPack;     //设置数据包接收超时时间
 
-    if((gs_ComGroup[ComIndex_Uart2].ucStt == ComStt_Idle)
-       ||(gs_ComGroup[ComIndex_Uart2].ucStt == ComStt_Recv))        //当前是空闲的状态的话，判断是否是帧头68
+    if((gs_ComGroup[ComIndex_Uart2].ucStt == ComStt_Idle) 
+      ||(gs_ComGroup[ComIndex_Uart2].ucStt == ComStt_Recv))            //这个判断是防止发送的时候有接收中断进入的可能
     {
         if(gs_ComGroup[ComIndex_Uart2].ucLen < Const_MaxBufLen)     //判断 com中的buf是否溢出
-        {                                                           //防止缓存溢出
-            gs_ComGroup[ComIndex_Uart2].ucBuf[gs_ComGroup[ComIndex_Uart2].ucLen++] = (SBUF2&0x7F);//数据存入缓冲区，指针加加
+        {
+            //防止缓存溢出
+            gs_ComGroup[ComIndex_Uart2].ucBuf[gs_ComGroup[ComIndex_Uart2].ucLen++] = cData ;//数据存入缓冲区，指针加加
         }
     }
 }
@@ -111,10 +167,11 @@ void Uart2_Receive(void)
 {
 extern volatile struct STSCIBUF USARTCOM[_Com_End_];
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_IR_Chanel_]);
- 
     uint8 temp,temp1;
-    guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
+    //guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
     //这里可以做奇偶校验判断
+ 
+#ifdef _ComUSE645_
     ACC=SBUF2;                          //ACC 奇校验
     temp=P;
     temp1=(SCON2>>2)&BIT0;              //偶校验
@@ -123,7 +180,6 @@ extern volatile struct STSCIBUF USARTCOM[_Com_End_];
     {
         return;
     }
-    #ifdef _ComUSE645_
     stream_rece_fun_645( usartcomp,SBUF2);
     if (usartcomp->bEventRec645) {
 				//do {
@@ -138,10 +194,14 @@ extern volatile struct STSCIBUF USARTCOM[_Com_End_];
 
 			}
 #else
-    Uart2_Receiveio();
+     unsigned char ctemp = SBUF2;
+     if ( SUCCESS == c7bitParity_Set(&ctemp ,_Parity_Even_))
+        Uart2_Receiveio(ctemp);      
       return ;
   stream_rece_fun ( usartcomp,SBUF2);
 #endif
+  
+    return ;
 #ifdef DEL
     //处于空闲状态或已经处于uart接收状态
     gs_ComGroup[ComIndex_Uart2].ucPort   = Port_Uart2;
@@ -199,54 +259,70 @@ extern volatile struct STSCIBUF USARTCOM[_Com_End_];
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
+                
 void Uart2_Transmit(void)
 {
-    guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
-#ifdef DEL
+  unsigned char ctemp;
+  extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+  struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_IR_Chanel_]);
+ #ifdef  _ComUSE645_
+  if (usartcomp->cStatu < _end_sendcom) 
+  {
+	ctemp  = stream_send_fun_645(usartcomp);
+        _BitYX(SCON2,ctemp) ;   
+        SBUF2 = ctemp;
+	resetWdt();
+        if ((0 == --(usartcomp->cHead)) && ( _workNormal_ == WorkState_ReCheck()))
+          usartcomp->cStatu++;
+	} else {
+			do {
+				usartcomp->cSilence = 1;
+		} while (1 != usartcomp->cSilence);
+	}
+
+	return;
+#else
+  
+  
+
+  // guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
+
     if(gs_ComGroup[ComIndex_Uart2].ucPort   == Port_Uart2)
     {   //处于空闲状态或已经处于uart接收状态
         if(gs_ComGroup[ComIndex_Uart2].ucStt == ComStt_Send)
         {
             if(gs_ComGroup[ComIndex_Uart2].ucPos >= gs_ComGroup[ComIndex_Uart2].ucLen)
             {   //发送完毕,初始化通讯控制状态
-                //发送完，配置回去
-//              P25FS=0;                            //P2.5配置成GPIO,只有在发送的时候切换成TXD
-//              P2OE &= ~BIT5;                      //UART2发送口输出允许
-//              P2OD&=(~BIT5);
-//              P2IE &= ~BIT5;                      //UART2发送口输入禁止
-//              ExInt2IE&=(~BIT0);                  //关闭发送中断
+            #ifdef RS485_TWOLINE
+                Uart2_CtrIoIdle();
+            #else
                 Uart2_RevEn();
-                ComBom_Init(ComIndex_Uart2);//将uart2 端口对应的 COM初始化
+            #endif
+                ComBom_Init(ComIndex_Uart2);//将uart4 端口对应的 COM初始化
             }else
             {
-                if(gs_ComGroup[ComIndex_Uart2].ucFrmHeadCnt<4)
-                {
-                    SCON2|=(BIT3);
-                    SBUF2=0xfe;
-                    gs_ComGroup[ComIndex_Uart2].ucFrmHeadCnt++;
-                }else
-                {
-                    //这里可以做奇偶校验运算
-                    ACC = gs_ComGroup[ComIndex_Uart2].ucBuf[gs_ComGroup[ComIndex_Uart2].ucPos]; //计算校验位
-                    if(P==0)                                        //校验位
-                    {
-                        SCON2&=(~BIT3);
-                    }
-                    else
-                    {
-                        SCON2|=(BIT3);
-                    }
-                    Uart2_SendEn();//控制端口设置为发送模式（三线制通讯使用）  //还有未发送数据则写入外设发送缓存
-                    SBUF2 = gs_ComGroup[ComIndex_Uart2].ucBuf[gs_ComGroup[ComIndex_Uart2].ucPos++];
-                }
+//          //这里可以做奇偶校验运算
+              SCON2|=(BIT3);
+              SBUF2 =  c7bitParity_Get(gs_ComGroup[ComIndex_Uart2].ucBuf[gs_ComGroup[ComIndex_Uart2].ucPos++],_Parity_Even_);                   
+               
+            #ifdef RS485_TWOLINE
+                Uart2_CtrIoIdle();
+            #else
+                Uart2_SendEn();//控制端口设置为发送模式（三线制通讯使用）  //还有未发送数据则写入外设发送缓存
+            #endif
 
             }
         }else
         {   //如果在发送中断标记中，进入但是状态不正确，则初始化
-            ComBom_Init(ComIndex_Uart2);//将uart2 端口对应的 COM初始化
+            ComBom_Init(ComIndex_Uart2);//将uart4 端口对应的 COM初始化
+        #ifdef RS485_TWOLINE
+        //    Uart2_CtrIoIdle();
+        #else
             Uart2_RevEn();
+        #endif
         }
     }
 #endif
+    
 }
 

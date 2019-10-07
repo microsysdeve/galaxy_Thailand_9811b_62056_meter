@@ -2249,6 +2249,9 @@
     <name>$PROJ_DIR$\Src\Uart4.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\Src\uartiobase.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\Version.c</name>
   </file>
   <file>

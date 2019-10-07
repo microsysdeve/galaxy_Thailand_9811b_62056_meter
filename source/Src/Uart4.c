@@ -1,12 +1,8 @@
 #include "Include.h"
 #include "streamio.h"
-
+#include "uartiobase.h"
 //变量声明
 uint8   guc_DyUart4Over;        //模拟串口超时保护
-
-
-
-
 
 /*=========================================================================================\n
 * @function_name: Init_Uart4
@@ -23,92 +19,15 @@ uint8   guc_DyUart4Over;        //模拟串口超时保护
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-#define                 _Parity_Set(SCONx)              { SCONx |=(BIT3);}
-#define                 _Parity_Set(SCONx)              { SCONx&=(~BIT3);}
-
-
-#define       _EvenMod( cData , SCONx)    { ACC = cData;if( 0 == P) SCONx&=(~BIT3);else SCONx|=(BIT3);}
-#define       _OddMod( cData , SCONx)    { ACC = cData;if (P)   SCONx&=(~BIT3);else SCONx|=(BIT3);}
-#define       _SendOper( cData,SBUFx)   {SBUFx = cData;}
-   
- char          cCalbitNum ( unsigned char ctemp)
-  {
-      char      i ,j;     
-      for ( j =0,i = 0 ;i < 8 ;i++,ctemp>>=1)
-        j +=(ctemp&1)?1:0;
-    return j;
-  }
-  
-char            c7bitParity_Set(unsigned char *cData , enum PARITYLIST cparty)
-{
-        unsigned char ctemp = (cCalbitNum (*cData))&1;                        
-        (*cData) &=0x7f;
-          
-      switch (cparty)
-      {
-      case _Parity_Null_ :        
-          return  SUCCESS;
-          
-      case _Parity_Even_ :
-          if ( 0 == ctemp )                   
-                  return SUCCESS;
-            break;
-            
-      case  _Parity_Odd_ :
-        if ( ctemp )                  
-                return SUCCESS;
-            break;
-      }
-        return  FAIL;
-      
-}
-
-
-char           c7bitParity_Get(unsigned char cData , enum PARITYLIST cparty)
-{
-  
-       unsigned char ctemp ;                        
-        (cData) &=0x7f;
-        ctemp = (cCalbitNum (cData))&1;                        
-          
-      switch (cparty)
-      {
-      case _Parity_Null_ :        
-          return  SUCCESS;
-          
-      case _Parity_Even_ :          
-          if (  ctemp )   
-              (cData) |=0x80;           
-            break;
-            
-      case  _Parity_Odd_ :
-        if ( 0 == ctemp )            
-              (cData) |=0x80;                           
-            break;
-      }
-        return cData; 
-      
-}
-
-
+ 
  
 void Init_Uart4(uint8 ucBode)
 {
 volatile char    stemp[5],j;
  int i;
  //ucBode =_bps9600_;
-  _UartInit(ucBode,TMOD4,TCON4,TL41,TH41,SCON4);
- 
-  /*if(ucBode>=5)
-    {
-        ucBode=2;                           //默认2400
-    }
+  _UartInit(ucBode,TMOD4,TCON4,TL41,TH41,SCON4); 
 
-    TMOD4 = 0x20;                               // 8-bit counter with auto-reload
-    TCON4 = BaudRateTable[ucBode].Type;          //时钟选择CLK  clear SMOD  SET  T1M,TR1
-    TL41  = TH41 = BaudRateTable[ucBode].THValue;    //波特率设置
-    SCON4 = 0xD0;                                 //数据位9位,8位数据位+1校验位
-*/
   //SCON4 = 0x50;     
     P2OE &= ~BIT1;                      //Uart4发送口输出允许
     P2IE &= ~BIT1;                      //Uart4发送口输入禁止
@@ -393,7 +312,7 @@ void Uart4_Receive(void)
 * @修改内容:
 ===========================================================================================*/
 
-#define    _BitYX(SReg,SendData)   {ACC=SendData ; if(P==0) { SReg&=(~BIT3); }  else{SReg|=(BIT3);}}
+
                    
                     
 void Uart4_Transmit(void)
