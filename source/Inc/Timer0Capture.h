@@ -5,9 +5,8 @@
 
 struct STPERIOD
 {
-  volatile  unsigned short iIntno;
-  volatile  unsigned short iMainIntno;
-  volatile unsigned short iData[4];
+
+  volatile unsigned short iData[8];
   unsigned short iCurr;
   volatile unsigned short iPrev;
   volatile unsigned char cInit;

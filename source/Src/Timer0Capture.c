@@ -50,17 +50,17 @@ TimerA_Capture_Intfun (void)	// ≤∂ªÒ÷–∂œ≥Ã–Ú
   unsigned short itemp;
 debug_ledshow();
   itemp = ((unsigned short) TACCR0H);
-  itemp *= 128;
-  itemp += +TACCR0L;;
+  itemp *= 256;
+  itemp += TACCR0L;
   if (0 == stperiod.cInit)
     {
       stperiod.cInit++;
-      stperiod.iPrev = itemp;
     }
   stperiod.iData[stperiod.stdatano.cCurr++] =
     getwidth (itemp, stperiod.iPrev);
   stperiod.stdatano.cCurr %=
     sizeof (stperiod.iData) / sizeof (stperiod.iData[0]);
+  stperiod.iPrev = itemp;
   TACCTL0 = 0x10;
 
 }

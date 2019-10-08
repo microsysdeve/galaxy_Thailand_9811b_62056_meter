@@ -188,7 +188,7 @@
         </option>
         <option>
           <name>General Xdata Stack Size</name>
-          <state>0x2a0</state>
+          <state>0x2f0</state>
         </option>
         <option>
           <name>General Ext Stack Size</name>
