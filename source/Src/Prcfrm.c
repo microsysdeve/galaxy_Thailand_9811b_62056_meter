@@ -112,7 +112,7 @@ uint8 BD_ProcFrame(S_COM *ComProcCtr)
             }
             else
             {
-                Init_Uart2(_bps2400_);//,, 0);        //初始化红外
+                Init_Uart2(_bps300_);//,, 0);        //初始化红外
             }
         }
 

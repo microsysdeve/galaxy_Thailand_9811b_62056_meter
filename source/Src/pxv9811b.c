@@ -8,10 +8,11 @@ void  debug_ledshow(void)
 {
     static char           xxxx ;
     if ( xxxx++ & 1)
-            P9OD |=BIT5;
+    { R2_LED_On();}
     else
-            P9OD &=~BIT5;
+    {R2_LED_Off();}
 }  
+  
     
 void            debug_init(void)
 {

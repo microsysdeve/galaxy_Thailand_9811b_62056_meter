@@ -188,7 +188,7 @@
         </option>
         <option>
           <name>General Xdata Stack Size</name>
-          <state>0x280</state>
+          <state>0x2a0</state>
         </option>
         <option>
           <name>General Ext Stack Size</name>
@@ -200,11 +200,11 @@
         </option>
         <option>
           <name>General Far Heap Size</name>
-          <state>0xFFF</state>
+          <state>0x1FFF</state>
         </option>
         <option>
           <name>General Huge Heap Size</name>
-          <state>0xFFF</state>
+          <state>0x1FFF</state>
         </option>
         <option>
           <name>CodeBankNrOfs</name>
@@ -229,7 +229,7 @@
         </option>
         <option>
           <name>General Far22 Heap Size</name>
-          <state>0xFFF</state>
+          <state>0x1FFF</state>
         </option>
         <option>
           <name>GeneralMisraVer</name>
@@ -2238,6 +2238,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\Src\Timeproc.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Src\Timer0Capture.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\TRx.c</name>

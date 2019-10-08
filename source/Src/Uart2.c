@@ -43,7 +43,7 @@ _UartInit(ucBode,TMOD2,TCON2,TL21,TH21,SCON2);
     ExInt2IE|=BIT1;
     EIE|=BIT0;
     //====================
-    /*
+   /*
     SCON2&=(~BIT4);
      gs_ComGroup[ComIndex_Uart2].ucPort   = Port_Uart4;
 
@@ -91,7 +91,7 @@ a1:
                        }
                         
                 }
-    */
+   */
     
 }
 

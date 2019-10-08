@@ -2,6 +2,7 @@
 
 #include "Include.h"
 #include "pubset.h"
+#include "Timer0Capture.h"
 /*=========================================================================================\n
 * @function_name: EXINT0
 * @function_file: System.c
@@ -355,7 +356,7 @@ __interrupt void UATRAndRTCInterrupt(void)
 #pragma vector=0x53               //中断号10,  外部中断3、PLL频率锁定中断
 __interrupt void PLLAndExINT3(void)
 {
- volatile uint8 ucTemp;
+  uint8 ucTemp;
    extern volatile unsigned short  iExtPort_Intno;
    extern volatile unsigned short  iKey_Intno ;
    extern const  unsigned 	char		cExtWakt_RunTm;
@@ -382,8 +383,17 @@ __interrupt void PLLAndExINT3(void)
 #pragma vector=0x5B               //中断号11
 __interrupt void TimerA(void)
 {
-    EXIF&=(~BIT7);    
+   uint8 ucTemp;
+    ucTemp  = ExInt5IFG ;
+    ucTemp &= ExInt5IE;  
+    
     debug_break(_debug_int_11_);
+    if   (ucTemp&BIT1) 
+    {
+        TimerA_Capture_Intfun();
+       ExInt5IFG &=~BIT1;
+    }
+    EXIF&=(~BIT7);    
 }
 
 /*=========================================================================================\n

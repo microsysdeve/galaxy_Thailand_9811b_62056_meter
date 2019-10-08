@@ -14,10 +14,10 @@
 #define ComIndex_Uart1      2               //  载波
 */
 //端口
-#define Const_MaxPortNum    1               // 总的端口数
-#define Port_Uart4          0               // 端口与COM的对应关系
-#define Port_Uart2          1               //
-#define Port_Uart1          2               //
+//#define Const_MaxPortNum    1               // 总的端口数
+//#define Port_Uart4          0               // 端口与COM的对应关系
+//#define Port_Uart2          1               //
+//#define Port_Uart1          2               //
 #define Port_Idle           0xff            // 该COM目前没有使用，可以允许数据写入到该COM对应的buf中
 
 //超时时间
