@@ -882,6 +882,7 @@ void PowUpLedCtl(void)
 ===========================================================================================*/
 void IntOFF(void)
 {
+  debug_break(_debug_fun_IntOFF_);
     IE=0;
     EIE=0;
     EXIF=0;
@@ -1283,7 +1284,9 @@ void Mcu_RTCNormal(uint8 Pll)
 uint8 Mcu_PendTm(uint8 Xms)
 {	
     uint8 tmp;
+	Debug_Break(	_debugh_fun_Mcu_PendTm_);
     tmp = EA;
+	
 //	if((CtrlCLK&0x03) == 0x02)
     if(guc_PllSta != PLL_800K)
     {       

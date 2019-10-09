@@ -1,5 +1,6 @@
 #include "Include.h"
 #include "pubset.h"
+
 #include "Timer0Capture.h"
 
 #define                 _bCaptureBit_           BIT0
@@ -17,22 +18,24 @@ getwidth (unsigned short a, unsigned short b)
 void
 TimerA_Capture_Reg_Close (void)
 {
-   PRCtrl0  |=BIT0;
-    P9FS &=~_bCaptureBit_  ;
+  PRCtrl0 |= BIT0;
+  P9FS &= ~_bCaptureBit_;
 }
 
 void
 TimerA_Capture_Reg_Init (void)
 {
-   PRCtrl0 &=~BIT0; 
+  PRCtrl0 &= ~BIT0;
 
-   P9OE |=_bCaptureBit_  ;
-   P9IE |=_bCaptureBit_  ;
-   P9FS |=_bCaptureBit_  ;
-  TACTL = 0xc0 + 0x28;			//00101000;//             时钟源选择。 1, fMCU
+  P9OE |= _bCaptureBit_;
+  P9IE |= _bCaptureBit_;
+  P9FS |= _bCaptureBit_;
+  TACTL = 0xc0 + 0x28;		//00101000;//             时钟源选择。 1, fMCU
   TACCTH0 = 0x41;		//0b01000001 ;
   TACCTL0 = 0x10;		//0b00010000;  //捕获中断使能
   ExInt5IE |= BIT1;
+ NSel_Low();
+  LSel_Low();
   EIE |= BIT3;
 }
 
@@ -48,7 +51,7 @@ TimerA_Capture_Intfun (void)	// 捕获中断程序
 {
 
   unsigned short itemp;
-debug_ledshow();
+  debug_ledshow ();
   itemp = ((unsigned short) TACCR0H);
   itemp *= 256;
   itemp += TACCR0L;

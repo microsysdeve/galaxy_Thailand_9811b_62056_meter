@@ -36,8 +36,8 @@ void Adc_Function (enum ENADCSTATU *cStatu);
 struct STLVDBUF
 {
   char cPoint;
-  unsigned cVol;
-  unsigned char cVolList[4];
+  unsigned short cVol;
+  unsigned short cVolList[4];
 };
 
 struct STADCFUN
@@ -57,8 +57,8 @@ struct STADCFUN
 };
 extern struct STADCFUN stAdcFun;
 void Adc_DataInit (void);
-void vol_fileter (struct STLVDBUF *stp, char cVol);
-unsigned char vol_Get (struct STLVDBUF *stp);
+void vol_fileter (struct STLVDBUF *stp, unsigned short  cVol);
+unsigned short  vol_Get (struct STLVDBUF *stp);
 char adc_appfun (void);
 
 #define                 _IsLVol()      ( stAdcFun.cLvdin0_HighTm >= _cLvdFilter_ )

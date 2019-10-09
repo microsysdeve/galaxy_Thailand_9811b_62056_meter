@@ -10,7 +10,7 @@ enum ENUMDEBUGLIST
         _debug_errno_DataRestorestart_,
         _debug_errno_flashdatarestore_,
         	 _debug_errno_CFIn_,
-	_debug_errno_prog_reset_,
+	
 	
 	_debug_errno_4428_UsercardOver_,
 	_debug_errno_KeyIn_,
@@ -32,6 +32,11 @@ _debug_errno_SetPLL800K_FAIL3_,
 	_debug_errno_wdgout_,
         _debug_errno_WriteEEprom_,
 	 _debug_errno_WriteEEpromError_,
+         _debug_errno_turonntstate_instate_,
+         _debug_errno_turoffintstate_instate_,
+         _debug_fun_Pwr_SlpReset_,
+  _debug_errno_prog_reset_,
+         _debug_fun_IntOFF_,
 	 _debug_int_11_,
          _debug_int_1_,
 _debug_int_2_,
@@ -51,8 +56,9 @@ _debug_errno_62056_frame_CrcFAIL1_,
 _debug_errno_62056_frame_CrcFAIL2_,
 _debug_errno_62056_frame_CrcFAIL_,
 _debug_errno_62056_frame_FunFAIL_,
-
+  _debugh_fun_Pwr_WakeupProc_,
 _debug_gotosleep_,
+_debugh_fun_Mcu_PendTm_,
 
 	_debug_errno_end_,
 };

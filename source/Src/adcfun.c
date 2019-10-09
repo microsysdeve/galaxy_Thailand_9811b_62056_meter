@@ -17,22 +17,22 @@ Adc_DataInit (void)
 
 
 void
-vol_fileter (struct STLVDBUF *stp, char cVol)
+vol_fileter (struct STLVDBUF *stp, unsigned short cVol)
 {
   stp->cPoint %= sizeof (stp->cVolList);
   stp->cVolList[stp->cPoint++] = cVol;
 }
 
-unsigned char
+unsigned short
 vol_Get (struct STLVDBUF *stp)
 {
-  unsigned short itemp;
+  unsigned long ltemp;
   unsigned char i;
 
-  for (itemp = 0, i = 0; i < sizeof (stp->cVolList); i++)
-    itemp += stp->cVolList[i];
-  itemp /= sizeof (stp->cVolList);
-  stp->cVol = (unsigned char) itemp;
+  for (ltemp = 0, i = 0; i < (sizeof (stp->cVolList)/sizeof(stp->cVolList[0])); i++)
+    ltemp += stp->cVolList[i];  
+  ltemp /= (26.3 * (sizeof (stp->cVolList)/sizeof(stp->cVolList[0]))) ;
+  stp->cVol = (unsigned short) ltemp;
   return stp->cVol;
 }
 
@@ -46,14 +46,15 @@ Adc_DataGet (void)
       tempvalue.lword = (~tempvalue.lword) + 1;
     }
   tempvalue.lword = tempvalue.lword >> 16;
-  tempvalue.lword = ((tempvalue.lword * 100 + 5069) / 5959);
+  return (unsigned short) tempvalue.lword;
+  tempvalue.lword = ((tempvalue.lword * 100 + 5069) *4 / 5959); 
   return (unsigned short) tempvalue.lword;
 }
 
 char
 cAdcApp_Get (struct STLVDBUF *stp)
 {
-  vol_fileter (stp, (unsigned char) Adc_DataGet ());
+  vol_fileter (stp, (unsigned short) Adc_DataGet ());
   return vol_Get (stp);
 }
 
@@ -89,7 +90,7 @@ Adc_Function (enum ENADCSTATU *cStatu)
 
     case _enAdc_BatGetData_:
       RamData.VBat[0] = cAdcApp_Get (&(stAdcFun.stAdcData[_adc_bat_]));
-      _start_adc_Conver (0x96, iMainState, *cStatu);
+      _start_adc_Conver (0x86, iMainState, *cStatu);
       break;
 
     case _enAdc_In0DataGet_:

@@ -68,9 +68,14 @@ uint16 HourAndMinToMin(uint8*Data);
 uint8 StrLen(const uint8 code *src);
 void StrCpy(uint8* des,const uint8 code *src);
 
+#ifndef _DEUG_
+//#define 		INTERRUPT_DISABLE()			{    EA = 0;}
+//#define 		INTERRUPT_ENABLE()			{    EA = 1;}
+#else
+void 	INTERRUPT_DISABLE(void)	;
+void 	INTERRUPT_ENABLE(void);
 
-#define 		INTERRUPT_DISABLE()			{    EA = 0;}
-#define 		INTERRUPT_ENABLE()			{    EA = 1;}
+#endif 
 #define 		NOP_ASM()					{nop();}
 
 #endif

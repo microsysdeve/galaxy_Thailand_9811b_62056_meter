@@ -2198,6 +2198,9 @@
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c</name>
   </file>
   <file>
+    <name>$PROJ_DIR$\Src\mainint_protect.c</name>
+  </file>
+  <file>
     <name>$PROJ_DIR$\Src\McuDrive.c</name>
   </file>
   <file>

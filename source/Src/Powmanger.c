@@ -1,7 +1,7 @@
 #define POWMANGE_EXT
 
 #include "Include.h"
-
+#include "main_protect.h"
 uint8 guc_ChkPowDn;                 // 下电检测寄存器
 /*=========================================================================================\n
 * @function_name: Pwr_DownChk
@@ -110,7 +110,7 @@ void Pwr_E2Save(void)
 ===========================================================================================*/
 uint8 Pwr_DownProc(void)
 { 
-    EA=0;
+   _Interrupt_AppDisable();
     IOOFF();                                              //关闭所有额外的IO
     IntOFF();                                             //关闭中断，清除中断标记
     UARTOFF();                                            //关闭所有UART       
@@ -178,6 +178,8 @@ uint8 Pwr_DownProc(void)
 /*
 void Pwr_WakeupProc(void)
 { 
+	
+
     SLPWDT();     
     CloseFD();
     guc_SleepCnt = 0;    
@@ -201,7 +203,7 @@ void Pwr_WakeupProc(void)
     TR1 = 1;
     EA = 1;
     PCON = 1;                                                 //MCU挂起等待400ms
-    EA = 0;
+	_Interrupt_AppDisable();
     SLPWDT();
     uint32 ul_PDRMI1 = EnyB_ReadMeterParaACK(RMSII1);         //读取双通道电流
     uint32 ul_PDRMI2 = EnyB_ReadMeterParaACK(RMSII2)/BMUL;       
@@ -223,6 +225,8 @@ void Pwr_WakeupProc(void)
 }*/
 void Pwr_WakeupProc(void)
 {    
+	 debug_break(	_debugh_fun_Pwr_WakeupProc_);
+
 #if (MEA_SLP_PLL == 1)    
     CtrlBGP  &= 0x3f;                               //正常计量 ADC全局电流偏置 改善误差
     CtrlCLK = (CtrlCLK & 0xC3)| 0x28;               //MEA 3.2M  ADC 800K
@@ -268,7 +272,7 @@ void Pwr_WakeupProc(void)
     TR1 = 1;
     EA = 1;
     PCON = 1;   //MCU挂起等待Xms  
-    EA = 0;                    
+    _Interrupt_AppDisable();                    
     EnyB_SetMeterCfgACK(0x13, IDET);                //MEA-800K 设置判断点数4 开始判断
 #else
     EnyB_SetMeterCfgACK(0x1F, IDET);                //MEA-3.2M 设置判断点数16,开始判断
@@ -282,7 +286,7 @@ void Pwr_WakeupProc(void)
     TR1 = 1;
     EA = 1;
     PCON = 1;    //MCU挂起等待Xms  
-    EA = 0;
+    _Interrupt_AppDisable();
     
     uint8 ucIdet = EnyB_ReadMeterParaACK(IDET);     //读取判断结果
     EnyB_SetMeterCfgACK(0x00, IDET);                //关闭快速电流检测
@@ -298,7 +302,7 @@ void Pwr_WakeupProc(void)
         TR1 = 1;
         EA = 1;
         PCON = 1;                                   //MCU挂起等待Xms
-        EA = 0;
+        _Interrupt_AppDisable();
         SLPWDT();
 #if (MEA_SLP_FMCU == 1) 
         PowOffSetFmcu(PLL_3D2M);   //MCU切3.2M 
@@ -374,7 +378,7 @@ void Pwr_WakeupProc(void)
         TR1 = 1;
         EA = 1;
         PCON = 1;                                   //MCU挂起等待Xms
-        EA = 0;
+        _Interrupt_AppDisable();
         SLPWDT();
       }
 #if (MEA_SLP_FMCU == 1) 
@@ -548,6 +552,7 @@ void Pwr_SlpReset(void)
 //    DetEnable();    
 //#endif
 //    P9OE = 0xbf;   //允许输出
+  debug_break(_debug_fun_Pwr_SlpReset_);
     P1OE &= ~BIT3;
     P1IE &= ~BIT3;
 //    P9FS |= BIT6;  //CF输出 
@@ -578,7 +583,7 @@ void Pwr_SlpReset(void)
     TR1 = 1;
     EA = 1;
     PCON = 1;                                   //MCU挂起等待Xms
-    EA = 0;
+    _Interrupt_AppDisable();
     SLPWDT();
 #if (MEA_SLP_FMCU == 1)      
     PowOffSetFmcu(PLL_3D2M);       //MCU切3.2M

@@ -137,3 +137,10 @@ void   init62056frm(S_COM *ComProcCtrl)
         CopyRam(ComProcCtrl->ucBuf,(char *)stemp1,ComProcCtrl->ucLen);
         return ;
 }
+
+void 	INTERRUPT_DISABLE(void)	
+{    EA = 0;}
+  
+
+void 	INTERRUPT_ENABLE(void)
+{    EA = 1;}

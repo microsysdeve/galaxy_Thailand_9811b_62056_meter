@@ -248,7 +248,7 @@ __near_func void Tamp_IntProc(void)
 void SwitchMode(uint8 ucLastMd)
 {  
     CLRWDT();
-    EA = 0;
+    _Interrupt_AppDisable();
    debug_break( _debug_errno_ChangeClkSource_);
     if((guc_WorkMd&0xF0) != 0x00)
     {
@@ -263,7 +263,7 @@ void SwitchMode(uint8 ucLastMd)
     {
         Mcu_RTCNormal(guc_PllSta);
     }
-    EA = 1;
+  _Interrupt_AppEnable() ;
     CLRWDT();
 }
 /*=========================================================================================\n
