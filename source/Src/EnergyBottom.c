@@ -105,7 +105,7 @@ void WaitACK(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-uint32 EnyB_ReadMeterParaACK(uint16 addr)
+uint32 EnyB_ReadMeterParaACK1(uint16 addr)
 {
 //    udata8 index;
     uint32  u32PMdatal;
@@ -139,6 +139,16 @@ uint32 EnyB_ReadMeterParaACK(uint16 addr)
     return u32PMdatal;
      
 }
+
+uint32 EnyB_ReadMeterParaACK (uint16 addr)
+{
+      uint32  u32PMdatal ;
+    //  _Interrupt_AppDisable() ;
+      u32PMdatal =EnyB_ReadMeterParaACK1( addr) ;
+     // _Interrupt_AppEnable();   
+      return u32PMdatal;
+}
+
 /*=========================================================================================\n
 * @function_name: EnyB_SetMeterCfgACK
 * @function_file: EnergyBottom.c
@@ -1219,11 +1229,15 @@ void EnyB_JbPm_Updata(void)
 }
 
 
-void    Enyb_Reg_ModBif( uint16 iAddr ,  char bitnum, char bitoper)
+void   Enyb_Reg_ModBif( uint16 iAddr ,  char bitnum, char bitoper)
 {
   uint32  lData  ;
 
-  unsigned long lValue = 1 << bitnum;
+  volatile unsigned long lValue = (( uint32 )1)<<bitnum;
+  
+  //for ( ;bitnum ;bitnum--)
+  //D  lValue =lValue *2;
+   
 
    lData = EnyB_ReadMeterParaACK(iAddr); 
   if ( _Bit_Res_ == bitoper)

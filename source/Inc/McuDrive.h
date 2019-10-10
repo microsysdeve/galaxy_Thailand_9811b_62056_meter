@@ -5,6 +5,8 @@
     #define MCUDRIVEEXT extern
 #endif
 
+
+
 #define SETPLL_CLOSE 0x00
 #define SETPLL_800K 0x60
 #define SETPLL_1_6M 0x65
@@ -114,7 +116,8 @@ enum            ENUMPLLOSCLIST
 
 
 
-MCUDRIVEEXT uint8 guc_PllSta;
+//MCUDRIVEEXT uint8 guc_PllSta;
+MCUDRIVEEXT  enum            ENUMPLLOSCLIST guc_PllSta;
 //MCUDRIVEEXT uint8 guc_PluseCount;
 MCUDRIVEEXT uint8 guc_PendSlpSta;
 MCUDRIVEEXT uint16 gui_BatLowFlg;

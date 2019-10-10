@@ -15,11 +15,11 @@ Adc_DataInit (void)
 }
 
 void
-vol_fileter (struct STLVDBUF *stp, unsigned short cVol)
+vol_fileter (struct STLVDBUF *stp, unsigned short iVol)
 {
   char ctemp;
   ctemp = stp->cPoint++ % _stadcfunvollistlen_;
-  stp->cVolList[ctemp] = cVol;
+  stp->cVolList[ctemp] = iVol;
 }
 
 unsigned short
@@ -43,14 +43,15 @@ Adc_DataGet (char cRESDIV)
 {
   Word32 tempvalue;
   tempvalue.lword = EnyB_ReadMeterParaACK (DATAOM);
-  if (tempvalue.byte[3] > 0x80)	//电池悬空的时候读取可能是负值
+  if (tempvalue.byte[3] >= 0x80)	//电池悬空的时候读取可能是负值
     {
       tempvalue.lword = (~tempvalue.lword) + 1;
+      return 0;
     }
   tempvalue.lword = tempvalue.lword >> 16;
   if (0 == cRESDIV)
     return (unsigned short) tempvalue.lword;
-  tempvalue.lword = ((tempvalue.lword * 100 + 5069) / 5959);
+  tempvalue.lword = ((tempvalue.lword * 100 + 5069)*10 / 5959);
   return (unsigned short) tempvalue.lword;
 }
 
@@ -67,7 +68,7 @@ cAdcApp_Get (enum ENUMADCDATANOLIST cno)
 #define   _start_adc_Conver(control , statu)   _start_adc_Converio(0x90|control , statu)
 
 void
-Adc_Function (enum ENADCSTATU *cStatu)
+Adc_Function (enum ENUMADDCRUNSTATU *cStatu)
 {
   short itemp;
   switch (*cStatu)
@@ -89,18 +90,15 @@ Adc_Function (enum ENADCSTATU *cStatu)
       _SoftFilter_t ((_clvdin1 >= FData.sthardconfig.cSVD_On_Line_MinVol),
 		     stAdcFun.cLvdin1_HighTm, stAdcFun.cLvdin1_LowTm,
 		     _cLvdFilter_);
-      if (++stAdcFun.cNormalState > 10)
-	{
-	  stAdcFun.cNormalState = 0;
-	  _start_adc_Conver (_adcio_bat_, *cStatu);
-	  *cStatu = _enAdc_BatGetData_;
-	}
-      else
-	{
-	  _start_adc_Converio (0x80 | _adcio_lvdin0_, *cStatu);
-	  _Adc_DataInit_state ();
-	}
+      (*cStatu)++;
       break;
+      
+     case _enAdc_Norend_:
+        break;
+      
+    case _enAdc_BatSetChanel_:
+       _start_adc_Conver (_adcio_bat_, *cStatu);
+       break;
       
     case _enAdc_BatGetData_:
       RamData.VBat[0] = cAdcApp_Get (_adc_bat_);
@@ -113,19 +111,47 @@ Adc_Function (enum ENADCSTATU *cStatu)
     }
 }
 
-char
+enum ENUMADCRETURNSTATU
 adc_appfun (void)
 {
+   short   itemp;
+   extern volatile unsigned short   iTime_Isr_no;
   _SoftFilter_t (_IsUpIo (), stAdcFun.cPwpUp1, stAdcFun.cPwpUp0,
 		 _cLvdFilter_);
   _SoftFilter_t (_IsDnIo (), stAdcFun.cPwpDn1, stAdcFun.cPwpDn0,
 		 _cLvdFilter_);
+  
+  itemp =  abs( iTime_Isr_no - stAdcFun.iTime_Isr_no);
+  if ( itemp <2 )
+      return  _enAdc_return_statu_going_ ;
+  stAdcFun.iTime_Isr_no = iTime_Isr_no ;
+  
   if (stAdcFun.cBatStatu < _enAdc_StatuEnd_)
     {
+      if ( _enAdc_Norend_ == stAdcFun.cBatStatu )
+      {
+          if (++stAdcFun.cNormalState > 10)
+          {
+              stAdcFun.cNormalState = 0;              
+              stAdcFun.cBatStatu = _enAdc_BatSetChanel_;
+          }
+          else
+          {
+              _start_adc_Converio (0x80 | _adcio_lvdin0_, stAdcFun.cBatStatu);
+              stAdcFun.cBatStatu =  _enAdc_In0DataGet_  ;
+          }
+          stAdcFun.iTime_Isr_no = iTime_Isr_no -1;
+          return  _enAdc_return_statu_halcycle_;
+      }
       Adc_Function (&stAdcFun.cBatStatu);
-      return 0;
+      return  _enAdc_return_statu_going_;
     }
   else
+  {
     _Adc_DataInit_state ();
-  return 1;
+    return _enAdc_return_statu_allcycle_ ;
+  }
+      
+  
 }
+  

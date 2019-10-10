@@ -7,6 +7,7 @@ volatile enum ENUMDEBUGLIST   cErrlistno;
 void  debug_ledshow(void)
 {
     static char           xxxx ;
+
     if ( xxxx++ & 1)
     { R2_LED_On();}
     else
@@ -22,11 +23,12 @@ void            debug_init(void)
   
 
 char 	debug_break( enum ENUMDEBUGLIST cErrno)
-{cErrlistno = cErrno ;
+{
+        cErrlistno = cErrno ;
 	if ( cErrno>_debugerrorbreak_)	
         {
-            cErrlistno = cErrno+1 ;
-            cErrlistno = cErrno-1 ;
+         NOP_ASM(); 
+
         }
 	return (cErrlistno +1) ;
 }

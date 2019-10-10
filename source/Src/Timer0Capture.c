@@ -53,6 +53,7 @@ TimerA_Capture_Intfun (void)	// 捕获中断程序
   unsigned short itemp;
   debug_ledshow ();
   itemp = ((unsigned short) TACCR0H);
+  TACCTL0 = 0x10;
   itemp *= 256;
   itemp += TACCR0L;
   if (0 == stperiod.cInit)
@@ -64,7 +65,13 @@ TimerA_Capture_Intfun (void)	// 捕获中断程序
   stperiod.stdatano.cCurr %=
     sizeof (stperiod.iData) / sizeof (stperiod.iData[0]);
   stperiod.iPrev = itemp;
-  TACCTL0 = 0x10;
+  /*
+  do 
+  {
+    TACCTL0 = 0x10;
+      itemp = TACCTL0 ;
+  }while( itemp &0x3);
+  */
 
 }
 

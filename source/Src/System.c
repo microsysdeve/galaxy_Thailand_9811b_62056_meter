@@ -392,6 +392,9 @@ __interrupt void TimerA(void)
     {
         TimerA_Capture_Intfun();
        ExInt5IFG &=~BIT1;
+         TACCTL0 = 0x10;
+         
+  
     }
     EXIF&=(~BIT7);    
 }
