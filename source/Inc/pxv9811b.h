@@ -19,7 +19,7 @@ enum ENUMDEBUGLIST
         _debug_errno_ComBom_Init_,
         _debug_errno_JLChangeChanelL_,
         _debug_errno_JLChangeChanelN_,
-        
+         _debug_int_11_,
         _debug_int_0_,
 
 _debug_errno_ParaSCPWRITE_,
@@ -41,7 +41,7 @@ _debug_errno_SetPLL800K_FAIL3_,
    _debug_fun_statuchange_,
          _debug_fun_IntOFF_,
          
-	 _debug_int_11_,
+	
          _debug_int_1_,
 _debug_int_2_,
 _debug_int_3_,

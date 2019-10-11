@@ -100,6 +100,12 @@ typedef struct
 //ENERGYBOTTOMEXT S_JBPM gs_JbPm;            //校表参数
 #define   gs_JbPm  (*((S_JBPM *)FlashInfo.ChipSet))
 
+struct      STS_JBPMFORMAT
+{
+     
+      char      cOffset;
+      char      cLen;
+};
 
 ENERGYBOTTOMEXT uint32 u32PMdatal;
 ENERGYBOTTOMEXT uint8  u8PMdatah;
@@ -216,4 +222,14 @@ uint8 EnyB_SetMeterL2H(uint32 u32PMdatal ,uint16 addr);
 uint8 EnyB_SetMeterH2L(uint32 u32PMdatal ,uint16 addr);
 void EnyB_Init(void);
 void   Enyb_Reg_ModBif( uint16 iAddr ,  char bitnum, char bitoper);
+struct          STJBMOD
+{
+    unsigned char      cNo;
+    unsigned    long          lData;
+};
+
+ 
+char            st_jbMod(struct      STS_JBPMFORMAT code *sttext , char  *sin);
+
+ struct      STS_JBPMFORMAT code  *     st_jbread( char  *sin);
 #endif

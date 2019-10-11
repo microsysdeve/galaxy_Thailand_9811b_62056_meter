@@ -1235,10 +1235,6 @@ void   Enyb_Reg_ModBif( uint16 iAddr ,  char bitnum, char bitoper)
 
   volatile unsigned long lValue = (( uint32 )1)<<bitnum;
   
-  //for ( ;bitnum ;bitnum--)
-  //D  lValue =lValue *2;
-   
-
    lData = EnyB_ReadMeterParaACK(iAddr); 
   if ( _Bit_Res_ == bitoper)
     lData &= (~lValue);
@@ -1246,4 +1242,60 @@ void   Enyb_Reg_ModBif( uint16 iAddr ,  char bitnum, char bitoper)
     lData |= lValue;
   EnyB_SetMeterCfgACK(lData  ,iAddr);
   
+}
+
+
+const struct      STS_JBPMFORMAT  st_jbpmformat[ ]=
+{   
+    {(int)&(((S_JBPM *)0)->ui_MeterC), sizeof(((S_JBPM *)0)->ui_MeterC)},		  // 表常数
+    {(int)&(((S_JBPM *)0)->ui_Un),sizeof(((S_JBPM *)0)->ui_Un)},		      // 标称电压
+    {(int)&(((S_JBPM *)0)->ui_Ib),sizeof(((S_JBPM *)0)->ui_Ib)},		      // 标称电流
+    {(int)&(((S_JBPM *)0)->ul_Gatep),sizeof(((S_JBPM *)0)->ul_Gatep)},		   //有功能量脉冲门限值32位
+    {(int)&(((S_JBPM *)0)->ul_Gateq),sizeof(((S_JBPM *)0)->ul_Gateq)},		   //有功能量脉冲门限值32位
+    {(int)&(((S_JBPM *)0)->ul_Gatecp), sizeof(((S_JBPM *)0)->ul_Gatecp)},		  //有功能量潜动门限值32
+    {(int)&(((S_JBPM *)0)->ul_GateOSC), sizeof(((S_JBPM *)0)->ul_GateOSC)},		 //
+    {(int)&(((S_JBPM *)0)->ul_SCP),sizeof(((S_JBPM *)0)->ul_SCP)},		     //有功比差值 
+    {(int)&(((S_JBPM *)0)->ul_SCQ),sizeof(((S_JBPM *)0)->ul_SCQ)},		     //无功功率比差
+    {(int)&(((S_JBPM *)0)->ul_SCU),sizeof(((S_JBPM *)0)->ul_SCU)},		     //电压有效值比差
+    {(int)&(((S_JBPM *)0)->ul_SCI1),sizeof(((S_JBPM *)0)->ul_SCI1)},		    //通道I1电流有效值比差
+    {(int)&(((S_JBPM *)0)->ul_SCI2),sizeof(((S_JBPM *)0)->ul_SCI2)},		    //通道I2电流有效值比差 
+    {(int)&(((S_JBPM *)0)->ul_PARAPC),sizeof(((S_JBPM *)0)->ul_PARAPC)},		  //有功功率二次补偿
+    {(int)&(((S_JBPM *)0)->ul_PARAQC),sizeof(((S_JBPM *)0)->ul_PARAQC)},//无功功率二次补偿
+    {(int)&(((S_JBPM *)0)->uc_PhcCtrl1), sizeof(((S_JBPM *)0)->uc_PhcCtrl1)},		 //I1通道角差
+    {(int)&(((S_JBPM *)0)->uc_PhcCtrl2), sizeof(((S_JBPM *)0)->uc_PhcCtrl2)},		 //I2通道角差
+    {(int)&(((S_JBPM *)0)->ul_PG),sizeof(((S_JBPM *)0)->ul_PG)},		      //功率比例系数
+    {(int)&(((S_JBPM *)0)->ul_QG),sizeof(((S_JBPM *)0)->ul_QG)},		      //功率比例系数
+    {(int)&(((S_JBPM *)0)->ul_URmG), sizeof(((S_JBPM *)0)->ul_URmG)},		    //电压通道比例系数
+    {(int)&(((S_JBPM *)0)->ul_I1RmG), sizeof(((S_JBPM *)0)->ul_I1RmG)},		   //电流通道1比例系数
+    {(int)&(((S_JBPM *)0)->ul_I2RmG), sizeof(((S_JBPM *)0)->ul_I2RmG)},		   //电流通道2比例系数
+    {(int)&(((S_JBPM *)0)->ul_SCI1_800), sizeof(((S_JBPM *)0)->ul_SCI1_800)},		//通道I1电流有效值比差
+    {(int)&(((S_JBPM *)0)->ul_SCI2_800), sizeof(((S_JBPM *)0)->ul_SCI2_800)},		//通道I2电流有效值比差
+    {(int)&(((S_JBPM *)0)->uc_AnaG), sizeof(((S_JBPM *)0)->uc_AnaG)},		 //模拟增益(包含I2 bit[12:9]，I1 bit[7:4]，U bit[3:0])
+    {(int)&(((S_JBPM *)0)->ui_JbCRC), sizeof(((S_JBPM *)0)->ui_JbCRC)},		   // 校表参数的CRC结果 
+};
+
+const unsigned char     st_jbpmformatlen = (sizeof(st_jbpmformat)/sizeof(st_jbpmformat[0]));
+ 
+char            st_jbMod(struct      STS_JBPMFORMAT code *sttext , char  *sin)
+{
+    unsigned char       clen = (sizeof(st_jbpmformat)/sizeof(st_jbpmformat[0]));
+    
+   // struct      STS_JBPMFORMAT code *sttext = (struct      STS_JBPMFORMAT code *)&(st_jbpmformat[stp->cNo]);
+    
+    //if ( stp->cNo >=clen)
+      //  return 1;
+    
+      Copy_FlashInfo(((char *)&gs_JbPm) + sttext->cOffset , (char *)sin  ,sttext->cLen);
+    return 0;
+}
+
+ struct      STS_JBPMFORMAT code  *     st_jbread( char  *sin)
+{
+    unsigned char       clen = (sizeof(st_jbpmformat)/sizeof(st_jbpmformat[0]));
+    struct          STJBMOD  *stp = (struct          STJBMOD *)sin;
+    struct      STS_JBPMFORMAT code *sttext = (struct      STS_JBPMFORMAT code *)&(st_jbpmformat[stp->cNo]);
+    
+    if ( stp->cNo >=clen)
+        return NULL;
+    return  sttext;    
 }

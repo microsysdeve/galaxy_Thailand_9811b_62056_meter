@@ -4,7 +4,7 @@
 #include "Timer0Capture.h"
 
 #define                 _bCaptureBit_           BIT0
-struct STPERIOD stperiod;
+volatile  struct STPERIOD stperiod;
 
 unsigned short
 getwidth (unsigned short a, unsigned short b)
@@ -20,6 +20,7 @@ TimerA_Capture_Reg_Close (void)
 {
   PRCtrl0 |= BIT0;
   P9FS &= ~_bCaptureBit_;
+   stperiod.iCheckTm = 0;
 }
 
 void
@@ -43,6 +44,7 @@ void
 TimerA_Capture_Init (void)	// ²¶»ñÖÐ¶Ï³ÌÐò
 {
   ClrRam ((char *) &stperiod, sizeof (stperiod));
+  stperiod.iCheckTm = _TimerACheckTm_ ;
   TimerA_Capture_Reg_Init ();
 }
 
@@ -97,4 +99,14 @@ TimerA_Capture_Mainfun (void)
       if (stperiod.cLowTm >= cGate)
 	stperiod.stLStatu.bCurr = 0;
     }
+}
+
+void TimerA_Catupre_Mainint_fun(void)
+{
+  if (stperiod.iCheckTm)
+  {
+      stperiod.iCheckTm--;
+      if (0 == stperiod.iCheckTm)
+        TimerA_Capture_Reg_Close ();
+  }
 }
