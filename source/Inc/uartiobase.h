@@ -15,7 +15,7 @@ enum PARITYLIST
 }GS_BaudRate;
 
 #define                 _Parity_Set(SCONx)              { SCONx |=(BIT3);}
-#define                 _Parity_Set(SCONx)              { SCONx&=(~BIT3);}
+#define                 _Parity_Res(SCONx)              { SCONx&=(~BIT3);}
 
 #define    _BitYX(SReg,SendData)   {ACC=SendData ; if(P==0) { SReg&=(~BIT3); }  else{SReg|=(BIT3);}}
 #define       _EvenMod( cData , SCONx)    { ACC = cData;if( 0 == P) SCONx&=(~BIT3);else SCONx|=(BIT3);}

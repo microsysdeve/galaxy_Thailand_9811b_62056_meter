@@ -25,9 +25,9 @@ uint8   guc_DyUart2Over;        //模拟串口超时保护
 ===========================================================================================*/
 void Init_Uart2(uint8 ucBode)
 {    
-  unsigned char j;
-  unsigned long i;
-  char  stemp[10];
+ // unsigned char j;
+ // unsigned long i;
+  //char  stemp[10];
   
 _UartInit(ucBode,TMOD2,TCON2,TL21,TH21,SCON2); 
  

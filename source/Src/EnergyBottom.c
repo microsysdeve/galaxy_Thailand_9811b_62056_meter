@@ -1234,7 +1234,7 @@ void Enyb_Reg_ModData(uint16 iAddr ,uint32 lValue, char bitoper)
       uint32  lData  ;   
     lData = EnyB_ReadMeterParaACK(iAddr); 
     if ( _Bit_Res_ == bitoper)
-    lData &= (~lValue);
+    lData &= (lValue);
       else if (_Bit_Set_ == bitoper)
     lData |= lValue;
   EnyB_SetMeterCfgACK(lData  ,iAddr);  
