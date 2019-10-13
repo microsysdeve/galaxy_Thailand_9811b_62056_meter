@@ -232,4 +232,5 @@ struct          STJBMOD
 char            st_jbMod(struct      STS_JBPMFORMAT code *sttext , char  *sin);
 
  struct      STS_JBPMFORMAT code  *     st_jbread( char  *sin);
+ void Enyb_Reg_ModData(uint16 iAddr ,uint32 lValue, char bitoper);
 #endif

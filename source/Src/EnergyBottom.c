@@ -562,9 +562,10 @@ void EnyB_InitCFInt(void)
     ExInt2IE|=BIT7;
 //    P9OE&=(~BIT6);                          //打开CF IO输出
 //    P9FS|=(BIT6);
-    P1OE&=(~BIT3);
-    P1IE&=(~BIT3);
-    P13FS = 0x04;  //CFx CF1输出
+    _CfPluse_E1Out();  
+    //P1OE&=(~BIT3);
+    //P1IE&=(~BIT3);
+    //P13FS = 0x04;  //CFx CF1输出
 }
 /*=========================================================================================\n
 * @function_name: EnyB_SetMeterRule
@@ -589,7 +590,7 @@ void Mea_Init(void)
     InitPMDSP(MEA3D2M);   //PM DSP init，设置计量值，防止乱出脉冲
     SLPWDT();
     EnyB_PurInit();       //计量模块上电初始化
-     _CfPluse_OutEnable() ;
+    _CfPluse_OutEnable() ;
 }
 /*=========================================================================================\n
 * @function_name: EnyB_SetMeterRule
@@ -1228,20 +1229,28 @@ void EnyB_JbPm_Updata(void)
     // }
 }
 
+void Enyb_Reg_ModData(uint16 iAddr ,uint32 lValue, char bitoper)
+{
+      uint32  lData  ;   
+    lData = EnyB_ReadMeterParaACK(iAddr); 
+    if ( _Bit_Res_ == bitoper)
+    lData &= (~lValue);
+      else if (_Bit_Set_ == bitoper)
+    lData |= lValue;
+  EnyB_SetMeterCfgACK(lData  ,iAddr);  
+}
+
 
 void   Enyb_Reg_ModBif( uint16 iAddr ,  char bitnum, char bitoper)
 {
-  uint32  lData  ;
-
+  uint32  lData ;
   volatile unsigned long lValue = (( uint32 )1)<<bitnum;
   
-   lData = EnyB_ReadMeterParaACK(iAddr); 
   if ( _Bit_Res_ == bitoper)
-    lData &= (~lValue);
+    lData = (~lValue);
   else if (_Bit_Set_ == bitoper)
-    lData |= lValue;
-  EnyB_SetMeterCfgACK(lData  ,iAddr);
-  
+    lData = lValue;  
+  Enyb_Reg_ModData( iAddr  ,lData,   bitoper);  
 }
 
 
@@ -1286,6 +1295,7 @@ char            st_jbMod(struct      STS_JBPMFORMAT code *sttext , char  *sin)
       //  return 1;
     
       Copy_FlashInfo(((char *)&gs_JbPm) + sttext->cOffset , (char *)sin  ,sttext->cLen);
+      EnyB_JbPm_Updata();
     return 0;
 }
 

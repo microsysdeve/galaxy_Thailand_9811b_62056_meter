@@ -121,8 +121,6 @@ __interrupt void Timer1Interrupt(void)
 ===========================================================================================*/
 #pragma register_bank=2
 #pragma vector=0x2b               //ÖÐ¶ÏºÅ5,  Timer2
-
-
 __interrupt void Timer2Interrupt(void)
 {
 void TIMER_ISR(void);  
@@ -392,8 +390,7 @@ __interrupt void TimerA(void)
     {
         TimerA_Capture_Intfun();
        ExInt5IFG &=~BIT1;
-         TACCTL0 = 0x10;
-         
+         TACCTL0 = 0x10;         
   
     }
     EXIF&=(~BIT7);    
