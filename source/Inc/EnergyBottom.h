@@ -69,8 +69,8 @@ typedef struct
     uint32 ul_Gatecp;   //有功能量潜动门限值32
     uint32 ul_GateOSC;  //
 
-    uint32 ul_SCP;      //有功比差值 
-    uint32 ul_SCQ;      //无功功率比差
+    uint32 ul_SCP;      //E1 功率比差校正值
+    uint32 ul_SCQ;      //E2 功率比差校正值
     uint32 ul_SCU;      //电压有效值比差
     uint32 ul_SCI1;     //通道I1电流有效值比差
     uint32 ul_SCI2;     //通道I2电流有效值比差

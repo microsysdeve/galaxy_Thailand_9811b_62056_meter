@@ -42,7 +42,7 @@ void protectMisc(unsigned char protectCode)
       {
 		NOP_ASM(); //MSCPROT = protectCode;
 		cProtStatu++;
-		if ( cProtStatu>2 )
+		if ( cProtStatu>=2 )
                 {
 			NOP_ASM();
                         debug_break(  _debug_errno_turoffintstate_instate_);

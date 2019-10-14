@@ -10,16 +10,11 @@ enum ENUMDEBUGLIST
   _debug_errno_DataRestorestart_,
   _debug_errno_flashdatarestore_,
   _debug_errno_CFIn_,
-
-
   _debug_errno_4428_UsercardOver_,
   _debug_errno_KeyIn_,
   _debug_app_uart2_int_,
-
   _debug_errno_ComBom_Init_,
 
-
-  
   _debug_int_0_,
   _debug_int_1_,
   _debug_int_2_,
@@ -33,11 +28,8 @@ enum ENUMDEBUGLIST
   _debug_int_10_,
   _debug_int_11_,
   _debug_int_12_,
-  _debug_int_13_,
-  
-    _debug_errno_turonntstate_instate_,
-  _debug_errno_turoffintstate_instate_,
-    _debug_errno_EnyB_ReadMeterParaACK_,
+  _debug_int_13_,     
+  _debug_errno_EnyB_ReadMeterParaACK_,
   _debug_errno_62056_frame_CrcFAIL1_,
   _debug_errno_62056_frame_CrcFAIL2_,
   _debug_errno_62056_frame_CrcFAIL_,
@@ -53,7 +45,8 @@ enum ENUMDEBUGLIST
   _debug_errno_wdgout_,
   _debug_errno_WriteEEprom_,
   _debug_errno_WriteEEpromError_,
-
+ _debug_errno_turonntstate_instate_,
+  _debug_errno_turoffintstate_instate_,
   _debug_errno_StartupCheckState_,
   _debug_fun_Pwr_SlpReset_,
   _debug_errno_prog_reset_,

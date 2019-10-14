@@ -4,9 +4,9 @@
 
 enum   ENUMDEF 
 {
-          _VolK_      =    0x5F6290b2,
-          _Curr_L_K_     =    0x389d9999,
-          _Curr_N_K_     =  0x389d9999,
+         _VolK_      =    0x5F6290b2,
+         _Curr_L_K_     =    0x389d9999,
+         _Curr_N_K_     =  0x389d9999,
          _PowerL_K_      =            0x84f431,
          _PowerN_K_       =           0x84f431,//803d04,
          _PluseConst_ =1200,

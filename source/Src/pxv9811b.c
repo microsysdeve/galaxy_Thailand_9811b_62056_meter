@@ -51,7 +51,7 @@ const unsigned short iRegList[] = {
   CFCtrl,			//    0x287e      //脉冲输出控制寄存器
   CRPST,			//    0x287F      //防潜标志寄存器
   IDET,				//   0x2886      //电流检测   
-  GATEP,			//      设置计量初始值
+  GATEP,			//    9  设置计量初始值
   GATEQ,			// 
  
   GATECP,			//潜动1   

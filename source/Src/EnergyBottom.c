@@ -143,9 +143,9 @@ uint32 EnyB_ReadMeterParaACK1(uint16 addr)
 uint32 EnyB_ReadMeterParaACK (uint16 addr)
 {
       uint32  u32PMdatal ;
-    //  _Interrupt_AppDisable() ;
+      _Interrupt_AppDisable() ;
       u32PMdatal =EnyB_ReadMeterParaACK1( addr) ;
-     // _Interrupt_AppEnable();   
+      _Interrupt_AppEnable();   
       return u32PMdatal;
 }
 
@@ -1196,6 +1196,7 @@ void EnyB_JbPm_Updata(void)
     else
     {
         EnyB_SetMeterCfgACK(gs_JbPm.ul_Gatep,GATEP);        //设置I1通道功率门限制
+
     }
     EnyB_SetMeterCfgACK(gs_JbPm.ul_Gatep,GATEQ);        //设置I2通道功率门限制 
     
