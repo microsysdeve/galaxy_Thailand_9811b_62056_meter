@@ -219,7 +219,7 @@ void Uart4_Receiveio( unsigned char cData )
 ===========================================================================================*/
 void Uart4_Receive(void)
 {
-  extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+   
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_R485_Chanel_]);
     uint8 temp,temp1;
     //guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
@@ -318,7 +318,7 @@ void Uart4_Receive(void)
 void Uart4_Transmit(void)
 {
   unsigned char ctemp;
-  extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+  
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_R485_Chanel_]);
  #ifdef  _ComUSE645_
   if (usartcomp->cStatu < _end_sendcom) 

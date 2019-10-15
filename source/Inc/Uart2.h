@@ -8,12 +8,12 @@
 
 #define CONST_UART2_DEFBPS  Const_BPS_1200
 
-
+#include "ioset.h"
 void Init_Uart2(uint8 ucBode);
 void Uart2_Dy10ms(void);
 void Uart2_Receive(void);
 void Uart2_Transmit(void);
 
-
+extern volatile struct STSCIBUF USARTCOM[_Com_End_];
 
 #endif

@@ -25,9 +25,9 @@ uint8   guc_DyUart2Over;        //模拟串口超时保护
 ===========================================================================================*/
 void Init_Uart2(uint8 ucBode)
 {    
- // unsigned char j;
- // unsigned long i;
-  //char  stemp[10];
+  unsigned char j;
+  unsigned long i;
+  char  stemp[10];
   
 _UartInit(ucBode,TMOD2,TCON2,TL21,TH21,SCON2); 
  
@@ -165,7 +165,7 @@ void Uart2_Receiveio( unsigned char cData )
 ===========================================================================================*/
 void Uart2_Receive(void)
 {
-extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_IR_Chanel_]);
     uint8 temp,temp1;
     //guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
@@ -263,7 +263,7 @@ extern volatile struct STSCIBUF USARTCOM[_Com_End_];
 void Uart2_Transmit(void)
 {
   unsigned char ctemp;
-  extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+ 
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_IR_Chanel_]);
  #ifdef  _ComUSE645_
   if (usartcomp->cStatu < _end_sendcom) 

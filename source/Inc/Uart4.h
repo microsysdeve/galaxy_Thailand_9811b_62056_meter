@@ -17,6 +17,6 @@ void Uart4_Dy10ms(void);
 void Uart4_Receive(void);
 void Uart4_Transmit(void);
 
-
+extern volatile struct STSCIBUF USARTCOM[_Com_End_];
 
 #endif

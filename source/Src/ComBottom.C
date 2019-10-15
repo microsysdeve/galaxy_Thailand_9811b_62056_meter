@@ -1,6 +1,6 @@
 #define COMBOTTOMEXT
 #include "Include.h"
-extern volatile struct STSCIBUF USARTCOM[_Com_End_];
+
 
 /*=========================================================================================\n
 * @function_name: ComBom_Init

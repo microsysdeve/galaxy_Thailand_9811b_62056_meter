@@ -1,11 +1,6 @@
 #include "Include.h"
 
 
-extern   volatile struct STSCIBUF USARTCOM[_Com_End_];
-
-
-
-
 /*=========================================================================================\n
 * @function_name: ComApp_Proc
 * @function_file: ComApplication.C

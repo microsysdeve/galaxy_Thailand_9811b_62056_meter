@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1849441829
+Checksum=-371240818
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -151,13 +151,6 @@ Fmt68={W}0:u32PMdatal	4	0
 Fmt69={W}0:ui_E2Address	4	0
 Fmt70={W}0:uitmp	4	0
 Fmt71={W}0:zp.bjlcalgetchanel	4	0
-[Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.37.7" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.743.1" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\EnergyBottom.c}.1192.5" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\mainint_protect.c}.47.4" 1 0 0 0 "" 0 ""
-Bp4=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.123.6" 0 0 0 0 "" 0 ""
-Count=5
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -165,6 +158,14 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.37.7" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.747.1" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\Src\EnergyBottom.c}.1192.5" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\mainint_protect.c}.47.4" 0 0 0 0 "" 0 ""
+Bp4=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\GC_Use.c}.56.2" 0 0 0 0 "" 0 ""
+Bp5=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\GC_Use.c}.43.7" 0 0 0 0 "" 0 ""
+Count=6
 [Aliases]
 Count=0
 SuppressDialog=0
