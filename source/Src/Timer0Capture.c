@@ -18,6 +18,7 @@ getwidth (unsigned short a, unsigned short b)
 void
 TimerA_Capture_Reg_Close (void)
 {
+  Vector11_Disable();    
   PRCtrl0 |= BIT0;
   P9FS &= ~_bCaptureBit_;
    stperiod.iCheckTm = 0;
@@ -37,7 +38,7 @@ TimerA_Capture_Reg_Init (void)
   ExInt5IE |= BIT1;
  NSel_Low();
   LSel_Low();
-  EIE |= BIT3;
+  Vector11_Enable() ; 
 }
 
 void

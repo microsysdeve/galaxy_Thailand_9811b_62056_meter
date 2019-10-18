@@ -118,4 +118,41 @@ void debug_ledshow (void);
 char debug_break (enum ENUMDEBUGLIST cErrno);
 extern char cDispprt;
 void iReg_Clear (void);
+
+
+typedef struct
+{
+  unsigned long _PMCtrl1;			//        0x2878      //PM控制寄存器1
+  unsigned long _PMCtrl2;			//         0x2879      //PM控制寄存器2
+  unsigned long _PMCtrl3;			//      0x287a      //PM控制寄存器3
+  unsigned long _PHCCtrl1;			//   0x287b      //角差校正控制寄存器1
+  unsigned long _PHCCtrl2;			//    0x287c      //角差校正控制寄存器2
+  unsigned long _PMCtrl4;			//    0x287d      //PM控制寄存器4
+  unsigned long _CFCtrl;			//    0x287e      //脉冲输出控制寄存器
+  unsigned long _CRPST;			//    0x287F      //防潜标志寄存器
+  unsigned long _IDET;				//   0x2886      //电流检测   
+  unsigned long _GATEP;			//    9  设置计量初始值
+  unsigned long _GATEQ;			//  10
+
+  unsigned long _GATECP;			//潜动1   
+  unsigned long _GATECQ;			//潜动2  
+  unsigned long _SCP;			// 13      0x10e8
+  unsigned long _SCQ;				// 0x10e9
+  unsigned long _SCU;				//    0x10ea
+  unsigned long _SCI1;				//    0x10eb
+  unsigned long _SCI2;				//    0x10ec
+  unsigned long _PARAPC;			//   0x10ed
+  unsigned long _PARAQC;			//   0x10ee
+  unsigned long _PARABPF;			//  0x10ef
+  unsigned long _PPCNT;// 正向E1 能量累加寄存器 R/W 0 32-bit 无符号数
+unsigned long _NPCNT;// 反向E1 能量累加寄存器 R/W 0 32-bit 无符号数
+unsigned long _PPCFCNT;// 正向E1 能量脉冲计数器 R/W 0 32-bit 无符号数
+unsigned long _NPCFCNT;// 反向E1 能量脉冲计数器 R/W 0 32-bit 无符号数
+unsigned long _PQCNT;// 正向E2 能量累加寄存器 R/W 0 32-bit 无符号数
+unsigned long _NQCNT;// 反向E2 能量累加寄存器 R/W 0 32-bit 无符号数
+unsigned long _PQCFCNT;// 正向E2 能量脉冲计数器 R/W 0 32-bit 无符号数
+unsigned long _NQCFCNT;// 反
+}STREG;
+
+extern volatile    STREG  *streg;
 #endif

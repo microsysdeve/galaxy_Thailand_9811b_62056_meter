@@ -553,10 +553,10 @@ void Pwr_SlpReset(void)
 //#endif
 //    P9OE = 0xbf;   //允许输出
   debug_break(_debug_fun_Pwr_SlpReset_);
-    P1OE &= ~BIT3;
-    P1IE &= ~BIT3;
+ //   P1OE &= ~BIT3;
+  //  P1IE &= ~BIT3;
 //    P9FS |= BIT6;  //CF输出 
-    P13FS = 0x04;
+ //   P13FS = 0x04;
     
     CtrlBGP  &= 0x3f;                           //正常计量 ADC全局电流偏置 改善误差
     CtrlCLK = (CtrlCLK & 0xC3)| 0x28;           //MEA 3.2M  ADC 800K
@@ -610,6 +610,7 @@ void Pwr_SlpReset(void)
     RecoverEnergyData();
     gui_SystemState = flgStSys_PowOff;    //置掉电状态 
     Init_CfG();
+    _CfPluse_OutEnable();   
 }
 /*=========================================================================================\n
 * @function_name: Pwr_ChkProc

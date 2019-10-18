@@ -22,7 +22,7 @@
 
 //超时时间
 #define Const_DyUartOut     0xff            // 超时保护
-#define Const_DyRvPack      50              // 500ms,接收超时时间，溢出表示一个数据包接结束标志
+#define Const_DyRvPack      (50/_cMain_sequentialTime_)              // 500ms,接收超时时间，溢出表示一个数据包接结束标志
 
 //COM口的状态
 #define ComStt_Recv         01              // COM处于接收状态，在中断中处理

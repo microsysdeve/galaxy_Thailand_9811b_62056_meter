@@ -1,5 +1,6 @@
 #define TAMPEREXT
 #include "Include.h"
+char Tamp_ChkIrms(void) ;
 /*=========================================================================================\n
 * @function_name: Tamp_Init
 * @function_file: TamperProc.c
@@ -151,38 +152,38 @@ bool Tamp_ChkUrms(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-bool Tamp_ChkIrms(void)
+char  Tamp_ChkIrms(void)
 {
     if((guc_PendSta&0x0F) != 0x0A)        //
-        return false;
+        return 0;//false;
     else
     {
         if(guc_PendSta == PendUEND)        //
         {
             MeterADSel(ADCAPDN, ONI1);
             guc_PendSta = PendI1GO;
-            return false;
+            return 0;//false;
         }
 #if (CONFIG_CH == 1)
         else if(guc_PendSta != PendI1END)
         {
-            return true;
+            return 1;//true;
         }
 #else
         else if(guc_PendSta == PendI1END)
         {       
             MeterADSel(ADCBPDN, ONI2);
             guc_PendSta = PendI2GO;
-            return true;
+            return 1;//true;
         }
         else if(guc_PendSta != PendI2END)
         {
             gul_I2rms800k = gul_I2rms800k/MEA_BMUL;
-            return true;
+            return 1;//true;
         }
 #endif
     }    
-    return false;
+    return 0;//false;
 }
 /*=========================================================================================\n
 * @function_name: Tamp_IntProc
@@ -292,7 +293,7 @@ void Tamp_DspProc(void)
     
     if(guc_WorkMd == TamperMode)
     {        
-        if(false == Tamp_ChkIrms())
+         if(0 == Tamp_ChkIrms()) //if(false == Tamp_ChkIrms())
             return;       
         gul_DataCP = (gul_I1rms800k>gul_I2rms800k?gul_I1rms800k:gul_I2rms800k);   //得到大值
         EnyB_SetMeterCfgACK(gul_DataCP, DATACP);

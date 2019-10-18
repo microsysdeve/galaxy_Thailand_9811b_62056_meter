@@ -83,7 +83,7 @@ enum
 };
 
 
-enum
+enum  ENUMCOMSTATU
 {//通讯步骤
     Com_HD = 0,             //起始步骤
     Com_BpsCk,              //波特率确认帧

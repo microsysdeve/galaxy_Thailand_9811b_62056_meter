@@ -231,29 +231,29 @@ const GS_IECCOM    gs_OBSCom[]=
     //{"96.77.1*12",      ")",      _code645_03110000_ _code645_OnLineEvent_,       IEC_RO,     _ReadPowDnJl_},    //上12次掉电时间和结束时间
 
     //表号
-    {"0.0.0",           ")",            0x00,       IEC_RW,     0x05},
-    {"96.97.1",         ")",            0x01,       IEC_RW,     0x05},    //写入结算日1
-    {"96.97.2",         ")",            0x02,       IEC_RW,     0x05},    //写入结算日2
-    {"96.97.3",         ")",            0x03,       IEC_RW,     0x05},    //写入结算日3
-    {"0.8.0",           "*min)",        0x04,       IEC_RW,     0x05},    //需量周期
-    {"96.1.3",          ")",            0x05,       IEC_RO,     0x05},    //生产日期
-    {"96.2.5",          ")",            0x06,       IEC_RO,     0x05},    //校表日期
-    {"96.2.2",          ")",            0x07,       IEC_RO,     0x05},    //费率修改日期
-    {"96.8.0",          "*min)",        0x08,       IEC_RW,     0x05},    //负荷记录周期
+    {"0.0.0",           ")",            0x00,       IEC_RW,     _E2DataProc_},
+    {"96.97.1",         ")",            0x01,       IEC_RW,     _E2DataProc_},    //写入结算日1
+    {"96.97.2",         ")",            0x02,       IEC_RW,     _E2DataProc_},    //写入结算日2
+    {"96.97.3",         ")",            0x03,       IEC_RW,     _E2DataProc_},    //写入结算日3
+    {"0.8.0",           "*min)",        0x04,       IEC_RW,     _E2DataProc_},    //需量周期
+    {"96.1.3",          ")",            0x05,       IEC_RO,     _E2DataProc_},    //生产日期
+    {"96.2.5",          ")",            0x06,       IEC_RO,     _E2DataProc_},    //校表日期
+    {"96.2.2",          ")",            0x07,       IEC_RO,     _E2DataProc_},    //费率修改日期
+    {"96.8.0",          "*min)",        0x08,       IEC_RW,     _E2DataProc_},    //负荷记录周期
 
-    {"96.96.1",         ")",            0x09,       IEC_WO,     0x05},    //写入P1密码
-    {"96.96.2",         ")",            0x0A,       IEC_WO,     0x05},    //写入P2码
+    {"96.96.1",         ")",            0x09,       IEC_WO,     _E2DataProc_},    //写入P1密码
+    {"96.96.2",         ")",            0x0A,       IEC_WO,     _E2DataProc_},    //写入P2码
 
-    {"96.6.1",          ")",            0x0b,       IEC_RO,     0x05},    //电表状态字
+    {"96.6.1",          ")",            0x0b,       IEC_RO,     _E2DataProc_},    //电表状态字
 
-    {"96.50",          ")",             0x0C,       IEC_RW,     0x05},    //工作日费率时间
-    {"96.51",          ")",             0x0D,       IEC_RW,     0x05},    //工作日费率时间
-    {"96.52",          ")",             0x0E,       IEC_RW,     0x05},    //工作日费率时间
+    {"96.50",          ")",             0x0C,       IEC_RW,     _E2DataProc_},    //工作日费率时间
+    {"96.51",          ")",             0x0D,       IEC_RW,     _E2DataProc_},    //工作日费率时间
+    {"96.52",          ")",             0x0E,       IEC_RW,     _E2DataProc_},    //工作日费率时间
 
 
-    {"96.60",          ")",             0x0F,       IEC_RW,     0x05},    //工作日费率
-    {"96.61",          ")",             0x10,       IEC_RW,     0x05},    //工作日费率
-    {"96.62",          ")",             0x11,       IEC_RW,     0x05},    //工作日费率
+    {"96.60",          ")",             0x0F,       IEC_RW,     _E2DataProc_},    //工作日费率
+    {"96.61",          ")",             0x10,       IEC_RW,     _E2DataProc_},    //工作日费率
+    {"96.62",          ")",             0x11,       IEC_RW,     _E2DataProc_},    //工作日费率
 
 
     { "0.9.1",          ")",            0x01,       IEC_RW,     _DateAndTimeProc_},    //时间
@@ -1173,9 +1173,13 @@ uint8 RdData(uint8 index,uint8*buf)
     buf[bufpos++]='(';
     if(gs_OBSCom[index].ucFPidx<ConstOBSFunCnt)                                 //读取OBSI码对应的数据
     {
+         Vector8_Disable() ;
+    Vector9_Disable()   ;//============================
         bufpos+=gs_OBSFuction[gs_OBSCom[index].ucFPidx](gs_OBSCom[index].param,
                                                         Const_DataCOmRD,
                                                         buf+bufpos);
+     Vector9_Enable()         ;//============================
+      Vector8_Enable()     ;    
     }
 
     StrCpy(buf+bufpos, (uint8 const code *)gs_OBSCom[index].pUint);             //发送单位

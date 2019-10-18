@@ -15,7 +15,7 @@
 
 ////////////////////////////////////////////////////////////////////////////////
 //
-// Variables (used by lnk_base.xcl)
+// Variables 
 // ================================
 //
 // Segment limits
@@ -30,22 +30,22 @@
 //    PDATA
 //
 -D_PDATA_START=0x0001          // First address for PDATA memory.
--D_PDATA_END=0x03FF            // Last address for PDATA memory.
+-D_PDATA_END=0x1FFF            // Last address for PDATA memory.
 //
 //
 //    IXDATA
 //
 -D_IXDATA_START=1              // First address of on chip XDATA memory.
--D_IXDATA_END=0x3FF              // Last address of on chip XDATA memory.
+-D_IXDATA_END=0x1FFF              // Last address of on chip XDATA memory.
 //
 //
 //    XDATA
 //
 -D_XDATA_START=0x000001        // First address of xdata memory.
--D_XDATA_END=0x003FF          // Last address of xdata memory.
+-D_XDATA_END=0x001FFF          // Last address of xdata memory.
 //
 //
-//    CODE2012-3-26 17:44:57
+//    CODE
 //
 -D_CODE_START=0x000000         // First address for code.
 -D_CODE_END=0x7FFF           // Last address for code.
@@ -82,9 +82,9 @@
 //
 //    PDATA page setup
 //
--D?PBANK_NUMBER=0F	       // high byte of 16-bit address to the PDATA area
--D?PBANK=A0                    // Most significant byte in MOVX A,@R0. (0xA0 is sfr P2)
--D?PBANK_EXT=0xEA              // Most significant byte in MOVX A,@R0. (0xEA is for Dallas DS80C390)
+//-D?PBANK_NUMBER=0F	       // high byte of 16-bit address to the PDATA area
+//-D?PBANK=A0                    // Most significant byte in MOVX A,@R0. (0xA0 is sfr P2)
+//-D?PBANK_EXT=0xEA              // Most significant byte in MOVX A,@R0. (0xEA is for Dallas DS80C390)
 //
 //
 //    Virtual register setup
@@ -128,12 +128,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////////////////////////////////
-//
-// Include the lnk_base command file
-// =================================
-//
-//下面是lnk_base.xcl内容
+
 ////////////////////////////////////////////////////////////////////////////////
 //
 // This is a XLINK command file.
@@ -172,25 +167,28 @@
 
 // Note: INTVEC must be placed first.
 // Note: CSTART Must be located in first 64k.
-
 //
 // Top of memory
 //
 -Z(CODE)INTVEC=0
 -Z(CODE)CSTART=_CODE_START-_CODE_END
+
+
+ 
+-D_BANK0_START=0x8000 
+-D_BANK0_END=0xFFFF
+
 -D_BANK1_START=0x18000
 -D_BANK1_END=0x1FFFF 
  
 -D_BANK2_START=0x28000 
 -D_BANK2_END=0x2FFFF 
- 
--D_BANK0_START=0x8000 
--D_BANK0_END=0xFFFF 
 
-
--P(CODE)BANK0=_BANK0_START-_BANK0_END 
+-P(CODE)BANK0=_BANK0_START-_BANK0_END
 -P(CODE)BANK1=_BANK1_START-_BANK1_END
--P(CODE)BANK2=_BANK2_START-_BANK2_END
+-P(CODE)BANK2=_BANK2_START-_BANK2_END 
+
+
 //
 // Initializers
 //
@@ -206,10 +204,7 @@
 // Banked Code
 //
 -P(CODE)BANKED_CODE=_CODE_START-_CODE_END,[(_CODEBANK_START+_FIRST_BANK_ADDR)-(_CODEBANK_END+_FIRST_BANK_ADDR)]*_NR_OF_BANKS+10000 //  Setup bank-switched segments.
-//-D_CODE_START=0x0000          
-//-D_CODE_END=0x7FFF             
 
-//-D_NEAR_CODE_END=0x7FFF  
 
 
 
@@ -280,28 +275,7 @@
 -Z(CONST)HUGE_ROM_C=_FAR_DATA_START-_FAR_DATA_END
 
 -cx51
-
-
-
-
-
-//-f D:\SVN\systemdepartment\国网组\D205\Sw\lnk_base.xcl
 //
 ////////////////////////////////////////////////////////////////////////////////
 
 
-////////////////////////////////////////////////////////////////////////////////
-//
-// Dallas DS80C400 device specific
-// ===============================
-// (This section contains device specific information. In this example we use
-//  Dallas Semicunductor DS80C400.)
-//
-//
--D?ESP=9B                      // ESP Extended Stack Pointer
--D?ACON=9D                     // ACON Address Control Register
--D?DPS1=F6                     // DPTR Control Register
--D?TA=C7                       // Timed Access register location
--D?MCON=C6                     // Memory Control register location
-//
-////////////////////////////////////////////////////////////////////////////////

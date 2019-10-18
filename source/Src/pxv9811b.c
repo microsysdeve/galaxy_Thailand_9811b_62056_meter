@@ -40,7 +40,6 @@ debug_break (enum ENUMDEBUGLIST cErrno)
   return (cErrlistno + 1);
 }
 
-
 const unsigned short iRegList[] = {
   PMCtrl1,			//        0x2878      //PM控制寄存器1
   PMCtrl2,			//         0x2879      //PM控制寄存器2
@@ -52,7 +51,7 @@ const unsigned short iRegList[] = {
   CRPST,			//    0x287F      //防潜标志寄存器
   IDET,				//   0x2886      //电流检测   
   GATEP,			//    9  设置计量初始值
-  GATEQ,			// 
+  GATEQ,			//  10
  
   GATECP,			//潜动1   
   GATECQ,			//潜动2  
@@ -64,28 +63,28 @@ const unsigned short iRegList[] = {
   PARAPC,			//   0x10ed
   PARAQC,			//   0x10ee
   PARABPF,			//  0x10ef
-  /* 
-     0x10f0+0,
-     0x10f0+1,
-     0x10f0+2,
-     0x10f0+3,
-     0x10f6+0,
-     0x10f6+1,
-     0x10f6+2,
-     0x10f6+3, 
-   */
+  
+  PPCNT,// 正向E1 能量累加寄存器 R/W 0 32-bit 无符号数
+NPCNT,// 反向E1 能量累加寄存器 R/W 0 32-bit 无符号数
+PPCFCNT,// 正向E1 能量脉冲计数器 R/W 0 32-bit 无符号数
+NPCFCNT,// 反向E1 能量脉冲计数器 R/W 0 32-bit 无符号数
+PQCNT,// 正向E2 能量累加寄存器 R/W 0 32-bit 无符号数
+NQCNT,// 反向E2 能量累加寄存器 R/W 0 32-bit 无符号数
+PQCFCNT,// 正向E2 能量脉冲计数器 R/W 0 32-bit 无符号数
+NQCFCNT,// 反
+
 };
 
 volatile char cFirst;
-unsigned long iReg[sizeof (iRegList) / sizeof (iRegList[0])];
+unsigned long xdata   iReg[sizeof (iRegList) / sizeof (iRegList[0])];
 
-
+extern volatile    STREG  *streg;
 void
 Value_put (unsigned long lData, unsigned short iAddr)
 {
 
   char i;
-
+    streg = ( STREG  *)iReg;
   for (i = 0; i < sizeof (iRegList) / sizeof (iRegList[0]); i++)
     {
       if (iRegList[i] == iAddr)
