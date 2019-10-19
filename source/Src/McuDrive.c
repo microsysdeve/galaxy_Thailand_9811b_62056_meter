@@ -703,7 +703,7 @@ void MChannelCal(void)
 * @修改内容: 
 ===========================================================================================*/
 
-/*
+ 
 void GetBat(void)
 {
     volatile Word32 tempvalue;
@@ -762,8 +762,6 @@ void GetBat(void)
         CtrlADC5=0x81;      //切换到温度测量
 //    }
 }
-
-*/
 /*=========================================================================================\n
 * @function_name: ChangeBodeProc
 * @function_file: McuDrive.c
@@ -1006,10 +1004,16 @@ uint8 SleepRTC(void)
     {   
         return false;
     }
-
-    MCUFRQ=0;
-    while(MCUFRQ);
-    
+a1:
+  /*
+    //MCUFRQ=0;
+    SysCtrl &=0xfe;
+    do 
+    {
+      i  = SysCtrl  & 0x1;
+    } while ( i);
+    //while(MCUFRQ);
+    */
 //    MEAFRQ=0; 
 //    while(MEAFRQ);
 
@@ -1136,7 +1140,6 @@ void BgCtrFun(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
- 
 void GetExtRTC(void)
 {
     volatile uint8 RTCFLAG ;
@@ -1200,7 +1203,6 @@ void Mcu_ChkSfr(void)
     {
         IE=0xA2;
     }
-    
 
     if(guc_CfOpenFlg==false)
     {
@@ -1286,7 +1288,6 @@ uint8 Mcu_PendTm(uint8 Xms)
     uint8 tmp;
 	Debug_Break(	_debugh_fun_Mcu_PendTm_);
     tmp = EA;
-	
 //	if((CtrlCLK&0x03) == 0x02)
     if(guc_PllSta != PLL_800K)
     {       

@@ -20,15 +20,20 @@
 #define SETLDO_22V 2
 #define SETLDO_24V 3
 
-
-
 #define SETLCD_30V 0x80 
 #define SETLCD_33V 0
 #define SETLCD_35V 0x10
 
+extern volatile char   _cUpioDebug;
+#ifdef _DEBUG_
+#define             _IsUpIo()       ((Systate&BIT0) && (_cUpioDebug))
+#else 
+#define                 _IsUpIo()       (Systate&BIT0)
+#endif
+#define                 _IsDnIo()       (Systate&BIT1)
 
-#define POWERUP()       (Systate&BIT0)    //BIT0=1 有电  BIT0=0 没电
-#define POWERDN()       (Systate&BIT1)    //BIT1=1 没电  BIT1=0 有电
+#define POWERUP()      _IsUpIo()   // (Systate&BIT0)    //BIT0=1 有电  BIT0=0 没电
+#define POWERDN()       _IsDnIo()    //(Systate&BIT1)    //BIT1=1 没电  BIT1=0 有电
 #define RTCWAKEUP()     (Systate&BIT2)    //RTC RST
 #define IOWAKEUP()      (Systate&BIT3)    //IO RST
 #define OSCSTATE()      (VERSION&BIT7)    //晶振 1起振/0未起振
@@ -96,9 +101,9 @@
 #define OpenFD()     {} //{P9OE |=BIT0;P9IE &= (~BIT0);P9FS&= (~BIT0);}//开放电使能
 #define CloseFD()    {} //{P9OE &= (~BIT0);P9IE &= (~BIT0);P9OD &= ~BIT0;P9FS&= (~BIT0);}//关放电使能
 
-//#define DetEnable()  {P1OE|=BIT4;P1IE|=BIT4;P14FS=0;}	       //电压检测使能
-//#define DetDisable() {P1OE&=(~BIT4);P1IE|=BIT4;P14FS=0;}	   //
-//#define PwrDetLow()  (P1ID & BIT4)               //电源监测 
+ #define DetEnable()  {P1OE|=BIT4;P1IE|=BIT4;P14FS=0;}	       //电压检测使能
+ #define DetDisable() {P1OE&=(~BIT4);P1IE|=BIT4;P14FS=0;}	   //
+#define PwrDetLow()  (P1ID & BIT4)               //电源监测 
   
 
 #define MEA_ON     0xFF
@@ -108,7 +113,7 @@ enum            ENUMPLLOSCLIST
     PLL_OSC=0x00,
     PLL_800K=0x01,
     PLL_3D2M=0x04,
-    _PLL_END_,
+   _PLL_END_,
     PLL_6D5M=0x08,
     PLL_13M=0x10,
     PLL_26M=0x20,

@@ -660,7 +660,7 @@ bool Pwr_ChkProc(void)
 //        RTCWakeUpTm(RTC_SETSEC, 6);
 //        SleepRTC();
  //////////////////////////////////////////////////////       
-        if((gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2)) || PORRESET())  //没电池导致ram乱
+        if(((gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2)) || PORRESET())  &&(0)) //没电池导致ram乱
         {
             Pwr_SlpReset();         
         }

@@ -16,24 +16,38 @@
 #define imBlance_Ref     0       //不平衡判断来源：0-电流，1-功率，2-电流+功率
 #define imBlance_Rate    12      //
 #define imBlance_Cmp     0       //不平衡比分母：0当前通道，1大值，2小值
-//WorkMode                         
-#define NormalMode   0x50        //正常计量
-#define TamperMode   0x05        //常数计量
-#define SleepMode    0x0A        //休眠计量
-TAMPEREXT uint8 guc_WorkMd;
+//WorkMode       
+
+enum  ENUMJLMODE
+{
+    _workNull_ =0 ,
+    _JLMODENULL_=_workNull_,
+    TamperMode=0x05,        //常数计量
+    _workLow_ =TamperMode,
+    SleepMode =   0x0A,        //休眠计量
+    _workPoweroff_   = SleepMode ,
+    NormalMode =  0x50,        //正常计量     
+    _workNormal_ =NormalMode ,
+    _JLMODEEND_ ,
+};
+#define ENUMWORKSTATE ENUMJLMODE
+//TAMPEREXT enum  ENUMJLMODE guc_WorkMd;
+#define  guc_WorkMd   RamData.stWorkState.cCurr 
 
 TAMPEREXT uint32 gul_Urms800k;
 TAMPEREXT uint32 gul_I1rms800k;
 TAMPEREXT uint32 gul_I2rms800k;
-
-#define PendReady  0x00
-#define PendUGO    0x05
-#define PendUEND   0x0A
-#define PendI1GO   0x55
-#define PendI1END  0x5A
-#define PendI2GO   0xA5
-#define PendI2END  0xAA
-TAMPEREXT uint8 guc_PendSta;
+enum ENUMPENDSTA
+{
+    PendReady = 0x00,
+ PendUGO    = 0x05,
+  PendUEND  =  0x0A,
+ PendI1GO   = 0x55,
+ PendI1END  =  0x5A,
+ PendI2GO  =  0xA5,
+ PendI2END  = 0xAA,
+};
+TAMPEREXT enum ENUMPENDSTA guc_PendSta;
 TAMPEREXT uint8 guc_PendCnt;
 
 TAMPEREXT uint32 gul_I1DCval;

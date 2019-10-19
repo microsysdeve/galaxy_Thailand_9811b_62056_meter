@@ -174,9 +174,9 @@ char  Tamp_ChkIrms(void)
         {       
             MeterADSel(ADCBPDN, ONI2);
             guc_PendSta = PendI2GO;
-            return 1;//true;
+            return 0;//true;
         }
-        else if(guc_PendSta != PendI2END)
+        else if(guc_PendSta == PendI2END)
         {
             gul_I2rms800k = gul_I2rms800k/MEA_BMUL;
             return 1;//true;

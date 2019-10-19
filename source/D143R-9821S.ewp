@@ -278,6 +278,7 @@
         <option>
           <name>CCDefines</name>
           <state>_METER_FAR_</state>
+          <state>_DEBUG_</state>
         </option>
         <option>
           <name>CCPreprocFile</name>
@@ -2195,7 +2196,7 @@
     <name>$PROJ_DIR$\Src\LcdBottom.c</name>
   </file>
   <file>
-    <name>$PROJ_DIR$\Src\lnk51ew.xcl</name>
+    <name>$PROJ_DIR$\lnk51ew.xcl</name>
   </file>
   <file>
     <name>$PROJ_DIR$\Src\main.c</name>

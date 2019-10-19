@@ -13,9 +13,9 @@ enum   ENUMDEF
          _StandVol_= 230,
          _Ib_= 5,
          _HFCONST_L_ =0x17c6254,//0x1d5584a ,
-         _HFCONST_N_ =0x17c6254,//0x1d5584a ,
-         _HFCONST800K_ =0xe15c8d7 ,
-         _HFCONST32K_ =0x34730a4,
+         _HFCONST_N_ = 0x17c6254,//0x1d5584a ,
+         _HFCONST800K_ =0x4970C413 ,//0xe15c8d7 ,
+         _HFCONST32K_ = 0x4970C413 ,//0x34730a4,
          _QDConst_L_= 0xfec164,
          _QDConst_N_= _QDConst_L_,
 };

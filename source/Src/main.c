@@ -217,6 +217,7 @@ void TimeEventProc(void)
 ===========================================================================================*/
 void Init_CfG(void)
 {
+  return ;
     if(gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2))
     {
         MemSet(&gs_FunCfg.uc_CbrCfg,0,sizeof(GSFUNCFG)-3);//«Â¡„≈‰÷√œÓ

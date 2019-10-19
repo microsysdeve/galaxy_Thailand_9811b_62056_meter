@@ -29,7 +29,7 @@
 //
 //    PDATA
 //
--D_PDATA_START=0x0001          // First address for PDATA memory.
+-D_PDATA_START=0x0F01          // First address for PDATA memory.
 -D_PDATA_END=0x1FFF            // Last address for PDATA memory.
 //
 //
@@ -42,7 +42,7 @@
 //    XDATA
 //
 -D_XDATA_START=0x000001        // First address of xdata memory.
--D_XDATA_END=0x001FFF          // Last address of xdata memory.
+-D_XDATA_END=0x01fff        // Last address of xdata memory.
 //
 //
 //    CODE

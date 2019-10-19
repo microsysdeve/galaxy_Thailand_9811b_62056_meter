@@ -305,7 +305,7 @@ uint8 EnyB_SetMeterH2L(uint32 u32PMdatal ,uint16 addr)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-uint8 EnyB_SetMeterCfgACK(uint32 u32PMdatal ,uint16 addr)
+uint8 EnyB_SetMeterCfgACK1(uint32 u32PMdatal ,uint16 addr)
 {
     uint8 index;
     volatile uint32 temp;
@@ -351,6 +351,16 @@ uint8 EnyB_SetMeterCfgACK(uint32 u32PMdatal ,uint16 addr)
     
     return true;
 }
+uint8 EnyB_SetMeterCfgACK(uint32 u32PMdatal ,uint16 addr)
+{
+  uint8  cresult;
+    _Interrupt_AppDisable();
+      cresult = EnyB_SetMeterCfgACK1(u32PMdatal,  addr);
+  _Interrupt_AppEnable();
+  return cresult;
+}
+
+
 /*=========================================================================================\n
 * @function_name: InitADC
 * @function_file: EnergyBottom.c
@@ -892,6 +902,11 @@ uint32 CalRMS(uint16 addr)
         }
         break;
     case RMSI2:
+       if(guc_PllSta == PLL_800K)
+        {
+           TempValue.lword=gul_I2rms800k;    
+        }
+
         TempPara=gs_JbPm.ul_I2RmG/65536;    //ReadRMSPara(3);
         if(TempPara==0)
         {    

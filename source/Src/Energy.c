@@ -405,7 +405,7 @@ int16 Eny_GetEp1(uint8 index, uint8 fee)
     }
     return iRet;
 }
- */
+
 /*=========================================================================================\n
 * @function_name: Eny_EnergyActiveSave
 * @function_file: Energy.c
@@ -782,15 +782,18 @@ void Eny_SlpEnergyProc(void)
         cnt = gs_PowerCf.uc_Pz / guc_GateCF;
         gs_PowerCf.uc_Pz -= guc_GateCF*cnt;                                //对CF脉冲进行分频，将分频结果进行能量累加
         gs_Energy.ucPz   += guc_UnitCF*cnt;
-     //px  complete   gs_EnergyData.uiEPZ += gs_Energy.ucPz;
+         /*  px opt        
+        gs_EnergyData.uiEPZ += gs_Energy.ucPz;
         gs_Energy.ucPz = 0;
-       //px  complete   gs_EnergyData.uiCRC = do_CRC((uint8 *)&gs_EnergyData, sizeof(ENERGYDATA)-2);  // 电量增量CRC校验
-     //px  complete   MemCpy((void*)&gs_EnergyData_bak, (void*)&gs_EnergyData, sizeof(ENERGYDATA));
-      //px  complete   if((gs_EnergyData.uiEPZ > SAVEVALUE)||(gs_EnergyData.uiENZ > SAVEVALUE)) // 判别是否需要写入
+
+        //gs_EnergyData.uiCRC = do_CRC((uint8 *)&gs_EnergyData, sizeof(ENERGYDATA)-2);  // 电量增量CRC校验
+        //MemCpy((void*)&gs_EnergyData_bak, (void*)&gs_EnergyData, sizeof(ENERGYDATA));
+        Dif((gs_EnergyData.uiEPZ > SAVEVALUE)||(gs_EnergyData.uiENZ > SAVEVALUE)) // 判别是否需要写入
         {
           Eny_EnergyActiveSave(); 
         }
 //        Pwr_E2Save();         //放在这里，在休眠计量下，正常上电和电池没电都会丢掉CF尾数，为降功耗，先这样
+        */
     }
     Pwr_E2Save();         //每次都保留CF尾数
 }

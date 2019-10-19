@@ -72,10 +72,9 @@ typedef struct
 // 有功电量字节数
 typedef struct 
 {
-    int32   lCP[1];                           //组合有功,c是calculate的意思
+    int32   lCP[1];                        //组合有功,c是calculate的意思
     uint32  ulP;                           //正向有功
     uint32  ulN;                           //反向有功
-
     uint16  uiCRC;                              //CRC校验和
 }ENERGYACTIVE;
 

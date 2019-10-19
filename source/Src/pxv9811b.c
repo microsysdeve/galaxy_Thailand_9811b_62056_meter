@@ -1,9 +1,11 @@
 #include "Include.h"
 #include "pxv9811b.h"
-
+#ifdef _DEBUG_
+volatile char   _cUpioDebug;
 char cDispprt;
 struct STGLOBALlIST stgloballist;
 volatile enum ENUMDEBUGLIST cErrlistno;
+
 void
 debug_ledshow (void)
 {
@@ -75,8 +77,8 @@ NQCFCNT,// 反
 
 };
 
-volatile char cFirst;
-unsigned long xdata   iReg[sizeof (iRegList) / sizeof (iRegList[0])];
+ 
+unsigned long   iReg[sizeof (iRegList) / sizeof (iRegList[0])];
 
 extern volatile    STREG  *streg;
 void
@@ -94,8 +96,7 @@ Value_put (unsigned long lData, unsigned short iAddr)
 	}
 
     }
-  if (iAddr == SCP)
-    debug_break (_debug_errno_ParaSCPWRITE_);
+  
 }
 
 
@@ -110,16 +111,10 @@ DoSinglePhase_1 (void)
 
   for (i = 0; i < sizeof (iRegList) / sizeof (iRegList[0]); i++)
     {
-      ltemp = EnyB_ReadMeterParaACK (iRegList[i]);
-      if (0 == cFirst)
+      ltemp = EnyB_ReadMeterParaACK (iRegList[i]);      
 	iReg[i] = (ltemp & 0xffffffff);
-      else
-	{
-	  ltemp1 = ltemp & 0xffffffff;
-	  if (iReg[i] != ltemp1)
-	    EnyB_SetMeterCfgACK (iReg[i], iRegList[i]);	//打开计量,保持潜动开启
-	}
-
+        
+    
     }
 
 }
@@ -164,3 +159,4 @@ INTERRUPT_ENABLE (void)
 {
   EA = 1;
 }
+#endif

@@ -13,12 +13,12 @@
 #define CONFIG_CH       2               //1-单通道 2-双通道
 #define CONFIG_CH_DLY   2               //通道切换延时，单位S
 //PT配置
-#define CONFIG_PT       0               //0-不带PT 1-带PT
+#define CONFIG_PT       1               //0-不带PT 1-带PT
 //电流接线方式
 #define CONFIG_JUNC     1              //0-反接 1-正接
 #define CONFIG_POW_DLY  1               //电流反向判断延时
 //RTC配置
-#define CONFIG_RTC      0               //0-无 1-内部 2-外部
+#define CONFIG_RTC      1               //0-无 1-内部 2-外部
 //SOC时钟源配置，默认0为全开
 #define CONFIG_PRCTRL0  0               //
 #define CONFIG_PRCTRL1  0               //
