@@ -262,10 +262,10 @@ void Data_SecProc(void)
 {
    TimerProc();                                //在有电下均处理
     CLRWDT();
-    if ( qqqq1 )
+ //   if ( qqqq1 )
     EnyB_Open_Cf();
     CLRWDT();
-    if ( qqqq2 )
+ //   if ( qqqq2 )
     Tamp_ChkPLL();                              //断零线判电压 
     CLRWDT();    
     Tamp_DspProc();

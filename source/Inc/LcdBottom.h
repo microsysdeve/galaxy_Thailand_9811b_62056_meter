@@ -39,5 +39,13 @@ void LCD_Off(void);
 void LCDInitSleep(void);
 void InitLCD(void);
 
+enum    ENUMLCDDRIVERVOL
+{
+      _lcdvol_3do3_ =0,
+      _lcdvol_3do0_ =1,
+};
 
+#define    LcdDriverVolSet_Con(a)              {if ( _lcdvol_3do3_ == a)  CtrlLCDV &=~BIT2; else CtrlLCDV |=BIT2;}
+#define    _LcdDriverVolSet_33()         LcdDriverVolSet_Con(_lcdvol_3do3_)
+#define    _LcdDriverVolSet_30()        LcdDriverVolSet_Con(_lcdvol_3do0_)
 #endif

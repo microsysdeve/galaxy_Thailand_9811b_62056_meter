@@ -46,7 +46,7 @@ void InitLCD(void)
 //    P9IE &=~ 0x01;          // P9.0
     
     LCDG      = 0;
-    CtrlLCDV  = 0x04;
+    _LcdDriverVolSet_30() ;//CtrlLCDV  = 0x04;
     LCDCtrl   = 0x92;//LCDSETTING4COM;     //0x82
     SegCtrl0  = 0x00;
     SegCtrl1  = 0xff;
@@ -70,7 +70,7 @@ void InitLCD(void)
 void LCDInitSleep(void)
 {
     LCDG=0;
-    CtrlLCDV=0x02;
+    _LcdDriverVolSet_33();// CtrlLCDV=0x02;
     LCDCtrl=LCDSETTING4COM;
 
     SegCtrl0  = 0x03;

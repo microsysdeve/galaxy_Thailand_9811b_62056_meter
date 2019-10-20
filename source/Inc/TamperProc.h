@@ -24,9 +24,9 @@ enum  ENUMJLMODE
     _JLMODENULL_=_workNull_,
     TamperMode=0x05,        //常数计量
     _workLow_ =TamperMode,
-    SleepMode =   0x0A,        //休眠计量
+    SleepMode =   0x0A,     //休眠计量
     _workPoweroff_   = SleepMode ,
-    NormalMode =  0x50,        //正常计量     
+    NormalMode =  0x50,     //正常计量     
     _workNormal_ =NormalMode ,
     _JLMODEEND_ ,
 };
