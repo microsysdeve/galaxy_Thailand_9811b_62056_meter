@@ -450,6 +450,7 @@ uint8 SetPLL13M(uint8 MEA)
     CtrlBGP  = 0x04;//0x34;//0x32;//0x3A;//0x30;
 #if (CONFIG_VCC == 0)
     CtrlLDO  = 0x80;        //减小LDO25输出-未确认，关闭电池反馈
+     CtrlLDO = 0x80 | (_LcdVolMod_Dec2_)<<3;
 #else
     CtrlLDO = 0x00;
 #endif
@@ -521,6 +522,7 @@ uint8 SetPLL3DOT2M(uint8 MEA)
     CtrlBGP  = 0x04;//0x34;//0x32;//0x3A;//0x30;        //默认+20ppm，改善高低温误差
 #if (CONFIG_VCC == 0)
     CtrlLDO  = 0x80;        //减小LDO25输出-未确认，关闭电池反馈
+    CtrlLDO = 0x80 | (_LcdVolMod_Dec2_)<<3;
 #else
     CtrlLDO = 0x00;
 #endif
@@ -645,6 +647,7 @@ uint8 SetPLL800K(uint8 MEA)
     CtrlBGP  = 0xC4;//0xF4;//0xF2;//0xFA;//0xF0;        //默认+20ppm，改善高低温误差，减小偏置电流降低功耗
 #if (CONFIG_VCC == 0)
     CtrlLDO  = 0x80;        //减小LDO25输出-未确认，关闭电池反馈
+    CtrlLDO = 0x80 | (_LcdVolMod_Dec2_)<<3;
 #else
     CtrlLDO = 0x00;
 #endif
@@ -1257,10 +1260,12 @@ void Mcu_RTCNormal(uint8 Pll)
     DelayOSC(2);
     RTCCH  = 0;
     RTCCL  = 0;
-    ul_div = Pll * 4096UL *100 - 1;
-    DIVTHH = ul_div>>16;
-    DIVTHM = ul_div>>8;
-    DIVTHL = ul_div;
+  //  ul_div = Pll * 4096UL *100 - 1;
+   // DIVTHH = ul_div>>16;
+   // DIVTHM = ul_div>>8;
+  //  DIVTHL = ul_div;
+    
+    RTC_Format (FlashInfo.lRtcJZPara);
     DelayOSC(2);
     RTCPEN = 0x96;
     RTCPWD = 0x56;
