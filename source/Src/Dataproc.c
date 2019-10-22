@@ -24,6 +24,7 @@ void RecoverRunPara(void)
 ===========================================================================================*/
 void Data_RecPara(void)
 {        
+  return ;
 //  CLRWDT();               //Œππ∑
     RecoverCfg();           //ª÷∏¥≈‰÷√◊÷
 //#ifdef LOADCURVE

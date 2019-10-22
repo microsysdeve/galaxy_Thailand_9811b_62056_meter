@@ -327,7 +327,7 @@ void Uart4_Transmit(void)
         _BitYX(SCON4,ctemp) ;   
         SBUF4 = ctemp;
 	resetWdt();
-        if ((0 == --(usartcomp->cHead)) && ( _workNormal_ == WorkState_ReCheck()))
+        if ((0 == --(usartcomp->cHead)) && ( _workNormal_ == WorkState_ReCheck(_cIolist )))
           usartcomp->cStatu++;
 	} else {
 			do {

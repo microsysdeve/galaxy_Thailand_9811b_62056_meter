@@ -648,6 +648,11 @@ bool Pwr_ChkProc(void)
         {
           return false;
         }
+       //===============================================
+       Mcu_I1nit();
+       data_restore();
+       RamData.Disp.DispCode.Code = 0x00000000;
+       UpDisp();       
 #endif 
  //////////////////////////////////////////////////////
 //        Init_Timer1(100);         //≤‚ ‘”√

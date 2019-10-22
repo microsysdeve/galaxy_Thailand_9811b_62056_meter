@@ -56,7 +56,7 @@ enum ENUMDEBUGLIST
   _debug_errno_JLChangeChanelL_,
   _debug_errno_JLChangeChanelN_,
   _debug_errno_ChangeClkSource_,
-
+_debug_errno_ChangePmctrl4_,
 
   _debugh_fun_Pwr_WakeupProc_,
   _debug_gotosleep_,

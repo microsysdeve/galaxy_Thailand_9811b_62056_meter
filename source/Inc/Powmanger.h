@@ -31,8 +31,10 @@ void Pwr_WakeupProc(void);
 void Pwr_SleepProc(void);
 void Pwr_LcdSet(void);
 //void Pwr_E2Save(void);
-#define Pwr_E2Save()  {} 
+#define Pwr_E2Save()  {Up_LVSave();Up_BkLVSave();} 
 void Pwr_SlpReset(void);
 bool Pwr_ChkProc(void);
 
 #endif
+
+		 

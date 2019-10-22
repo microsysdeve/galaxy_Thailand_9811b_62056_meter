@@ -1,7 +1,8 @@
 #include "Include.h"
 #include "pxv9811b.h"
 #ifdef _DEBUG_
-volatile char   _cUpioDebug;
+volatile char   _cUpioDebug;                    // 为1 ，则返回状态由
+volatile enum  ENUMJLMODE  _cworkmodedebug;
 char cDispprt;
 struct STGLOBALlIST stgloballist;
 volatile enum ENUMDEBUGLIST cErrlistno;
@@ -94,8 +95,11 @@ Value_put (unsigned long lData, unsigned short iAddr)
 	  iReg[i] = lData;
 	  break;
 	}
-
     }
+    if ( PMCtrl4 == iAddr )
+      {
+    //    debug_break ( _debug_errno_ChangePmctrl4_);
+      }
   
 }
 

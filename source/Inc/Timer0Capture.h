@@ -1,7 +1,7 @@
 #ifndef _Timer0capture_hpp_
 #define _Timer0capture_hpp_
 
-#define                 _TimerACheckTm_                     (10 *1000/_cMain_sequentialTime_ )
+#define                 _TimerACheckTm_                     (2000/_cMain_sequentialTime_ )
 
 #define                 _IsTimerACheck()                (stperiod.iCheckTm)
 struct STPERIOD

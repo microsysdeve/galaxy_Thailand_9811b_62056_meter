@@ -87,7 +87,7 @@ unsigned short  vol_Get (enum  ENUMADCDATANOLIST  cno );
  
 enum ENUMADCRETURNSTATU adc_appfun (void);
 
-#define                 _IsLVol()      ( stAdcFun.cLvdin0_HighTm >= _cLvdFilter_ )
+#define                 _IsLVol()       ( stAdcFun.cLvdin0_HighTm >= _cLvdFilter_ )  
 #define                 _IsNVol()      ( stAdcFun.cLvdin1_HighTm >= _cLvdFilter_ )
 
 #define                 _IsPowerOff()      ((  stAdcFun.cLvdin0_LowTm   >= _cLvdFilter_ )  &&  ( stAdcFun.cLvdin1_LowTm >= _cLvdFilter_ ))          

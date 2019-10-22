@@ -776,6 +776,15 @@ void Eny_SlpEnergyProc(void)
     gs_PowerCf.uc_Pz += (guc_DatCFrmd/2);
     guc_DatCFrmd %= 2;
     
+    RamData.ImpBfr+=guc_DatCFrmd ;
+    if ( RamData.ImpBfr )   
+    {
+    Do_Use();
+    RamData.OldImpBfr = RamData.ImpBfr-1;
+    Pwr_E2Save();         //每次都保留CF尾数
+    }
+    return;
+    
     if(gs_PowerCf.uc_Pz >= guc_GateCF)                                     //判别是否需要走字
     {
         uint8 cnt;
@@ -795,6 +804,6 @@ void Eny_SlpEnergyProc(void)
 //        Pwr_E2Save();         //放在这里，在休眠计量下，正常上电和电池没电都会丢掉CF尾数，为降功耗，先这样
         */
     }
-    Pwr_E2Save();         //每次都保留CF尾数
+    
 }
 

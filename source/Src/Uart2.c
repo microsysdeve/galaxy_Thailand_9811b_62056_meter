@@ -272,7 +272,7 @@ void Uart2_Transmit(void)
         _BitYX(SCON2,ctemp) ;   
         SBUF2 = ctemp;
 	resetWdt();
-        if ((0 == --(usartcomp->cHead)) && ( _workNormal_ == WorkState_ReCheck()))
+        if ((0 == --(usartcomp->cHead)) && ( _workNormal_ == WorkState_ReCheck(_cIolist )))
           usartcomp->cStatu++;
 	} else {
 			do {

@@ -450,7 +450,7 @@ uint8 SetPLL13M(uint8 MEA)
     CtrlBGP  = 0x04;//0x34;//0x32;//0x3A;//0x30;
 #if (CONFIG_VCC == 0)
     CtrlLDO  = 0x80;        //减小LDO25输出-未确认，关闭电池反馈
-     CtrlLDO = 0x80 | (_LcdVolMod_Dec2_)<<3;
+     CtrlLDO = 0x00 | ( _LcdVolMod_Null_ )<<3;
 #else
     CtrlLDO = 0x00;
 #endif
@@ -522,7 +522,7 @@ uint8 SetPLL3DOT2M(uint8 MEA)
     CtrlBGP  = 0x04;//0x34;//0x32;//0x3A;//0x30;        //默认+20ppm，改善高低温误差
 #if (CONFIG_VCC == 0)
     CtrlLDO  = 0x80;        //减小LDO25输出-未确认，关闭电池反馈
-    CtrlLDO = 0x80 | (_LcdVolMod_Dec2_)<<3;
+    CtrlLDO = 0x00 | ( _LcdVolMod_Null_ )<<3;
 #else
     CtrlLDO = 0x00;
 #endif
@@ -647,7 +647,7 @@ uint8 SetPLL800K(uint8 MEA)
     CtrlBGP  = 0xC4;//0xF4;//0xF2;//0xFA;//0xF0;        //默认+20ppm，改善高低温误差，减小偏置电流降低功耗
 #if (CONFIG_VCC == 0)
     CtrlLDO  = 0x80;        //减小LDO25输出-未确认，关闭电池反馈
-    CtrlLDO = 0x80 | (_LcdVolMod_Dec2_)<<3;
+    CtrlLDO = 0x00 | ( _LcdVolMod_Null_ )<<3;
 #else
     CtrlLDO = 0x00;
 #endif
@@ -994,7 +994,7 @@ uint8 SleepRTC(void)
     BE_I2C_CLK_1();                     //I2C输出高
 //    FWC=0;
 //    FSC=0;
-//    if(_IsUpIo())
+//    if((Systate&BIT0)==0x01)
 //    {   
 //        return false;
 //    }
@@ -1003,24 +1003,18 @@ uint8 SleepRTC(void)
 //    for(i=0;i<20;i++);          //等待
 
 //    PMG=1; //关闭计量时钟
-    if(_IsUpIo())
+    if (_IsUpIo()) //  if((Systate&BIT0)==0x01)
     {   
         return false;
     }
-a1:
-  /*
-    //MCUFRQ=0;
-    SysCtrl &=0xfe;
-    do 
-    {
-      i  = SysCtrl  & 0x1;
-    } while ( i);
-    //while(MCUFRQ);
-    */
+
+    MCUFRQ=0;
+    while(MCUFRQ);
+    
 //    MEAFRQ=0; 
 //    while(MEAFRQ);
 
-    if(_IsUpIo())
+    if (  !_IsUpIo()) //  if((Systate&BIT0)==BIT0)
     {   
         return false; 
     }
@@ -1065,7 +1059,7 @@ uint8 Sleep(void)
     // RTCWakeUpTm(RTC_SEC);
     //gui_SystemState |= flgStSys_PowOff;    //置掉电状态
 
-    if(_IsUpIo())    //有电
+    if((Systate&BIT0)==0x01)    //有电
     {   
         return false;
     }
@@ -1080,7 +1074,7 @@ uint8 Sleep(void)
 //
 //    PMG=1;                  //关闭计量时钟
 
-    if(_IsUpIo())
+    if((Systate&BIT0)==0x01)
     {   
         return false;
     }
@@ -1091,7 +1085,7 @@ uint8 Sleep(void)
 //    MEAFRQ=0;
 //    while(MEAFRQ);
 
-    if(_IsUpIo())
+    if((Systate&BIT0)==0x01)
     {   
         return false; 
     }

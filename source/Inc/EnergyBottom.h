@@ -151,7 +151,7 @@ typedef struct
 ENERGYBOTTOMEXT S_CHECKMETER gs_Checkmeter;//校表功率比对数据
 
 
-ENERGYBOTTOMEXT uint8 guc_CfOpenCnt;
+ENERGYBOTTOMEXT uint8 guc_CfOpenCnt;  //  正常计量下，为0，其它计量下，为1
 ENERGYBOTTOMEXT uint8 guc_CfOpenFlg;
 
 #define SETA 0x00
