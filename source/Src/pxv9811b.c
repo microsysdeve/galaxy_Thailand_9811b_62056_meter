@@ -22,7 +22,16 @@ debug_ledshow (void)
     }
 }
 
+void  debug_progdef(void)
+{
 
+  while(1)
+     {
+       SLPWDT();
+     debug_ledshow ();
+       RSet_WDG(1000);
+     }
+}        
 void
 debug_init (void)
 {

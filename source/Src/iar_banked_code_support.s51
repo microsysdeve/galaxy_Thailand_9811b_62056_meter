@@ -148,7 +148,8 @@
 	ANL   B, #0xFC    ; mask bank bits
 
 	POP   A           ; pop bank number
-	ORL   A, B        ; add the PSBANK bits
+	ORL   A, B       
+        ; add the PSBANK bits
 				;add by Vango
 	MOV   ?CBANK, A   ; set new bank*/
        	POP   A           ; pop bank number

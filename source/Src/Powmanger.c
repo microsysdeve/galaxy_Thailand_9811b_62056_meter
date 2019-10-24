@@ -2,6 +2,8 @@
 
 #include "Include.h"
 #include "main_protect.h"
+uint8 EnyB_SetMeterL2H(uint32 u32PMdatal ,uint16 addr);
+uint8 EnyB_SetMeterH2L(uint32 u32PMdatal ,uint16 addr);
 uint8 guc_ChkPowDn;                 // 下电检测寄存器
 /*=========================================================================================\n
 * @function_name: Pwr_DownChk
@@ -175,6 +177,7 @@ uint8 Pwr_DownProc(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+uint32 BCD2Hex(uint32 x);
 /*
 void Pwr_WakeupProc(void)
 { 
@@ -223,6 +226,7 @@ void Pwr_WakeupProc(void)
     OpenFD();
     SleepRTC();
 }*/
+unsigned  long  appnegchange(unsigned long ltemp ,char  *cNeg);
 void Pwr_WakeupProc(void)
 {    
 	 debug_break(	_debugh_fun_Pwr_WakeupProc_);
@@ -270,7 +274,7 @@ void Pwr_WakeupProc(void)
 #if (MEA_SLP_PLL == 0)                              //计量800K:需要等待时间在开启 3.2M:无需等待
     Init_Timer1(5);   //MCU挂起等待5ms 
     TR1 = 1;
-    EA = 1;
+     _Interrupt_AppEnable();   //EA = 1;
     PCON = 1;   //MCU挂起等待Xms  
     _Interrupt_AppDisable();                    
     EnyB_SetMeterCfgACK(0x13, IDET);                //MEA-800K 设置判断点数4 开始判断
@@ -284,7 +288,7 @@ void Pwr_WakeupProc(void)
     Init_Timer1(15);                                //MCU挂起等待15ms
 //#endif    
     TR1 = 1;
-    EA = 1;
+   _Interrupt_AppEnable();   // EA = 1;
     PCON = 1;    //MCU挂起等待Xms  
     _Interrupt_AppDisable();
     
@@ -300,7 +304,7 @@ void Pwr_WakeupProc(void)
 #endif
         SLPWDT(); 
         TR1 = 1;
-        EA = 1;
+       _Interrupt_AppEnable();   // EA = 1;
         PCON = 1;                                   //MCU挂起等待Xms
         _Interrupt_AppDisable();
         SLPWDT();
@@ -320,9 +324,11 @@ void Pwr_WakeupProc(void)
 #else        
         if(gs_Channel.ucSta == SETA)
         {
+          char ctemp;
             gul_Test = 1;  //测试用
             gul_I1rms800k = EnyB_ReadMeterParaACK(RMSII1);      //读取A路有效值
             gul_I1DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新A路直流值
+        //     RamData.Iph.sVI=BCD2Hex(appnegchange(CalRMS(RMSI1),&ctemp));
 //            gul_I1DCval = 0xFA7600;
             EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
             CtrlADC6 = 0;                                       //关AD通道 
@@ -349,6 +355,14 @@ void Pwr_WakeupProc(void)
         //得到大值
         gul_DataCP = (gul_I1rms800k>gul_I2rms800k?gul_I1rms800k:gul_I2rms800k);
 #endif   
+        
+                 // _CfPluse_OutEnable() ;//=====================
+                  if ( gul_I1rms800k>gul_I2rms800k )
+                  { _CfPluse_E1Out()         ;}
+                  else
+                  {_CfPluse_E2Out()     ;}
+
+               
         if(gul_DataCP > RMSII1_TH) //防止小于启动电流时快速电流检测的误判
           EnyB_SetMeterH2L(gul_DataCP, DATACP);       //常数计量值
         else
@@ -376,7 +390,7 @@ void Pwr_WakeupProc(void)
 #endif
         SLPWDT(); 
         TR1 = 1;
-        EA = 1;
+        _Interrupt_AppEnable(); // EA = 1;
         PCON = 1;                                   //MCU挂起等待Xms
         _Interrupt_AppDisable();
         SLPWDT();
@@ -581,7 +595,7 @@ void Pwr_SlpReset(void)
     Init_Timer1(80);                //配置定时器1, MEA 3.2M,直流值的收敛时间 70ms  
     SLPWDT(); 
     TR1 = 1;
-    EA = 1;
+     _Interrupt_AppEnable();//EA = 1;
     PCON = 1;                                   //MCU挂起等待Xms
     _Interrupt_AppDisable();
     SLPWDT();
@@ -610,7 +624,7 @@ void Pwr_SlpReset(void)
     RecoverEnergyData();
     gui_SystemState = flgStSys_PowOff;    //置掉电状态 
     Init_CfG();
-    _CfPluse_OutEnable();   
+    _CfPluse_OutEnable();   _CfPluse_E1Out()  ;
 }
 /*=========================================================================================\n
 * @function_name: Pwr_ChkProc
@@ -628,6 +642,7 @@ void Pwr_SlpReset(void)
 ===========================================================================================*/
 bool Pwr_ChkProc(void)
 {
+  
     uint8 i;
     //上电稳定时间
     
@@ -649,10 +664,7 @@ bool Pwr_ChkProc(void)
           return false;
         }
        //===============================================
-       Mcu_I1nit();
-       data_restore();
-       RamData.Disp.DispCode.Code = 0x00000000;
-       UpDisp();       
+          
 #endif 
  //////////////////////////////////////////////////////
 //        Init_Timer1(100);         //测试用
@@ -665,11 +677,20 @@ bool Pwr_ChkProc(void)
 //        RTCWakeUpTm(RTC_SETSEC, 6);
 //        SleepRTC();
  //////////////////////////////////////////////////////       
-        if(((gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2)) || PORRESET())  &&(0)) //没电池导致ram乱
+        if((((gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2)) && (0)) || PORRESET())   ) //没电池导致ram乱
         {
-            Pwr_SlpReset();         
+          if  (_Is_lPwr_SlpReset_Init())		 
+            {
+                Mcu_I1nit();
+                data_restore();       
+                Pwr_SlpReset();       
+                Systate &=~BIT5;
+              _lPwr_SlpReset_Set_Run();
+            }            
         }
         SLPWDT();
+       RamData.Disp.DispCode.Code = 0x00000000;
+       UpDisp(); 
 //#if (POW_OFF_DISP == 1)        
 //        guc_PowOffRuning = true;
 //        Pwr_LcdSet();

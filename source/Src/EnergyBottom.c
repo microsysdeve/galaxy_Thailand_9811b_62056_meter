@@ -236,12 +236,13 @@ uint8 EnyB_SetMeterL2H(uint32 u32PMdatal ,uint16 addr)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+volatile unsigned long kiki;
 uint8 EnyB_SetMeterH2L(uint32 u32PMdatal ,uint16 addr)
 {
     uint8 i,index;
     volatile uint32 temp;
     index=0;
-      
+      kiki  =u32PMdatal ;
     XBYTE[INVD]=0XCC;
     XBYTE[INVD]=0x00;
     while(XBYTE[ACK])

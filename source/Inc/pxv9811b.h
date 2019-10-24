@@ -155,4 +155,5 @@ unsigned long _NQCFCNT;// ·´
 }STREG;
 
 extern volatile    STREG  *streg;
+void  debug_progdef(void);
 #endif
