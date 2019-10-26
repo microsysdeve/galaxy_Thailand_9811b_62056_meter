@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1087243244
+Checksum=1674573598
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -197,12 +197,8 @@ Fmt87={W}0:ul_div	4	0
 Fmt88={W}0:x	4	0
 Fmt89={W}0:zp.bjlcalgetchanel	4	0
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\pxv9811b.c}.49.7" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\InOut.c}.427.5" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.101.2" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Powmanger.c}.361.14" 1 0 0 0 "" 0 ""
-Bp4=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\TRx.c}.493.2" 1 0 0 0 "" 0 ""
-Count=5
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\TamperProc.c}.44.5" 0 0 0 0 "" 0 ""
+Count=1
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

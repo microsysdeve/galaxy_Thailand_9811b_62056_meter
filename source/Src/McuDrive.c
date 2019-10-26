@@ -3,7 +3,7 @@
 #include "Include.h"
 #include "powerevent.h"
 #define V98x1A1
-
+#include "Timer0Capture.h"
 /*=========================================================================================\n
 * @function_name: IO_Init
 * @function_file: main.c
@@ -528,6 +528,7 @@ uint8 SetPLL3DOT2M(uint8 MEA)
 #endif
     guc_PllSta = PLL_3D2M;
     
+     TimerA_Capture_App_Init();
     return true;
 }
 

@@ -21,14 +21,15 @@ TimerA_Capture_Reg_Close (void)
   Vector11_Disable();    
   PRCtrl0 |= BIT0;
   P9FS &= ~_bCaptureBit_;
-   stperiod.iCheckTm = 0;
+  _stperiod_Clr_app();
+  stperiod.cInit =1;
 }
 
 void
-TimerA_Capture_Reg_Init (void)
+TimerA_Capture_Reg_Init (void)   
 {
-  PRCtrl0 &= ~BIT0;
 
+  PRCtrl0 &= ~BIT0;
   P9OE |= _bCaptureBit_;
   P9IE |= _bCaptureBit_;
   P9FS |= _bCaptureBit_;
@@ -40,19 +41,20 @@ TimerA_Capture_Reg_Init (void)
   LSel_Low();
   Vector11_Enable() ; 
 }
-
+            
 void
-TimerA_Capture_Init (void)	// 捕获中断程序
+TimerA_Capture_Init (void)	// 捕获中断程序,初始化，并打开
 {
-  ClrRam ((char *) &stperiod, sizeof (stperiod));
-  stperiod.iCheckTm = _TimerACheckTm_ ;
-  TimerA_Capture_Reg_Init ();
+  _stperiod_Clr_app();   
+  stperiod.iLnCheckPreTm = _TimerACheckPreTm_;  
+  //stperiod.iCheckTm = _TimerACheckTm_ ;
+  //TimerA_Capture_Reg_Init ();
+  debug_break(_debug_fun_TimerCheck_);
 }
 
 void
 TimerA_Capture_Intfun (void)	// 捕获中断程序
 {
-
   unsigned short itemp;
   debug_ledshow ();
   itemp = ((unsigned short) TACCR0H);
@@ -84,7 +86,7 @@ TimerA_Capture_Mainfun (void)
   unsigned char i;
   unsigned long ltemp;
   const char cGate = 5;
-  if (_nIsChangeState (stperiod.stdatano))
+   if (_nIsChangeState (stperiod.stdatano))
     {
       for (ltemp = 0, i = 0;
 	   i < sizeof (stperiod.iData) / sizeof (stperiod.iData[0]); i++)
@@ -104,6 +106,16 @@ TimerA_Capture_Mainfun (void)
 
 void TimerA_Catupre_Mainint_fun(void)
 {
+   if ( stperiod.iLnCheckPreTm )
+   {
+      stperiod.iLnCheckPreTm--;
+      if ( 0 == stperiod.iLnCheckPreTm )
+      {
+            stperiod.iCheckTm = _TimerACheckTm_; 
+            TimerA_Capture_Reg_Init ();
+      } 
+            
+   } else
   if (stperiod.iCheckTm)
   {
       stperiod.iCheckTm--;
