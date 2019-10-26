@@ -58,7 +58,7 @@ TAMPEREXT uint32 gul_I2DCval;
 void SwitchMode(uint8);
 void Tamp_ChkPLL(void);
 void Tamp_DspProc(void);
-bool Tamp_ChkUrms(void);
+char Tamp_ChkUrms(void);
 bool Tamp_ChkBlance(uint32); 
 void Tamp_ChkCurrent(void);
 void Tamp_BlanceProc(void); 

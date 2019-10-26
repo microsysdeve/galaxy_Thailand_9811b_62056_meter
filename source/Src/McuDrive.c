@@ -383,7 +383,7 @@ void Mcu_I1nit(void)
     IO_Init();              //IO初始化                
     InitLCD();             //LCD初始化
 //    OpenBeiGuang();
-    Disp_Full();            //显示全屏
+ //    Disp_Full();            //显示全屏
     Init_Uart();            //Uart初始化
     Init_Timer0();          //注明？ms
     Init_Timer2();          //初始化定时器2
@@ -990,6 +990,7 @@ uint8 SleepRTC(void)
     uint8 i;
 
    // gs_KeyCtr[UpKey].Status=KeyRls;             //按键设置为释放
+      GPIO_Init_OffLine1();
     BE_I2C_SDA_1();
     BE_I2C_CLK_1();                     //I2C输出高
 //    FWC=0;
@@ -1014,7 +1015,7 @@ uint8 SleepRTC(void)
 //    MEAFRQ=0; 
 //    while(MEAFRQ);
 
-    if (  !_IsUpIo()) //  if((Systate&BIT0)==BIT0)
+    if (  _IsUpIo()) //  if((Systate&BIT0)==BIT0)
     {   
         return false; 
     }

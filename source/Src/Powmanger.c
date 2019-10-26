@@ -294,7 +294,7 @@ void Pwr_WakeupProc(void)
     
     uint8 ucIdet = EnyB_ReadMeterParaACK(IDET);     //读取判断结果
     EnyB_SetMeterCfgACK(0x00, IDET);                //关闭快速电流检测
-        
+       
     if(ucIdet & 0x40)   //判断有电流
     {
 #if (MEA_SLP_PLL == 0)
@@ -355,13 +355,25 @@ void Pwr_WakeupProc(void)
         //得到大值
         gul_DataCP = (gul_I1rms800k>gul_I2rms800k?gul_I1rms800k:gul_I2rms800k);
 #endif   
-        
+        if ( _IsFactory_Mode() )
+        {
                  // _CfPluse_OutEnable() ;//=====================
-                  if ( gul_I1rms800k>gul_I2rms800k )
+             if ( _IsFactory_Mode() )  
+        {         if ( gul_I1rms800k>gul_I2rms800k )
                   { _CfPluse_E1Out()         ;}
                   else
                   {_CfPluse_E2Out()     ;}
-
+        }
+        else  if ( _IsSleepPluseOutEnAble() ) 
+         { {         if ( gul_I1rms800k>gul_I2rms800k )
+                  { _CfPluse_E1Out()         ;}
+                  else
+                  {_CfPluse_E2Out()     ;}
+        }}
+         
+         
+           
+        }
                
         if(gul_DataCP > RMSII1_TH) //防止小于启动电流时快速电流检测的误判
           EnyB_SetMeterH2L(gul_DataCP, DATACP);       //常数计量值
@@ -624,7 +636,7 @@ void Pwr_SlpReset(void)
     RecoverEnergyData();
     gui_SystemState = flgStSys_PowOff;    //置掉电状态 
     Init_CfG();
-    _CfPluse_OutEnable();   _CfPluse_E1Out()  ;
+      
 }
 /*=========================================================================================\n
 * @function_name: Pwr_ChkProc
@@ -677,9 +689,9 @@ bool Pwr_ChkProc(void)
 //        RTCWakeUpTm(RTC_SETSEC, 6);
 //        SleepRTC();
  //////////////////////////////////////////////////////       
-        if((((gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2)) && (0)) || PORRESET())   ) //没电池导致ram乱
+    //    if((((gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2)) && (0)) || PORRESET())   ) //没电池导致ram乱
         {
-          if  (_Is_lPwr_SlpReset_Init())		 
+          if  ((_Is_lPwr_SlpReset_Init())|| PORRESET())  		 
             {
                 Mcu_I1nit();
                 data_restore();       
@@ -716,6 +728,11 @@ bool Pwr_ChkProc(void)
           SleepRTC();
         }else
         {
+        if ( _IsFactory_Mode() )  
+        {  _CfPluse_OutEnable();   _CfPluse_E1Out()  ;}
+        else  if ( _IsSleepPluseOutEnAble() ) 
+         {  _CfPluse_OutEnable();   _CfPluse_E1Out()  ;}
+        
           Pwr_WakeupProc();       //唤醒处理
         }
 //#endif

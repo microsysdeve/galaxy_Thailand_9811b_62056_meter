@@ -50,7 +50,7 @@
 
   #define IDET_STARTA     3978000           //A路快速电流检测阀值 1A x 0.3
   #define IDET_STARTB     4140000           //B路快速电流检测阀值 1A x 0.3
-  #define RMSII1_TH       2906000     //1A x 0.4
+  #define RMSII1_TH       (2906000 *8)    //1A x 0.4
 
 #endif
 

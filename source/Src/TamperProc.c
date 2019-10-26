@@ -38,17 +38,17 @@ void Tamp_ChkPLL(void)
     uint8 ucLastMd;   
     ucLastMd = guc_WorkMd;
     
-    if(false == Tamp_ChkUrms())
+    if ( 0 == Tamp_ChkUrms()) //if(false == Tamp_ChkUrms())
         return;
 
-//    if(gul_Urms800k < Voltage_100V)//如果掉零线
-//    {
-//        guc_WorkMd = TamperMode;
-//    }
-//    else
-//    {
+    if(gul_Urms800k < Voltage_100V)//如果掉零线
+    {
+        guc_WorkMd = TamperMode;
+    }
+    else
+    {
         guc_WorkMd = NormalMode;      
-//    }
+    }
     
     if(ucLastMd != guc_WorkMd)
     {
@@ -110,13 +110,13 @@ void MeterADClose(uint8 ABit)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-bool Tamp_ChkUrms(void)
+char  Tamp_ChkUrms(void)
 {
 #if (CONFIG_PT != 0)
     if(!POWERUP())
     {
         gul_Urms800k = 0;
-        return true;
+      return 1;//  return true;
     }
 #endif    
     if(guc_PllSta == PLL_800K)
@@ -125,20 +125,20 @@ bool Tamp_ChkUrms(void)
         {
             MeterADSel(ADCUPDN, ONU);
             guc_PendSta = PendUGO;
-            return false;
+      return 0;//      return false;
         }
         else if((guc_PendSta&0x0F) == 0x0A)
         {
-            return true;
+            return 1;//return true;
         }
     }
     else
     {
         gul_Urms800k = EnyB_ReadMeterParaACK(RMSIU);
-        return true;
+        return 1;//return true;
     }
     
-    return false;
+    return 0;//return false;
 }
 /*=========================================================================================\n
 * @function_name: Tamp_ChkIrms

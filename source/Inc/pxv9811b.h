@@ -48,6 +48,7 @@ enum ENUMDEBUGLIST
  _debug_errno_turonntstate_instate_,
   _debug_errno_turoffintstate_instate_,
   _debug_errno_StartupCheckState_,
+  _debug_fun_vdcincheck_,
   _debug_fun_Pwr_SlpReset_,
   _debug_errno_prog_reset_,
   _debug_fun_PoweroffDisp_,
