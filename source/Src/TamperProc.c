@@ -115,8 +115,13 @@ char  Tamp_ChkUrms(void)
 #if (CONFIG_PT != 0)
     if(!POWERUP())
     {
+      if (_IrmsStartPowerOnCheck() )
+      {}
+      else
+      {
         gul_Urms800k = 0;
       return 1;//  return true;
+      }
     }
 #endif    
     if(guc_PllSta == PLL_800K)

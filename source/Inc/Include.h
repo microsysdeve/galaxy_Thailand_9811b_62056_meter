@@ -128,5 +128,8 @@ VAREXT uint16 gui_SysSleepSta;
 
 #define                 OpenGJLed()             {}
 uint8 BCD2ASCII(uint8*BCD,uint8*Ascii,uint8 len) ;
+
+#define                 _Irms_GetData()          (gul_I1rms800k>gul_I2rms800k?gul_I1rms800k:gul_I2rms800k)   //得到大值
+
 #endif
 

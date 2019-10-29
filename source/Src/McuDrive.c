@@ -527,7 +527,7 @@ uint8 SetPLL3DOT2M(uint8 MEA)
     CtrlLDO = 0x00;
 #endif
     guc_PllSta = PLL_3D2M;
-    
+    if ( _IsUpIo()) 
      TimerA_Capture_App_Init();
     return true;
 }

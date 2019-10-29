@@ -226,6 +226,7 @@ void Pwr_WakeupProc(void)
     OpenFD();
     SleepRTC();
 }*/
+ uint8 ucIdet ;
 unsigned  long  appnegchange(unsigned long ltemp ,char  *cNeg);
 void Pwr_WakeupProc(void)
 {    
@@ -517,8 +518,12 @@ void Pwr_WakeupProc(void)
 //        }
 //    }
 //    RTCWakeUpTm(gs_WakeUp.ucType, gs_WakeUp.ucTmDly);  
+    
+    if  ( gul_DataCP < _IrmsStartPowerOn_ )
+    {  
     RTCWakeUpTm(RTC_SETSEC, 6);
     SleepRTC();
+    }
 }
 /*=========================================================================================\n
 * @function_name: Pwr_WakeupProc
