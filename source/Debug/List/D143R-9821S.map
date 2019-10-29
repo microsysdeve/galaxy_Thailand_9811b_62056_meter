@@ -133,7 +133,7 @@ Warning[w6]: Type conflict for external/entry "INTERRUPT_ENABLE", in module main
 #                                                                              #
 #      IAR Universal Linker V5.7.0.39                                          #
 #                                                                              #
-#           Link time     =  29/Oct/2019  10:47:36                             #
+#           Link time     =  29/Oct/2019  21:58:27                             #
 #           Target CPU    =  x51                                               #
 #           List file     =  C:\worktop\galaxy_Thailand_9811b_62056_meter\sour #
 #                            ce\Debug\List\D143R-9821S.map                     #
