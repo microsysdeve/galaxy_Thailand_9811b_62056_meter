@@ -41,7 +41,7 @@
 #define START_TH   START_TH_0A5   //启动门限宏定义
 
 #if( START_TH == START_TH_1A)  //1A启动
-
+ 
   #define IDET_STARTA     10608000           //A路快速电流检测阀值 1A x 0.8
   #define IDET_STARTB     11040000           //B路快速电流检测阀值 1A x 0.8
   #define RMSII1_TH       6538500     //1A x 0.9  要保证RMSII1大于此门限的时候 快速电流检测能一直检测到电流
@@ -50,7 +50,7 @@
 
   #define IDET_STARTA     3978000           //A路快速电流检测阀值 1A x 0.3
   #define IDET_STARTB     4140000           //B路快速电流检测阀值 1A x 0.3
-  #define RMSII1_TH       (2906000 *8)    //1A x 0.4
+  #define RMSII1_TH       (2906000 )    //1A x 0.4
 
 #endif
 

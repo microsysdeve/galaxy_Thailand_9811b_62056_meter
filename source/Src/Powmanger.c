@@ -228,7 +228,7 @@ void Pwr_WakeupProc(void)
 }*/
  uint8 ucIdet ;
 unsigned  long  appnegchange(unsigned long ltemp ,char  *cNeg);
-void Pwr_WakeupProc(void)
+void Pwr_WakeupProc_base(void)
 {    
 	 debug_break(	_debugh_fun_Pwr_WakeupProc_);
 
@@ -318,7 +318,7 @@ void Pwr_WakeupProc(void)
 //        gul_I1DCval = 0xFA7600;
         EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
         CtrlADC6 = 0;                                       //关AD通道 
-        EnyB_SetMeterCfgACK(gul_I1DCval,0x1001);            //设置A路直流偏置
+        EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
         EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置B路电流判断阀值
         gul_DataCP = gul_I1rms800k;
         gs_WakeUp.ucIncntA = 0;  //清空A路没电流计数 
@@ -333,21 +333,21 @@ void Pwr_WakeupProc(void)
 //            gul_I1DCval = 0xFA7600;
             EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
             CtrlADC6 = 0;                                       //关AD通道 
-            EnyB_SetMeterCfgACK(gul_I2DCval,0x1001);            //设置B路直流偏置
+            EnyB_SetMeterCfgACK(gul_I2DCval,0x2001);            //设置B路直流偏置
             EnyB_SetMeterCfgACK(IDET_STARTB, IDETTH);           //设置B路电流判断阀值            
             EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800,SCI1);
             gs_Channel.ucSta = SETB;
             gs_WakeUp.ucIncntA = 0;  //清空A路没电流计数 
         }
-        else
+      //  else
         {
           gul_Test = 2;  //测试用                                                       
             gul_I2rms800k = EnyB_ReadMeterParaACK(RMSII1)/MEA_BMUL; //读取B路有效值   
             gul_I2DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新B路直流值
-//            gul_I2DCval = 0xF41500;
+//          gul_I2DCval = 0xF41500;
             EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
             CtrlADC6 = 0;                                       //关AD通道 
-            EnyB_SetMeterCfgACK(gul_I1DCval,0x1001);            //设置A路直流偏置
+            EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
             EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置A路电流判断阀值
             EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800,SCI1);
             gs_Channel.ucSta = SETA;
@@ -421,7 +421,7 @@ void Pwr_WakeupProc(void)
 //        gul_I1DCval = 0xFA7600;
         EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
         CtrlADC6 = 0;                                       //关AD通道 
-        EnyB_SetMeterCfgACK(gul_I1DCval,0x1001);            //设置A路直流偏置
+        EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
         EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800,SCI1);
         gul_DataCP = 0;
 #else
@@ -437,7 +437,7 @@ void Pwr_WakeupProc(void)
 //            gul_I1DCval = 0xFA7600;
             EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
             CtrlADC6 = 0;                                       //关AD通道 
-            EnyB_SetMeterCfgACK(gul_I2DCval,0x1001);            //设置B路直流偏置
+            EnyB_SetMeterCfgACK(gul_I2DCval,0x2001);            //设置B路直流偏置
             EnyB_SetMeterCfgACK(IDET_STARTB, IDETTH);           //设置B路电流判断阀值
             EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800,SCI1);
             gs_Channel.ucSta = SETB;
@@ -454,7 +454,7 @@ void Pwr_WakeupProc(void)
 //            gul_I2DCval = 0xF41500;
             EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
             CtrlADC6 = 0;                                       //关AD通道 
-            EnyB_SetMeterCfgACK(gul_I1DCval,0x1001);            //设置A路直流偏置
+            EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
             EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置A路电流判断阀值
             EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800,SCI1);
             gs_Channel.ucSta = SETA;
@@ -519,11 +519,10 @@ void Pwr_WakeupProc(void)
 //    }
 //    RTCWakeUpTm(gs_WakeUp.ucType, gs_WakeUp.ucTmDly);  
     
-    if  ( gul_DataCP < _IrmsStartPowerOn_ )
-    {  
+   
     RTCWakeUpTm(RTC_SETSEC, 6);
     SleepRTC();
-    }
+   
 }
 /*=========================================================================================\n
 * @function_name: Pwr_WakeupProc
@@ -624,7 +623,7 @@ void Pwr_SlpReset(void)
     
     EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
     CtrlADC6 = 0;
-    EnyB_SetMeterCfgACK(gul_I1DCval,0x1001);            //设置A路直流偏置
+    EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
     EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置A路电流判断阀值
     EnyB_SetMeterH2L(gs_JbPm.ul_SCI1_800,SCI1);         //写入比差值，同时计量频率切换到 低频
     
@@ -673,7 +672,7 @@ bool Pwr_ChkProc(void)
 //        DelayOSC(15); 
     }
     SLPWDT();               //800k喂狗
-    if(i >= CONFIG_DELAY && !POWERUP())        //没电
+    if((i >= CONFIG_DELAY && !POWERUP()) || (1))       //没电
     {  
 #if (MEA_SLP_FMCU == 1)      
        if(PowOffSetFmcu(PLL_3D2M) == 0)   //MCU切3.2M
@@ -696,7 +695,8 @@ bool Pwr_ChkProc(void)
  //////////////////////////////////////////////////////       
     //    if((((gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2)) && (0)) || PORRESET())   ) //没电池导致ram乱
         {
-          if  ((_Is_lPwr_SlpReset_Init())|| PORRESET())  		 
+         // if  ((_Is_lPwr_SlpReset_Init())|| PORRESET())  
+               if  ((_Is_lPwr_SlpReset_Init())&& (1)) 
             {
                 Mcu_I1nit();
                 data_restore();       
@@ -707,7 +707,18 @@ bool Pwr_ChkProc(void)
         }
         SLPWDT();
        RamData.Disp.DispCode.Code = 0x00000000;
+       UpDisp();   RamData.Disp.DispCode.Code = 0x00000000;
        UpDisp(); 
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+        LCD_Off();;
+
 //#if (POW_OFF_DISP == 1)        
 //        guc_PowOffRuning = true;
 //        Pwr_LcdSet();
@@ -722,7 +733,7 @@ bool Pwr_ChkProc(void)
 //            Pwr_SleepProc();
 //        }
 //#else                   //不带PT
-        if( gui_BatLowFlg == 0x5A5A) //电池电压低不去计量
+        if(( gui_BatLowFlg == 0x5A5A) && (0)) //电池电压低不去计量
         {
           CtrlADC6=0;      //关闭所有的ADC
           PMG=1;           //关闭计量时钟
@@ -733,11 +744,11 @@ bool Pwr_ChkProc(void)
           SleepRTC();
         }else
         {
-        if ( _IsFactory_Mode() )  
+ /*       if ( _IsFactory_Mode() )  
         {  _CfPluse_OutEnable();   _CfPluse_E1Out()  ;}
         else  if ( _IsSleepPluseOutEnAble() ) 
          {  _CfPluse_OutEnable();   _CfPluse_E1Out()  ;}
-        
+   */     
           Pwr_WakeupProc();       //唤醒处理
         }
 //#endif
@@ -781,4 +792,291 @@ bool Pwr_ChkProc(void)
 void Pwr_UpProc(void)
 {
     
+}
+
+void Pwr_WakeupProc_adc2allTurno(void)
+{    
+	 debug_break(	_debugh_fun_Pwr_WakeupProc_);
+
+#if (MEA_SLP_PLL == 1)    
+    CtrlBGP  &= 0x3f;                               //正常计量 ADC全局电流偏置 改善误差
+    CtrlCLK = (CtrlCLK & 0xC3)| 0x28;               //MEA 3.2M  ADC 800K
+#endif 
+    gul_DataCP = gul_DataCP/MEA_AMUL;               //计算800k时常数计量值(大信号溢出)
+    EnyB_SetMeterL2H(gul_DataCP,  DATACP);
+    
+    EnyB_SetMeterCfgACK(0x34730a4 ,  GATEP) ;
+    
+    //写入常数功率寄存器，MEA-32K切3.2M
+#if (MEA_SLP_PLL == 0)
+    EnyB_SetMeterCfgACK(0x911d3c9c, PARABPF);       //800K滤波器参数
+#else
+    EnyB_SetMeterCfgACK(0x889374bc, PARABPF);       //3.2M滤波器参数
+#endif
+    EnyB_SetMeterCfgACK(0x00, IDET);                //开启采样与功率有效值计算
+#if (MEA_SLP_CF == 1)    
+    EnyB_SetMeterCfgACK(0x1A, PMCtrl4);             //常数计量，使能能量累加，CF输出
+    EnyB_SetMeterCfgACK(0x10,CRPST);                //脉宽40ms
+#else
+    EnyB_SetMeterCfgACK(0x0A, PMCtrl4);             //常数计量，使能能量累加
+#endif    
+    EnyB_SetMeterCfgACK(0x00, PMCtrl3);             //禁止带通滤波器
+    CtrlADC0 = gs_JbPm.uc_AnaG;                         //设置ADC增益
+#if (MEA_SLP_FMCU == 1)     
+    PowOffSetFmcu(PLL_800K);         //MCU频率3.2M降到800K
+#endif      
+    /*先开模拟，再开数字,还要等待时间再开IDET*/    
+#if (CONFIG_CH == 1)  
+    CtrlADC6 = 0x01;	                            //开启模拟通道ADC_A,只有A路带快速电流检测
+    EnyB_SetMeterCfgACK(0x12, PMCtrl1);             //开启通道A,信号输入通道1
+#else    
+     
+        CtrlADC6 = 0x01|  0x02;;
+        EnyB_SetMeterCfgACK(0x16 , PMCtrl1);         //开启通道A,信号输入通道1,//开启通道B,信号输入通道1
+ 
+#endif 
+    EnyB_SetMeterCfgACK(0x05,CFCtrl);               //仅用正向能量桶累计    
+#if (MEA_SLP_PLL == 0)                              //计量800K:需要等待时间在开启 3.2M:无需等待
+    Init_Timer1(5);   //MCU挂起等待5ms 
+    TR1 = 1;
+     _Interrupt_AppEnable();   //EA = 1;
+    PCON = 1;   //MCU挂起等待Xms  
+    _Interrupt_AppDisable();                    
+    EnyB_SetMeterCfgACK(0x13, IDET);                //MEA-800K 设置判断点数4 开始判断
+#else
+    EnyB_SetMeterCfgACK(0x1F, IDET);                //MEA-3.2M 设置判断点数16,开始判断
+    goto a1;
+#endif  
+    
+//#if (MEA_SLP_FMCU == 1)   //MCU 3.2M 
+//    Init_Timer1(15);                                //MCU挂起等待15ms
+//#else
+      Init_Timer1(15);                                //MCU挂起等待15ms
+//#endif    
+    TR1 = 1;
+   _Interrupt_AppEnable();   // EA = 1;
+    PCON = 1;    //MCU挂起等待Xms  
+    _Interrupt_AppDisable();
+    
+    uint8 ucIdet = EnyB_ReadMeterParaACK(IDET);     //读取判断结果
+    EnyB_SetMeterCfgACK(0x00, IDET);                //关闭快速电流检测
+a1:     
+  //================================================return;
+    if((ucIdet & 0x40) || (1))  //判断有电流
+    {
+#if (MEA_SLP_PLL == 0)
+        Init_Timer1(400);                        //配置定时器1, 400ms  定时器的时间不够,只能工作在MCU 800K
+#else
+        Init_Timer1(125);                        //配置定时器1, 125ms  
+#endif
+        SLPWDT(); 
+        TR1 = 1;
+       _Interrupt_AppEnable();   // EA = 1;
+        PCON = 1;                                   //MCU挂起等待Xms
+        _Interrupt_AppDisable();
+        SLPWDT();
+#if (MEA_SLP_FMCU == 1) 
+        PowOffSetFmcu(PLL_3D2M);   //MCU切3.2M 
+#endif         
+#if (CONFIG_CH == 1) 
+        gul_I1rms800k = EnyB_ReadMeterParaACK(RMSII1);      //读取A路有效值
+        gul_I1DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新A路直流值
+//        gul_I1DCval = 0xFA7600;
+        EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
+        CtrlADC6 = 0;                                       //关AD通道 
+        EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
+        EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置B路电流判断阀值
+        gul_DataCP = gul_I1rms800k;
+        gs_WakeUp.ucIncntA = 0;  //清空A路没电流计数 
+#else        
+        if((gs_Channel.ucSta == SETA) ||(1))
+        {
+          char ctemp;
+            gul_Test = 1;  //测试用
+            gul_I1rms800k = EnyB_ReadMeterParaACK(RMSII1);      //读取A路有效值
+   //======         gul_I1DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新A路直流值
+            
+            gul_I2rms800k = EnyB_ReadMeterParaACK(RMSII2)/MEA_BMUL; //读取B路有效值   
+     //======           gul_I2DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新B路直流值
+            
+        //     RamData.Iph.sVI=BCD2Hex(appnegchange(CalRMS(RMSI1),&ctemp));
+//            gul_I1DCval = 0xFA7600;
+             EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
+             CtrlADC6 = 0;                                       //关AD通道 
+    //======          EnyB_SetMeterCfgACK(gul_I2DCval,0x2001);            //设置B路直流偏置
+    //======          EnyB_SetMeterCfgACK(IDET_STARTB, IDETTH);           //设置B路电流判断阀值   
+            
+            
+            EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800,SCI1);
+            EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800,SCI2);
+            gs_Channel.ucSta = SETB;
+            gs_WakeUp.ucIncntA = 0;  //清空A路没电流计数 
+        }
+        else
+        {
+          gul_Test = 2;  //测试用                                                       
+            gul_I2rms800k = EnyB_ReadMeterParaACK(RMSII1)/MEA_BMUL; //读取B路有效值   
+            gul_I2DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新B路直流值
+//            gul_I2DCval = 0xF41500;
+            EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
+            CtrlADC6 = 0;                                       //关AD通道 
+            EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
+            EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置A路电流判断阀值
+         
+            gs_Channel.ucSta = SETA;
+            gs_WakeUp.ucIncntB = 0;  //清空B路没电流计数 
+        }
+        //得到大值
+        gul_DataCP = (gul_I1rms800k>gul_I2rms800k?gul_I1rms800k:gul_I2rms800k);
+        gul_DataCP = 0x04FF1624;
+#endif  
+     
+        if(gul_DataCP > RMSII1_TH) //防止小于启动电流时快速电流检测的误判
+          EnyB_SetMeterH2L(gul_DataCP, DATACP);       //常数计量值
+        else
+        {
+          gul_DataCP = 0x00;//测试用
+          EnyB_SetMeterH2L(0x00, DATACP);       //常数计量值
+        }
+    }
+    else
+    {   
+      SLPWDT();
+      if(gs_Channel.ucSta == SETA) //A、B路没电流计数 
+      {
+        gs_WakeUp.ucIncntA++;
+      }else
+      {
+        gs_WakeUp.ucIncntB++;
+      }
+      if((gs_WakeUp.ucIncntA>10)||(gs_WakeUp.ucIncntB>10))
+      {                   
+#if (MEA_SLP_PLL == 0)
+        Init_Timer1(400);                        //配置定时器1, 400ms  定时器的时间不够,只能工作在MCU 800K  
+#else
+        Init_Timer1(125);                        //配置定时器1, 125ms  
+#endif
+        SLPWDT(); 
+        TR1 = 1;
+        _Interrupt_AppEnable(); // EA = 1;
+        PCON = 1;                                   //MCU挂起等待Xms
+        _Interrupt_AppDisable();
+        SLPWDT();
+      }
+#if (MEA_SLP_FMCU == 1) 
+      PowOffSetFmcu(PLL_3D2M);   //MCU切3.2M 
+#endif 
+#if (CONFIG_CH == 1) 
+        gul_I1rms800k = 0;
+        if(gs_WakeUp.ucIncntA>10)   //没电流大于10次唤醒间隔
+        {
+          gul_I1DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新A路直流值
+          gs_WakeUp.ucIncntA = 0;  //清空计数 
+        }
+//        gul_I1DCval = 0xFA7600;
+        EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
+        CtrlADC6 = 0;                                       //关AD通道 
+        EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
+        EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800,SCI1);
+        gul_DataCP = 0;
+#else
+        if(gs_Channel.ucSta == SETA)
+        {
+          gul_Test = 3;  //测试用
+            gul_I1rms800k = 0;
+            if(gs_WakeUp.ucIncntA>10)  //没电流大于10次唤醒间隔
+            {
+              gul_I1DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新B路直流值
+              gs_WakeUp.ucIncntA = 0;  //清空计数 
+            }
+//            gul_I1DCval = 0xFA7600;
+            EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
+            CtrlADC6 = 0;                                       //关AD通道 
+            EnyB_SetMeterCfgACK(gul_I2DCval,0x2001);            //设置B路直流偏置
+            EnyB_SetMeterCfgACK(IDET_STARTB, IDETTH);           //设置B路电流判断阀值
+            EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800,SCI1);
+            gs_Channel.ucSta = SETB;
+        }
+        else
+        {
+          gul_Test = 4;  //测试用
+            gul_I2rms800k = 0;
+            if(gs_WakeUp.ucIncntB>10)  //没电流大于10次唤醒间隔
+            {  
+              gul_I2DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新A路直流值
+              gs_WakeUp.ucIncntB = 0;  //清空计数 
+            }
+//            gul_I2DCval = 0xF41500;
+            EnyB_SetMeterCfgACK(0, PMCtrl1);                    //停止计算，屏蔽信号 
+            CtrlADC6 = 0;                                       //关AD通道 
+            EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
+            EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置A路电流判断阀值
+            EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800,SCI1);
+            gs_Channel.ucSta = SETA;
+        }
+        gul_DataCP = (gul_I1rms800k>gul_I2rms800k?gul_I1rms800k:gul_I2rms800k);
+
+#endif  
+        if(gul_DataCP > RMSII1_TH)  //防止小于启动电流时快速电流检测的误判
+          EnyB_SetMeterH2L(gul_DataCP, DATACP);       //常数计量值
+        else
+        {
+          gul_DataCP = 0x00;//测试用
+          EnyB_SetMeterH2L(0x00, DATACP);       //常数计量值
+        }
+    }    
+    
+#if (POW_OFF_ENYPROC == 1) 
+    DelayXms(1);   //计量从高频切到32K时 在MCU 3.2M读计量寄存器时需要等待
+   //============================================ Eny_SlpEnergyProc(); //能量处理
+#endif    
+    
+#if (POW_OFF_DISP == 1) 
+    LCDInitSleep();    //初始化LCD显示
+//    if(gs_Channel.ucSta == SETB)
+//    {
+//      gul_Test = (gul_I1DCval>>8)|(uint32)gul_Test<<20;
+//    }else
+//    {
+//      gul_Test = (gul_I2DCval>>8)|(uint32)gul_Test<<20;
+//    }
+//    gul_Test = gul_DatCFcnt;
+    gul_Test = ((uint16)(gul_DataCP>>8))|(gul_Test<<16)|(((uint32)gs_PowerCf.uc_Pz)<<20);
+    PowOffShowRefresh();                  //立即刷新
+#endif    
+     
+//    if(gul_DataCP >= RMSII1_TH)  //1A启动时寄存器RMSII1的值(经过比差计算之后的值)
+//    {
+//        gs_WakeUp.ucSlpCnt = 0;
+//        gs_WakeUp.ucTmDly = 6;
+//        gs_WakeUp.ucType = RTC_SETSEC;
+//    }
+//    else
+//    {
+//        gs_WakeUp.ucSlpCnt++;
+//        if(gs_WakeUp.ucType == RTC_SETSEC && gs_WakeUp.ucSlpCnt>10)
+//        {           
+//            gs_WakeUp.ucSlpCnt = 0;
+//            gs_WakeUp.ucTmDly  = 0;
+//            gs_WakeUp.ucType   = RTC_MIN;
+//        }
+//        else if(gs_WakeUp.ucType == RTC_MIN && gs_WakeUp.ucSlpCnt>59)
+//        {
+//            gs_WakeUp.ucSlpCnt = 0;
+//            gs_WakeUp.ucTmDly = 0;
+//            gs_WakeUp.ucType = RTC_HOUR;
+//        }
+//        else if(gs_WakeUp.ucType == RTC_HOUR && gs_WakeUp.ucSlpCnt>23)
+//        {
+//            gs_WakeUp.ucSlpCnt = 0;
+//            gs_WakeUp.ucTmDly = 0;
+//            gs_WakeUp.ucType = RTC_DAY;
+//        }
+//    }
+//    RTCWakeUpTm(gs_WakeUp.ucType, gs_WakeUp.ucTmDly);  
+    
+
+    RTCWakeUpTm(RTC_SETSEC, 6);
+    SleepRTC();
+   
 }

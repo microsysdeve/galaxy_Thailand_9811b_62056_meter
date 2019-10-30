@@ -776,7 +776,7 @@ void Eny_SlpEnergyProc(void)
     gs_PowerCf.uc_Pz += (guc_DatCFrmd/2);
     guc_DatCFrmd %= 2;
     
-    RamData.ImpBfr+=guc_DatCFrmd ;
+    RamData.ImpBfr+=gs_PowerCf.uc_Pz ;
     if ( RamData.ImpBfr )   
     {
     Do_Use();

@@ -27,7 +27,12 @@ POWMANGE_EXT uint32 gul_Test;
 
 void Pwr_DownChk(void);
 uint8 Pwr_DownProc(void);
-void Pwr_WakeupProc(void);
+//void Pwr_WakeupProc(void);
+#define    Pwr_WakeupProc()  Pwr_WakeupProc_adc2allTurno()
+
+
+void Pwr_WakeupProc_adc2allTurno(void);
+
 void Pwr_SleepProc(void);
 void Pwr_LcdSet(void);
 //void Pwr_E2Save(void);

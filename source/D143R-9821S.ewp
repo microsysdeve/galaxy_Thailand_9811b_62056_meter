@@ -1517,6 +1517,7 @@
           <state>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\inc</state>
           <state>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src</state>
           <state>$PROJ_DIR$\src\lib</state>
+          <state>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5_2\8051\src\lib</state>
         </option>
         <option>
           <name>CCStdIncCheck</name>
@@ -1741,7 +1742,7 @@
         </option>
         <option>
           <name>Include directories</name>
-          <state></state>
+          <state>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5_2\8051\src\lib</state>
         </option>
       </data>
     </settings>
