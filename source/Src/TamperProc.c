@@ -41,7 +41,7 @@ void Tamp_ChkPLL(void)
     if ( 0 == Tamp_ChkUrms()) //if(false == Tamp_ChkUrms())
         return;
 
-    if(gul_Urms800k < Voltage_100V)//如果掉零线
+    if((gul_Urms800k < Voltage_100V)  && (0))//如果掉零线
     {
         guc_WorkMd = TamperMode;
     }
@@ -52,7 +52,7 @@ void Tamp_ChkPLL(void)
     
     if(ucLastMd != guc_WorkMd)
     {
-        SwitchMode(ucLastMd); 
+        SwitchMode(guc_WorkMd); 
         //显示处理
         if(ucLastMd == TamperMode)
         {
@@ -115,14 +115,9 @@ char  Tamp_ChkUrms(void)
 #if (CONFIG_PT != 0)
     if(!POWERUP())
     {
-      if (_IrmsStartPowerOnCheck() )
-      {}
-      else
-      {
-        gul_Urms800k = 0;
-      return 1;//  return true;
-      }
-    }
+     gul_Urms800k = 0;
+     return 1;//  return true;
+      }   
 #endif    
     if(guc_PllSta == PLL_800K)
     {
@@ -539,6 +534,7 @@ void Tamp_Sleep(void)
         EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800, SCI1);            //写800k电流比差
         gul_DataCP = gul_I1rms800k/4;
 #else
+        /*
         if(gs_Channel.ucSta == SETA)
         {
             gul_I1rms800k = EnyB_ReadMeterParaACK(RMSII1);         //读取电流值
@@ -551,17 +547,19 @@ void Tamp_Sleep(void)
             //EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800, SCI1);        //写800k电流比差
             gul_DataCP = gul_I2rms800k/4;
         }
+        */
+            gul_I1rms800k = EnyB_ReadMeterParaACK(RMSII1);      //读取A路有效值   / 
+            gul_I2rms800k = EnyB_ReadMeterParaACK(RMSII2)/MEA_BMUL; //读取B路有效值   
+            gul_DataCP = _Irms_GetData()/4;      
 #endif        
         CtrlADC5 = 0;
         CtrlADC6 = 0;                                             //关AD通道   
         EnyB_SetMeterCfgACK(0, PMCtrl1);                          //停止计算，屏蔽信号  
 //        EnyB_SetMeterH2L(gul_DataCP, DATACP);                  //常数计量值 
 //        EnyB_SetMeterCfgACK(gs_JbPm.ul_Gatecp/4, GATECP);           //写入32K潜动门限
-
         EnyB_SetMeterCfgACK(0x10, CRPST);                          //关计量模式
         EnyB_SetMeterCfgACK(0, PMCtrl4);                          //关计量模式  
-        EnyB_SetMeterCfgACK(0x05,CFCtrl);       //只用正出CF
-        
+        EnyB_SetMeterCfgACK(0x05,CFCtrl);       //只用正出CF        
     }
 //    else
 //    {
@@ -570,28 +568,32 @@ void Tamp_Sleep(void)
 
 #if (CONFIG_CH == 1)
       EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800, SCI1);     //写800k电流比差
-      EnyB_SetMeterCfgACK(gul_I1DCval,0x1001);            //设置B路直流偏置
+      EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置B路直流偏置
       EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置B路电流判断阀值 
 #else
+      /*
         if(gs_Channel.ucSta == SETA)
         {
             EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800, SCI1);     //写800k电流比差
-            EnyB_SetMeterCfgACK(gul_I1DCval,0x1001);            //设置A路直流偏置
+            EnyB_SetMeterCfgACK(gul_I1DCval,0x2001);            //设置A路直流偏置
             EnyB_SetMeterCfgACK(IDET_STARTA, IDETTH);           //设置A路电流判断阀值            
         }
         else
         {
             EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800, SCI1);        //写800k电流比差
-            EnyB_SetMeterCfgACK(gul_I2DCval,0x1001);            //设置B路直流偏置
+            EnyB_SetMeterCfgACK(gul_I2DCval,0x2001);            //设置B路直流偏置
             EnyB_SetMeterCfgACK(IDET_STARTB, IDETTH);           //设置B路电流判断阀值            
         }
+      */
+        EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800, SCI1);     //写800k电流比差
+        EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800, SCI2);        //写800k电流比差
 #endif
 //    }
     EnyB_SetMeterCfgACK(0, PPCFCNT);                          //清计数器  
     EnyB_SetMeterCfgACK(0x5A, PMCtrl4);                    //常数计量模式, MEA转OSC时钟
     
     EnyB_SetMeterCfgACK(gs_JbPm.ul_GateOSC, GATEP);           //配置常数计量门限
-    EnyB_SetMeterCfgACK(gs_JbPm.ul_Gatecp/4, GATECP);           //写入32K潜动门限
+    EnyB_SetMeterCfgACK(gs_JbPm.ul_Gatecp/4, GATECP);          //写入32K潜动门限
     EnyB_SetMeterH2L(gul_DataCP, DATACP);                  //常数计量值
     
     gul_DatCFcnt = 0;

@@ -275,7 +275,7 @@ void Data_SecProc(void)
     {
 #if (CONFIG_CH == 2)
         CLRWDT();
-        Tamp_BlanceProc();        
+    //-----------    Tamp_BlanceProc();        
 #endif
         CLRWDT();
         if(EnyB_ChkPowRev((uint8*)&gs_Channel.ucSta, CONFIG_JUNC)) //功率方向判断

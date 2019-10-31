@@ -113,7 +113,7 @@ void Pwr_E2Save(void)
 uint8 Pwr_DownProc(void)
 { 
    _Interrupt_AppDisable();
-    IOOFF();                                              //关闭所有额外的IO
+    // IOOFF();                                              //关闭所有额外的IO
     IntOFF();                                             //关闭中断，清除中断标记
     UARTOFF();                                            //关闭所有UART       
 
@@ -129,7 +129,7 @@ uint8 Pwr_DownProc(void)
     gs_WakeUp.ucSlpCnt = 0;
     gs_WakeUp.ucIncntA = 0;
     gs_WakeUp.ucIncntB = 0;
-    if( gui_BatLowFlg == 0x5A5A) //电池电压低不去计量
+    if(( gui_BatLowFlg == 0x5A5A) && (0)) //电池电压低不去计量
     {
         CtrlADC6=0;      //关闭所有的ADC
         PMG=1;           //关闭计量时钟
@@ -250,7 +250,7 @@ void Pwr_WakeupProc_base(void)
 #else
     EnyB_SetMeterCfgACK(0x0A, PMCtrl4);             //常数计量，使能能量累加
 #endif    
-    EnyB_SetMeterCfgACK(0x00, PMCtrl3);             //禁止带通滤波器
+   EnyB_SetMeterCfgACK(0x60, PMCtrl3);    // EnyB_SetMeterCfgACK(0x00, PMCtrl3);             //禁止带通滤波器
     CtrlADC0 = gs_JbPm.uc_AnaG;                         //设置ADC增益
 #if (MEA_SLP_FMCU == 1)     
     PowOffSetFmcu(PLL_800K);         //MCU频率3.2M降到800K
@@ -706,18 +706,6 @@ bool Pwr_ChkProc(void)
             }            
         }
         SLPWDT();
-       RamData.Disp.DispCode.Code = 0x00000000;
-       UpDisp();   RamData.Disp.DispCode.Code = 0x00000000;
-       UpDisp(); 
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-        LCD_Off();;
 
 //#if (POW_OFF_DISP == 1)        
 //        guc_PowOffRuning = true;
@@ -805,7 +793,7 @@ void Pwr_WakeupProc_adc2allTurno(void)
     gul_DataCP = gul_DataCP/MEA_AMUL;               //计算800k时常数计量值(大信号溢出)
     EnyB_SetMeterL2H(gul_DataCP,  DATACP);
     
-    EnyB_SetMeterCfgACK(0x34730a4 ,  GATEP) ;
+    EnyB_SetMeterCfgACK(  _HFCONST32K_  ,  GATEP) ;
     
     //写入常数功率寄存器，MEA-32K切3.2M
 #if (MEA_SLP_PLL == 0)
@@ -820,7 +808,7 @@ void Pwr_WakeupProc_adc2allTurno(void)
 #else
     EnyB_SetMeterCfgACK(0x0A, PMCtrl4);             //常数计量，使能能量累加
 #endif    
-    EnyB_SetMeterCfgACK(0x00, PMCtrl3);             //禁止带通滤波器
+     EnyB_SetMeterCfgACK(0x60, PMCtrl3);    // EnyB_SetMeterCfgACK(0x00, PMCtrl3);             //禁止带通滤波器
     CtrlADC0 = gs_JbPm.uc_AnaG;                         //设置ADC增益
 #if (MEA_SLP_FMCU == 1)     
     PowOffSetFmcu(PLL_800K);         //MCU频率3.2M降到800K
@@ -845,13 +833,13 @@ void Pwr_WakeupProc_adc2allTurno(void)
     EnyB_SetMeterCfgACK(0x13, IDET);                //MEA-800K 设置判断点数4 开始判断
 #else
     EnyB_SetMeterCfgACK(0x1F, IDET);                //MEA-3.2M 设置判断点数16,开始判断
-    goto a1;
+
 #endif  
     
 //#if (MEA_SLP_FMCU == 1)   //MCU 3.2M 
 //    Init_Timer1(15);                                //MCU挂起等待15ms
 //#else
-      Init_Timer1(15);                                //MCU挂起等待15ms
+      Init_Timer1(15);                       //MCU挂起等待15ms
 //#endif    
     TR1 = 1;
    _Interrupt_AppEnable();   // EA = 1;
@@ -860,7 +848,7 @@ void Pwr_WakeupProc_adc2allTurno(void)
     
     uint8 ucIdet = EnyB_ReadMeterParaACK(IDET);     //读取判断结果
     EnyB_SetMeterCfgACK(0x00, IDET);                //关闭快速电流检测
-a1:     
+ 
   //================================================return;
     if((ucIdet & 0x40) || (1))  //判断有电流
     {
@@ -928,7 +916,7 @@ a1:
         }
         //得到大值
         gul_DataCP = (gul_I1rms800k>gul_I2rms800k?gul_I1rms800k:gul_I2rms800k);
-        gul_DataCP = 0x04FF1624;
+        
 #endif  
      
         if(gul_DataCP > RMSII1_TH) //防止小于启动电流时快速电流检测的误判
@@ -1044,7 +1032,24 @@ a1:
     gul_Test = ((uint16)(gul_DataCP>>8))|(gul_Test<<16)|(((uint32)gs_PowerCf.uc_Pz)<<20);
     PowOffShowRefresh();                  //立即刷新
 #endif    
-     
+     InitLCD(); 
+      RamData.Iph.sVI =  gul_DataCP  / 100 ;
+       RamData.Disp.DispCode.Code =0x02020100 ;// 0x00000000;
+        
+       UpDisp();   
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+        DelayOSC(244); SLPWDT();
+       DelayOSC(244); SLPWDT();
+       
+       
+        LCD_Off();;
 //    if(gul_DataCP >= RMSII1_TH)  //1A启动时寄存器RMSII1的值(经过比差计算之后的值)
 //    {
 //        gs_WakeUp.ucSlpCnt = 0;

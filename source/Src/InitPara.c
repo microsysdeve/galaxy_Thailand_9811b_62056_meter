@@ -2,23 +2,6 @@
 #include"Include.h"
 
 
-enum   ENUMDEF 
-{
-         _VolK_      =    0x5F6290b2,
-         _Curr_L_K_     =    0x389d9999,
-         _Curr_N_K_     =  0x389d9999,
-         _PowerL_K_      =            0x84f431,
-         _PowerN_K_       =           0x84f431,//803d04,
-         _PluseConst_ =1200,
-         _StandVol_= 230,
-         _Ib_= 5,
-         _HFCONST_L_ =0x17c6254,//0x1d5584a ,
-         _HFCONST_N_ = 0x17c6254,//0x1d5584a ,
-         _HFCONST800K_ =0xe15c8d7 ,  //0x4970C413 ,//
-         _HFCONST32K_ = 0x34730a4,//0x4970C413 ,//
-         _QDConst_L_= 0xfec164,
-         _QDConst_N_= _QDConst_L_,
-};
 
 #define      _format4(n)      (n&0xff),((n>>8)&0xff),((n>>16)&0xff),((n>>24)&0xff)
 #define      _format2(n)      (n&0xff),((n>>8)&0xff)

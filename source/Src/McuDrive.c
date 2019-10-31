@@ -1006,7 +1006,7 @@ uint8 SleepRTC(void)
 
 //    PMG=1; //关闭计量时钟
   
-    if ((_IsUpIo()) &&(0)) //  if((Systate&BIT0)==0x01)
+    if ((_IsUpIo()) &&(1)) //  if((Systate&BIT0)==0x01)
     {   
         return false;
     }
@@ -1017,7 +1017,7 @@ uint8 SleepRTC(void)
 //    MEAFRQ=0; 
 //    while(MEAFRQ);
 
-    if ((  _IsUpIo())&&(0)) //  if((Systate&BIT0)==BIT0)
+    if ((  _IsUpIo())&&(1)) //  if((Systate&BIT0)==BIT0)
     {   
         return false; 
     }

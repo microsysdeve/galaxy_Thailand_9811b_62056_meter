@@ -13,7 +13,7 @@
 #define CONFIG_CH       2               //1-单通道 2-双通道
 #define CONFIG_CH_DLY   2               //通道切换延时，单位S
 //PT配置
-#define CONFIG_PT       1               //0-不带PT 1-带PT
+#define CONFIG_PT       0              //0-不带PT 1-带PT
 //电流接线方式
 #define CONFIG_JUNC     1              //0-反接 1-正接
 #define CONFIG_POW_DLY  1               //电流反向判断延时
@@ -50,7 +50,7 @@
 
   #define IDET_STARTA     3978000           //A路快速电流检测阀值 1A x 0.3
   #define IDET_STARTB     4140000           //B路快速电流检测阀值 1A x 0.3
-  #define RMSII1_TH       (2906000 )    //1A x 0.4
+  #define RMSII1_TH       0x2c1234   // (2906000 )    //1A x 0.4
 
 #endif
 

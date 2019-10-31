@@ -1094,6 +1094,7 @@ uint8 EnyB_ChkPowRev(uint8 *channel, uint8 junc)
     uint32 ulPower;
     uint8 flag;
     
+      return false;
     if(*channel == SETA)
     {
         l_pa = EnyB_ReadMeterParaACK(DATAP);       
