@@ -15,12 +15,12 @@ typedef struct
     uint32 ul_TempParaE;      //系数E
     uint8  uc_Add33;          //和校验
 }S_TEMPPARA;
-
+/*
 RTCCPTEXT uint32 gul_CellVoltage;
 RTCCPTEXT uint8  guc_CheckBatFlg;
-RTCCPTEXT int16  gi_Temprature;
+ RTCCPTEXT int16  gi_Temprature;
 RTCCPTEXT uint8  guc_FrsCalRTCDelay;
-
+*/
 
 void CalRTC(void);
 void RecoverRtcPara(void);

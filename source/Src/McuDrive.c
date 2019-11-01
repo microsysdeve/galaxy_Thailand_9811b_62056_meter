@@ -1,9 +1,10 @@
 #define MCUDRIVEEXT
-#define RTCCPTEXT
+//#define RTCCPTEXT
 #include "Include.h"
 #include "powerevent.h"
 #define V98x1A1
 #include "Timer0Capture.h"
+void CalRTC(void); 
 /*=========================================================================================\n
 * @function_name: IO_Init
 * @function_file: main.c
@@ -710,6 +711,7 @@ void MChannelCal(void)
  
 void GetBat(void)
 {
+#ifdef _DEL
     volatile Word32 tempvalue;
 //    {
         CtrlADC5=0x97;                              //M2通道开启电池测量功能
@@ -765,6 +767,7 @@ void GetBat(void)
 //        guc_CheckBatFlg=false;
         CtrlADC5=0x81;      //切换到温度测量
 //    }
+#endif
 }
 /*=========================================================================================\n
 * @function_name: ChangeBodeProc
@@ -989,12 +992,12 @@ void SwichPluseOutType(uint8 type)
 uint8 SleepRTC(void)
 {
     uint8 i;
-
+ extern volatile unsigned short iKey_Intno;
    // gs_KeyCtr[UpKey].Status=KeyRls;             //按键设置为释放
       GPIO_Init_OffLine1();
     BE_I2C_SDA_1();
     BE_I2C_CLK_1();                     //I2C输出高
-//    FWC=0;
+  
 //    FSC=0;
 //    if((Systate&BIT0)==0x01)
 //    {   
@@ -1021,6 +1024,8 @@ uint8 SleepRTC(void)
     {   
         return false; 
     }
+     if (iKey_Intno!= stsleepstate.iKey_Intno)
+               return false; 
 
     for(i=0;i<3;i++);           //等待
 
@@ -1028,8 +1033,7 @@ uint8 SleepRTC(void)
     while(CtrlCLK);  
     
     SLEEP0=1;
-DelayOSC(5);
-
+    DelayOSC(5);
     return false;               //睡眠不成功返回错误
 }
 
@@ -1263,10 +1267,13 @@ void Mcu_RTCNormal(uint8 Pll)
    // DIVTHM = ul_div>>8;
   //  DIVTHL = ul_div;
     
-    RTC_Format (FlashInfo.lRtcJZPara);
+    // -----------------RTC_Format (FlashInfo.lRtcJZPara);
+    
+    
     DelayOSC(2);
     RTCPEN = 0x96;
-    RTCPWD = 0x56;
+    RTCPWD = 0x56;    
+   CalRTC();
 #if (CONFIG_RTC==0)
     FCpyTMem((uint8 *)&gs_DateTime, (uint8 code*)&InitTM, 7);
     SetExtRTC();   

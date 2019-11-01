@@ -365,14 +365,16 @@ __interrupt void PLLAndExINT3(void)
     debug_break(_debug_int_10_);
     
     if(ucTemp & BIT3) 
-    {        
-        iExtPort_Intno++;RamData.iIntPowkey = cExtWakt_RunTm;
-         ExInt4IFG &=~BIT3;
+    {   
+       iKey_Intno++;RamData.iIntPowkey = cExtWakt_RunTm;
+           ExInt4IFG &=~BIT3;
+        
     }
     if(ucTemp & BIT2) 
     {        
-      iKey_Intno++;RamData.iIntPowkey = cExtWakt_RunTm;
-           ExInt4IFG &=~BIT2;
+     
+      iExtPort_Intno++;RamData.iIntPowkey = cExtWakt_RunTm;
+         ExInt4IFG &=~BIT2;
     }
 }
 

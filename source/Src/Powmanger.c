@@ -698,10 +698,14 @@ bool Pwr_ChkProc(void)
          // if  ((_Is_lPwr_SlpReset_Init())|| PORRESET())  
                if  ((_Is_lPwr_SlpReset_Init())&& (1)) 
             {
+              extern volatile unsigned short iKey_Intno;
                 Mcu_I1nit();
                 data_restore();       
                 Pwr_SlpReset();       
                 Systate &=~BIT5;
+                stsleepstate.iKey_Intno =iKey_Intno-1;
+                stsleepstate.b2SleepAlmno=0;
+                stsleepstate.csleepShowpoint =2;
               _lPwr_SlpReset_Set_Run();
             }            
         }
@@ -732,12 +736,7 @@ bool Pwr_ChkProc(void)
           SleepRTC();
         }else
         {
- /*       if ( _IsFactory_Mode() )  
-        {  _CfPluse_OutEnable();   _CfPluse_E1Out()  ;}
-        else  if ( _IsSleepPluseOutEnAble() ) 
-         {  _CfPluse_OutEnable();   _CfPluse_E1Out()  ;}
-   */     
-          Pwr_WakeupProc();       //唤醒处理
+           Pwr_WakeupProc();       //唤醒处理
         }
 //#endif
         return false;         //休眠失败
@@ -916,7 +915,7 @@ void Pwr_WakeupProc_adc2allTurno(void)
         }
         //得到大值
         gul_DataCP = (gul_I1rms800k>gul_I2rms800k?gul_I1rms800k:gul_I2rms800k);
-        
+    //    gul_DataCP =RMSII1_TH+100;
 #endif  
      
         if(gul_DataCP > RMSII1_TH) //防止小于启动电流时快速电流检测的误判
@@ -1032,24 +1031,8 @@ void Pwr_WakeupProc_adc2allTurno(void)
     gul_Test = ((uint16)(gul_DataCP>>8))|(gul_Test<<16)|(((uint32)gs_PowerCf.uc_Pz)<<20);
     PowOffShowRefresh();                  //立即刷新
 #endif    
-     InitLCD(); 
-      RamData.Iph.sVI =  gul_DataCP  / 100 ;
-       RamData.Disp.DispCode.Code =0x02020100 ;// 0x00000000;
-        
-       UpDisp();   
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-        DelayOSC(244); SLPWDT();
-       DelayOSC(244); SLPWDT();
-       
-       
-        LCD_Off();;
+   void            SleepLcdRefresh(void); 
+    SleepLcdRefresh();
 //    if(gul_DataCP >= RMSII1_TH)  //1A启动时寄存器RMSII1的值(经过比差计算之后的值)
 //    {
 //        gs_WakeUp.ucSlpCnt = 0;

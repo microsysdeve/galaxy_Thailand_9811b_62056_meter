@@ -283,7 +283,7 @@
         </option>
         <option>
           <name>CCPreprocFile</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCPreprocComments</name>
@@ -311,7 +311,7 @@
         </option>
         <option>
           <name>CCListAssSource</name>
-          <state>0</state>
+          <state>1</state>
         </option>
         <option>
           <name>CCEnableRemarks</name>
@@ -3299,6 +3299,9 @@
   </file>
   <file>
     <name>$PROJ_DIR$\Src\pxv9811b.c</name>
+  </file>
+  <file>
+    <name>$PROJ_DIR$\Src\RtcCpt.c</name>
   </file>
   <file>
     <name>$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\safedate.c</name>
