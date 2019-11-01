@@ -1,0 +1,112 @@
+#define INIT_EXT
+#include"Include.h"
+
+const uint8 code InitPara0[]=
+{
+    0x00,0x00,0x00,0x00,0x00,0x00,0x00,     //通讯地址
+    0x15,                                   //需量周期
+    0x15,                                   //负荷曲线周期
+    0x05,0x04,0x14,                         //生产日期
+    0x05,0x04,0x14,                         //校表日期
+    0x05,0x10,0x05,0x04,0x14,               //费率修改日期
+    0x30,0x30,0x30,0x30,0x30,0x30,0x30,0x30,//读密码
+    0x30,0x30,0x30,0x30,0x30,0x30,0x30,0x30,//写密码  
+    0x00,0x01,                              //第1结算日
+    0x99,0x99,                              //第2结算日
+    0x99,0x99,                              //第3结算日
+    0x01,                                   //电池状态
+};
+
+const uint8 code InitPara1[]=
+{
+    0x99,0x99,0x99,0x99,0x99,0x99,0x99,0x99,
+    0x00,0x22,0x00,0x10,0x00,0x09,0x00,0x08,//工作日费率时间
+    0x99,0x99,0x99,0x99,0x99,0x99,0x99,0x99,
+    0x00,0x22,0x00,0x10,0x00,0x09,0x00,0x08,//星期六费率时间
+    0x99,0x99,0x99,0x99,0x99,0x99,0x99,0x99,
+    0x00,0x22,0x00,0x10,0x00,0x09,0x00,0x08,//星期天费率时间
+};
+
+const uint8 code InitPara2[]=
+{
+    0x99,0x99,0x99,0x99,0x04,0x03,0x02,0x01,    //工作日费率
+    0x99,0x99,0x99,0x99,0x04,0x03,0x02,0x01,    //星期六费率
+    0x99,0x99,0x99,0x99,0x04,0x03,0x02,0x01,    //星期天费率
+};
+
+const uint8 code InitPara3[sizeof(S_JBPM)-2]=
+{
+    0xE8,0x03,     //表常数
+    0xf0,0x55,     //标称电压
+    0x88,0x13,     //标称电流
+    0x00,
+    0xA2,0xD3,0x3D,0x92,//有功能量脉冲门限值
+    0x8B,0xE6,0x4F,0x00,//有功能量潜动门限值
+
+    0x32,0x88,0x9B,0x0C,//有功比差值
+    0x00,0x00,0x00,0x00,//无功比差值
+    0x1C,0x76,0xA4,0x04,//电压有效值比差
+    0x81,0x63,0x32,0xC5,//通道I1电流有效值比差
+    0x00,0x00,0x00,0x00,//通道I2电流有效值比差
+
+    0xDD,0xFF,0xFF,0xFF,//有功功率二次补偿值
+    0x00,0x00,0x00,0x00,//无功功率二次补偿值
+
+    0x07,               //通道I1角差校正值
+    0x01,               //通道I2角差校正值
+
+    0xA6,0x10,0x00,0x00,//功率显示比例系数k
+    0x1E,0x3D,0x00,0x00,//电压显示比例系数k
+    0xA5,0x0B,0x00,0x00,//电流I1显示比例系数k
+    0xA5,0x16,0x00,0x00,//电流I2显示比例系数k
+    0x0F,               //通道增益
+    //CRC
+};
+
+typedef struct 
+{
+    const uint8 code* E2ParaTabAdrr;    //E2参数表格地址
+    uint16 E2Adrr;                      //E2地址
+    uint8  uclen;                       //数据长度
+}GS_E2PARA;
+
+const  GS_E2PARA code PageCRCAddr[]=
+{
+    {InitPara0,     EEP_COMADD,         sizeof(InitPara0),  },
+    {InitPara1,     EEP_WORK_FEE_TIME,  sizeof(InitPara1),  },
+    {InitPara2,     EEP_WORK_FEE,       sizeof(InitPara2),  },
+    {InitPara3,     EEP_JBTOTAL,        sizeof(InitPara3),  },
+};
+
+/*=========================================================================================\n
+* @function_name: InitE2Data
+* @function_file: InitPara.c
+* @描述: 
+* 
+* @参数: 
+* @返回: 
+* @作者:   lwb (2012-05-04)
+* @备注: 
+*-------------------------------------------------------------------------------------------
+* @修改人:  
+* @修改内容: 
+===========================================================================================*/
+void InitE2Data(void)
+{
+    Word16 CRC;
+    ClRCRCWord(guc_InitWd);
+    for(uint8 i=0;i<sizeof(PageCRCAddr)/sizeof(GS_E2PARA);i++)
+    {
+        CLRWDT();                           //喂狗
+        MemSet(XDATA_RAMZONE,0x00,64);
+        FCpyTMem(XDATA_RAMZONE,PageCRCAddr[i].E2ParaTabAdrr,PageCRCAddr[i].uclen);//拷贝Flash数据到RAM中
+        CRC.word=do_CRC(XDATA_RAMZONE,62);
+        XDATA_RAMZONE[62]=CRC.byte[0];
+        XDATA_RAMZONE[63]=CRC.byte[1];                          //拷贝CRC到RAM中
+        BE_WriteP(PageCRCAddr[i].E2Adrr,XDATA_RAMZONE,64);      //写入到E2中
+    }
+    
+    SetCRCWord(guc_InitWd);
+    Data_ClearMeter();                                          //电表清零
+    gui_RefreshEvent|=flgEtPara_EnyBottom;
+}

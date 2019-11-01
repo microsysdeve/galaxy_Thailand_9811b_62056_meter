@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1686815799</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\Debug\Obj\Uart1.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Api.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Timeproc.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\ComCoretab.r51</file>
+      <file>$PROJ_DIR$\Inc\Timeproc.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart5.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Ptl_1107.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Dataproc.r51</file>
+      <file>$PROJ_DIR$\Src\Core.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\BEBottom.r51</file>
+      <file>$PROJ_DIR$\Inc\Energy.h</file>
+      <file>$PROJ_DIR$\Inc\Lcdmiddle.h</file>
+      <file>$PROJ_DIR$\Src\Uart1.c</file>
+      <file>$PROJ_DIR$\Inc\Powmanger.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Prcfrm.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Powmanger.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Key.pbi</file>
+      <file>$PROJ_DIR$\Inc\Include.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\MAdc.r51</file>
+      <file>$PROJ_DIR$\Src\Uart4.c</file>
+      <file>$TOOLKIT_DIR$\inc\clib\sysmac.h</file>
+      <file>$PROJ_DIR$\Src\Timeproc.c</file>
+      <file>$PROJ_DIR$\Inc\LcdBottom.h</file>
+      <file>$PROJ_DIR$\Src\System.c</file>
+      <file>$PROJ_DIR$\Src\Uart2.c</file>
+      <file>$PROJ_DIR$\Src\Ptl_1107.c</file>
+      <file>$TOOLKIT_DIR$\inc\intrinsics.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Lcdshow.r51</file>
+      <file>$PROJ_DIR$\Inc\EnergyBottom.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\RtcCpt.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\InitPara.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Lcdmiddle.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\BEBottom.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Timeproc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Energy.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Multariff.r51</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdbool.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\KeyProc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\DataProtect.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ComApplication.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\DataProtect.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\ComBottom.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\ComCoretab.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\math.h</file>
+      <file>$PROJ_DIR$\Src\Multariff.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\EnergyBottom.pbi</file>
+      <file>$PROJ_DIR$\Inc\ComApplication.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\EnergyBottom.r51</file>
+      <file>$PROJ_DIR$\Inc\TaskConfig.h</file>
+      <file>$PROJ_DIR$\Inc\DataProtect.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart2.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart4.pbi</file>
+      <file>$PROJ_DIR$\Inc\dw8051.h</file>
+      <file>$PROJ_DIR$\Src\TaskConfig.c</file>
+      <file>$PROJ_DIR$\Inc\ADKfunc.h</file>
+      <file>$PROJ_DIR$\Inc\PrologFee.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\D113.pbd</file>
+      <file>$PROJ_DIR$\Src\MAdc.c</file>
+      <file>$PROJ_DIR$\Inc\BEBottom.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\InitPara.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\KeyProc.r51</file>
+      <file>$PROJ_DIR$\Inc\LeopardDReg.h</file>
+      <file>$PROJ_DIR$\Inc\DLT_645_2007.h</file>
+      <file>$PROJ_DIR$\Inc\System.h</file>
+      <file>$PROJ_DIR$\Inc\TamperProc.h</file>
+      <file>$PROJ_DIR$\Inc\FunCfg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Lcdshow.pbi</file>
+      <file>$PROJ_DIR$\Inc\KeyProc.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart4.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Lcdmiddle.r51</file>
+      <file>$PROJ_DIR$\Inc\Version.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Prcfrm.r51</file>
+      <file>$TOOLKIT_DIR$\inc\clib\string.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Ptl_1107.pbi</file>
+      <file>$PROJ_DIR$\Inc\ComCoretab.h</file>
+      <file>$PROJ_DIR$\Inc\ComBottom.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\System.pbi</file>
+      <file>$TOOLKIT_DIR$\src\lib\iar_common.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\ComApplication.r51</file>
+      <file>$PROJ_DIR$\Inc\TypeDef.h</file>
+      <file>$PROJ_DIR$\Inc\Demand.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\RtcCpt.pbi</file>
+      <file>$PROJ_DIR$\Inc\Uart2.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\McuDrive.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart1.pbi</file>
+      <file>$PROJ_DIR$\Inc\MAdc.h</file>
+      <file>$PROJ_DIR$\Inc\Uart1.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\cstartup.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\McuDrive.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\ComBottom.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Powmanger.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Core.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Key.r51</file>
+      <file>$PROJ_DIR$\Inc\Prcfrm.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\LcdBottom.pbi</file>
+      <file>$PROJ_DIR$\Inc\InitPara.h</file>
+      <file>$PROJ_DIR$\Inc\RtcCpt.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\TaskConfig.pbi</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nlxc-1e16x01.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\TaskConfig.r51</file>
+      <file>$PROJ_DIR$\Src\Lcdshow.c</file>
+      <file>$PROJ_DIR$\Src\Key.c</file>
+      <file>$PROJ_DIR$\Src\InitPara.c</file>
+      <file>$PROJ_DIR$\Src\LcdBottom.c</file>
+      <file>$PROJ_DIR$\Src\KeyProc.c</file>
+      <file>$PROJ_DIR$\Src\Energy.c</file>
+      <file>$PROJ_DIR$\Src\main.c</file>
+      <file>$PROJ_DIR$\Src\Lcdmiddle.c</file>
+      <file>$PROJ_DIR$\Src\EnergyBottom.c</file>
+      <file>$PROJ_DIR$\Src\McuDrive.c</file>
+      <file>$PROJ_DIR$\Src\ComCoretab.c</file>
+      <file>$PROJ_DIR$\Src\BEBottom.C</file>
+      <file>$PROJ_DIR$\Src\DataProtect.c</file>
+      <file>$PROJ_DIR$\Src\Dataproc.c</file>
+      <file>$PROJ_DIR$\Src\ComApplication.C</file>
+      <file>$PROJ_DIR$\Src\ComBottom.C</file>
+      <file>$PROJ_DIR$\Src\DLT_645_2007.c</file>
+      <file>$PROJ_DIR$\Src\Api.c</file>
+      <file>$PROJ_DIR$\Src\cstartup.s51</file>
+      <file>$PROJ_DIR$\Src\Prcfrm.c</file>
+      <file>$PROJ_DIR$\Src\Powmanger.c</file>
+      <file>$PROJ_DIR$\Inc\Core.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\MAdc.pbi</file>
+      <file>$PROJ_DIR$\Inc\Key.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\DLT_645_2007.r51</file>
+      <file>$PROJ_DIR$\Inc\SerialBottom.h</file>
+      <file>$PROJ_DIR$\Inc\McuDrive.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Dataproc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Core.r51</file>
+      <file>$PROJ_DIR$\Inc\ComConfig.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Api.r51</file>
+      <file>$PROJ_DIR$\Debug\Exe\D113.d51</file>
+      <file>$PROJ_DIR$\Src\SerialBottom.c</file>
+      <file>$PROJ_DIR$\Debug\Obj\DLT_645_2007.pbi</file>
+      <file>$PROJ_DIR$\Inc\Api.h</file>
+      <file>$PROJ_DIR$\lnk51ew.xcl</file>
+      <file>$PROJ_DIR$\Debug\Obj\Multariff.pbi</file>
+      <file>$PROJ_DIR$\Src\Uart5.c</file>
+      <file>$PROJ_DIR$\Inc\reg52.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r51</file>
+      <file>$PROJ_DIR$\Debug\Exe\HB001.HEX</file>
+      <file>$PROJ_DIR$\Inc\LigReg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\SerialBottom.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Uart2.r51</file>
+      <file>$PROJ_DIR$\Inc\E2AddTab.h</file>
+      <file>$PROJ_DIR$\Inc\Uart4.h</file>
+      <file>$PROJ_DIR$\Inc\Dataproc.h</file>
+      <file>$PROJ_DIR$\Src\RtcCpt.c</file>
+      <file>$PROJ_DIR$\Inc\Ptl_1107.h</file>
+      <file>$PROJ_DIR$\Inc\Lcdshow.h</file>
+      <file>$PROJ_DIR$\Inc\Multariff.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\System.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Energy.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\LcdBottom.r51</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\Src\Core.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 92</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 129</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Uart1.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 84</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 0</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 49 63 127 124 22 130 75 82 146 46 149 94 74 62 28 10 4 11 150 147 13 96</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 49 63 127 124 22 130 75 86 82 146 46 149 94 74 62 28 10 4 11 150 147 13 96</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Uart4.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 51</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 68</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Timeproc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 33</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 2</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\System.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 76</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 152</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Uart2.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 144</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Ptl_1107.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Multariff.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 137</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 35</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\TaskConfig.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 98</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 100</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\MAdc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 123</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Lcdshow.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 66</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 27</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Key.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 93</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\InitPara.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 59</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 30</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\LcdBottom.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 95</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 154</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\KeyProc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 37</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 60</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Energy.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 153</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 34</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 87</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 140</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Lcdmiddle.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 31</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 69</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\EnergyBottom.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 45</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 47</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\McuDrive.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 89</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\ComCoretab.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 42</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 3</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\BEBottom.C</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 32</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 9</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\DataProtect.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 38</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 40</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Dataproc.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 128</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\ComApplication.C</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 39</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 78</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\ComBottom.C</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 90</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 41</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\DLT_645_2007.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 134</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 125</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Api.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 1</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 131</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\cstartup.s51</name>
+      <outputs>
+        <tool>
+          <name>A8051</name>
+          <file> 88</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>A8051</name>
+          <file> 77</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Prcfrm.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 14</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 71</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Powmanger.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 15</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 61 52 139 72 20 26 36 43 79 58 49 135 63 127 124 13 130 75 82 86 146 46 94 74 55 145 62 28 10 64 4 22 11 150 147 65 96 97 80 70 54</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 141 132</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\D113.d51</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 141</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 136 131 9 78 41 3 125 40 7 34 47 30 93 60 154 69 27 89 91 71 6 152 2 144 68 88 140 99</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\SerialBottom.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 143</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 63 127 124 67 22 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 63 127 124 67 22 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\Uart5.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 5</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Src\RtcCpt.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 29</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 17 142 52 139 72 20 26 36 43 79 135 145 58 48 122 63 127 124 67 22 126 82 146 46 94 74 62 28 10 151 4 11 150 147 97 13 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <forcedrebuild>
+      <name>$PROJ_DIR$\Src\Uart5.c</name>
+      <tool>ICC8051</tool>
+    </forcedrebuild>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+    <forcedrebuild>
+      <name>[REBUILD_ALL]</name>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

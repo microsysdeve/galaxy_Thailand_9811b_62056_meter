@@ -1015,7 +1015,7 @@ void Pwr_WakeupProc_adc2allTurno(void)
     
 #if (POW_OFF_ENYPROC == 1) 
     DelayXms(1);   //计量从高频切到32K时 在MCU 3.2M读计量寄存器时需要等待
-   //============================================ Eny_SlpEnergyProc(); //能量处理
+    Eny_SlpEnergyProc(); //能量处理
 #endif    
     
 #if (POW_OFF_DISP == 1) 

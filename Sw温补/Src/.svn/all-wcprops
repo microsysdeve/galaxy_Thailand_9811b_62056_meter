@@ -1,0 +1,221 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/06solution/!svn/ver/1276/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src
+END
+Uart4.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Uart4.c
+END
+RtcCpt.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/RtcCpt.c
+END
+ComApplication.C
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/ComApplication.C
+END
+Lcdshow.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Lcdshow.c
+END
+ComBottom.C
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/ComBottom.C
+END
+FunCfg.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/FunCfg.c
+END
+DataProtect.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/DataProtect.c
+END
+Report.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/06solution/!svn/ver/1214/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Report.c
+END
+BEBottom.C
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/BEBottom.C
+END
+ComCoretab.c
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/06solution/!svn/ver/1259/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/ComCoretab.c
+END
+Lcdmiddle.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Lcdmiddle.c
+END
+Event.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/06solution/!svn/ver/1255/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Event.c
+END
+workaround.s51
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/workaround.s51
+END
+Timeproc.c
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Timeproc.c
+END
+PrologFee.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/PrologFee.c
+END
+LoadCurve.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/06solution/!svn/ver/1208/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/LoadCurve.c
+END
+Version.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Version.c
+END
+LcdBottom.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/LcdBottom.c
+END
+Key.c
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/06solution/!svn/ver/1255/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Key.c
+END
+Prcfrm.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/06solution/!svn/ver/1255/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Prcfrm.c
+END
+Multariff.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Multariff.c
+END
+Energy.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Energy.c
+END
+cstartup.s51
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/cstartup.s51
+END
+Dataproc.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/06solution/!svn/ver/1255/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Dataproc.c
+END
+Powmanger.c
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/06solution/!svn/ver/1196/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Powmanger.c
+END
+InitPara.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/06solution/!svn/ver/1153/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/InitPara.c
+END
+Api.c
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Api.c
+END
+CmpCode.c
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/CmpCode.c
+END
+McuDrive.c
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/06solution/!svn/ver/1276/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/McuDrive.c
+END
+EnergyBottom.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/06solution/!svn/ver/1203/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/EnergyBottom.c
+END
+main.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/06solution/!svn/ver/1259/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/main.c
+END
+System.c
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/System.c
+END
+DLT_645_2007.c
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/06solution/!svn/ver/1259/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/DLT_645_2007.c
+END
+iar_banked_code_support.s51
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/iar_banked_code_support.s51
+END
+Uart1.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Uart1.c
+END
+Uart2.c
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/06solution/!svn/ver/733/Projects/%E5%86%9C%E7%BD%91/D105/Sw/Src/Uart2.c
+END

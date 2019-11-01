@@ -1,0 +1,6 @@
+".\list\main.obj",
+".\list\Func.obj",
+".\list\delay.obj",
+".\code\Liger_LV1_8.LIB" 
+TO ".\list\v9401test" 
+PRINT(".\list\v9401test.m51") RAMSIZE(256) 

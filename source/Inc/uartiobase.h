@@ -33,7 +33,7 @@ char            c7bitParity_Set(unsigned char *cData , enum PARITYLIST cparty);
 char           c7bitParity_Get(unsigned char cData , enum PARITYLIST cparty);
 
 
-#define _UartInit(bpsno,TMODx,TCONx,TLx,THx,SCONx) {GS_BaudRate code *BaudRateTable=(PLL_800K==guc_PllSta)?(GS_BaudRate code *)BaudRateTable_800K:(GS_BaudRate code *)BaudRateTable_3DO2M; if(bpsno>=_bpsend_) bpsno=_bps2400_; TMODx = 0x20;TCONx= BaudRateTable[bpsno].Type; TLx=THx= BaudRateTable[bpsno].THValue;SCONx=0xD0;}   
+#define _UartInit(bpsno,TMODx,TCONx,TLx,THx,SCONx) {GS_BaudRate code *BaudRateTable=((PLL_800K==guc_PllSta)&&(0))?(GS_BaudRate code *)BaudRateTable_800K:(GS_BaudRate code *)BaudRateTable_3DO2M; if(bpsno>=_bpsend_) bpsno=_bps2400_; TMODx = 0x20;TCONx= BaudRateTable[bpsno].Type; TLx=THx= BaudRateTable[bpsno].THValue;SCONx=0xD0;}   
 
 
 #endif

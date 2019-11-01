@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>2956784373</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\code\bank2.c</file>
+      <file>$PROJ_DIR$\code\main.c</file>
+      <file>$PROJ_DIR$\Configuration\lnk51ew.xcl</file>
+      <file>$PROJ_DIR$\code\bank0.c</file>
+      <file>$PROJ_DIR$\code\bank1.c</file>
+      <file>$PROJ_DIR$\code\delay.c</file>
+      <file>$TOOLKIT_DIR$\src\lib\iar_check_symbols.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\iar_banked_code_support.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\bank1.r51</file>
+      <file>$PROJ_DIR$\workaround.s51</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\INTRINSICS.H</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl-pli-blxc-1e16x01.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\workaround.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\V9801Test.pbd</file>
+      <file>$PROJ_DIR$\iar_banked_code_support.s51</file>
+      <file>$PROJ_DIR$\Debug\Obj\bank0.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdbool.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\bank2.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\delay.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\bank2.pbi</file>
+      <file>$PROJ_DIR$\Inc\delay.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\cstartup.r51</file>
+      <file>$PROJ_DIR$\Inc\dw8051.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\delay.r51</file>
+      <file>$PROJ_DIR$\Inc\V98xx.h</file>
+      <file>$PROJ_DIR$\Inc\TestFunc.h</file>
+      <file>$TOOLKIT_DIR$\src\lib\iar_common.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\bank0.r51</file>
+      <file>$PROJ_DIR$\cstartup.s51</file>
+      <file>$PROJ_DIR$\Debug\Exe\V9801Test.d51</file>
+      <file>$PROJ_DIR$\Debug\Exe\V9801Test.hex</file>
+      <file>$PROJ_DIR$\Inc\reg52.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\bank1.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\iar_cfi.h</file>
+    </outputs>
+    <file>
+      <name>$PROJ_DIR$\code\bank2.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 20</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 18</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 23 32 26 21</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 25 23 32 26 21</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\code\main.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 33</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 21 25 23 32 26</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 21 25 23 32 26</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\code\bank0.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 16</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 28</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 23 32 26 21</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 25 23 32 26 21</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\code\bank1.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 34</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 8</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 25 23 32 26 21</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 25 23 32 26 21</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\code\delay.c</name>
+      <outputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 19</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 24</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>BICOMP</name>
+          <file> 11 17</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 11 17</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 30 31</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\workaround.s51</name>
+      <outputs>
+        <tool>
+          <name>A8051</name>
+          <file> 13</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\iar_banked_code_support.s51</name>
+      <outputs>
+        <tool>
+          <name>A8051</name>
+          <file> 7</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>A8051</name>
+          <file> 27 6 35</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\cstartup.s51</name>
+      <outputs>
+        <tool>
+          <name>A8051</name>
+          <file> 22</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>A8051</name>
+          <file> 27 6 35</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\V9801Test.d51</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 31</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 2 28 8 18 22 24 7 33 13 12</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

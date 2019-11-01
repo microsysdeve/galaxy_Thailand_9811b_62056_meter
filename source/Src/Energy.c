@@ -779,9 +779,10 @@ void Eny_SlpEnergyProc(void)
     RamData.ImpBfr+=gs_PowerCf.uc_Pz ;
     if ( RamData.ImpBfr )   
     {
-    Do_Use();
-    RamData.OldImpBfr = RamData.ImpBfr-1;
-    Pwr_E2Save();         //每次都保留CF尾数
+      Do_Use();
+      RamData.OldImpBfr = RamData.ImpBfr-1;
+      Pwr_E2Save();         //每次都保留CF尾数
+    
     }
     return;
     

@@ -1,0 +1,329 @@
+功能		地址（16进制）		数值		说明	
+LCDM0    	 2c00 		0 		显示缓冲寄存器 
+LCDM1    	 2c01 		0 		显示缓冲寄存器
+LCDM2    	 2c02 		0 		显示缓冲寄存器
+LCDM3    	 2c03 		0 		显示缓冲寄存器
+LCDM4    	 2c04 		0 		显示缓冲寄存器
+LCDM5    	 2c05 		0 		显示缓冲寄存器
+LCDM6    	 2c06 		0 		显示缓冲寄存器
+LCDM7    	 2c07 		0 		显示缓冲寄存器
+LCDM8    	 2c08 		0 		显示缓冲寄存器
+LCDM9    	 2c09 		0 		显示缓冲寄存器
+LCDM10    	 2c0a 		0 		显示缓冲寄存器
+LCDM11    	 2c0b 		0 		显示缓冲寄存器
+LCDM12    	 2c0c 		0 		显示缓冲寄存器
+LCDM13    	 2c0d 		0 		显示缓冲寄存器
+LCDM14    	 2c0e 		0 		显示缓冲寄存器
+LCDM15    	 2c0f 		0 		显示缓冲寄存器
+LCDM16    	 2c10 		0 		显示缓冲寄存器
+LCDM17    	 2c11 		0 		显示缓冲寄存器
+LCDM18    	 2c12 		0 		显示缓冲寄存器
+LCDM19    	 2c13 		0 		显示缓冲寄存器
+LCDM20    	 2c14 		0 		显示缓冲寄存器
+LCDM21    	 2c15 		0 		显示缓冲寄存器
+LCDM22    	 2c16 		0 		显示缓冲寄存器
+LCDM23    	 2c17 		0 		显示缓冲寄存器
+LCDM24   	 2c18 		0 		显示缓冲寄存器
+LCDM25    	 2c19		0 		显示缓冲寄存器
+LCDM26    	 2c1a 		0 		显示缓冲寄存器
+LCDM27    	 2c1b 		0 		显示缓冲寄存器
+LCDM28    	 2c1c 		0 		显示缓冲寄存器
+LCDM29   	 2c1d 		0 		显示缓冲寄存器
+
+LCDCtrl    	2c1e  		0 		显示控制寄存器
+SegCtrl0     	2c1f  		0 		显示控制寄存器2
+SegCtrl1     	2c20  		0 		显示控制寄存器3
+SegCtrl2     	2c21  		0 		显示控制寄存器4
+SegCtrl3     	2c22  		0 		显示控制寄存器5
+SegCtrl4     	2c23  		0 		显示控制寄存器6
+
+
+TCON2    	 2820 		0 		timer2控制/状态寄存器
+TMOD2    	 2821 		0 		timer2_TMOD
+TH20    	 2822 		0 		UART2_TH0
+TH21    	 2823 		0 		UART2_TH1
+TL20    	 2824 		0 		UART2_TL0
+TL21    	 2825 		0 		UART2_TL1
+SCON2    	 2826 		0 		UART2_串行口控制寄存器SCON
+SBUF2    	 2827 		0 		UART2_串行口缓存寄存器SBUF
+Txd2FS    	 28cf 		0 		TXD2类型选择寄存器
+CARRH_H    	 2898 		0 		载波高电平持续时间高位
+CARRH_L   	 2899 		0 		载波高电平持续时间低位
+CARRL_H    	 289a 		0 		载波低电平持续时间高位
+CARRL_L    	 289b 		0 		载波低电平持续时间低位
+
+TCON3    	 2828 		0 		timer3控制/状态寄存器
+TMOD3    	 2829 		0 		timer3_TMOD
+TH30    	 282a 		0 		UART3_TH0
+TH31    	 282b 		0 		UART3_TH1
+TL30    	 282c 		0 		UART3_TL0
+TL31    	 282d 		0 		UART3_TL1
+SCON3    	 282e 		0 		UART3_串行口控制寄存器SCON
+SBUF3    	 282f 		0 		UART3_串行口缓存寄存器SBUF
+TCON4    	 2830 		0 		timer4控制/状态寄存器
+TMOD4    	 2831 		0 		timer4_TMOD
+TH40    	 2832 		0 		UART4_TH0
+TH41    	 2833 		0 		UART4_TH1
+TL40    	 2834 		0 		UART4_TL0
+TL41    	 2835 		0 		UART4_TL1
+SCON4    	 2836 		0 		UART4_串行口控制寄存器SCON
+SBUF4    	 2837 		0 		UART4_串行口缓存寄存器SBUF
+TCON5    	 2838 		0 		timer5控制/状态寄存器
+TMOD5    	 2839 		0 		timer5_TMOD
+TH50    	 283a 		0 		UART5_TH0
+TH51    	 283b 		0 		UART5_TH1
+TL50    	 283c 		0 		UART5_TL0
+TL51    	 283d 		0 		UART5_TL1
+SCON5    	 283e 		0 		UART5_串行口控制寄存器SCON
+SBUF5    	 283f 		0 		UART5_串行口缓存寄存器SBUF
+ExInt2IFG    	 2840 		0 		中断向量8中断标志（请求）寄存器
+ExInt2IN    	 2841 		0 		中断向量8扩展中断输入类型寄存器
+ExInt2OUT    	 2842 		0 		中断向量8扩展中断输出类型寄存器
+ExInt2IE    	 2843 		0 		中断向量8扩展中断使能寄存器
+ExInt2OV    	 2844 		0 		中断向量8扩展中断队列寄存器
+ExInt3IFG    	 2848 		0 		中断向量9中断标志（请求）寄存器
+ExInt3IN    	 2849 		0 		中断向量9扩展中断输入类型寄存器
+ExInt3OUT    	 284a 		0 		中断向量9扩展中断使能寄存器
+ExInt3IE    	 284b 		0 		中断向量9扩展中断使能寄存器
+ExInt3OV    	 284c 		0 		中断向量9扩展中断队列寄存器
+ExInt4IFG    	 2850 		0 		中断向量10中断标志（请求）寄存器
+ExInt4IN    	 2851 		0 		中断向量10扩展中断输入类型寄存器
+ExInt4OUT    	 2852 		0 		中断向量10扩展中断使能寄存器
+ExInt4IE    	 2853 		0 		中断向量10扩展中断使能寄存器
+ExInt4OV    	 2854 		0 		中断向量10扩展中断队列寄存器
+
+ExInt5IFG    	 28a2 		0 		中断向量11中断标志（请求）寄存器
+ExInt5IN    	 28a3 		0 		中断向量11扩展中断输入类型寄存器
+ExInt5OUT    	 28a4 		0 		中断向量11扩展中断使能寄存器
+ExInt5IE    	 28a5 		0 		中断向量11扩展中断使能寄存器
+ExInt5OV    	 28a6 		0 		中断向量11扩展中断队列寄存器
+
+CtrlGA    	 2858		0 		ia control	 
+CtrlGB    	 2859		0 		ib control
+CtrlGU    	 285a		0 		U control
+CtrlGM    	 285b		0 		M control
+CtrlIAT    	 285c		0 		ia translation
+CtrlSHORT    	285d		0 		I,U short control
+CtrlIBT    	 285e		0 		ib translation
+CtrlBAT    	 285f		0 		battery discharge control
+CtrlUT    	 2860		0 		u translation
+CtrlMT    	 2861		0 		m translation
+CtrlBGP    	 2862		0 		bandgap control
+CtrlMEAS     	2863		0 		measure  channel control
+CtrlADC    	 2864		0 		ADC control
+CtrlCry    	 2865		0 		crystal control
+CtrlLDO    	 2866		0 		LDO control
+CtrlCLK    	 2867		0 		clock control
+CtrlPLL    	 2868		0 		PLL control
+PMCtrl1    	 2878		0 		PM控制寄存器1
+PMCtrl2    	 2879		0 		PM控制寄存器2
+PMCtrl3    	 287a		0 		PM控制寄存器3
+PHCCtrl1     	287b  		0 		角差校正控制寄存器1
+PHCCtrl2     	287c  		0 		角差校正控制寄存器2
+PMCtrl4    	 287d		0 		PM控制寄存器4
+CFCtrl    	 287e		0 		脉冲输出控制寄存器
+CRPST		287f		0		启动潜动状态
+HighPreciPHC	2886		0		高精度角差校正寄存器
+P0OE    	 28a8 		0 		P0输出使能寄存器
+P0IE    	 28a9 		0 		P0输入使能寄存器
+P0OD    	 28aa 		0 		P0输出数据寄存器
+P0ID    	 28ab 		0 		P0输入数据寄存器
+P1OE    	 28ac 		0 		P1输出使能寄存器
+P1IE    	 28ad 		0 		P1输入使能寄存器
+P1OD    	 28ae 		0 		P1输出数据寄存器
+P1ID    	 28af 		0 		P1输入数据寄存器
+P2OE    	 28b0 		0 		P2输出使能寄存器
+P2IE    	 28b1 		0 		P2输入使能寄存器
+P2OD    	 28b2 		0 		P2输出数据寄存器
+P2ID    	 28b3 		0 		P2输入数据寄存器
+P3OE    	 28b4 		0 		P3输出使能寄存器
+P3IE    	 28b5 		0 		P3输入使能寄存器
+P3OD    	 28b6 		0 		P3输出数据寄存器
+P3ID    	 28b7 		0 		P3输入数据寄存器
+P4OE    	 28b8 		0 		P4输出使能寄存器
+P4IE    	 28b9 		0 		P4输入使能寄存器
+P4OD    	 28ba 		0 		P4输出数据寄存器
+P4ID    	 28bb 		0 		P4输入数据寄存器
+P5OE    	 28bc 		0 		P5输出使能寄存器
+P5IE    	 28bd 		0 		P5输入使能寄存器
+P5OD    	 28be 		0 		P5输出数据寄存器
+P5ID    	 28bf 		0 		P5输入数据寄存器
+P6OE    	 28c0 		0 		P6输出使能寄存器
+P6IE    	 28c1 		0 		P6输入使能寄存器
+P6OD    	 28c2 		0 		P6输出数据寄存器
+P6ID    	 28c3 		0 		P6输入数据寄存器
+P10FS    	 28c4 		0 		P1.0功能选择寄存器
+P11FS    	 28c5 		0 		P1.1功能选择寄存器
+P12FS    	 28c6 		0 		P1.2功能选择寄存器
+P13FS    	 28c7 		0 		P1.3功能选择寄存器
+P14FS    	 28c8 		0 		P1.4功能选择寄存器
+P20FS    	 28c9 		0 		P2.0功能选择寄存器 
+P21FS    	 28ca 		0 		P2.1功能选择寄存器
+P22FS    	 28cb 		0 		P2.2功能选择寄存器
+P23FS    	 28cc 		0 		P2.3功能选择寄存器
+P24FS    	 28cd 		0 		P2.4功能选择寄存器
+P25FS    	 28ce 		0 		P2.5功能选择寄存器
+P7OE    	 28d5 		0 		P7输出使能寄存器
+P7IE    	 28d6 		0 		P7输入使能寄存器
+P7OD    	 28d7 		0 		P7输出数据寄存器
+P7ID    	 28d8 		0 		P7输入数据寄存器
+P8OE    	 28d9 		0 		P8输出使能寄存器
+P8IE    	 28da 		0 		P8输入使能寄存器
+P8OD    	 28db 		0 		P8输出数据寄存器
+P8ID    	 28dc 		0 		P8输入数据寄存器
+P9OE    	 a4 		0 		P9输出使能寄存器
+P9IE    	 a5 		0 		P9输入使能寄存器
+P9OD    	 a6 		0 		P9输出数据寄存器
+P9ID    	 a7		0 		P9输入数据寄存器
+P9FC		 ad		0		p9特殊功能选择寄存器
+P10OE    	 a9 		0 		P10输出使能寄存器
+P10IE    	 aa 		0 		P10输入使能寄存器
+P10OD    	 ab 		0 		P10输出数据寄存器
+P10ID    	 ac 		0 		P10输入数据寄存器
+P10FC		 ae		0		p10特殊功能选择寄存器
+
+RTCLOAD		da		0		RTC加载寄存器
+RTCPWD		90		0		RTC密码寄存器96
+RTCPEN		97		0		RTC密码使能寄存器57
+RTCSC		9a		0		秒寄存器
+RTCMiC		9b		0		分寄存器
+RTCHC		9c		0		时寄存器
+RTCDC		9d		0		天寄存器
+RTCMoC		9f		0		月寄存器
+RTCYC		93		0		年寄存器
+RTCWC		9e		0		周寄存器
+RTCCH		94		0		RTC高频校正寄存器高位字节
+RTCCL		95		0		RTC高频校正寄存器低位字节
+INTRTC		96		0		系统休眠唤醒间隔寄存器
+RTCDIVH		db		0		门限高8位
+RTCDIVM		dc		0		门限中8位
+RTCDIVL		dd		0		门限低8位
+RTCCNTSP	de		0		高频计数模式
+RTCPWD		90		0		RTC密码寄存器96
+RTCPEN		97		0		RTC密码使能寄存器56
+
+SysCtrl		80		0		时钟切换控制寄存器
+Systate		a1		0		系统状态寄存器
+version		a2		0		芯片版本号
+PLLLOCK		a3		0		PLL锁定状态
+WDTEN		ce		0		a5
+WDTCLR		cf		0		5a	
+
+
+BUFF5		2885		0		ACK
+BUFF4		2884		0		INVD
+BUFF3		2883		0		缓存DATA[31:24]
+BUFF2		2882		0		缓存DATA[23:16]
+BUFF1		2881		0		缓存DATA[15:8]
+BUFF0		2880		0		缓存DATA[7:0]
+				
+DATAIP		10D1		0		瞬时E1功率
+DATAIQ		10D2		0		瞬时E2功率
+RMSIU		10D3		0		瞬时电压有效值
+RMSII1		10D4		0		通道I1瞬时电流有效值
+RMSII2		10D5		0		通道I2瞬时电流有效值
+DATAP		10D6		0		秒平均E1功率
+DATAQ		10D7		0		秒平均E2功率
+RMSU		10D8		0		秒平均电压有效值
+RMSI1		10D9		0		通道I1秒平均电流有效值
+RMSI2		10DA		0		通道I2秒平均电流有效值
+DATAAP1		10DB		0		通道I1秒平均视在功率
+DATAAP2		10DC		0		通道I2秒平均视在功率
+
+DATAOIU		1005		0		瞬时电压原始值
+DATAOII1	100A		0		通道I1瞬时电流原始值
+DATAOII2	100F		0		通道I2瞬时电流原始值
+DATAIAU		1051		0		瞬时电压交流值
+DATAIAI1	1052		0		通道I1瞬时电流交流值
+DATAIAI2	1053		0		通道I2瞬时电流交流值
+DATAIDU		103A		0		瞬时电压直流值
+DATAIDI1	1041		0		通道I1瞬时电流直流值
+DATAIDI2	1048		0		通道I2瞬时电流直流值
+
+SCP		10E8		0		E1功率比差寄存器
+SCQ		10E9		0		E2功率比差寄存器
+SCU		10EA		0		电压有效值比差寄存器
+SCI1		10EB		0		通道I1电流有效值比差寄存器
+SCI2		10EC		0		通道I2电流有效值比差寄存器
+
+PARAPC		10ED		0		E1功率二次补偿寄存器
+PARAQC		10EE		0		E2功率二次补偿寄存器
+PPCNT		10F0		0		正相E1能量桶
+NPCNT		10F1		0		反相E1能量桶
+PPCFCNT		10F2		0		正相E1能量脉冲计数器
+NPCFCNT		10F3		0		反相E1能量脉冲计数器
+PQCNT		10F6		0		正相E2能量桶
+NQCNT		10F7		0		反相E2能量桶
+PQCFCNT		10F8		0		正相E2能量脉冲计数器
+NQCFCNT		10F9		0		反相E2能量脉冲计数器
+
+GATEP		10F4		0		E1能量脉冲门限值寄存器
+GATECP		10F5		0		E1能量潜动门限值寄存器
+GATEQ		10FA		0		E2能量脉冲门限值寄存器
+GATECQ		10FB		0		E2能量潜动门限值寄存器
+DATACP		10FC		0		常数功率值寄存器
+DATAFREQ	10FD		0		频率值寄存器
+DATAOM		10CE		0		M通道原始数据值寄存器
+DATADM		10CF		0		M通道直流数据值寄存器
+DATAADM		10D0		0		M通道直流秒平均数据值寄存器
+
+NULL1		2a00		0		NULL1		
+DIVL1		2a01		0		DIVL1	
+DIVH1		2a02		0		DIVH1
+DATA1		2a03		0		DATA1	
+INFO1		2a04		0		INFO1
+CFG1		2a05		0		CFG1
+NULL2		2b00		0		NULL2		
+DIVL2		2b01		0		DIVL2	
+DIVH2		2b02		0		DIVH2
+DATA2		2b03		0		DATA2	
+INFO2		2b04		0		INFO2
+CFG2		2b05		0		CFG2
+
+TACTLL		2900		0		TimerA的控制寄存器低位
+TACTLH		2901		0		TimerA的控制寄存器高位
+TARL		2902		0		TimerA计数器的值低位
+TARH		2903		0		TimerA计数器的值高位
+TACCTL0		2904		0		TimerA的捕获/比较控制寄存器0低位
+TACCTH0		2905		0		TimerA的捕获/比较控制寄存器0高位
+TACCTL1		2906		0		TimerA的捕获/比较控制寄存器1低位
+TACCTH1		2907		0		TimerA的捕获/比较控制寄存器1高位
+TACCTL2		2908		0		TimerA的捕获/比较控制寄存器2低位
+TACCTH2		2909		0		TimerA的捕获/比较控制寄存器2高位
+TACCRL0		290a		0		TimerA的捕获/比较0寄存器低位
+TACCRH0		290b		0		TimerA的捕获/比较0寄存器高位
+TACCRL1		290c		0		TimerA的捕获/比较1寄存器低位
+TACCRH1		290d		0		TimerA的捕获/比较1寄存器高位
+TACCRL2		290e		0		TimerA的捕获/比较2寄存器低位
+TACCRH2		290f		0		TimerA的捕获/比较2寄存器高位
+
+PULSEH_H    	 289c		0 		脉冲高电平持续时间高位
+PULSEH_L    	 289d 		0 		脉冲高电平持续时间低位
+PULSEL_H    	 289e		0 		脉冲低电平持续时间高位
+PULSEL_L    	 289f 		0 		脉冲低电平持续时间低位
+
+101		101		0		xram
+101		f7f		0		xram
+101		f80		0		xram
+101		fff		0		xram
+101		fd0		0		xram
+PWS		28a0		0		加密
+
+CMD_RD_PC	10		0		PC
+CMD_RD_SP	11		0		SP 0x81
+CMD_RD_DPTR	12		0		DPTR 0x80 0x83
+CMD_RD_PCON	13		0		PCON 0x87
+CMD_RD_PSW	14		0		PSW 0xD0
+CMD_RD_ACC	15		0		ACC 0xE0
+CMD_RD_B	16		0		B 0xF0
+
+
+
+
+
+
+
+
+
+
+

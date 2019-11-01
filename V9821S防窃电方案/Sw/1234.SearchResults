@@ -1,0 +1,2 @@
+---- Current_1A Matches (1 in 1 files) ----
+TamperProc.h (Inc) line 10 : #define Current_1A    7250000     //800K 判断阀值

@@ -188,7 +188,7 @@
         </option>
         <option>
           <name>General Xdata Stack Size</name>
-          <state>0x330</state>
+          <state>0x350</state>
         </option>
         <option>
           <name>General Ext Stack Size</name>
@@ -279,7 +279,7 @@
           <name>CCDefines</name>
           <state>_METER_FAR_</state>
           <state>_DEBUG_</state>
-          <state>_ComUSE645_</state>
+          <state>_ComUS1E645_</state>
         </option>
         <option>
           <name>CCPreprocFile</name>

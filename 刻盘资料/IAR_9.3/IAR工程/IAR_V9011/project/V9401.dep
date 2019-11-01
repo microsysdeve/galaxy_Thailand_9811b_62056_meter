@@ -1,0 +1,776 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<project>
+  <fileVersion>2</fileVersion>
+  <fileChecksum>1460410185</fileChecksum>
+  <configuration>
+    <name>Debug</name>
+    <outputs>
+      <file>$PROJ_DIR$\..\..\..\..\IAR_7.5\IAR&#x5De5;&#x7A0B;\IAR_V9401\project\Code\delay.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\IAR_7.5\IAR&#x5De5;&#x7A0B;\IAR_V9401\project\Code\main.c</file>
+      <file>$PROJ_DIR$\..\..\..\..\IAR_7.5\IAR&#x5De5;&#x7A0B;\IAR_V9401\project\Code\Func.c</file>
+      <file>$TOOLKIT_DIR$\inc\INTRINSICS.H</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLDO33.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\iar_cfi.h</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\chipdefine.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Read_50_60Hz.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\LigReg.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\workaround.r51</file>
+      <file>$PROJ_DIR$\Code\Func.c</file>
+      <file>$PROJ_DIR$\Code\Func.h</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\LigReg.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\OpenPDT.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\ReadMeterPara.c</file>
+      <file>$PROJ_DIR$\Code\main.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\pmWrite.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetLDO33.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\Sleep.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\Alt_50_60Hz.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\pmRead.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\DeepSleep.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetMeterCfg.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\InitMeter.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\Read_50_60Hz.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetLCDVolt.c</file>
+      <file>$PROJ_DIR$\xcl\lnk51ew.xcl</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\InitAnalog.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetCrystal.c</file>
+      <file>$PROJ_DIR$\cstartup.s51</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\Alt_BatDisc.c</file>
+      <file>$PROJ_DIR$\workaround.s51</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetPLL.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetLDOVolt.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetADC.c</file>
+      <file>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetMChannel.c</file>
+      <file>$PROJ_DIR$\Code\delay.c</file>
+      <file>$PROJ_DIR$\Code\delay.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetMChannel.__cstat.et</file>
+      <file>$TOOLKIT_DIR$\inc\iar_check_symbols.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\delay.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\InitMeter.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Func.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLDOVolt.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetMeterCfg.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\Sleep.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\main.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\Read_50_60Hz.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\LigReg.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\ReadMeterPara.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetADC.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\InitMeter.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetCrystal.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\Alt_BatDisc.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\DeepSleep.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLDO33.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\Alt_50_60Hz.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\pmWrite.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\pmRead.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\Sleep.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetPLL.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\InitAnalog.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\LigReg.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\Func.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\OpenPDT.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLCDVolt.__cstat.et</file>
+      <file>$PROJ_DIR$\Debug\Obj\OpenPDT.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetCrystal.r51</file>
+      <file>$TOOLKIT_DIR$\inc\iar_common.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\Sleep.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Func.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\ReadMeterPara.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLDOVolt.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Alt_BatDisc.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\pmRead.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLDOVolt.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\DeepSleep.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\V9401.pbd</file>
+      <file>$PROJ_DIR$\Debug\Obj\pmWrite.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\InitAnalog.pbi</file>
+      <file>$TOOLKIT_DIR$\inc\clib\stdbool.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\OpenPDT.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetMChannel.pbi</file>
+      <file>$PROJ_DIR$\Inc\ExLigReg.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetMChannel.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLCDVolt.r51</file>
+      <file>$TOOLKIT_DIR$\lib\clib\cl-pli-nlxc-1e16x01.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetCrystal.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLCDVolt.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\pmWrite.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Alt_50_60Hz.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetADC.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\DeepSleep.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\InitAnalog.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\ReadMeterPara.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetPLL.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetMeterCfg.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\delay.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetMeterCfg.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Alt_BatDisc.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetADC.r51</file>
+      <file>$PROJ_DIR$\Inc\reg52.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\delay.pbi</file>
+      <file>$PROJ_DIR$\Inc\dw8051.h</file>
+      <file>$PROJ_DIR$\Debug\Exe\V9401.d51</file>
+      <file>$PROJ_DIR$\Debug\Obj\Alt_50_60Hz.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\Read_50_60Hz.r51</file>
+      <file>$PROJ_DIR$\Inc\ExLigLib.h</file>
+      <file>$PROJ_DIR$\Debug\Obj\cstartup.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetLDO33.r51</file>
+      <file>$PROJ_DIR$\Debug\Obj\SetPLL.pbi</file>
+      <file>$PROJ_DIR$\Debug\Obj\pmRead.pbi</file>
+      <file>$PROJ_DIR$\Debug\Exe\V9401.hex</file>
+      <file>$PROJ_DIR$\Debug\Obj\InitMeter.r51</file>
+    </outputs>
+    <file>
+      <name>[ROOT_NODE]</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 106 114</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Code\Func.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 65</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 72</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 44</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 105 103 85 109 13 39</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 105 85 103 109 13 39</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\LigReg.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 64</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 9</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 50</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\OpenPDT.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 66</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 68</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 83</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\ReadMeterPara.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 51</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 96</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 73</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7 3 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 105 3 7 82 85 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Code\main.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 48</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 10</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 5</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 105 103 85 109 39 13</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 105 85 103 109 39 13</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\pmWrite.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 59</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 91</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 80</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetLDO33.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 57</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 111</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 4</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\Sleep.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 61</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 47</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 71</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\Alt_50_60Hz.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 58</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 92</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 107</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\pmRead.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 60</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 76</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 113</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\DeepSleep.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 56</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 78</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 94</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetMeterCfg.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 46</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 98</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 100</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7 3 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 105 3 7 82 85 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\InitMeter.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 53</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 115</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 43</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7 3 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 105 3 7 82 85 103</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\Read_50_60Hz.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 49</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 108</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 8</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetLCDVolt.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 67</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 87</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 90</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\InitAnalog.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 63</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 95</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 81</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetCrystal.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 54</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 69</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 89</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\cstartup.s51</name>
+      <outputs>
+        <tool>
+          <name>A8051</name>
+          <file> 110</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>A8051</name>
+          <file> 70 41 6</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\Alt_BatDisc.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 55</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 75</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 101</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\workaround.s51</name>
+      <outputs>
+        <tool>
+          <name>A8051</name>
+          <file> 11</file>
+        </tool>
+      </outputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetPLL.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 62</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 97</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 112</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetLDOVolt.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 45</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 74</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 77</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetADC.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 52</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 102</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 93</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\LigerLib_Lv1_1.8\Buttom\SetMChannel.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 40</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 86</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 84</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 85 105 103 7</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 7 105 103 85</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Code\delay.c</name>
+      <outputs>
+        <tool>
+          <name>__cstat</name>
+          <file> 42</file>
+        </tool>
+        <tool>
+          <name>ICC8051</name>
+          <file> 99</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 104</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>ICC8051</name>
+          <file> 3 82</file>
+        </tool>
+        <tool>
+          <name>BICOMP</name>
+          <file> 3 82</file>
+        </tool>
+      </inputs>
+    </file>
+    <file>
+      <name>$PROJ_DIR$\Debug\Exe\V9401.d51</name>
+      <outputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 114</file>
+        </tool>
+      </outputs>
+      <inputs>
+        <tool>
+          <name>XLINK</name>
+          <file> 28 92 75 110 78 99 72 95 115 9 10 68 76 91 108 96 102 69 87 111 74 86 98 97 47 11 88</file>
+        </tool>
+      </inputs>
+    </file>
+  </configuration>
+  <configuration>
+    <name>Release</name>
+    <outputs/>
+    <forcedrebuild>
+      <name>[MULTI_TOOL]</name>
+      <tool>XLINK</tool>
+    </forcedrebuild>
+  </configuration>
+</project>
+
+

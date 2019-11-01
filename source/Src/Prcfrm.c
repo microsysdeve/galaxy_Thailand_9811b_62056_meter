@@ -80,7 +80,7 @@ uint8 BD_ProcFrame(S_COM *ComProcCtr)
             iResult = gs_ComProc[gs_PtlCrt.uc_ComStep](ComProcCtr); 
             if ( iResult ) //if(gs_ComProc[gs_PtlCrt.uc_ComStep](ComProcCtr))
             {
-             debug_break( _debug_errno_62056_frame_FunFAIL_ );
+                debug_break( _debug_errno_62056_frame_FunFAIL_ );
                 return Ret_Err;
             }
             else
