@@ -25,7 +25,7 @@ enum {
 	_DISP_AT_PING_ = 11,//7,
 	_DISP_SHANG_ = 50,//NULL
 	_DISP_10_1_ = 51,//NULL
-	_DISP_TRX_ = 28,//26,
+	
 	_DISP_7_A_ = 63,//NULL,
 	_DISP_7_F_ = 82,//NULL
 	_DISP_7_E_ =  _DISP_OVER_ +1,//NULL
@@ -46,7 +46,7 @@ enum {
 	_DISP_8_G_ = _DISP_OVER_ +16,//NULL
 	_DISP_8_C_ = _DISP_OVER_ +17,//NULL
 	_DISP_NOP_1_ = _DISP_OVER_ +18,//NULL
-	_DISP_REVERSE_ = 41 ,//47,//23,
+	
 	_DISP_9_F_ =80,// 32,
 	_DISP_9_E_ =81,// 33,
 	_DISP_PUB_ = _DISP_OVER_ +19,//NULL
@@ -62,7 +62,7 @@ enum {
 	_DISP_6_F_ = 77,//44,
 	_DISP_6_E_ = 78,//45,
 	_DISP_6_D_ = 79,//46,
-	_DISP_BAT1_ =40,// 47,
+	_DISP_BAT1_ =28,// 47,
 	_DISP_9_B_ = 68,//48,
 	_DISP_9_C_ = 69,//49,
 	_DISP_JIETI_ = _DISP_OVER_ +25,//NULL
@@ -152,15 +152,20 @@ enum {
 	_DISP_KW_ = 4,//110,
 	_DISP_H_ = 5,//111,
         
-        _DISP_DELTA_MID_ = 22,//
-         _DISP_DELTA_RIGHT_ = 23,//
-            _DISP_DELTA_LEFT_ = 29,//
-              _DISP_DELTA_ALM_ = 35,//
-         //     _DISP_BAT_LEFTSIDE_ = 41,//
-              _DISP_BAT_RIGHTFWD_ = 46,//
-              
+         _DISP_DELTA_ALM_  = 22,//  三角形，中间感叹号
+         _DISP_DELTA_OPEN_ = 23,//开合盖标志
+          _DISP_TOTAL_ =40 , 
+        _DISP_DELTA_EXPORT_ = 29,//
+        _DISP_DELTA_IMPORT_ = 35,//
+           _DISP_COMM_ = 41,//  通讯标志  
+              _DISP_FOWARE_ = 46,//  ->正向箭头
+              _DISP_REWARE_ = 47,//  ->返向箭头  
+               _DISP_MD_ = 1,
+               _DISP_tel_ = 0,  // 最右下角
+               _DISP_TRX_ = _DISP_COMM_,//26, 
       //   _DISP_OVER_  =(1+    _LCDMEnd_)*8 -1;
-	
+	 _DISP_REVERSE_ = _DISP_REWARE_ ,
+         
 };
 #define 		_DIS_VOLSET_  		0
 #endif /* LCD_1_H_ */
