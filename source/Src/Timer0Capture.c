@@ -70,14 +70,6 @@ TimerA_Capture_Intfun (void)	// ²¶»ñÖÐ¶Ï³ÌÐò
   stperiod.stdatano.cCurr %=
     sizeof (stperiod.iData) / sizeof (stperiod.iData[0]);
   stperiod.iPrev = itemp;
-  /*
-  do 
-  {
-    TACCTL0 = 0x10;
-      itemp = TACCTL0 ;
-  }while( itemp &0x3);
-  */
-
 }
 
 void
@@ -94,14 +86,21 @@ TimerA_Capture_Mainfun (void)
       ltemp = ltemp / (sizeof (stperiod.iData) / sizeof (stperiod.iData[0]));
       stperiod.iCurr = (unsigned short) ltemp;
 
-      _nStateGoOn (stperiod.stdatano);;
-      _SoftFilter_t ((stperiod.iCurr > 20000), stperiod.cHighTm,
-		     stperiod.cLowTm, cGate) _nGoon (stperiod.stLStatu);
-      if (stperiod.cHighTm >= cGate)
-	stperiod.stLStatu.bCurr = 1;
-      if (stperiod.cLowTm >= cGate)
-	stperiod.stLStatu.bCurr = 0;
+      _nStateGoOn (stperiod.stdatano);
+    
     }
+   else
+   {
+     // _SoftFilter_t ((stperiod.iCurr > FlashInfo.SetInfo.iLNGate), stperiod.cHighTm,
+  //		     stperiod.cLowTm, cGate) _nGoon (stperiod.stLStatu);
+     stperiod.stLStatu.bCurr = (stperiod.iCurr > FlashInfo.SetInfo.iLNGate)?0:1;
+     return ;
+      if (stperiod.cHighTm >= cGate)
+	stperiod.stLStatu.bCurr = 0;
+      if (stperiod.cLowTm >= cGate)
+        stperiod.stLStatu.bCurr = 1;	
+   }
+   
 }
 
 void TimerA_Catupre_Mainint_fun(void)

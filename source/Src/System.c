@@ -368,6 +368,7 @@ __interrupt void PLLAndExINT3(void)
     {   
        iKey_Intno++;RamData.iIntPowkey = cExtWakt_RunTm;
            ExInt4IFG &=~BIT3;
+           debug_ledshow();
         
     }
     if(ucTemp & BIT2) 

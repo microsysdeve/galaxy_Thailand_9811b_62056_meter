@@ -776,15 +776,7 @@ void Eny_SlpEnergyProc(void)
     gs_PowerCf.uc_Pz += (guc_DatCFrmd/2);
     guc_DatCFrmd %= 2;
     
-    RamData.ImpBfr+=gs_PowerCf.uc_Pz ;
-    if ( RamData.ImpBfr )   
-    {
-      Do_Use();
-      RamData.OldImpBfr = RamData.ImpBfr-1;
-      Pwr_E2Save();         //每次都保留CF尾数
-    
-    }
-    return;
+
     
     if(gs_PowerCf.uc_Pz >= guc_GateCF)                                     //判别是否需要走字
     {
@@ -792,6 +784,16 @@ void Eny_SlpEnergyProc(void)
         cnt = gs_PowerCf.uc_Pz / guc_GateCF;
         gs_PowerCf.uc_Pz -= guc_GateCF*cnt;                                //对CF脉冲进行分频，将分频结果进行能量累加
         gs_Energy.ucPz   += guc_UnitCF*cnt;
+        
+        RamData.ImpBfr+=gs_Energy.ucPz  ;
+        if ( RamData.ImpBfr )   
+      {
+        Do_Use();
+        RamData.OldImpBfr = RamData.ImpBfr-1;
+        Pwr_E2Save();         //每次都保留CF尾数
+      gs_Energy.ucPz = 0;
+      }
+    return;
          /*  px opt        
         gs_EnergyData.uiEPZ += gs_Energy.ucPz;
         gs_Energy.ucPz = 0;

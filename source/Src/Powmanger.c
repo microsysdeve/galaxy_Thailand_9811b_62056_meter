@@ -696,7 +696,7 @@ bool Pwr_ChkProc(void)
     //    if((((gs_FunCfg.ul_CRC != do_CRC(&gs_FunCfg.uc_CfSaveCfg,sizeof(GSFUNCFG)-2)) && (0)) || PORRESET())   ) //没电池导致ram乱
         {
          // if  ((_Is_lPwr_SlpReset_Init())|| PORRESET())  
-               if  ((_Is_lPwr_SlpReset_Init())&& (1)) 
+               if  (((_Is_lPwr_SlpReset_Init()) || (RamData.LVSave != &(RamData.stdianlian[0].LVSave))) && (1)) 
             {
               extern volatile unsigned short iKey_Intno;
                 Mcu_I1nit();
@@ -704,8 +704,8 @@ bool Pwr_ChkProc(void)
                 Pwr_SlpReset();       
                 Systate &=~BIT5;
                 stsleepstate.iKey_Intno =iKey_Intno-1;
-                stsleepstate.b2SleepAlmno=0;
-                stsleepstate.csleepShowpoint =2;
+                ClrRam((u8*) &Ex645, sizeof(Ex645));
+                stsleepstate.b2SleepAlmno=0;                
               _lPwr_SlpReset_Set_Run();
             }            
         }
@@ -894,8 +894,8 @@ void Pwr_WakeupProc_adc2allTurno(void)
     //======          EnyB_SetMeterCfgACK(IDET_STARTB, IDETTH);           //设置B路电流判断阀值   
             
             
-            EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800,SCI1);
-            EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800,SCI2);
+            EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1,SCI1);
+            EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2,SCI2);
             gs_Channel.ucSta = SETB;
             gs_WakeUp.ucIncntA = 0;  //清空A路没电流计数 
         }

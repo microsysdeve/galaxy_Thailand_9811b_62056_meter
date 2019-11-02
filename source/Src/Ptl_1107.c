@@ -1,5 +1,6 @@
 #define	AP_1107_EXT
 #include "Include.h"
+uint8 ASCII2BCD(uint8*BCD,uint8*Ascii,uint8 len);
 struct            ST645CommTimeFormat
 {
     unsigned char               cSec;
