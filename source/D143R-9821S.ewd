@@ -660,18 +660,18 @@
     </debuggerPlugins>
   </configuration>
   <configuration>
-    <name>62056</name>
+    <name>release</name>
     <toolchain>
       <name>8051</name>
     </toolchain>
-    <debug>0</debug>
+    <debug>1</debug>
     <settings>
       <name>C-SPY</name>
       <archiveVersion>2</archiveVersion>
       <data>
         <version>8</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>CInput</name>
           <state>1</state>
@@ -686,7 +686,7 @@
         </option>
         <option>
           <name>GoToEnable</name>
-          <state>1</state>
+          <state>0</state>
         </option>
         <option>
           <name>GoToName</name>
@@ -730,7 +730,7 @@
         </option>
         <option>
           <name>DynDriver</name>
-          <state>SIM_ID</state>
+          <state>_3RD_ID</state>
         </option>
         <option>
           <name>Debugger Extra Options Check</name>
@@ -774,7 +774,7 @@
         </option>
         <option>
           <name>DdfFile master</name>
-          <state>$TOOLKIT_DIR$\config\devices\_generic\io8052.ddf</state>
+          <state>$TOOLKIT_DIR$\config\devices\_generic\ioplain.ddf</state>
         </option>
         <option>
           <name>OCImagesOffset1</name>
@@ -820,14 +820,14 @@
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>Third-Party Driver Mandatory</name>
           <state>1</state>
         </option>
         <option>
           <name>Third-Party Driver File Name Edit</name>
-          <state>ThirdPartyDriver.dll</state>
+          <state>C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\8051\bin\VangoDriver_SD502_IAR83_V0.8.dll</state>
         </option>
         <option>
           <name>Third-Party Driver LogFile Check</name>
@@ -845,7 +845,7 @@
       <data>
         <version>4</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>ChipconDriverMandatory</name>
           <state>1</state>
@@ -898,7 +898,7 @@
         </option>
         <option>
           <name>ChipconFlashLockInfo</name>
-          <state>no description</state>
+          <state>&lt;page size info. missing&gt;</state>
         </option>
         <option>
           <name>ChipconBootLock</name>
@@ -948,7 +948,7 @@
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>Fs2DriverMandatory</name>
           <state>1</state>
@@ -994,7 +994,7 @@
       <data>
         <version>2</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>InfineonDriverMandatory</name>
           <state>1</state>
@@ -1060,7 +1060,7 @@
       <data>
         <version>0</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>NsDriverMandatory</name>
           <state>1</state>
@@ -1081,7 +1081,7 @@
       <data>
         <version>2</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>RomDriverMandatory</name>
           <state>1</state>
@@ -1152,7 +1152,7 @@
       <data>
         <version>6</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>CygnalDriverMandatory</name>
           <state>1</state>
@@ -1203,7 +1203,7 @@
       <data>
         <version>2</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>CygnalDriverMandatory</name>
           <state>1</state>
@@ -1278,7 +1278,7 @@
       <data>
         <version>2</version>
         <wantNonLocal>1</wantNonLocal>
-        <debug>0</debug>
+        <debug>1</debug>
         <option>
           <name>SimDriverMandatory</name>
           <state>1</state>
@@ -1293,7 +1293,7 @@
         </option>
         <option>
           <name>SimPspConfigFile</name>
-          <state>$TOOLKIT_DIR$\config\test.psp.config</state>
+          <state>###Uninitialized###</state>
         </option>
       </data>
     </settings>
@@ -1317,7 +1317,7 @@
     </debuggerPlugins>
   </configuration>
   <configuration>
-    <name>release</name>
+    <name>62056</name>
     <toolchain>
       <name>8051</name>
     </toolchain>

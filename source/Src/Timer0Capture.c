@@ -105,6 +105,10 @@ TimerA_Capture_Mainfun (void)
 
 void TimerA_Catupre_Mainint_fun(void)
 {
+  if ( !_IsUpIo())
+    TimerA_Capture_Reg_Close();
+  else
+  {
    if ( stperiod.iLnCheckPreTm )
    {
       stperiod.iLnCheckPreTm--;
@@ -120,5 +124,6 @@ void TimerA_Catupre_Mainint_fun(void)
       stperiod.iCheckTm--;
       if (0 == stperiod.iCheckTm)
         TimerA_Capture_Reg_Close ();
+  }
   }
 }

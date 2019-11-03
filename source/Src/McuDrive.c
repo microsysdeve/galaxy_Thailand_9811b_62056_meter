@@ -528,8 +528,7 @@ uint8 SetPLL3DOT2M(uint8 MEA)
     CtrlLDO = 0x00;
 #endif
     guc_PllSta = PLL_3D2M;
-    if ( _IsUpIo()) 
-     TimerA_Capture_App_Init();
+   
     return true;
 }
 
@@ -1069,7 +1068,7 @@ uint8 Sleep(void)
 
     if((Systate&BIT0)==0x01)    //有电
     {   
-        return false;
+        //  return false;
     }
 
     //CtrlADC6=0;             //关闭所有的ADC
@@ -1084,7 +1083,7 @@ uint8 Sleep(void)
 
     if((Systate&BIT0)==0x01)
     {   
-        return false;
+        //               return false;
     }
 
     MCUFRQ=0;
@@ -1095,7 +1094,7 @@ uint8 Sleep(void)
 
     if((Systate&BIT0)==0x01)
     {   
-        return false; 
+        //          return false; 
     }
 
     for(i=0;i<3;i++);       //等待

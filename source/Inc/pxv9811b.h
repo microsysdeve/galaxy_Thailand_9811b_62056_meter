@@ -51,6 +51,7 @@ enum ENUMDEBUGLIST
   _debug_fun_vdcincheck_,
   _debug_fun_TimerCheck_, 
   _debug_fun_sleeplcdfun_, 
+  _debug_fun_sleepexit_, 
   _debug_fun_cFlashinfo_dianlian_backup_error_,
     
   _debug_fun_Pwr_SlpReset_,

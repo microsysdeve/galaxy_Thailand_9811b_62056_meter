@@ -112,9 +112,12 @@ void Pwr_E2Save(void)
 ===========================================================================================*/
 uint8 Pwr_DownProc(void)
 { 
-   _Interrupt_AppDisable();
+   //_Interrupt_AppDisable();
+   _Interrupt_Disable_Total()  ;
+    LCD_Off();
+    GPIO_Init_OffLine1();
     // IOOFF();                                              //关闭所有额外的IO
-    IntOFF();                                             //关闭中断，清除中断标记
+  //  IntOFF();                                             //关闭中断，清除中断标记
     UARTOFF();                                            //关闭所有UART       
 
     Tamp_Sleep();    
@@ -139,7 +142,7 @@ uint8 Pwr_DownProc(void)
         RTCWakeUpTm(RTC_HOUR, 0); //小时唤醒
     }else
     {
-        RTCWakeUpTm(gs_WakeUp.ucType, gs_WakeUp.ucTmDly);
+      //  RTCWakeUpTm(gs_WakeUp.ucType, gs_WakeUp.ucTmDly);
     }
     //处理完写E2操作后，在处理E2端口
     BE_I2C_SDA_1();
