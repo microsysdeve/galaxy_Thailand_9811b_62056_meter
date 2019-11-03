@@ -11,6 +11,30 @@ struct            ST645CommTimeFormat
     unsigned char               cYear;
 };
 
+
+struct STDATAOFFSET 
+{
+    unsigned char               cNo;
+    unsigned  short             iAddr ;
+    unsigned  char              clen;
+    unsigned char               ctype;
+    
+};
+
+
+enum DATAOFFSET
+{
+    _offset_Password1_,
+    _offset_Password2_,
+    _offset_End_,
+}; 
+
+#define         _offset(st)                      ((unsigned short)(&st))
+#define         _len(st)                      ((unsigned char)(sizeof(st)))
+
+#define         _offset_unitlist(no,datap,opertype)            {no, _offset(datap),_len(datap),opertype}  
+
+
 const uint8 code guc_PcComEd[]=
 {
     AS_SOH, 'B','0',AS_ETX,//0x71
@@ -199,7 +223,6 @@ const GS_IECCOM    gs_OBSCom[]=
     {"1.6.0*11",        ")",            0xB0,       IEC_RO,     0x02},    //上11次最大需量及发生时间
     {"1.6.0*12",        ")",            0xC0,       IEC_RO,     0x02},    //上12次最大需量及发生时间
 
-
     //事件
     {"96.70",           ")",            _ReadBodyOpOrMdTrDate_time_,       IEC_RO,     _ReadBodyOpOrMdTrDate_},    //开表盖时间
 
@@ -241,9 +264,9 @@ const GS_IECCOM    gs_OBSCom[]=
     {"96.2.5",          ")",            0x06,       IEC_RO,     _E2DataProc_},    //校表日期
     {"96.2.2",          ")",            0x07,       IEC_RO,     _E2DataProc_},    //费率修改日期
     {"96.8.0",          "*min)",        0x08,       IEC_RW,     _E2DataProc_},    //负荷记录周期
-
-    {"96.96.1",         ")",            0x09,       IEC_WO,     _E2DataProc_},    //写入P1密码
-    {"96.96.2",         ")",            0x0A,       IEC_WO,     _E2DataProc_},    //写入P2码
+ 
+    {"96.96.1",         ")",            _offset_Password1_,       IEC_WO,     _E2DataProc_},    //写入P1密码
+    {"96.96.2",         ")",            _offset_Password2_,       IEC_WO,     _E2DataProc_},    //写入P2码
 
     {"96.6.1",          ")",            0x0b,       IEC_RO,     _E2DataProc_},    //电表状态字
 
@@ -258,11 +281,8 @@ const GS_IECCOM    gs_OBSCom[]=
 
 
     { "0.9.1",          ")",            0x01,       IEC_RW,     _DateAndTimeProc_},    //时间
-
     { "0.9.2",          ")",            0x00,       IEC_RW,     _DateAndTimeProc_},    //日期
-
     { "0.9.5",          ")",            0x02,       IEC_RW,     _DateAndTimeProc_},    //星期
-
     
     {"32.7.0",          "*V)",          0x01,       IEC_RO,     _ReadInsData_},    //电压
     {"31.7.0",          "*A)",          0x02,       IEC_RO,     _ReadInsData_},    //电流
@@ -519,14 +539,15 @@ uint8 JudgeOBSPsw(uint8 *buff,uint8 ucLevel)
 {
     uint32 E2Adrr;
 	uint8 i;
-    uint8 PassWord[8];
-#ifdef PX_OPT
+    //uint8 PassWord[8];
+#define         PassWord        FlashInfo.SetInfo.s62056Password[ucLevel-1]
+
     if(ucLevel>0x02)
     {
         return Ret_Err;
     }
-    E2Adrr=EEP_RDPASSWORD+(ucLevel-1)*8;
-    BE_ReadP(E2Adrr,PassWord,8);
+   // opt  E2Adrr=EEP_RDPASSWORD+(ucLevel-1)*8;
+    //opt BE_ReadP(E2Adrr,PassWord,8);
 
     for(i=0;i<8;i++)
     {
@@ -543,7 +564,7 @@ uint8 JudgeOBSPsw(uint8 *buff,uint8 ucLevel)
     {//如果密码错误
         return Ret_Err;                         //返回密码不正确
     }
-#endif
+
    return Ret_OK;                         //返回密码正确
 }
 /*=========================================================================================\n
@@ -935,13 +956,44 @@ const  uint8 code ConstE2DataTableCnt=dim(gs_E2DataTable);
 * @修改人:  
 * @修改内容:  
 ===========================================================================================*/
+const struct STDATAOFFSET   stdataoffset[]=
+{
+  _offset_unitlist(_offset_Password1_,FlashInfo.SetInfo.s62056Password[0],0),
+  _offset_unitlist(_offset_Password2_,FlashInfo.SetInfo.s62056Password[1],0),
+};
+
+const struct STDATAOFFSET code  *dataoffset_search( unsigned char  cNo)
+{
+  unsigned char                 i;
+  
+  if ( cNo >= _offset_End_)
+      return NULL;
+  
+  for ( i =0 ; i <(sizeof(stdataoffset)/sizeof(stdataoffset[0]));i++)
+  {
+      if  ( stdataoffset[i].cNo == cNo )
+          return (&(stdataoffset[i]));
+  }
+  return NULL;
+}
+
+//#define  HEX2BCD    0x80
+//#define  ASC2BCD    0x40
+
 uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
 {
     uint8 ucData[16];
-    uint8 ASCII[32];
- 
+    uint8 ASCII[32];       
+  struct STDATAOFFSET code  *stp;
     if(Const_DataCOmWR==cmd)                    //写
     {
+        stp =(struct STDATAOFFSET code *)dataoffset_search(index);
+        if ( NULL == stp )
+          return 0;
+        if ( 0 == stp->ctype )
+          Copy_FlashInfo((char *)stp->iAddr,(char *)pvoid,stp->clen);
+         return 0;    
+        
         if(gs_E2DataTable[index].ucAtb&ASC2BCD)
         {
             ASCII2BCD(ucData,pvoid,gs_E2DataTable[index].ucLen*2);

@@ -55,7 +55,7 @@ Adc_DataGet (char cRESDIV)
   return (unsigned short) tempvalue.lword;
 }
 
-char
+unsigned short 
 cAdcApp_Get (enum ENUMADCDATANOLIST cno)
 {
   struct STLVDBUF *stp = &stAdcFun.stAdcData[cno];
@@ -101,7 +101,7 @@ Adc_Function (enum ENUMADDCRUNSTATU *cStatu)
        break;
       
     case _enAdc_BatGetData_:
-      RamData.VBat[0] = cAdcApp_Get (_adc_bat_);
+      RamData.VBat[0] = cAdcApp_Get (_adc_bat_)/10;
       _start_adc_Conver (_adcio_temp_, *cStatu);
       break;
       

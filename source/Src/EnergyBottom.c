@@ -1230,8 +1230,8 @@ void EnyB_JbPm_Updata(void)
     if(guc_PllSta == PLL_800K)
     {
         EnyB_SetMeterCfgACK(gs_JbPm.ul_Gateq,GATEP); 
-        EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1_800,SCI1);
-        EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2_800,SCI2);
+        EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI1,SCI1);
+        EnyB_SetMeterCfgACK(gs_JbPm.ul_SCI2,SCI2);
     }
     
     EnyB_SetMeterCfgACK(gs_JbPm.uc_PhcCtrl1,PHCCtrl1);  //…Ë÷√I1Ω«≤Ó÷µ
