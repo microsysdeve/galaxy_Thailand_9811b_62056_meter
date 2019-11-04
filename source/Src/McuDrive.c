@@ -113,7 +113,7 @@ void IO_Init(void)
 	*/
 	P6OE = 0xff;   //允许输出
     P6IE = 0;   //禁止输入
-    //P6OD = 0;   //输出0
+     P6OD = 0;   //输出0
 	/*  IO      管脚       作用
 		P7.0	/NO USE
 		P7.1    /NO USE
