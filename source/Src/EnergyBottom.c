@@ -782,11 +782,11 @@ uint32 CalRMS(uint16 addr)
         }
         else
         {
-             TempValue1=Hex2BCD(TempValue.lword);
-
+           //  TempValue1=Hex2BCD(TempValue.lword);
+              TempValue1= TempValue.lword;
              if(gs_SysRunSt.Pdir==true)   //反向添加负号
              {
-                 _NegLogeo_Set(TempValue1);//=0x800000;
+                 TempValue1 =-TempValue1 ;//_NegLogeo_Set(TempValue1);//=0x800000;
              }
         }
         break;
@@ -812,11 +812,11 @@ uint32 CalRMS(uint16 addr)
         }
         else
         {
-             TempValue1=Hex2BCD(TempValue.lword);
-
+             //  TempValue1=Hex2BCD(TempValue.lword);
+              TempValue1= TempValue.lword;
              if(gs_SysRunSt.Pdir==true)   //反向添加负号
              {
-                  _NegLogeo_Set(TempValue1);//|=0x800000;
+                 TempValue1 =-TempValue1 ;//_NegLogeo_Set(TempValue1);//=0x800000;
              }
         }
         break;
@@ -1089,22 +1089,25 @@ uint16 CalCos(void)
 ===========================================================================================*/
 uint8 EnyB_ChkPowRev(uint8 *channel, uint8 junc)
 {
-    int32 l_pa;
+    int32 l_pa,l_pb,ltempa,ltempb;
     uint32 TempPara;
     uint32 ulPower;
     uint8 flag;
     
-      return false;
-    if(*channel == SETA)
+      
+    if((*channel == SETA) ||(1))
     {
         l_pa = EnyB_ReadMeterParaACK(DATAP);       
         TempPara=gs_JbPm.ul_PG>>8;          //读取比例系数
     }
-    else
+    //else
     {
-        l_pa = EnyB_ReadMeterParaACK(DATAQ);
+        l_pb = EnyB_ReadMeterParaACK(DATAQ);
         TempPara=gs_JbPm.ul_QG>>8;          //读取比例系数
     }
+    ltempa = (labs(l_pa) >labs(l_pb))?l_pa:l_pb;
+    l_pa = ltempa;
+    
     
     if(TempPara==0)
     {   //校表参数功率计算值为0的话，直接返回

@@ -19,6 +19,6 @@
 @REM 
 
 
-"C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\common\bin\cspybat" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\8051\bin\8051proc.dll" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\8051\bin\VangoDriver_SD502_IAR83_V0.8.dll"  %1 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\8051\bin\8051bat.dll" --backend -B "--proc_core" "plain" "--proc_code_model" "near" "--proc_nr_virtual_regs" "8" "--proc_pdata_bank_reg_addr" "0xA0" "--proc_dptr_nr_of" "1" "--proc_data_model" "large" "-p" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\8051\config\devices\_generic\io8052.ddf" "--proc_exclude_exit_breakpoint" "--proc_driver" "3rd_party" 
+"C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5_2\common\bin\cspybat" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5_2\8051\bin\8051proc.dll" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5\8051\bin\VangoDriver_SD502_IAR83_V0.8.dll"  %1 --plugin "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5_2\8051\bin\8051bat.dll" --backend -B "--proc_core" "plain" "--proc_code_model" "near" "--proc_nr_virtual_regs" "8" "--proc_pdata_bank_reg_addr" "0xA0" "--proc_dptr_nr_of" "1" "--proc_data_model" "large" "-p" "C:\Program Files (x86)\IAR Systems\Embedded Workbench 6.5_2\8051\config\devices\_generic\io8052.ddf" "--proc_exclude_exit_breakpoint" "--proc_driver" "3rd_party" 
 
 

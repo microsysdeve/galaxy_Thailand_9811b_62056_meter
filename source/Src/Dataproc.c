@@ -261,21 +261,19 @@ volatile char qqqq3;
 
 void Data_SecProc(void)
 {
-   TimerProc();                                //在有电下均处理
+    TimerProc();      //        在有电下均处理
     CLRWDT();
- //   if ( qqqq1 )
     EnyB_Open_Cf();
     CLRWDT();
- //   if ( qqqq2 )
-    Tamp_ChkPLL();                              //断零线判电压 
+    Tamp_ChkPLL();    //        断零线判电压 
     CLRWDT();    
     Tamp_DspProc();
     if(guc_CfOpenFlg == false   //待状态稳定后再做以下判断
        && guc_WorkMd == NormalMode)      
     {
 #if (CONFIG_CH == 2)
-        CLRWDT();
-    //-----------    Tamp_BlanceProc();        
+       CLRWDT();
+       //=============Tamp_BlanceProc();        
 #endif
         CLRWDT();
         if(EnyB_ChkPowRev((uint8*)&gs_Channel.ucSta, CONFIG_JUNC)) //功率方向判断
