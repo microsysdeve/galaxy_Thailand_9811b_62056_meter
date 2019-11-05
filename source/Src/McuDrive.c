@@ -566,6 +566,8 @@ else
         {
             return false;       //在一定时间内没有锁定
         }
+         if(POWERUP())
+           return false;       //在一定时间内没有锁定
     }
 
     MCUFRQ=1;
@@ -577,6 +579,8 @@ else
         {
             return false;       //在一定时间内没有锁定
         }
+        if(POWERUP())
+           return false;       //在一定时间内没有锁定
     }
 if(SetFmcu == PLL_3D2M)    
     guc_PllSta = PLL_3D2M;
@@ -988,6 +992,7 @@ void SwichPluseOutType(uint8 type)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
+ extern volatile unsigned short iKey_Intno;
 uint8 SleepRTC(void)
 {
     uint8 i;
@@ -1008,28 +1013,42 @@ uint8 SleepRTC(void)
 
 //    PMG=1; //关闭计量时钟
   
-    if ((_IsUpIo()) &&(1)) //  if((Systate&BIT0)==0x01)
-    {   
-        return false;
-    }
+    
 
     MCUFRQ=0;
-    while(MCUFRQ);
+    while(MCUFRQ)
+    {
+        if ((_IsUpIo()) &&(1)) //  if((Systate&BIT0)==0x01)
+        {   
+          return false;
+      }
+         iKey_Intno -=_BioKey();
+      if (iKey_Intno!= stsleepstate.iKey_Intno)
+               return false; 
+    };
     
 //    MEAFRQ=0; 
 //    while(MEAFRQ);
 
-    if ((  _IsUpIo())&&(1)) //  if((Systate&BIT0)==BIT0)
-    {   
-        return false; 
-    }
+   
      if (iKey_Intno!= stsleepstate.iKey_Intno)
                return false; 
 
     for(i=0;i<3;i++);           //等待
 
     CtrlCLK=0x00;
-    while(CtrlCLK);  
+    while(CtrlCLK)
+      {
+        
+        if ((_IsUpIo()) &&(1)) //  if((Systate&BIT0)==0x01)
+        {   
+          return false;
+      }
+         iKey_Intno -=_BioKey();
+      if (iKey_Intno!= stsleepstate.iKey_Intno)
+               return false; 
+    };
+      ;  
     
     SLEEP0=1;
     DelayOSC(5);

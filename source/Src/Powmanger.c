@@ -813,7 +813,8 @@ void Pwr_WakeupProc_adc2allTurno(void)
      EnyB_SetMeterCfgACK(0x60, PMCtrl3);    // EnyB_SetMeterCfgACK(0x00, PMCtrl3);             //禁止带通滤波器
     CtrlADC0 = gs_JbPm.uc_AnaG;                         //设置ADC增益
 #if (MEA_SLP_FMCU == 1)     
-    PowOffSetFmcu(PLL_800K);         //MCU频率3.2M降到800K
+   if ( true  != PowOffSetFmcu(PLL_800K)) //;         //MCU频率3.2M降到800K
+    return ;
 #endif      
     /*先开模拟，再开数字,还要等待时间再开IDET*/    
 #if (CONFIG_CH == 1)  
@@ -866,7 +867,8 @@ void Pwr_WakeupProc_adc2allTurno(void)
         _Interrupt_AppDisable();
         SLPWDT();
 #if (MEA_SLP_FMCU == 1) 
-        PowOffSetFmcu(PLL_3D2M);   //MCU切3.2M 
+       if ( true  != PowOffSetFmcu(PLL_3D2M)) //;   //MCU切3.2M 
+         return ;
 #endif         
 #if (CONFIG_CH == 1) 
         gul_I1rms800k = EnyB_ReadMeterParaACK(RMSII1);      //读取A路有效值
@@ -954,7 +956,8 @@ void Pwr_WakeupProc_adc2allTurno(void)
         SLPWDT();
       }
 #if (MEA_SLP_FMCU == 1) 
-      PowOffSetFmcu(PLL_3D2M);   //MCU切3.2M 
+      if ( true != PowOffSetFmcu(PLL_3D2M)) //;   //MCU切3.2M 
+      return ;
 #endif 
 #if (CONFIG_CH == 1) 
         gul_I1rms800k = 0;
