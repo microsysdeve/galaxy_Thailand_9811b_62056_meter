@@ -167,5 +167,7 @@ enum {
 	 _DISP_REVERSE_ = _DISP_REWARE_ ,
          
 };
+
+//#define _TestDisp_ 
 #define 		_DIS_VOLSET_  		0
 #endif /* LCD_1_H_ */

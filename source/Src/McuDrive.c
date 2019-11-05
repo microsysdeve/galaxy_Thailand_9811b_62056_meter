@@ -45,8 +45,8 @@ void IO_Init(void)
 		P1.6   /NO USE	
 		P1.7   /NO USE	
 	*/
-    P1OE  = 0;	
-    P1IE  = 0;
+    P1OE  = 0x10;	
+    P1IE  = 0x10;
     P1OD  = 0;
     P11FS = 0;
     P12FS = 0;

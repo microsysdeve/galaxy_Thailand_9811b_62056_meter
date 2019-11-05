@@ -1091,7 +1091,7 @@ uint8 EnyB_ChkPowRev(uint8 *channel, uint8 junc)
 {
     int32 l_pa,l_pb,ltempa,ltempb;
     uint32 TempPara;
-    uint32 ulPower;
+  volatile  uint32 ulPower;
     uint8 flag;
     
       
