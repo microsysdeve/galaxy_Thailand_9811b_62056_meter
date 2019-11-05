@@ -4,7 +4,7 @@
 #include "pubset.h"
 
 #define                 _TimerACheckTm_  					(3000/_cMain_sequentialTime_ )
-#define                 _TimerACheckPreTm_					(2000/_cMain_sequentialTime_ )
+#define                 _TimerACheckPreTm_					(4000/_cMain_sequentialTime_ )
 #define                 _IsTimerACheck()					(stperiod.iCheckTm)
 struct STPERIOD
 {
@@ -38,5 +38,7 @@ void TimerA_Catupre_Mainint_fun(void);
 
 #define         _Isstperiodfristcheck()         ( 0 == stperiod.cInit)
 #define         TimerA_Capture_App_Init()	    { if (_Isstperiodfristcheck()) TimerA_Capture_Init();} // 捕获中断程序,初始化，并打开
+#define         TimerA_Capture_End()                    (( 0 == stperiod.iLnCheckPreTm ) && ( 0== stperiod.iCheckTm))
+      
  
 #endif

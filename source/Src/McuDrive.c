@@ -126,6 +126,7 @@ void IO_Init(void)
 	*/  
 	P7OE = 0xFf;   //允许输出
     P7IE = 0x00;   //禁止输入
+    NSel_Low();
     //P7OD = 0;   //输出0
 	/*  IO      管脚       作用
 		P8.0	/SEG17     
