@@ -261,7 +261,7 @@ void App_Init(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-bool Mea_Consumption_Dly(void)
+char  Mea_Consumption_Dly(void)
 {
     OpenFD();
     for(uint8 i=0; i<5; i++)
@@ -274,11 +274,11 @@ bool Mea_Consumption_Dly(void)
       RTCWakeUpTm(RTC_SETSEC, 6);
       
       SLEEP0=1;
-      return false;               //睡眠不成功返回错误
+      return 0;//false;               //睡眠不成功返回错误
     }else
     {
       CloseFD();
-      return true;
+      return 1;//true;
     }
 }
 /*=========================================================================================\n
