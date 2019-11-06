@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=612327758
+Checksum=1632920448
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -150,7 +150,7 @@ Fmt35={W}0:RamData.Pphb.VI	4	0
 Fmt36={W}0:RamData.RTCSec	3	0
 Fmt37={W}0:RamData.RTCTime	4	0
 Fmt38={W}0:RamData.RunState[0]	4	0
-Fmt39={W}0:RamData.StartPwr	4	0
+Fmt39={W}0:RamData.StartPwr	3	0
 Fmt40={W}0:RamData.WDGTm	3	0
 Fmt41={W}0:RamData.lPwr_SlpReset	3	0
 Fmt42={W}0:SBUF4	4	0
@@ -216,6 +216,11 @@ Fmt101={W}0:ul_Dat	4	0
 Fmt102={W}0:ul_div	4	0
 Fmt103={W}0:x	4	0
 Fmt104={W}0:zp.bjlcalgetchanel	4	0
+[Breakpoints]
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.605.3" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\streamio.c}.113.7" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.700.6" 1 0 0 0 "" 0 ""
+Count=3
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""
@@ -223,10 +228,6 @@ Category=_ 0
 [TermIOLog]
 LoggingEnabled=_ 0
 LogFile=_ ""
-[Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.606.3" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\streamio.c}.113.7" 0 0 0 0 "" 0 ""
-Count=2
 [Aliases]
 Count=0
 SuppressDialog=0
