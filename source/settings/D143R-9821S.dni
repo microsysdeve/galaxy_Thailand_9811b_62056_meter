@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=834900779
+Checksum=-614257015
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -95,21 +95,25 @@ Fmt43=strFlashInfo-lRtcJZPara	4	0
 Fmt44=strFrozeSet-Bias	4	0
 Fmt45=strFrozeSet-Length	4	0
 Fmt46=strFrozeSet-MinCnt	4	0
-Fmt47=strWriteCode-Code	4	0
-Fmt48=strWriteCode-MinMax	4	0
-Fmt49=struct STCHIPRUNIFNO-bjlcalgetchanel	3	0
-Fmt50=struct STDATAOFFSET-clen	4	0
-Fmt51=struct STDATAOFFSET-iAddr	4	0
-Fmt52=struct STLVDBUF-cVol	3	0
-Fmt53=struct STMETER_CONFIG-ctemp	4	0
+Fmt47=strVI-VI	4	0
+Fmt48=strVI-sVI	4	0
+Fmt49=strWriteCode-Code	4	0
+Fmt50=strWriteCode-MinMax	4	0
+Fmt51=struct STCHIPRUNIFNO-bjlcalgetchanel	3	0
+Fmt52=struct STDATAOFFSET-clen	4	0
+Fmt53=struct STDATAOFFSET-iAddr	4	0
+Fmt54=struct STLVDBUF-cVol	3	0
+Fmt55=struct STMETER_CONFIG-ctemp	4	0
+Fmt56=struct __Unnamed_2_276-VI	4	0
 [array_types]
 Fmt0=char[8]	4	0
-Fmt1=unsigned char[4]	3	0
-Fmt2=unsigned long[18]	4	0
-Fmt3=unsigned long[21]	4	0
-Fmt4=unsigned long[29]	4	0
-Fmt5=unsigned long[9]	4	0
-Fmt6=unsigned short[9]	4	0
+Fmt1=u32 [4]	4	0
+Fmt2=unsigned char[4]	3	0
+Fmt3=unsigned long[18]	4	0
+Fmt4=unsigned long[21]	4	0
+Fmt5=unsigned long[29]	4	0
+Fmt6=unsigned long[9]	4	0
+Fmt7=unsigned short[9]	4	0
 [watch_formats]
 Fmt0={W}0:ACC	4	0
 Fmt1={W}0:Addr	4	0
@@ -224,9 +228,7 @@ Fmt109={W}0:ul_div	4	0
 Fmt110={W}0:x	4	0
 Fmt111={W}0:zp.bjlcalgetchanel	4	0
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\System.c}.367.5" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\GC_Use.c}.375.4" 1 0 0 0 "" 0 ""
-Count=2
+Count=0
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

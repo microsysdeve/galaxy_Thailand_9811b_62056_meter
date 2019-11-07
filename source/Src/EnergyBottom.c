@@ -747,16 +747,10 @@ void EnyB_IntCF(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-uint32 CalRMS(uint16 addr)
+uint32 CalRMSio(uint16 addr,Word32 TempValue)
 {
-  Word32 TempValue,TempValue2;
+  Word32 TempValue2;
   uint32 TempPara,TempValue1;
-  //TempValue.lword=0;
-  if(addr == DATAP && gs_Channel.ucSta == SETB)
-  {
-      addr = DATAQ;
-  }
-  TempValue.lword=EnyB_ReadMeterParaACK(addr);
 
   switch (addr)
   {
@@ -1001,9 +995,24 @@ uint32 CalRMS(uint16 addr)
         TempValue1=0;
         break;
   }
-
   return TempValue1;
 }
+
+
+uint32 CalRMS(uint16 addr)
+{
+  Word32 TempValue,TempValue2;
+  uint32 TempPara,TempValue1;
+  
+  
+  if(addr == DATAP && gs_Channel.ucSta == SETB)
+  {
+      addr = DATAQ;
+  }
+  TempValue.lword=EnyB_ReadMeterParaACK(addr);
+  return ( CalRMSio(addr,TempValue));  
+}
+
 /*=========================================================================================\n
 * @function_name: CalCos
 * @function_file: EnergyBottom.c

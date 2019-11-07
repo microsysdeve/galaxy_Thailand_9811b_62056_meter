@@ -123,6 +123,7 @@ uint8 Pwr_DownProc(void)
     Tamp_Sleep();    
 
     Pwr_E2Save();   
+    Wait_Rst(1);
     gui_SystemState |= flgStSys_PowOff;    //置掉电状态
 //    guc_PowOffRuning = true; 
 //    Pwr_LcdSet();
@@ -883,12 +884,19 @@ void Pwr_WakeupProc_adc2allTurno(void)
 #else        
         if((gs_Channel.ucSta == SETA) ||(1))
         {
+          uint32 CalRMSio(uint16 addr,Word32 TempValue);         
+          Word32 TempValue;
+         
           char ctemp;
             gul_Test = 1;  //测试用
             gul_I1rms800k = EnyB_ReadMeterParaACK(RMSII1);      //读取A路有效值
+            TempValue.lword =gul_I1rms800k;
+           RamData.Iph.sVI=BCD2Hex(appnegchange(CalRMSio(RMSI1,TempValue),&ctemp));
    //======         gul_I1DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新A路直流值
             
-            gul_I2rms800k = EnyB_ReadMeterParaACK(RMSII2)/MEA_BMUL; //读取B路有效值   
+            gul_I2rms800k = EnyB_ReadMeterParaACK(RMSII2)/MEA_BMUL; //读取B路有效值  
+             TempValue.lword = gul_I2rms800k;
+            RamData.I_z.sVI=BCD2Hex(appnegchange(CalRMSio(RMSI2,TempValue),&ctemp));
      //======           gul_I2DCval   = EnyB_ReadMeterParaACK(DATAIDI1);    //更新B路直流值
             
         //     RamData.Iph.sVI=BCD2Hex(appnegchange(CalRMS(RMSI1),&ctemp));
