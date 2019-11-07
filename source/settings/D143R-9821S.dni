@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-938180119
+Checksum=554063134
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -100,7 +100,7 @@ Fmt48=strWriteCode-MinMax	4	0
 Fmt49=struct STCHIPRUNIFNO-bjlcalgetchanel	3	0
 Fmt50=struct STDATAOFFSET-clen	4	0
 Fmt51=struct STDATAOFFSET-iAddr	4	0
-Fmt52=struct STLVDBUF-cVol	4	0
+Fmt52=struct STLVDBUF-cVol	3	0
 Fmt53=struct STMETER_CONFIG-ctemp	4	0
 [array_types]
 Fmt0=char[8]	4	0
@@ -133,8 +133,8 @@ Fmt18={W}0:N	4	0
 Fmt19={W}0:Opt	4	0
 Fmt20={W}0:P21FS	4	0
 Fmt21={W}0:P6OE	4	0
-Fmt22={W}0:P7OD	1	0
-Fmt23={W}0:P7OE	4	0
+Fmt22={W}0:P7OD	4	0
+Fmt23={W}0:P7OE	1	0
 Fmt24={W}0:P9ID	4	0
 Fmt25={W}0:P9OD	4	0
 Fmt26={W}0:P9OE	4	0
@@ -222,7 +222,9 @@ Fmt107={W}0:ul_div	4	0
 Fmt108={W}0:x	4	0
 Fmt109={W}0:zp.bjlcalgetchanel	4	0
 [Breakpoints]
-Count=0
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\Src\System.c}.367.5" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\Drv_RTCSPK.c}.265.3" 1 0 0 0 "" 0 ""
+Count=2
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

@@ -24,7 +24,7 @@ struct STPERIOD
 extern volatile struct STPERIOD stperiod;
 
 #define              _stperiod_Clr_io()            ClrRam((char *) &(stperiod), sizeof (stperiod))
-#define              _stperiod_Clr_app()            ClrRam((char *) &(stperiod.iPrev), sizeof (stperiod)-sizeof(stperiod.cInit))
+#define              _stperiod_Clr_app()           ClrRam((char *) &(stperiod.iPrev), sizeof (stperiod)-sizeof(stperiod.cInit))
 
 void TimerA_Capture_Reg_Init (void);
 void TimerA_Capture_Init (void);

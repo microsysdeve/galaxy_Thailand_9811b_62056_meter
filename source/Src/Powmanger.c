@@ -661,7 +661,7 @@ void Pwr_SlpReset(void)
 ===========================================================================================*/
 bool Pwr_ChkProc(void)
 {
-  
+   extern volatile unsigned short iKey_Intno;
     uint8 i;
     //上电稳定时间
     

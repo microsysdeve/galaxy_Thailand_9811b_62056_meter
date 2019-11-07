@@ -7,11 +7,16 @@ struct STADCFUN stAdcFun;
 #define             _IsLvdin0(a)  ( _adc_lvdin0_ == a)
 #define             _IsLvdin1(a)  (_adc_lvdin1_ == a)
 #define             _IsLvd(a)  (_IsLvdin0(a) || _IsLvdin1(a) )
+#define                 _iBatDefVol_            3600
 void
 Adc_DataInit (void)
 {
+  char i;
   _Adc_DataInit_Data ();
   _Adc_DataInit_state ();
+  for ( i = 0 ;i < _stadcfunvollistlen_ ;i++)
+    stAdcFun.stAdcData[_adc_bat_].cVolList[i]= _iBatDefVol_;
+    stAdcFun.stAdcData[_adc_bat_].cVol= _iBatDefVol_;
 }
 
 void
@@ -101,7 +106,7 @@ Adc_Function (enum ENUMADDCRUNSTATU *cStatu)
        break;
       
     case _enAdc_BatGetData_:
-      RamData.VBat[0] = cAdcApp_Get (_adc_bat_)/10;
+      RamData.VBat[0] =_GetBatVol(cAdcApp_Get (_adc_bat_));
       _start_adc_Conver (_adcio_temp_, *cStatu);
       break;
       

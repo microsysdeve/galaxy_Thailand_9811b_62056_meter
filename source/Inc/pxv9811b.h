@@ -25,7 +25,7 @@ enum ENUMDEBUGLIST
   _debug_int_7_,
   _debug_int_8_,
   _debug_int_9_,
-  _debug_int_10_,
+ 
   _debug_int_11_,
   _debug_int_12_,
   _debug_int_13_,     
@@ -49,6 +49,7 @@ enum ENUMDEBUGLIST
   _debug_errno_turoffintstate_instate_,
   _debug_errno_StartupCheckState_,
   _debug_fun_vdcincheck_,
+   _debug_int_10_,
   _debug_fun_TimerCheck_, 
   _debug_fun_sleeplcdfun_, 
   _debug_fun_sleepexit_, 

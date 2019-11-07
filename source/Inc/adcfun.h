@@ -98,6 +98,6 @@ enum ENUMADCRETURNSTATU adc_appfun (void);
 #define _Adc_DataInit_Data()            {ClrRam((char *)&stAdcFun,sizeof(stAdcFun));}
 #define _Adc_DataInit_state()           {stAdcFun.cBatStatu  = _enAdc_In0Wait_;}
 
-
+#define         _GetBatVol(vol)             (vol/10)
 
 #endif
