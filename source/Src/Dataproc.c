@@ -255,10 +255,6 @@ void Data_MinProc(void)
 * @修改人:  
 * @修改内容: 
 ===========================================================================================*/
-volatile char qqqq1;
-volatile char qqqq2;
-volatile char qqqq3;
-
 void Data_SecProc(void)
 {
     TimerProc();      //        在有电下均处理

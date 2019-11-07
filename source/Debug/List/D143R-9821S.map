@@ -156,7 +156,7 @@ Warning[w6]: Type conflict for external/entry "INTERRUPT_ENABLE", in module main
 #                                                                              #
 #      IAR Universal Linker V5.7.0.39                                          #
 #                                                                              #
-#           Link time     =  07/Nov/2019  13:15:12                             #
+#           Link time     =  07/Nov/2019  15:14:16                             #
 #           Target CPU    =  x51                                               #
 #           List file     =  C:\worktop\galaxy_Thailand_9811b_62056_meter\sour #
 #                            ce\Debug\List\D143R-9821S.map                     #
@@ -518,56 +518,56 @@ CODE_AC
            gCuc_HEX2BCDMap         0000039C 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EEE8 - 0000EF15 (0x2e bytes), align: 0
+  Relative segment, address: CODE 0000EF53 - 0000EF80 (0x2e bytes), align: 0
   Segment part 12.            Intra module refs:   DelayXms::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           DelayXms                0000EEE8 
+           DelayXms                0000EF53 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EF16 - 0000EFDC (0xc7 bytes), align: 0
+  Relative segment, address: CODE 0000EF81 - 0000F047 (0xc7 bytes), align: 0
   Segment part 30.            Intra module refs:   IntHex2BCD::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           IntHex2BCD              0000EF16 
+           IntHex2BCD              0000EF81 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EFDD - 0000F106 (0x12a bytes), align: 0
+  Relative segment, address: CODE 0000F048 - 0000F171 (0x12a bytes), align: 0
   Segment part 32.            Intra module refs:   Hex2BCD::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Hex2BCD                 0000EFDD 
+           Hex2BCD                 0000F048 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F107 - 0000F1A6 (0xa0 bytes), align: 0
+  Relative segment, address: CODE 0000F172 - 0000F211 (0xa0 bytes), align: 0
   Segment part 34.            Intra module refs:   BCD2Hex::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           BCD2Hex                 0000F107 
+           BCD2Hex                 0000F172 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F1A7 - 0000F1C3 (0x1d bytes), align: 0
+  Relative segment, address: CODE 0000F212 - 0000F22E (0x1d bytes), align: 0
   Segment part 38.            Intra module refs:   APIByteBCD2HEX::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           APIByteBCD2HEX          0000F1A7 
+           APIByteBCD2HEX          0000F212 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F1C4 - 0000F1E4 (0x21 bytes), align: 0
+  Relative segment, address: CODE 0000F22F - 0000F24F (0x21 bytes), align: 0
   Segment part 40.            Intra module refs:   APIByteHEX2BCD::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           APIByteHEX2BCD          0000F1C4 
+           APIByteHEX2BCD          0000F22F 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -579,29 +579,29 @@ CODE_AC
            CrcTab                  00000100 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F1E5 - 0000F22C (0x48 bytes), align: 0
+  Relative segment, address: CODE 0000F250 - 0000F297 (0x48 bytes), align: 0
   Segment part 50.            Intra module refs:   do_CRC::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           do_CRC                  0000F1E5 
+           do_CRC                  0000F250 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F22D - 0000F266 (0x3a bytes), align: 0
+  Relative segment, address: CODE 0000F298 - 0000F2D1 (0x3a bytes), align: 0
   Segment part 52.            Intra module refs:   JudgeIsNum::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           JudgeIsNum              0000F22D 
+           JudgeIsNum              0000F298 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F267 - 0000F287 (0x21 bytes), align: 0
+  Relative segment, address: CODE 0000F2D2 - 0000F2F2 (0x21 bytes), align: 0
   Segment part 64.            Intra module refs:   MemSet::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MemSet                  0000F267 
+           MemSet                  0000F2D2 
                ISTACK = 00000000 ( 00000003 )
     -------------------------------------------------------------------------
 CODE_C
@@ -792,7 +792,7 @@ XDATA_Z
     -------------------------------------------------------------------------
 <BANKED_CODE> 3 (was BANKED_CODE)
   Relative segment, address: CODE 00018000 - 00018002 (0x3 bytes), align: 0
-  Segment part 23.            Intra module refs:   Data_RecPara::?relay
+  Segment part 20.            Intra module refs:   Data_RecPara::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Data_RecPara            00018000 
@@ -801,7 +801,7 @@ XDATA_Z
     -------------------------------------------------------------------------
 <BANKED_CODE> 3 (was BANKED_CODE)
   Relative segment, address: CODE 00018003 - 00018084 (0x82 bytes), align: 0
-  Segment part 37.            Intra module refs:   Data_SecProc::?relay
+  Segment part 34.            Intra module refs:   Data_SecProc::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Data_SecProc            00018003 
@@ -810,7 +810,7 @@ XDATA_Z
     -------------------------------------------------------------------------
 <BANKED_CODE> 3 (was BANKED_CODE)
   Relative segment, address: CODE 00018085 - 00018087 (0x3 bytes), align: 0
-  Segment part 59.            Intra module refs:   RecoverEnergyData::?relay
+  Segment part 56.            Intra module refs:   RecoverEnergyData::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            RecoverEnergyData       00018085 
@@ -819,21 +819,21 @@ XDATA_Z
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 000006D9 - 000006DE (0x6 bytes), align: 0
-  Segment part 24.
+  Segment part 21.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Data_RecPara::?relay    000006D9        main (mainapp)
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 000006DF - 000006E4 (0x6 bytes), align: 0
-  Segment part 38.
+  Segment part 35.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Data_SecProc::?relay    000006DF        main (mainapp)
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 000006E5 - 000006EA (0x6 bytes), align: 0
-  Segment part 60.
+  Segment part 57.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            RecoverEnergyData::?relay
@@ -904,28 +904,28 @@ XDATA_Z
            guc_Dmd250msCnt         0000036F        Timer2Interrupt (System)
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FD84 - 0000FDBC (0x39 bytes), align: 0
+  Relative segment, address: CODE 0000FDEF - 0000FE27 (0x39 bytes), align: 0
   Segment part 20.            Intra module refs:   Demand_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Demand_Init             0000FD84 
+           Demand_Init             0000FDEF 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FDBD - 0000FDD7 (0x1b bytes), align: 0
+  Relative segment, address: CODE 0000FE28 - 0000FE42 (0x1b bytes), align: 0
   Segment part 24.            Intra module refs:   Demand_250ms::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Demand_250ms            0000FDBD 
+           Demand_250ms            0000FE28 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FDD8 - 0000FE32 (0x5b bytes), align: 0
+  Relative segment, address: CODE 0000FE43 - 0000FE9D (0x5b bytes), align: 0
   Segment part 26.            Intra module refs:   ResetMinuteDemand::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ResetMinuteDemand       0000FDD8 
+           ResetMinuteDemand       0000FE43 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -954,6 +954,7 @@ CODE_C
 CODE_C
   Relative segment, address: CODE 00001AB8 - 00001ABB (0x4 bytes), align: 0
   Segment part 19.            Intra module refs:   Adc_DataGet (adcfun)
+                                                   Do_SecTask (GC_Use)
                                                    calu_5 (mainapp)
                                                    errcheck_fun (mainapp)
                                                    vol_Get (adcfun)
@@ -1086,20 +1087,20 @@ XDATA_AN
            P7OD                    000028D7 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FEE1 - 0000FF50 (0x70 bytes), align: 0
+  Relative segment, address: CODE 0000FF4C - 0000FFBB (0x70 bytes), align: 0
   Segment part 24.            Intra module refs:   Do_Keys::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do_Keys                 0000FEE1 
+           Do_Keys                 0000FF4C 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FF51 - 0000FF8B (0x3b bytes), align: 0
+  Relative segment, address: CODE 0000FFBC - 0000FFF6 (0x3b bytes), align: 0
   Segment part 26.            Intra module refs:   Do_IRKeys::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do_IRKeys               0000FF51 
+           Do_IRKeys               0000FFBC 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -1111,7 +1112,7 @@ CODE_C
            DigitBits               00001ABC 
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002969E - 000297CC (0x12f bytes), align: 0
+  Relative segment, address: CODE 0002969E - 000297EC (0x14f bytes), align: 0
   Segment part 28.            Intra module refs:   UpBkltLED::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
@@ -1120,145 +1121,145 @@ CODE_C
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 000297CD - 00029854 (0x88 bytes), align: 0
+  Relative segment, address: CODE 000297ED - 00029874 (0x88 bytes), align: 0
   Segment part 30.            Intra module refs:   ChkDispItem::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           ChkDispItem             000297CD 
+           ChkDispItem             000297ED 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 00029855 - 0002988D (0x39 bytes), align: 0
+  Relative segment, address: CODE 00029875 - 000298AD (0x39 bytes), align: 0
   Segment part 32.            Intra module refs:   SetDispBit::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetDispBit              00029855 
+           SetDispBit              00029875 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002988E - 000298C7 (0x3a bytes), align: 0
+  Relative segment, address: CODE 000298AE - 000298E7 (0x3a bytes), align: 0
   Segment part 34.            Intra module refs:   SetDispBit_rev::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetDispBit_rev          0002988E 
+           SetDispBit_rev          000298AE 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 000298C8 - 00029927 (0x60 bytes), align: 0
+  Relative segment, address: CODE 000298E8 - 00029947 (0x60 bytes), align: 0
   Segment part 36.            Intra module refs:   SetDigitDisp::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetDigitDisp            000298C8 
+           SetDigitDisp            000298E8 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 00029928 - 000299B4 (0x8d bytes), align: 0
+  Relative segment, address: CODE 00029948 - 000299D4 (0x8d bytes), align: 0
   Segment part 38.            Intra module refs:   AddDispBits::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           AddDispBits             00029928 
+           AddDispBits             00029948 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 000299B5 - 000299D8 (0x24 bytes), align: 0
+  Relative segment, address: CODE 000299D5 - 000299F8 (0x24 bytes), align: 0
   Segment part 40.            Intra module refs:   AddDispSetBits::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           AddDispSetBits          000299B5 
+           AddDispSetBits          000299D5 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 000299D9 - 000299FE (0x26 bytes), align: 0
+  Relative segment, address: CODE 000299F9 - 00029A1E (0x26 bytes), align: 0
   Segment part 42.            Intra module refs:   AddUseLst::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           AddUseLst               000299D9 
+           AddUseLst               000299F9 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 000299FF - 00029AB1 (0xb3 bytes), align: 0
+  Relative segment, address: CODE 00029A1F - 00029AD1 (0xb3 bytes), align: 0
   Segment part 44.            Intra module refs:   SetDispBitLst::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetDispBitLst           000299FF 
+           SetDispBitLst           00029A1F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 00029AB2 - 00029EDE (0x42d bytes), align: 0
+  Relative segment, address: CODE 00029AD2 - 00029EFE (0x42d bytes), align: 0
   Segment part 46.            Intra module refs:   UpDisp::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UpDisp                  00029AB2 
+           UpDisp                  00029AD2 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 00029EDF - 0002A008 (0x12a bytes), align: 0
+  Relative segment, address: CODE 00029EFF - 0002A028 (0x12a bytes), align: 0
   Segment part 48.            Intra module refs:   NextItem::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           NextItem                00029EDF 
+           NextItem                00029EFF 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002A009 - 0002A072 (0x6a bytes), align: 0
+  Relative segment, address: CODE 0002A029 - 0002A092 (0x6a bytes), align: 0
   Segment part 50.            Intra module refs:   SetDispItem::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetDispItem             0002A009 
+           SetDispItem             0002A029 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002A073 - 0002A105 (0x93 bytes), align: 0
+  Relative segment, address: CODE 0002A093 - 0002A125 (0x93 bytes), align: 0
   Segment part 52.            Intra module refs:   SetpArry::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetpArry                0002A073 
+           SetpArry                0002A093 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002A106 - 0002A127 (0x22 bytes), align: 0
+  Relative segment, address: CODE 0002A126 - 0002A147 (0x22 bytes), align: 0
   Segment part 54.            Intra module refs:   SetDispArry::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetDispArry             0002A106 
+           SetDispArry             0002A126 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002A128 - 0002A144 (0x1d bytes), align: 0
+  Relative segment, address: CODE 0002A148 - 0002A164 (0x1d bytes), align: 0
   Segment part 56.            Intra module refs:   SetDispSubItem::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetDispSubItem          0002A128 
+           SetDispSubItem          0002A148 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002A145 - 0002A22C (0xe8 bytes), align: 0
+  Relative segment, address: CODE 0002A165 - 0002A24C (0xe8 bytes), align: 0
   Segment part 58.            Intra module refs:   Do_Disp::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do_Disp                 0002A145 
+           Do_Disp                 0002A165 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002A22D - 0002A265 (0x39 bytes), align: 0
+  Relative segment, address: CODE 0002A24D - 0002A285 (0x39 bytes), align: 0
   Segment part 60.            Intra module refs:   InitDispProg::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           InitDispProg            0002A22D 
+           InitDispProg            0002A24D 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -1890,29 +1891,29 @@ CODE_C
            gs_MeterConstT          00001B2C 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FA42 - 0000FA52 (0x11 bytes), align: 0
+  Relative segment, address: CODE 0000FAAD - 0000FABD (0x11 bytes), align: 0
   Segment part 18.            Intra module refs:   Eny_RefVar::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Eny_RefVar              0000FA42 
+           Eny_RefVar              0000FAAD 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FA53 - 0000FABD (0x6b bytes), align: 0
+  Relative segment, address: CODE 0000FABE - 0000FB28 (0x6b bytes), align: 0
   Segment part 20.            Intra module refs:   Eny_JbPm_MeterConst::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Eny_JbPm_MeterConst     0000FA53 
+           Eny_JbPm_MeterConst     0000FABE 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FABE - 0000FB71 (0xb4 bytes), align: 0
+  Relative segment, address: CODE 0000FB29 - 0000FBDC (0xb4 bytes), align: 0
   Segment part 30.            Intra module refs:   Eny_SlpEnergyProc::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Eny_SlpEnergyProc       0000FABE 
+           Eny_SlpEnergyProc       0000FB29 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -2768,7 +2769,7 @@ BANK_RELAYS
   ======================
 <BANKED_CODE> 2 (was BANKED_CODE)
   Relative segment, address: CODE 0000CE4F - 0000CF83 (0x135 bytes), align: 0
-  Segment part 14.            Intra module refs:   Init_Data::?relay
+  Segment part 15.            Intra module refs:   Init_Data::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Init_Data               0000CE4F 
@@ -2777,7 +2778,7 @@ BANK_RELAYS
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
   Relative segment, address: CODE 0000CF84 - 0000CFB3 (0x30 bytes), align: 0
-  Segment part 16.            Intra module refs:   Do_MsTask::?relay
+  Segment part 17.            Intra module refs:   Do_MsTask::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_MsTask               0000CF84 
@@ -2786,7 +2787,7 @@ BANK_RELAYS
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
   Relative segment, address: CODE 0000CFB4 - 0000CFE1 (0x2e bytes), align: 0
-  Segment part 18.            Intra module refs:   Do_MsTask_100::?relay
+  Segment part 19.            Intra module refs:   Do_MsTask_100::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_MsTask_100           0000CFB4 
@@ -2794,8 +2795,8 @@ BANK_RELAYS
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000CFE2 - 0000D00D (0x2c bytes), align: 0
-  Segment part 20.            Intra module refs:   Do_HalfSecTask::?relay
+  Relative segment, address: CODE 0000CFE2 - 0000D016 (0x35 bytes), align: 0
+  Segment part 21.            Intra module refs:   Do_HalfSecTask::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_HalfSecTask          0000CFE2 
@@ -2803,29 +2804,29 @@ BANK_RELAYS
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D00E - 0000D010 (0x3 bytes), align: 0
-  Segment part 22.            Intra module refs:   Chk_JDVolt::?relay
+  Relative segment, address: CODE 0000D017 - 0000D019 (0x3 bytes), align: 0
+  Segment part 23.            Intra module refs:   Chk_JDVolt::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Chk_JDVolt              0000D00E 
+           Chk_JDVolt              0000D017 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D011 - 0000D045 (0x35 bytes), align: 0
-  Segment part 24.            Intra module refs:   Up_PwrOffFroze::?relay
+  Relative segment, address: CODE 0000D01A - 0000D04E (0x35 bytes), align: 0
+  Segment part 25.            Intra module refs:   Up_PwrOffFroze::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Up_PwrOffFroze          0000D011 
+           Up_PwrOffFroze          0000D01A 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D046 - 0000D0AE (0x69 bytes), align: 0
-  Segment part 26.            Intra module refs:   Up_PwrOnFroze::?relay
+  Relative segment, address: CODE 0000D04F - 0000D0B7 (0x69 bytes), align: 0
+  Segment part 27.            Intra module refs:   Up_PwrOnFroze::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Up_PwrOnFroze           0000D046 
+           Up_PwrOnFroze           0000D04F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -2837,29 +2838,29 @@ CODE_C
            TmEvtLst                00001BFE 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D0AF - 0000D2AB (0x1fd bytes), align: 0
-  Segment part 28.            Intra module refs:   Do_SecTask::?relay
+  Relative segment, address: CODE 0000D0B8 - 0000D316 (0x25f bytes), align: 0
+  Segment part 29.            Intra module refs:   Do_SecTask::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do_SecTask              0000D0AF 
+           Do_SecTask              0000D0B8 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D2AC - 0000D2D0 (0x25 bytes), align: 0
-  Segment part 30.            Intra module refs:   Do_MinTask::?relay
+  Relative segment, address: CODE 0000D317 - 0000D33B (0x25 bytes), align: 0
+  Segment part 31.            Intra module refs:   Do_MinTask::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do_MinTask              0000D2AC 
+           Do_MinTask              0000D317 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D2D1 - 0000D346 (0x76 bytes), align: 0
-  Segment part 32.            Intra module refs:   Do_EOpen::?relay
+  Relative segment, address: CODE 0000D33C - 0000D3B1 (0x76 bytes), align: 0
+  Segment part 33.            Intra module refs:   Do_EOpen::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do_EOpen                0000D2D1 
+           Do_EOpen                0000D33C 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -2872,28 +2873,28 @@ CODE_C
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 00000859 - 0000085E (0x6 bytes), align: 0
-  Segment part 15.
+  Segment part 16.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Init_Data::?relay       00000859        main (mainapp)
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 0000085F - 00000864 (0x6 bytes), align: 0
-  Segment part 17.
+  Segment part 18.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_MsTask::?relay       0000085F        main (mainapp)
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 00000865 - 0000086A (0x6 bytes), align: 0
-  Segment part 19.
+  Segment part 20.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_MsTask_100::?relay   00000865        main (mainapp)
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 0000086B - 00000870 (0x6 bytes), align: 0
-  Segment part 21.
+  Segment part 22.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_HalfSecTask::?relay
@@ -2901,14 +2902,14 @@ BANK_RELAYS
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 00000871 - 00000876 (0x6 bytes), align: 0
-  Segment part 23.            Intra module refs:   Do_SecTask
+  Segment part 24.            Intra module refs:   Do_SecTask
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Chk_JDVolt::?relay      00000871 
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 00000877 - 0000087C (0x6 bytes), align: 0
-  Segment part 25.            Intra module refs:   Do_SecTask
+  Segment part 26.            Intra module refs:   Do_SecTask
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Up_PwrOffFroze::?relay
@@ -2916,28 +2917,28 @@ BANK_RELAYS
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 0000087D - 00000882 (0x6 bytes), align: 0
-  Segment part 27.            Intra module refs:   Do_SecTask
+  Segment part 28.            Intra module refs:   Do_SecTask
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Up_PwrOnFroze::?relay   0000087D 
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 00000883 - 00000888 (0x6 bytes), align: 0
-  Segment part 29.
+  Segment part 30.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_SecTask::?relay      00000883        main (mainapp)
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 00000889 - 0000088E (0x6 bytes), align: 0
-  Segment part 31.
+  Segment part 32.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_MinTask::?relay      00000889        main (mainapp)
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 0000088F - 00000894 (0x6 bytes), align: 0
-  Segment part 33.
+  Segment part 34.
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            Do_EOpen::?relay        0000088F        main (mainapp)
@@ -3182,109 +3183,109 @@ XDATA_AN
            CtrlLDO                 00002866 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D832 - 0000D866 (0x35 bytes), align: 0
+  Relative segment, address: CODE 0000D89D - 0000D8D1 (0x35 bytes), align: 0
   Segment part 49.            Intra module refs:   cSys_Statu_Detc::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cSys_Statu_Detc         0000D832 
+           cSys_Statu_Detc         0000D89D 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D867 - 0000D912 (0xac bytes), align: 0
+  Relative segment, address: CODE 0000D8D2 - 0000D97D (0xac bytes), align: 0
   Segment part 53.            Intra module refs:   MCU_OnLIne_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MCU_OnLIne_Init         0000D867 
+           MCU_OnLIne_Init         0000D8D2 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D913 - 0000DA25 (0x113 bytes), align: 0
+  Relative segment, address: CODE 0000D97E - 0000DA90 (0x113 bytes), align: 0
   Segment part 55.            Intra module refs:   Init_MCU::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_MCU                0000D913 
+           Init_MCU                0000D97E 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DA26 - 0000DA35 (0x10 bytes), align: 0
+  Relative segment, address: CODE 0000DA91 - 0000DAA0 (0x10 bytes), align: 0
   Segment part 57.            Intra module refs:   MCU_OffLIne_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MCU_OffLIne_Init        0000DA26 
+           MCU_OffLIne_Init        0000DA91 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DA36 - 0000DA57 (0x22 bytes), align: 0
+  Relative segment, address: CODE 0000DAA1 - 0000DAC2 (0x22 bytes), align: 0
   Segment part 59.            Intra module refs:   Get_SYS_Statu::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Get_SYS_Statu           0000DA36 
+           Get_SYS_Statu           0000DAA1 
                XSTACK = 00000000 ( 0000000A )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DA58 - 0000DA5A (0x3 bytes), align: 0
+  Relative segment, address: CODE 0000DAC3 - 0000DAC5 (0x3 bytes), align: 0
   Segment part 63.            Intra module refs:   Freq_Trim::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Freq_Trim               0000DA58 
+           Freq_Trim               0000DAC3 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DA5B - 0000DA5D (0x3 bytes), align: 0
+  Relative segment, address: CODE 0000DAC6 - 0000DAC8 (0x3 bytes), align: 0
   Segment part 65.            Intra module refs:   _Hard_Check::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           _Hard_Check             0000DA5B 
+           _Hard_Check             0000DAC6 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DA5E - 0000DA60 (0x3 bytes), align: 0
+  Relative segment, address: CODE 0000DAC9 - 0000DACB (0x3 bytes), align: 0
   Segment part 67.            Intra module refs:   Cap_Funtion_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Cap_Funtion_Init        0000DA5E 
+           Cap_Funtion_Init        0000DAC9 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DA61 - 0000DA63 (0x3 bytes), align: 0
+  Relative segment, address: CODE 0000DACC - 0000DACE (0x3 bytes), align: 0
   Segment part 69.            Intra module refs:   GPIO_Init_OnLine::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GPIO_Init_OnLine        0000DA61 
+           GPIO_Init_OnLine        0000DACC 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DA64 - 0000DAE7 (0x84 bytes), align: 0
+  Relative segment, address: CODE 0000DACF - 0000DB52 (0x84 bytes), align: 0
   Segment part 71.            Intra module refs:   GPIO_Init_OffLine::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GPIO_Init_OffLine       0000DA64 
+           GPIO_Init_OffLine       0000DACF 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DAE8 - 0000DAFC (0x15 bytes), align: 0
+  Relative segment, address: CODE 0000DB53 - 0000DB67 (0x15 bytes), align: 0
   Segment part 73.            Intra module refs:   GPIO_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GPIO_Init               0000DAE8 
+           GPIO_Init               0000DB53 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DAFD - 0000DB90 (0x94 bytes), align: 0
+  Relative segment, address: CODE 0000DB68 - 0000DBFB (0x94 bytes), align: 0
   Segment part 75.            Intra module refs:   GPIO_Init_OffLine1::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GPIO_Init_OffLine1      0000DAFD 
+           GPIO_Init_OffLine1      0000DB68 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -3296,11 +3297,11 @@ XDATA_Z
            ctemp                   00000387 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DB91 - 0000DD1A (0x18a bytes), align: 0
+  Relative segment, address: CODE 0000DBFC - 0000DD85 (0x18a bytes), align: 0
   Segment part 77.            Intra module refs:   SleepLcdRefresh::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SleepLcdRefresh         0000DB91 
+           SleepLcdRefresh         0000DBFC 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -3555,74 +3556,74 @@ XDATA_AN
            CtrlLCDV                0000285E 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F764 - 0000F766 (0x3 bytes), align: 0
+  Relative segment, address: CODE 0000F7CF - 0000F7D1 (0x3 bytes), align: 0
   Segment part 22.            Intra module refs:   LCD_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           LCD_Init                0000F764 
+           LCD_Init                0000F7CF 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F767 - 0000F7B9 (0x53 bytes), align: 0
+  Relative segment, address: CODE 0000F7D2 - 0000F824 (0x53 bytes), align: 0
   Segment part 24.            Intra module refs:   InitLCD::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           InitLCD                 0000F767 
+           InitLCD                 0000F7D2 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F7BA - 0000F7E0 (0x27 bytes), align: 0
+  Relative segment, address: CODE 0000F825 - 0000F84B (0x27 bytes), align: 0
   Segment part 30.            Intra module refs:   LCD_Off::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           LCD_Off                 0000F7BA 
+           LCD_Off                 0000F825 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F7E1 - 0000F7F9 (0x19 bytes), align: 0
+  Relative segment, address: CODE 0000F84C - 0000F864 (0x19 bytes), align: 0
   Segment part 32.            Intra module refs:   Disp_Clear::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Disp_Clear              0000F7E1 
+           Disp_Clear              0000F84C 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F7FA - 0000F812 (0x19 bytes), align: 0
+  Relative segment, address: CODE 0000F865 - 0000F87D (0x19 bytes), align: 0
   Segment part 34.            Intra module refs:   Disp_Full::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Disp_Full               0000F7FA 
+           Disp_Full               0000F865 
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F813 - 0000F824 (0x12 bytes), align: 0
+  Relative segment, address: CODE 0000F87E - 0000F88F (0x12 bytes), align: 0
   Segment part 38.            Intra module refs:   LCD_RAMUpdata::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           LCD_RAMUpdata           0000F813 
+           LCD_RAMUpdata           0000F87E 
                calls direct
                XSTACK = 0000000A ( 00000000 )
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F825 - 0000F8C9 (0xa5 bytes), align: 0
+  Relative segment, address: CODE 0000F890 - 0000F934 (0xa5 bytes), align: 0
   Segment part 40.            Intra module refs:   RefreshLCDRAM::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RefreshLCDRAM           0000F825 
+           RefreshLCDRAM           0000F890 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F8CA - 0000F8DB (0x12 bytes), align: 0
+  Relative segment, address: CODE 0000F935 - 0000F946 (0x12 bytes), align: 0
   Segment part 42.            Intra module refs:   UpdateDisp::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UpdateDisp              0000F8CA 
+           UpdateDisp              0000F935 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -4104,173 +4105,173 @@ XDATA_Z
            guc_PendSlpSta          00000389        Timer1Interrupt (System)
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D347 - 0000D3D0 (0x8a bytes), align: 0
+  Relative segment, address: CODE 0000D3B2 - 0000D43B (0x8a bytes), align: 0
   Segment part 94.            Intra module refs:   IO_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           IO_Init                 0000D347 
+           IO_Init                 0000D3B2 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D3D1 - 0000D3E6 (0x16 bytes), align: 0
+  Relative segment, address: CODE 0000D43C - 0000D451 (0x16 bytes), align: 0
   Segment part 96.            Intra module refs:   Init_Timer0::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Timer0             0000D3D1 
+           Init_Timer0             0000D43C 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D3E7 - 0000D412 (0x2c bytes), align: 0
+  Relative segment, address: CODE 0000D452 - 0000D47D (0x2c bytes), align: 0
   Segment part 98.            Intra module refs:   Init_Timer1::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Timer1             0000D3E7 
+           Init_Timer1             0000D452 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D413 - 0000D424 (0x12 bytes), align: 0
+  Relative segment, address: CODE 0000D47E - 0000D48F (0x12 bytes), align: 0
   Segment part 100.           Intra module refs:   Init_Timer2::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Timer2             0000D413 
+           Init_Timer2             0000D47E 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D425 - 0000D432 (0xe bytes), align: 0
+  Relative segment, address: CODE 0000D490 - 0000D49D (0xe bytes), align: 0
   Segment part 102.           Intra module refs:   Delay1OSC::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Delay1OSC               0000D425 
+           Delay1OSC               0000D490 
                XSTACK = 00000009 ( 00000000 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D433 - 0000D44B (0x19 bytes), align: 0
+  Relative segment, address: CODE 0000D49E - 0000D4B6 (0x19 bytes), align: 0
   Segment part 104.           Intra module refs:   DelayOSC::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           DelayOSC                0000D433 
+           DelayOSC                0000D49E 
                calls direct
                XSTACK = 00000009 ( 00000009 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D44C - 0000D480 (0x35 bytes), align: 0
+  Relative segment, address: CODE 0000D4B7 - 0000D4EB (0x35 bytes), align: 0
   Segment part 106.           Intra module refs:   RTCWakeUpTm::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RTCWakeUpTm             0000D44C 
+           RTCWakeUpTm             0000D4B7 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D481 - 0000D494 (0x14 bytes), align: 0
+  Relative segment, address: CODE 0000D4EC - 0000D4FF (0x14 bytes), align: 0
   Segment part 108.           Intra module refs:   EnableRTCInt::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           EnableRTCInt            0000D481 
+           EnableRTCInt            0000D4EC 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D495 - 0000D4D7 (0x43 bytes), align: 0
+  Relative segment, address: CODE 0000D500 - 0000D542 (0x43 bytes), align: 0
   Segment part 112.           Intra module refs:   Mcu_I1nit::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Mcu_I1nit               0000D495 
+           Mcu_I1nit               0000D500 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D4D8 - 0000D54A (0x73 bytes), align: 0
+  Relative segment, address: CODE 0000D543 - 0000D5B5 (0x73 bytes), align: 0
   Segment part 116.           Intra module refs:   SetPLL3DOT2M::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetPLL3DOT2M            0000D4D8 
+           SetPLL3DOT2M            0000D543 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D54B - 0000D5B5 (0x6b bytes), align: 0
+  Relative segment, address: CODE 0000D5B6 - 0000D620 (0x6b bytes), align: 0
   Segment part 118.           Intra module refs:   PowOffSetFmcu::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           PowOffSetFmcu           0000D54B 
+           PowOffSetFmcu           0000D5B6 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D5B6 - 0000D630 (0x7b bytes), align: 0
+  Relative segment, address: CODE 0000D621 - 0000D69B (0x7b bytes), align: 0
   Segment part 120.           Intra module refs:   SetPLL800K::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetPLL800K              0000D5B6 
+           SetPLL800K              0000D621 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D631 - 0000D633 (0x3 bytes), align: 0
+  Relative segment, address: CODE 0000D69C - 0000D69E (0x3 bytes), align: 0
   Segment part 126.           Intra module refs:   Init_Uart::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Uart               0000D631 
+           Init_Uart               0000D69C 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D634 - 0000D64F (0x1c bytes), align: 0
+  Relative segment, address: CODE 0000D69F - 0000D6BA (0x1c bytes), align: 0
   Segment part 134.           Intra module refs:   UARTOFF::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           UARTOFF                 0000D634 
+           UARTOFF                 0000D69F 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D650 - 0000D73B (0xec bytes), align: 0
+  Relative segment, address: CODE 0000D6BB - 0000D7A6 (0xec bytes), align: 0
   Segment part 138.           Intra module refs:   SleepRTC::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SleepRTC                0000D650 
+           SleepRTC                0000D6BB 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D73C - 0000D772 (0x37 bytes), align: 0
+  Relative segment, address: CODE 0000D7A7 - 0000D7DD (0x37 bytes), align: 0
   Segment part 140.           Intra module refs:   Sleep::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Sleep                   0000D73C 
+           Sleep                   0000D7A7 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D773 - 0000D7B7 (0x45 bytes), align: 0
+  Relative segment, address: CODE 0000D7DE - 0000D822 (0x45 bytes), align: 0
   Segment part 144.           Intra module refs:   GetExtRTC::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetExtRTC               0000D773 
+           GetExtRTC               0000D7DE 
                calls direct
                XSTACK = 00000000 ( 00000001 )
                ISTACK = 00000000 ( 00000003 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D7B8 - 0000D807 (0x50 bytes), align: 0
+  Relative segment, address: CODE 0000D823 - 0000D872 (0x50 bytes), align: 0
   Segment part 146.           Intra module refs:   SetExtRTC::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetExtRTC               0000D7B8 
+           SetExtRTC               0000D823 
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000D808 - 0000D831 (0x2a bytes), align: 0
+  Relative segment, address: CODE 0000D873 - 0000D89C (0x2a bytes), align: 0
   Segment part 150.           Intra module refs:   Mcu_RTCNormal::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Mcu_RTCNormal           0000D808 
+           Mcu_RTCNormal           0000D873 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -5632,29 +5633,29 @@ SFR_AN
            DIVTHL                  000000DD 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F288 - 0000F394 (0x10d bytes), align: 0
+  Relative segment, address: CODE 0000F2F3 - 0000F3FF (0x10d bytes), align: 0
   Segment part 16.            Intra module refs:   RtcParaFsToE2::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           RtcParaFsToE2           0000F288 
+           RtcParaFsToE2           0000F2F3 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F395 - 0000F4D1 (0x13d bytes), align: 0
+  Relative segment, address: CODE 0000F400 - 0000F53C (0x13d bytes), align: 0
   Segment part 18.            Intra module refs:   SetRTCNormal::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SetRTCNormal            0000F395 
+           SetRTCNormal            0000F400 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F4D2 - 0000F52A (0x59 bytes), align: 0
+  Relative segment, address: CODE 0000F53D - 0000F595 (0x59 bytes), align: 0
   Segment part 20.            Intra module refs:   CalRTC::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           CalRTC                  0000F4D2 
+           CalRTC                  0000F53D 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -7054,11 +7055,11 @@ CODE_C
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002A266 - 0002A723 (0x4be bytes), align: 0
+  Relative segment, address: CODE 0002A286 - 0002A743 (0x4be bytes), align: 0
   Segment part 308.           Intra module refs:   Write645Data::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Write645Data            0002A266 
+           Write645Data            0002A286 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -7131,11 +7132,11 @@ CODE_C
            Do_OtherTRx::RxCmd      00002641 
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002A724 - 0002ABC5 (0x4a2 bytes), align: 0
+  Relative segment, address: CODE 0002A744 - 0002ABE5 (0x4a2 bytes), align: 0
   Segment part 310.           Intra module refs:   Do_SCI::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do_SCI                  0002A724 
+           Do_SCI                  0002A744 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -7147,11 +7148,11 @@ XDATA_Z
            Do_SCI{6}{9}::RxBuf     000003A3 
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002ABC6 - 0002AC73 (0xae bytes), align: 0
+  Relative segment, address: CODE 0002ABE6 - 0002AC93 (0xae bytes), align: 0
   Segment part 312.           Intra module refs:   Do_TRx::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Do_TRx                  0002ABC6 
+           Do_TRx                  0002ABE6 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -7282,11 +7283,11 @@ NEAR_CODE
                XSTACK = 00000000 ( 0000000F )
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002AC74 - 0002AC76 (0x3 bytes), align: 0
+  Relative segment, address: CODE 0002AC94 - 0002AC96 (0x3 bytes), align: 0
   Segment part 314.           Intra module refs:   Clr_AllUse::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Clr_AllUse              0002AC74 
+           Clr_AllUse              0002AC94 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -7936,56 +7937,56 @@ XDATA_Z
            gul_I2DCval             00000491        Pwr_SlpReset (Powmanger)
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E1E8 - 0000E214 (0x2d bytes), align: 0
+  Relative segment, address: CODE 0000E253 - 0000E27F (0x2d bytes), align: 0
   Segment part 30.            Intra module refs:   Tamp_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_Init               0000E1E8 
+           Tamp_Init               0000E253 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E215 - 0000E258 (0x44 bytes), align: 0
+  Relative segment, address: CODE 0000E280 - 0000E2C3 (0x44 bytes), align: 0
   Segment part 32.            Intra module refs:   Tamp_ChkPLL::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_ChkPLL             0000E215 
+           Tamp_ChkPLL             0000E280 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E259 - 0000E288 (0x30 bytes), align: 0
+  Relative segment, address: CODE 0000E2C4 - 0000E2F3 (0x30 bytes), align: 0
   Segment part 34.            Intra module refs:   MeterADSel::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MeterADSel              0000E259 
+           MeterADSel              0000E2C4 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E289 - 0000E2BE (0x36 bytes), align: 0
+  Relative segment, address: CODE 0000E2F4 - 0000E329 (0x36 bytes), align: 0
   Segment part 36.            Intra module refs:   MeterADClose::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           MeterADClose            0000E289 
+           MeterADClose            0000E2F4 
                calls direct
                XSTACK = 00000000 ( 0000000E )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E2BF - 0000E300 (0x42 bytes), align: 0
+  Relative segment, address: CODE 0000E32A - 0000E36B (0x42 bytes), align: 0
   Segment part 38.            Intra module refs:   Tamp_ChkUrms::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_ChkUrms            0000E2BF 
+           Tamp_ChkUrms            0000E32A 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E301 - 0000E347 (0x47 bytes), align: 0
+  Relative segment, address: CODE 0000E36C - 0000E3B2 (0x47 bytes), align: 0
   Segment part 40.            Intra module refs:   Tamp_ChkIrms::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_ChkIrms            0000E301 
+           Tamp_ChkIrms            0000E36C 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -7999,29 +8000,29 @@ NEAR_CODE
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E348 - 0000E3AB (0x64 bytes), align: 0
+  Relative segment, address: CODE 0000E3B3 - 0000E416 (0x64 bytes), align: 0
   Segment part 42.            Intra module refs:   SwitchMode::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           SwitchMode              0000E348 
+           SwitchMode              0000E3B3 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E3AC - 0000E4B9 (0x10e bytes), align: 0
+  Relative segment, address: CODE 0000E417 - 0000E524 (0x10e bytes), align: 0
   Segment part 44.            Intra module refs:   Tamp_DspProc::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_DspProc            0000E3AC 
+           Tamp_DspProc            0000E417 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E4BA - 0000E683 (0x1ca bytes), align: 0
+  Relative segment, address: CODE 0000E525 - 0000E6EE (0x1ca bytes), align: 0
   Segment part 52.            Intra module refs:   Tamp_Sleep::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Tamp_Sleep              0000E4BA 
+           Tamp_Sleep              0000E525 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -8287,73 +8288,74 @@ XDATA_Z
            =====                   =======         ======
            stperiod                000004B0        Do_Disp (Disp)
                                                    Jl_Chanel_Fun (mainapp)
+                                                   UpBkltLED (Disp)
                                                    UpDisp (Disp)
                                                    Wx645Code (TRx)
                                                    errcheck_fun (mainapp)
                                                    main (mainapp)
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F52B - 0000F54B (0x21 bytes), align: 0
+  Relative segment, address: CODE 0000F596 - 0000F5B6 (0x21 bytes), align: 0
   Segment part 22.            Intra module refs:   getwidth::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           getwidth                0000F52B 
+           getwidth                0000F596 
                XSTACK = 00000009 ( 00000000 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F54C - 0000F573 (0x28 bytes), align: 0
+  Relative segment, address: CODE 0000F5B7 - 0000F5DE (0x28 bytes), align: 0
   Segment part 24.            Intra module refs:   TimerA_Capture_Reg_Close::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TimerA_Capture_Reg_Close
-                                   0000F54C 
+                                   0000F5B7 
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F574 - 0000F5D3 (0x60 bytes), align: 0
+  Relative segment, address: CODE 0000F5DF - 0000F63E (0x60 bytes), align: 0
   Segment part 26.            Intra module refs:   TimerA_Capture_Reg_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TimerA_Capture_Reg_Init
-                                   0000F574 
+                                   0000F5DF 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F5D4 - 0000F5F8 (0x25 bytes), align: 0
+  Relative segment, address: CODE 0000F63F - 0000F663 (0x25 bytes), align: 0
   Segment part 28.            Intra module refs:   TimerA_Capture_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TimerA_Capture_Init     0000F5D4 
+           TimerA_Capture_Init     0000F63F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F5F9 - 0000F660 (0x68 bytes), align: 0
+  Relative segment, address: CODE 0000F664 - 0000F6CB (0x68 bytes), align: 0
   Segment part 30.            Intra module refs:   TimerA_Capture_Intfun::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           TimerA_Capture_Intfun   0000F5F9 
+           TimerA_Capture_Intfun   0000F664 
                calls direct
                XSTACK = 00000000 ( 00000009 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F661 - 0000F6F2 (0x92 bytes), align: 0
+  Relative segment, address: CODE 0000F6CC - 0000F75D (0x92 bytes), align: 0
   Segment part 32.            Intra module refs:   TimerA_Capture_Mainfun::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TimerA_Capture_Mainfun
-                                   0000F661 
+                                   0000F6CC 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F6F3 - 0000F763 (0x71 bytes), align: 0
+  Relative segment, address: CODE 0000F75E - 0000F7CE (0x71 bytes), align: 0
   Segment part 34.            Intra module refs:   TimerA_Catupre_Mainint_fun::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            TimerA_Catupre_Mainint_fun
-                                   0000F6F3 
+                                   0000F75E 
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
@@ -8484,28 +8486,28 @@ XDATA_AN
            Txd2FS                  000028CF 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FC7B - 0000FCEF (0x75 bytes), align: 0
+  Relative segment, address: CODE 0000FCE6 - 0000FD5A (0x75 bytes), align: 0
   Segment part 24.            Intra module refs:   Init_Uart2::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Uart2              0000FC7B 
+           Init_Uart2              0000FCE6 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FCF0 - 0000FD1A (0x2b bytes), align: 0
+  Relative segment, address: CODE 0000FD5B - 0000FD85 (0x2b bytes), align: 0
   Segment part 30.            Intra module refs:   Uart2_Receive::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart2_Receive           0000FCF0 
+           Uart2_Receive           0000FD5B 
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FD1B - 0000FD83 (0x69 bytes), align: 0
+  Relative segment, address: CODE 0000FD86 - 0000FDEE (0x69 bytes), align: 0
   Segment part 32.            Intra module refs:   Uart2_Transmit::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart2_Transmit          0000FD1B 
+           Uart2_Transmit          0000FD86 
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
@@ -8569,35 +8571,35 @@ XDATA_AN
            SBUF4                   00002837 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FB72 - 0000FBE3 (0x72 bytes), align: 0
+  Relative segment, address: CODE 0000FBDD - 0000FC4E (0x72 bytes), align: 0
   Segment part 23.            Intra module refs:   Init_Uart4::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_Uart4              0000FB72 
+           Init_Uart4              0000FBDD 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FBE4 - 0000FBE6 (0x3 bytes), align: 0
+  Relative segment, address: CODE 0000FC4F - 0000FC51 (0x3 bytes), align: 0
   Segment part 25.            Intra module refs:   Uart4_Dy10ms::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart4_Dy10ms            0000FBE4 
+           Uart4_Dy10ms            0000FC4F 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FBE7 - 0000FC11 (0x2b bytes), align: 0
+  Relative segment, address: CODE 0000FC52 - 0000FC7C (0x2b bytes), align: 0
   Segment part 29.            Intra module refs:   Uart4_Receive::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart4_Receive           0000FBE7 
+           Uart4_Receive           0000FC52 
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FC12 - 0000FC7A (0x69 bytes), align: 0
+  Relative segment, address: CODE 0000FC7D - 0000FCE5 (0x69 bytes), align: 0
   Segment part 31.            Intra module refs:   Uart4_Transmit::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Uart4_Transmit          0000FC12 
+           Uart4_Transmit          0000FC7D 
                calls direct
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
@@ -8672,65 +8674,65 @@ XDATA_Z
                                                    stiolist_format (mainapp)
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EAD3 - 0000EB1B (0x49 bytes), align: 0
+  Relative segment, address: CODE 0000EB3E - 0000EB86 (0x49 bytes), align: 0
   Segment part 14.            Intra module refs:   Adc_DataInit::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Adc_DataInit            0000EAD3 
+           Adc_DataInit            0000EB3E 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EB1C - 0000EB44 (0x29 bytes), align: 0
+  Relative segment, address: CODE 0000EB87 - 0000EBAF (0x29 bytes), align: 0
   Segment part 16.            Intra module refs:   vol_fileter::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           vol_fileter             0000EB1C 
+           vol_fileter             0000EB87 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EB45 - 0000EBE3 (0x9f bytes), align: 0
+  Relative segment, address: CODE 0000EBB0 - 0000EC4E (0x9f bytes), align: 0
   Segment part 18.            Intra module refs:   vol_Get::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           vol_Get                 0000EB45 
+           vol_Get                 0000EBB0 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EBE4 - 0000EC8B (0xa8 bytes), align: 0
+  Relative segment, address: CODE 0000EC4F - 0000ECF6 (0xa8 bytes), align: 0
   Segment part 20.            Intra module refs:   Adc_DataGet::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Adc_DataGet             0000EBE4 
+           Adc_DataGet             0000EC4F 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EC8C - 0000ECCA (0x3f bytes), align: 0
+  Relative segment, address: CODE 0000ECF7 - 0000ED35 (0x3f bytes), align: 0
   Segment part 22.            Intra module refs:   cAdcApp_Get::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cAdcApp_Get             0000EC8C 
+           cAdcApp_Get             0000ECF7 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000ECCB - 0000EDDE (0x114 bytes), align: 0
+  Relative segment, address: CODE 0000ED36 - 0000EE49 (0x114 bytes), align: 0
   Segment part 24.            Intra module refs:   Adc_Function::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Adc_Function            0000ECCB 
+           Adc_Function            0000ED36 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EDDF - 0000EEE7 (0x109 bytes), align: 0
+  Relative segment, address: CODE 0000EE4A - 0000EF52 (0x109 bytes), align: 0
   Segment part 26.            Intra module refs:   adc_appfun::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           adc_appfun              0000EDDF 
+           adc_appfun              0000EE4A 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -10166,48 +10168,48 @@ CSTART
   SEGMENTS IN THE MODULE
   ======================
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E684 - 0000E7DE (0x15b bytes), align: 0
+  Relative segment, address: CODE 0000E6EF - 0000E849 (0x15b bytes), align: 0
   Segment part 9.             Intra module refs:   DispData_init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           DispData_init           0000E684 
+           DispData_init           0000E6EF 
                calls direct
                XSTACK = 0000000C ( 0000000E )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E7DF - 0000E973 (0x195 bytes), align: 0
+  Relative segment, address: CODE 0000E84A - 0000E9DE (0x195 bytes), align: 0
   Segment part 11.            Intra module refs:   Init_FlashData::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_FlashData          0000E7DF 
+           Init_FlashData          0000E84A 
                calls direct
                XSTACK = 0000000A ( 0000000E )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E974 - 0000E9F8 (0x85 bytes), align: 0
+  Relative segment, address: CODE 0000E9DF - 0000EA63 (0x85 bytes), align: 0
   Segment part 15.            Intra module refs:   cGet_First_Data::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cGet_First_Data         0000E974 
+           cGet_First_Data         0000E9DF 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E9F9 - 0000EA90 (0x98 bytes), align: 0
+  Relative segment, address: CODE 0000EA64 - 0000EAFB (0x98 bytes), align: 0
   Segment part 17.            Intra module refs:   cFlashinfo_Restore::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cFlashinfo_Restore      0000E9F9 
+           cFlashinfo_Restore      0000EA64 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000EA91 - 0000EAD2 (0x42 bytes), align: 0
+  Relative segment, address: CODE 0000EAFC - 0000EB3D (0x42 bytes), align: 0
   Segment part 19.            Intra module refs:   cFlashinfo_dianlian_backup::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            cFlashinfo_dianlian_backup
-                                   0000EA91 
+                                   0000EAFC 
                calls direct
                XSTACK = 00000000 ( 0000000C )
     -------------------------------------------------------------------------
@@ -10302,38 +10304,38 @@ CODE_AC
            codepsword              00000400 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FE33 - 0000FE86 (0x54 bytes), align: 0
+  Relative segment, address: CODE 0000FE9E - 0000FEF1 (0x54 bytes), align: 0
   Segment part 20.            Intra module refs:   Var_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Var_Init                0000FE33 
+           Var_Init                0000FE9E 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FE87 - 0000FE89 (0x3 bytes), align: 0
+  Relative segment, address: CODE 0000FEF2 - 0000FEF4 (0x3 bytes), align: 0
   Segment part 26.            Intra module refs:   Init_CfG::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Init_CfG                0000FE87 
+           Init_CfG                0000FEF2 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FE8A - 0000FEA5 (0x1c bytes), align: 0
+  Relative segment, address: CODE 0000FEF5 - 0000FF10 (0x1c bytes), align: 0
   Segment part 28.            Intra module refs:   App_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           App_Init                0000FE8A 
+           App_Init                0000FEF5 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FEA6 - 0000FEE0 (0x3b bytes), align: 0
+  Relative segment, address: CODE 0000FF11 - 0000FF4B (0x3b bytes), align: 0
   Segment part 30.            Intra module refs:   Mea_Consumption_Dly::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Mea_Consumption_Dly     0000FEA6 
+           Mea_Consumption_Dly     0000FF11 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
@@ -12374,11 +12376,11 @@ XDATA_Z
            cErrlistno              00000F2A 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F8DC - 0000F90D (0x32 bytes), align: 0
+  Relative segment, address: CODE 0000F947 - 0000F978 (0x32 bytes), align: 0
   Segment part 22.            Intra module refs:   debug_ledshow::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           debug_ledshow           0000F8DC 
+           debug_ledshow           0000F947 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 XDATA_Z
@@ -12389,20 +12391,20 @@ XDATA_Z
            debug_ledshow::xxxx     00000F2B 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F90E - 0000F91F (0x12 bytes), align: 0
+  Relative segment, address: CODE 0000F979 - 0000F98A (0x12 bytes), align: 0
   Segment part 26.            Intra module refs:   debug_init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           debug_init              0000F90E 
+           debug_init              0000F979 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F920 - 0000F938 (0x19 bytes), align: 0
+  Relative segment, address: CODE 0000F98B - 0000F9A3 (0x19 bytes), align: 0
   Segment part 28.            Intra module refs:   debug_break::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           debug_break             0000F920 
+           debug_break             0000F98B 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 CODE_C
@@ -12423,44 +12425,44 @@ XDATA_Z
            iReg                    00000F2C 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F939 - 0000F9AA (0x72 bytes), align: 0
+  Relative segment, address: CODE 0000F9A4 - 0000FA15 (0x72 bytes), align: 0
   Segment part 30.            Intra module refs:   Value_put::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           Value_put               0000F939 
+           Value_put               0000F9A4 
                XSTACK = 00000002 ( 0000000E )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000F9AB - 0000FA21 (0x77 bytes), align: 0
+  Relative segment, address: CODE 0000FA16 - 0000FA8C (0x77 bytes), align: 0
   Segment part 32.            Intra module refs:   DoSinglePhase_1::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           DoSinglePhase_1         0000F9AB 
+           DoSinglePhase_1         0000FA16 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FA22 - 0000FA37 (0x16 bytes), align: 0
+  Relative segment, address: CODE 0000FA8D - 0000FAA2 (0x16 bytes), align: 0
   Segment part 34.            Intra module refs:   iReg_Clear::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           iReg_Clear              0000FA22 
+           iReg_Clear              0000FA8D 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FA38 - 0000FA3C (0x5 bytes), align: 0
+  Relative segment, address: CODE 0000FAA3 - 0000FAA7 (0x5 bytes), align: 0
   Segment part 38.            Intra module refs:   INTERRUPT_DISABLE::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           INTERRUPT_DISABLE       0000FA38 
+           INTERRUPT_DISABLE       0000FAA3 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FA3D - 0000FA41 (0x5 bytes), align: 0
+  Relative segment, address: CODE 0000FAA8 - 0000FAAC (0x5 bytes), align: 0
   Segment part 40.            Intra module refs:   INTERRUPT_ENABLE::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           INTERRUPT_ENABLE        0000FA3D 
+           INTERRUPT_ENABLE        0000FAA8 
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 00000F9D - 00000FA2 (0x6 bytes), align: 0
@@ -12567,82 +12569,82 @@ XDATA_Z
            stsafedateio            00000FA0 
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002AC77 - 0002ACAD (0x37 bytes), align: 0
+  Relative segment, address: CODE 0002AC97 - 0002ACCD (0x37 bytes), align: 0
   Segment part 8.             Intra module refs:   iGetsum::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           iGetsum                 0002AC77 
+           iGetsum                 0002AC97 
                XSTACK = 00000010 ( 0000000A )
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002ACAE - 0002AD50 (0xa3 bytes), align: 0
+  Relative segment, address: CODE 0002ACCE - 0002AD70 (0xa3 bytes), align: 0
   Segment part 12.            Intra module refs:   iVote::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           iVote                   0002ACAE 
+           iVote                   0002ACCE 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002AD51 - 0002AE5C (0x10c bytes), align: 0
+  Relative segment, address: CODE 0002AD71 - 0002AE7C (0x10c bytes), align: 0
   Segment part 14.            Intra module refs:   cSafeData_checkdata::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cSafeData_checkdata     0002AD51 
+           cSafeData_checkdata     0002AD71 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002AE5D - 0002AFAB (0x14f bytes), align: 0
+  Relative segment, address: CODE 0002AE7D - 0002AFCB (0x14f bytes), align: 0
   Segment part 16.            Intra module refs:   cSafeData_restoreData::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           cSafeData_restoreData   0002AE5D 
+           cSafeData_restoreData   0002AE7D 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002AFAC - 0002AFD4 (0x29 bytes), align: 0
+  Relative segment, address: CODE 0002AFCC - 0002AFF4 (0x29 bytes), align: 0
   Segment part 18.            Intra module refs:   cSafeData_Data_Refreah::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
            cSafeData_Data_Refreah
-                                   0002AFAC 
+                                   0002AFCC 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002AFD5 - 0002B0A6 (0xd2 bytes), align: 0
+  Relative segment, address: CODE 0002AFF5 - 0002B0C6 (0xd2 bytes), align: 0
   Segment part 20.            Intra module refs:   nSafeData_update2bak::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           nSafeData_update2bak    0002AFD5 
+           nSafeData_update2bak    0002AFF5 
                calls direct
                XSTACK = 00000000 ( 0000000C )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002B0A7 - 0002B0B7 (0x11 bytes), align: 0
+  Relative segment, address: CODE 0002B0C7 - 0002B0D7 (0x11 bytes), align: 0
   Segment part 22.            Intra module refs:   nSafeData_set_upb::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           nSafeData_set_upb       0002B0A7 
+           nSafeData_set_upb       0002B0C7 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002B0B8 - 0002B0C7 (0x10 bytes), align: 0
+  Relative segment, address: CODE 0002B0D8 - 0002B0E7 (0x10 bytes), align: 0
   Segment part 24.            Intra module refs:   nSafeData_res_upb::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           nSafeData_res_upb       0002B0B8 
+           nSafeData_res_upb       0002B0D8 
                ISTACK = 00000000 ( 00000002 )
     -------------------------------------------------------------------------
 <BANK2> 1 (was BANK2)
-  Relative segment, address: CODE 0002B0C8 - 0002B170 (0xa9 bytes), align: 0
+  Relative segment, address: CODE 0002B0E8 - 0002B190 (0xa9 bytes), align: 0
   Segment part 26.            Intra module refs:   nSafeData_struct_Init::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           nSafeData_struct_Init   0002B0C8 
+           nSafeData_struct_Init   0002B0E8 
                calls direct
                XSTACK = 00000002 ( 0000000C )
     -------------------------------------------------------------------------
@@ -12760,56 +12762,56 @@ XDATA_Z
            sAddr                   00000FB3 
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DD1B - 0000DD64 (0x4a bytes), align: 0
+  Relative segment, address: CODE 0000DD86 - 0000DDCF (0x4a bytes), align: 0
   Segment part 11.            Intra module refs:   GetSCINUM::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           GetSCINUM               0000DD1B 
+           GetSCINUM               0000DD86 
                is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DD65 - 0000DED9 (0x175 bytes), align: 0
+  Relative segment, address: CODE 0000DDD0 - 0000DF44 (0x175 bytes), align: 0
   Segment part 13.            Intra module refs:   stream_rece_fun_645::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           stream_rece_fun_645     0000DD65 
+           stream_rece_fun_645     0000DDD0 
                XSTACK = 00000000 ( 00000009 )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000DEDA - 0000E0C3 (0x1ea bytes), align: 0
+  Relative segment, address: CODE 0000DF45 - 0000E12E (0x1ea bytes), align: 0
   Segment part 15.            Intra module refs:   stream_send_fun_645::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           stream_send_fun_645     0000DEDA 
+           stream_send_fun_645     0000DF45 
                XSTACK = 00000000 ( 0000000A )
                ISTACK = 00000000 ( 00000001 )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E0C4 - 0000E101 (0x3e bytes), align: 0
+  Relative segment, address: CODE 0000E12F - 0000E16C (0x3e bytes), align: 0
   Segment part 17.            Intra module refs:   stream_cSilence_fun::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           stream_cSilence_fun     0000E0C4 
+           stream_cSilence_fun     0000E12F 
                calls direct
                XSTACK = 00000000 ( 0000000A )
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E102 - 0000E191 (0x90 bytes), align: 0
+  Relative segment, address: CODE 0000E16D - 0000E1FC (0x90 bytes), align: 0
   Segment part 19.            Intra module refs:   stream_send_enable::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           stream_send_enable      0000E102 
+           stream_send_enable      0000E16D 
                calls direct, is not allocated
                not allocated function
     -------------------------------------------------------------------------
 <BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000E192 - 0000E1E7 (0x56 bytes), align: 0
+  Relative segment, address: CODE 0000E1FD - 0000E252 (0x56 bytes), align: 0
   Segment part 23.            Intra module refs:   stream_refresh::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           stream_refresh          0000E192 
+           stream_refresh          0000E1FD 
                calls direct
                XSTACK = 0000000A ( 0000000A )
     -------------------------------------------------------------------------
@@ -13665,6 +13667,7 @@ VREG
                                                    Copy_FlashInfo (PubData)
                                                    DoSinglePhase (mainapp)
                                                    Do_SCI (TRx)
+                                                   Do_SecTask (GC_Use)
                                                    EnyB_ChkPowRev (EnergyBottom)
                                                    EnyB_ReadMeterParaACK1 (EnergyBottom)
                                                    EnyB_SetMeterCfgACK1 (EnergyBottom)
@@ -13754,6 +13757,7 @@ VREG
                                                    Copy_FlashInfo (PubData)
                                                    DoSinglePhase (mainapp)
                                                    Do_SCI (TRx)
+                                                   Do_SecTask (GC_Use)
                                                    EnyB_ChkPowRev (EnergyBottom)
                                                    EnyB_ReadMeterParaACK1 (EnergyBottom)
                                                    EnyB_SetMeterCfgACK1 (EnergyBottom)
@@ -13839,6 +13843,7 @@ VREG
                                                    Copy_FlashInfo (PubData)
                                                    DoSinglePhase (mainapp)
                                                    Do_SCI (TRx)
+                                                   Do_SecTask (GC_Use)
                                                    EnyB_ChkPowRev (EnergyBottom)
                                                    EnyB_ReadMeterParaACK1 (EnergyBottom)
                                                    EnyB_SetMeterCfgACK1 (EnergyBottom)
@@ -13908,6 +13913,7 @@ VREG
                                                    ChgMOD_2 (public)
                                                    DoSinglePhase (mainapp)
                                                    Do_SCI (TRx)
+                                                   Do_SecTask (GC_Use)
                                                    EnyB_ChkPowRev (EnergyBottom)
                                                    EnyB_ReadMeterParaACK1 (EnergyBottom)
                                                    EnyB_SetMeterCfgACK1 (EnergyBottom)
@@ -14067,12 +14073,12 @@ XSP
 
   SEGMENTS IN THE MODULE
   ======================
-<BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FFCB - 0000FFE8 (0x1e bytes), align: 0
+<BANKED_CODE> 3 (was BANKED_CODE)
+  Relative segment, address: CODE 0001814B - 00018168 (0x1e bytes), align: 0
   Segment part 6.             Intra module refs:   abs::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           abs                     0000FFCB 
+           abs                     0001814B 
     -------------------------------------------------------------------------
 BANK_RELAYS
   Relative segment, address: CODE 00001027 - 0000102C (0x6 bytes), align: 0
@@ -14393,6 +14399,7 @@ RCODE
                                                    BCD2Hex (Api)
                                                    BCD_Hex (public)
                                                    DoSinglePhase (mainapp)
+                                                   Do_SecTask (GC_Use)
                                                    GetTimeCnt (Drv_RTCSPK)
                                                    Pwr_WakeupProc_adc2allTurno (Powmanger)
                                                    RTC_Format_io (mainapp)
@@ -14928,6 +14935,7 @@ RCODE
                                                    DoSinglePhase (mainapp)
                                                    Do_Disp (Disp)
                                                    Do_SCI (TRx)
+                                                   Do_SecTask (GC_Use)
                                                    EnyB_ChkPowRev (EnergyBottom)
                                                    EnyB_Open_Cf (EnergyBottom)
                                                    Get645Data (TRx)
@@ -16634,12 +16642,12 @@ RCODE
 
   SEGMENTS IN THE MODULE
   ======================
-<BANKED_CODE> 2 (was BANKED_CODE)
-  Relative segment, address: CODE 0000FF8C - 0000FFCA (0x3f bytes), align: 0
+<BANKED_CODE> 3 (was BANKED_CODE)
+  Relative segment, address: CODE 0001810C - 0001814A (0x3f bytes), align: 0
   Segment part 7.             Intra module refs:   labs::?relay
            ENTRY                   ADDRESS         REF BY
            =====                   =======         ======
-           labs                    0000FF8C 
+           labs                    0001810C 
                XSTACK = 00000000 ( 00000010 )
     -------------------------------------------------------------------------
 BANK_RELAYS
@@ -16688,9 +16696,9 @@ CODE_C               CODE          00001AA8 - 00003573        1ACC   rel    0
 CODE_N               CODE               00003574                     dse    0
 NEAR_CODE            CODE          00003574 - 0000434A         DD7   rel    0
 <BANKED_CODE> 1      CODE          0000434B - 00007FFE        3CB4   rel    0
-<BANKED_CODE> 2      CODE          00008000 - 0000FFE8        7FE9   rel    0
-<BANKED_CODE> 3      CODE          00018000 - 0001810B         10C   rel    0
-<BANK2> 1            CODE          00028000 - 0002B170        3171   rel    0
+<BANKED_CODE> 2      CODE          00008000 - 0000FFF6        7FF7   rel    0
+<BANKED_CODE> 3      CODE          00018000 - 00018168         169   rel    0
+<BANK2> 1            CODE          00028000 - 0002B190        3191   rel    0
 REGISTERS            DATA          00000000 - 00000007           8   rel    0
 __REG_BANK2          DATA          00000010 - 00000017           8   rel    0
 BREG                 BIT        00000020.0  -  00000020.7        8   rel    0
@@ -16755,7 +16763,7 @@ ISTACK               IDATA         00000090 - 000000FF          70   rel    0
                 *                                      *
                 ****************************************
 
- 76 591 bytes of CODE  memory (+ 1 292 absolute )
+ 76 730 bytes of CODE  memory (+ 1 292 absolute )
      26 bytes of DATA  memory (+    52 absolute )
   4 026 bytes of XDATA memory (+    92 absolute )
     112 bytes of IDATA memory
