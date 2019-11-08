@@ -1,0 +1,7 @@
+如果是32位操作系统，把SPSniff.x86.sys重命名为SPSniff.sys
+
+如果是64位操作系统，把SPSniff.x64.sys重命名为SPSniff.sys
+
+执行exe程序会自动加载驱动。
+
+卸载驱动使用 SerialMonitor /uninstall
