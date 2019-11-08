@@ -160,7 +160,7 @@ void Init_Uart41(uint8 ucBode,uint8 uctype)
  
 void Uart4_Dy10ms(void)
 {
-#ifndef _ComUSE645_
+ 
    if ( guc_DyUart4Over )
    {
       guc_DyUart4Over--;
@@ -179,7 +179,7 @@ void Uart4_Dy10ms(void)
             gui_RefreshEvent |= flgEtPara_Bode;
         }
     }
-#endif
+ 
 }
  
 
@@ -225,7 +225,8 @@ void Uart4_Receive(void)
     //guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
     //这里可以做奇偶校验判断
    
-#ifdef _ComUSE645_
+if ( _IsUse645ComProtocol(FlashInfo.SetInfo.cCommProtocl)) 
+{
      ACC=SBUF4;                          //ACC 奇校验
     temp=P;
     temp1=(SCON4>>2)&BIT0;              //偶校验
@@ -247,13 +248,14 @@ void Uart4_Receive(void)
 			//	}
 
 			}
-#else
+}else
+{
     unsigned char ctemp = SBUF4;
      if ( SUCCESS == c7bitParity_Set(&ctemp ,_Parity_Even_))
         Uart4_Receiveio(ctemp);      
       return ;
   stream_rece_fun ( usartcomp,SBUF4);
-#endif
+}
 
     return ;
 #ifdef DEL
@@ -320,7 +322,8 @@ void Uart4_Transmit(void)
   unsigned char ctemp;
   
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_R485_Chanel_]);
- #ifdef  _ComUSE645_
+if ( _IsUse645ComProtocol(FlashInfo.SetInfo.cCommProtocl)) 
+{
   if (usartcomp->cStatu < _end_sendcom) 
   {
 	ctemp  = stream_send_fun_645(usartcomp);
@@ -336,8 +339,8 @@ void Uart4_Transmit(void)
 	}
 
 	return;
-#else
-  
+}else
+{ 
   
 
   // guc_DyUart4Over = Const_DyUart4Over;//端口超时保护
@@ -377,7 +380,7 @@ void Uart4_Transmit(void)
         #endif
         }
     }
-#endif
+}
     
 }
 

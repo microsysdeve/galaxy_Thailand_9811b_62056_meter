@@ -141,16 +141,16 @@ void TIMER_ISR(void);
         TH2 = 0xF5;             //定时10ms
         TL2 = 0x54;             //启动第一次进中断的时间设定
 //        Uart2_Dy10ms();         //485 
+     if ( _IsUse645ComProtocol(FlashInfo.SetInfo.cCommProtocl)) 
+       return;
         Uart4_Dy10ms();         //485        
-    //    KeyScan();              //按键
- #ifndef  _ComUSE645_
-        ComBom_10msDy();
+         ComBom_10msDy();
     
         if(guc_ComSendDy!=0)
         {
             guc_ComSendDy--;
         }
-#endif
+ 
         
         guc_Dmd250msCnt++;
         if(guc_Dmd250msCnt>=25)

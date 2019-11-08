@@ -110,7 +110,7 @@ a1:
 ===========================================================================================*/
 void Uart2_Dy10ms(void)
 {
-  #ifndef _ComUSE645_
+ 
     guc_DyUart2Over--;
     if(0x00== guc_DyUart2Over)
     {
@@ -126,7 +126,7 @@ void Uart2_Dy10ms(void)
             gui_RefreshEvent|=flgEtPara_Bode;
         }
     }
-    #endif
+ 
 }
 
 void Uart2_Receiveio( unsigned char cData )
@@ -171,7 +171,8 @@ void Uart2_Receive(void)
     //guc_DyUart2Over = Const_DyUart2Over;//端口超时保护
     //这里可以做奇偶校验判断
  
-#ifdef _ComUSE645_
+if ( _IsUse645ComProtocol(FlashInfo.SetInfo.cCommProtocl)) 
+{
     ACC=SBUF2;                          //ACC 奇校验
     temp=P;
     temp1=(SCON2>>2)&BIT0;              //偶校验
@@ -193,13 +194,14 @@ void Uart2_Receive(void)
 			//	}
 
 			}
-#else
+}else
+{
      unsigned char ctemp = SBUF2;
      if ( SUCCESS == c7bitParity_Set(&ctemp ,_Parity_Even_))
         Uart2_Receiveio(ctemp);      
       return ;
   stream_rece_fun ( usartcomp,SBUF2);
-#endif
+}
   
     return ;
 #ifdef DEL
@@ -265,7 +267,8 @@ void Uart2_Transmit(void)
   unsigned char ctemp;
  
   struct STSCIBUF *usartcomp = (struct STSCIBUF *)&(USARTCOM[_IR_Chanel_]);
- #ifdef  _ComUSE645_
+if ( _IsUse645ComProtocol(FlashInfo.SetInfo.cCommProtocl)) 
+{
   if (usartcomp->cStatu < _end_sendcom) 
   {
 	ctemp  = stream_send_fun_645(usartcomp);
@@ -281,7 +284,8 @@ void Uart2_Transmit(void)
 	}
 
 	return;
-#else
+}else
+{
   
   
 
@@ -322,7 +326,7 @@ void Uart2_Transmit(void)
         #endif
         }
     }
-#endif
+}
     
 }
 

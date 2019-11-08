@@ -789,14 +789,14 @@ void GetBat(void)
 void Init_Uart(void)
 {
  
-#ifndef  _ComUSE645_    
+
     guc_485Bode=_bps300_;
     
     Init_Uart2(guc_485Bode);
     ComBom_Init(ComIndex_Uart2);    //将uart2 端口对应的 COM初始化
     Init_Uart4(_bps300_);//guc_485Bode);
     ComBom_Init(ComIndex_Uart4);    //将uart4 端口对应的 COM初始化
-#endif
+
 }
 /*=========================================================================================\n
 * @function_name: IOOFF

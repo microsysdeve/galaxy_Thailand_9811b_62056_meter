@@ -17,7 +17,7 @@
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
- #ifndef _ComUSE645_
+
 void ComBom_Init(uint8 ucNo)
 {
   debug_break( _debug_errno_ComBom_Init_);
@@ -91,7 +91,7 @@ void ComBom_StartSend(uint8 ucNo)
         ComBom_Init(ucNo);                              // 无效，初始化COM
     }
 }
- #endif
+
 /*=========================================================================================\n
 * @function_name: ComBom_1msDy
 * @function_file: ComBottom.C
@@ -105,7 +105,7 @@ void ComBom_StartSend(uint8 ucNo)
 * @修改人:
 * @修改内容:
 ===========================================================================================*/
-#ifndef _ComUSE645_
+
 void ComBom_10msDy(void)
 {
     uint8 i;
@@ -122,5 +122,4 @@ void ComBom_10msDy(void)
         }
     }
 }
-#endif
 

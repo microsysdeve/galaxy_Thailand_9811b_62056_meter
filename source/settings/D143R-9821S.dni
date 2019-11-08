@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=-614257015
+Checksum=515298115
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -104,7 +104,6 @@ Fmt52=struct STDATAOFFSET-clen	4	0
 Fmt53=struct STDATAOFFSET-iAddr	4	0
 Fmt54=struct STLVDBUF-cVol	3	0
 Fmt55=struct STMETER_CONFIG-ctemp	4	0
-Fmt56=struct __Unnamed_2_276-VI	4	0
 [array_types]
 Fmt0=char[8]	4	0
 Fmt1=u32 [4]	4	0
