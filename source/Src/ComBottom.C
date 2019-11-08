@@ -80,11 +80,11 @@ void ComBom_StartSend(uint8 ucNo)
 //    gs_ComGroup[ucNo].ucFrmHeadCnt=0;
     if(gs_ComGroup[ucNo].ucPort == Port_Uart4)
     {
-        Uart4_Transmit();                               // uart4启动发送
+        Uart4_Transmit();    SetTrxDisp();                           // uart4启动发送
     }
     else if(gs_ComGroup[ucNo].ucPort == Port_Uart2)
     {
-        Uart2_Transmit();                              // 模拟串口启动发送
+        Uart2_Transmit();        SetTrxDisp();                      // 模拟串口启动发送
     }
     else
     {

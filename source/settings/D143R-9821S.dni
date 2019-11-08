@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=515298115
+Checksum=1928754152
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -107,12 +107,13 @@ Fmt55=struct STMETER_CONFIG-ctemp	4	0
 [array_types]
 Fmt0=char[8]	4	0
 Fmt1=u32 [4]	4	0
-Fmt2=unsigned char[4]	3	0
-Fmt3=unsigned long[18]	4	0
-Fmt4=unsigned long[21]	4	0
-Fmt5=unsigned long[29]	4	0
-Fmt6=unsigned long[9]	4	0
-Fmt7=unsigned short[9]	4	0
+Fmt2=u8 [8]	4	0
+Fmt3=unsigned char[4]	3	0
+Fmt4=unsigned long[18]	4	0
+Fmt5=unsigned long[21]	4	0
+Fmt6=unsigned long[29]	4	0
+Fmt7=unsigned long[9]	4	0
+Fmt8=unsigned short[9]	4	0
 [watch_formats]
 Fmt0={W}0:ACC	4	0
 Fmt1={W}0:Addr	4	0
@@ -149,8 +150,8 @@ Fmt31={W}0:RTC_Cnt	4	0
 Fmt32={W}0:RamData.Disp.DispCode.Code	4	0
 Fmt33={W}0:RamData.Iph.sVI	3	0
 Fmt34={W}0:RamData.OverVoltTm	3	0
-Fmt35={W}0:RamData.Pph.VI	4	0
-Fmt36={W}0:RamData.Pphb.VI	4	0
+Fmt35={W}0:RamData.Pph.VI	3	0
+Fmt36={W}0:RamData.Pphb.VI	3	0
 Fmt37={W}0:RamData.PwrUpCnt	4	0
 Fmt38={W}0:RamData.RTCSec	3	0
 Fmt39={W}0:RamData.RTCTime	4	0
@@ -227,7 +228,9 @@ Fmt109={W}0:ul_div	4	0
 Fmt110={W}0:x	4	0
 Fmt111={W}0:zp.bjlcalgetchanel	4	0
 [Breakpoints]
-Count=0
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\TRx.c}.4247.6" 1 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.1000.4" 1 0 0 0 "" 0 ""
+Count=2
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

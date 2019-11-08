@@ -252,7 +252,11 @@ if ( _IsUse645ComProtocol(FlashInfo.SetInfo.cCommProtocl))
 {
     unsigned char ctemp = SBUF4;
      if ( SUCCESS == c7bitParity_Set(&ctemp ,_Parity_Even_))
+     {
         Uart4_Receiveio(ctemp);      
+        char    cFilter(char cin);
+        cFilter(ctemp);
+     }
       return ;
   stream_rece_fun ( usartcomp,SBUF4);
 }
