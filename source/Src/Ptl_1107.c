@@ -280,7 +280,18 @@ const GS_IECCOM    gs_OBSCom[]=
     {"96.30.3",         ")",            _offset_PEA_HNUM_,       IEC_RW,     _E2DataProc_},    //USER NO  //      户号
     {"96.30.4",         ")",            _offset_PEA_ENUM_,       IEC_RW,     _E2DataProc_},    //PEA NO//      表号
     {"96.30.5",         ")",            _offset_Group_,          IEC_RW,     _E2DataProc_},    //PEA NO//      显示序号
-   
+    
+    {"96.31",           ")",            0,         IEC_RO,      _ReadAlmFroze_},    //开端钮盖时间及次数
+    {"96.31*1",         ")",            0x1,       IEC_RO,      _ReadAlmFroze_},    //上1次开端钮盖时间及次数
+    {"96.31*2",         ")",            0x2,       IEC_RO,      _ReadAlmFroze_},    //上2次开端钮盖时间及次数
+    {"96.31*3",         ")",            0x3,       IEC_RO,      _ReadAlmFroze_},    //上3次开端钮盖时间及次数
+    {"96.31*4",         ")",            0x4,       IEC_RO,      _ReadAlmFroze_},    //上4次开端钮盖时间及次数
+    {"96.31*5",         ")",            0x5,       IEC_RO,      _ReadAlmFroze_},    //上5次开端钮盖时间及次数
+    {"96.31*6",         ")",            0x6,       IEC_RO,      _ReadAlmFroze_},    //上6次开端钮盖时间及次数
+    {"96.31*7",         ")",            0x7,       IEC_RO,      _ReadAlmFroze_},    //上7次开端钮盖时间及次数
+    {"96.31*8",         ")",            0x8,       IEC_RO,      _ReadAlmFroze_},    //上8次开端钮盖时间及次数
+    {"96.31*9",         ")",            0x9,       IEC_RO,      _ReadAlmFroze_},    //上9次开端钮盖时间及次数
+    {"96.31*10",        ")",            0xa,       IEC_RO,      _ReadAlmFroze_},    //上10次开端钮盖时间及次数    
     
     {"96.97.1",         ")",            0x01,       IEC_RW,     _E2DataProc_},    //写入结算日1
     {"96.97.2",         ")",            0x02,       IEC_RW,     _E2DataProc_},    //写入结算日2
@@ -346,7 +357,7 @@ const uint8 code Cosnt_OBSLen=dim(gs_OBSCom);
     ReadInsData,                //读取瞬时数据      7
     ClearMeterProc,             //清零电量处理      8
     FlashDataProc,              //  Flash读取数据 
-    
+    ReadAlmFroze,
     AutoJB,                     //自动校表
 
 };
@@ -571,7 +582,7 @@ uint8 JudgeOBSPsw(uint8 *buff,uint8 ucLevel)
     //uint8 PassWord[8];
 #define         PassWord        FlashInfo.SetInfo.s62056Password[ucLevel-1]
 
-    if(ucLevel>0x02)
+    if(ucLevel>0x03)
     {
         return Ret_Err;
     }
@@ -1851,4 +1862,99 @@ uint32 AutoJB(uint8 index,uint8 cmd,void *pvoid)
         EnyB_AutoChkAngle();
     }
     return 0;
+}
+
+
+uint32 ReadAlmFroze(uint8 index,uint8 cmd,void *pvoid)
+{
+    uint8 *ucbuf;//[10];
+    uint8 ASCII[20];
+    uint8 ucMonth=(0xf0&index)>>4;
+    uint8 uctype=index;  //=0x0f&index;
+   uint8 ctemp ;
+   long  ltemp ;
+   char         *start0 = pvoid;
+   char        *start1 =start0  +15;
+   char         *start2 = start1 + 14;
+ 
+    Word32 Data;
+    struct   ST645CommTimeFormat *stp=(struct   ST645CommTimeFormat *)ComData; 
+   struct          STFROZEALM  stdata ;   
+  /*
+   const char      stttt[]="2019-01-02 03:04:05 1234567.8*kwh 12";
+   CopyRam( (char *)pvoid , (char *)stttt, sizeof(stttt) -1);
+   return (sizeof(stttt) -1);
+ */
+   
+   tpBase = (u8*) GetFrozeStart(_FROZE_ALM_, index);
+   if ( NULL == tpBase )
+     ClrRam((char *)&stdata , sizeof(stdata));   
+   else
+     CopyRam ( (char *)&stdata , tpBase , sizeof(stdata));
+   
+    GetCntTime(ComData,stdata.ltime,(S_SEC| T_SEC| _REV_));//0	由整数计算当前时间
+    BCD2ASCII(&(stp->cMin),start0,5);               //把日期转化成ASCii
+    DateAndTmFormat(start0);                     //转化日期和时间的格式
+    start0[8]=0x20;
+    start0[14]=0x20;
+        
+    Data.lword = stdata.lZxz ;//*((uint32 *)ComData);
+    if ( Data.lword & 0x80000000)
+        Data.lword &=0x7fffffff;
+    Data.lword= Hex2BCD(Data.lword);        //首先转化为BCD码
+    BCD2ASCII(Data.byte,ASCII,4);
+    MemCpy(start1,ASCII,5);
+    ((uint8*)start1)[5]='.';
+    MemCpy(((uint8*)start1)+6,ASCII+5,3);
+    
+    MemCpy(((uint8*)start1)+9,"*kwh ",5);
+    
+    
+    ASCII[0]='0'; ASCII[1] = stdata.cAlm +0x30;
+    MemCpy(((uint8*)start2),ASCII ,2);
+    return (start2 +2 -(char *)pvoid ) ;
+
+//==================================    
+    strDispCode  pCode = { 0x03300d01 ,0};
+    
+    if (   _ReadBodyOpOrMdTrDate_time_ != index ) 
+             pCode.Code  += index ;
+    
+    tpChar = ComData ;
+    ctemp = RamData.InDisp;
+    RamData.InDisp = 0;
+    Get645Data( &pCode );
+    RamData.InDisp = ctemp;      
+    if( _ReadBodyOpOrMdTrDate_time_ == uctype)                //读开表盖时间
+    {
+        ucbuf = &(stp->cMin); //opt      DataProcRead2Slice(KBGJLID, ucMonth, 0, 5, ucbuf); 
+    }
+    else                            //读开线盖时间和次数
+    {
+     //optv   DataProcRead2Slice(KXGJLID, ucMonth, 0, 6, ucbuf); 
+      ucbuf = &(stp->cMin);    
+    }      
+ //   BCD2ASCII(&(stp->cMin),ASCII,5);               //把日期转化成ASCii
+  //  DateAndTmFormat(ASCII);                 //转化日期和时间的格式
+    //MemCpy(pvoid,ASCII,14);
+    
+    BCD2ASCII(&(stp->cMin),pvoid,5);               //把日期转化成ASCii
+    DateAndTmFormat(pvoid);                 //转化日期和时间的格式
+   // MemCpy(pvoid,ASCII,14);    
+    if( _ReadBodyOpOrMdTrDate_time_ == uctype )                        //读开表盖时间
+    {
+        return 14;
+    }
+    else
+    {
+      ((uint8*)pvoid)[14]=')';
+      ((uint8*)pvoid)[15]='(';        
+      ltemp = GetFrozeCnt(_FROZE_EOPEN_1_) + (FlashInfo.FrozeCnt[_FROZE_EK_1_]&1)?1:0;      
+      ltemp -= index ;
+      ctemp = ( ltemp < 0) ? 0:ltemp;
+      ctemp = BCD(ctemp) ;
+      BCD2ASCII((char *)&ctemp,((uint8*)pvoid)+16,1); //    BCD2ASCII(ucbuf,ASCII+5,1);         //把日期转化成次数      
+      return 18;
+    }
+ 
 }

@@ -168,8 +168,6 @@ typedef struct
     uint8  ucLen;       //数据长度
 }GSE2DATA;
 
-
-
 /*******************************************************************************
 **下面是函数申明
 *******************************************************************************/
@@ -182,6 +180,7 @@ uint32 ReadHisEgy(uint8 index,uint8 cmd,void *pvoid);
 uint32 ReadHisDemad(uint8 index,uint8 cmd,void *pvoid);
 uint32 DateAndTimeProc(uint8 index,uint8 cmd,void *pvoid);
 uint32 ReadBodyOpOrMdTrDate(uint8 index,uint8 cmd,void *pvoid);
+uint32 ReadAlmFroze(uint8 index,uint8 cmd,void *pvoid);
 uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid);
 uint32 FlashDataProc(uint8 index,uint8 cmd,void *pvoid);
 
@@ -204,6 +203,7 @@ uint8 FindObsiPoint(uint8* Obsi,uint8 len);
     _ReadInsData_,                //读取瞬时数据      7
     _ClearMeterProc_,             //清零电量处理      8
     _FlashDataProc_,                 //读取FLASH据       9
+    _ReadAlmFroze_,
     _AutoJB_,                     //自动校表
     _ENUMOBSMFUNLIST_End_, 
 
