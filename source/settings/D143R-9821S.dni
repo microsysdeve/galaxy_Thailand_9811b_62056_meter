@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1053673132
+Checksum=-855607678
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -230,10 +230,8 @@ Fmt111={W}0:x	4	0
 Fmt112={W}0:zp.bjlcalgetchanel	4	0
 [Breakpoints]
 Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\TRx.c}.4247.6" 0 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\Prcfrm.c}.80.13" 0 0 0 0 "" 0 ""
-Bp2=_ "STD_CODE" "LogicalCode:0x8B94" 0 0 0 0 "" 0 ""
-Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1125.18" 1 0 0 0 "" 0 ""
-Count=4
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\PubData.c}.89.2" 0 0 0 0 "" 0 ""
+Count=2
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

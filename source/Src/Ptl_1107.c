@@ -31,6 +31,7 @@ enum DATAOFFSET
     _offset_PEA_COLLECT_,               
     _offset_PEA_ENUM_,          //      表号
     _offset_PEA_HNUM_,          //      户号
+    _offset_Group_, 
     _offset_End_,
 }; 
 
@@ -278,7 +279,8 @@ const GS_IECCOM    gs_OBSCom[]=
     {"96.30.2",         ")",            _offset_PEA_COLLECT_,    IEC_RW,     _E2DataProc_},    //COLLECT
     {"96.30.3",         ")",            _offset_PEA_HNUM_,       IEC_RW,     _E2DataProc_},    //USER NO  //      户号
     {"96.30.4",         ")",            _offset_PEA_ENUM_,       IEC_RW,     _E2DataProc_},    //PEA NO//      表号
-    
+    {"96.30.5",         ")",            _offset_Group_,          IEC_RW,     _E2DataProc_},    //PEA NO//      显示序号
+   
     
     {"96.97.1",         ")",            0x01,       IEC_RW,     _E2DataProc_},    //写入结算日1
     {"96.97.2",         ")",            0x02,       IEC_RW,     _E2DataProc_},    //写入结算日2
@@ -313,8 +315,8 @@ const GS_IECCOM    gs_OBSCom[]=
     {"31.7.0",          "*A)",          0x02,       IEC_RO,     _ReadInsData_},    //电流
     
     //清零命令
-    {"FF.0.0",          ")",            0x00,       IEC_WO,     _DateAndTimeProc_},
-    {"FF.0.1",          ")",            0x01,       IEC_WO,     _DateAndTimeProc_},
+    {"FF.0.0",          ")",            0x09,       IEC_WO,     _DateAndTimeProc_},
+   // {"FF.0.1",          ")",            0x0a,       IEC_WO,     _DateAndTimeProc_},
  
 };
 
@@ -776,6 +778,9 @@ uint32 ReadHisDemad(uint8 index,uint8 cmd,void *pvoid)
 * @修改人:
 * @修改内容:  
 ===========================================================================================*/
+
+const char       sMeterClear[]="SOOCIA";
+
 uint32 DateAndTimeProc(uint8 index,uint8 cmd,void *pvoid)
 {
     uint8 ucData[4];
@@ -809,7 +814,7 @@ uint32 DateAndTimeProc(uint8 index,uint8 cmd,void *pvoid)
         switch(index)
         {
         case 0x00:                                      //日期
-        default:
+       
             DataorTmCpy(ASCII,pvoid);
             ASCII2BCD(ucData,ASCII,6);
             SetSysClock(ucData,Const_YYMMDD);
@@ -823,6 +828,14 @@ uint32 DateAndTimeProc(uint8 index,uint8 cmd,void *pvoid)
             ucData[0]=*(uint8*)pvoid-0x31;              //星期从1~7编程0~6
             SetSysClock(ucData,Const_WW);
             break;
+            
+        case 0x9:               //  清0
+          if (0 == strCmp( pvoid,(char *)sMeterClear,sizeof(sMeterClear)-1))
+          {
+            RamData.EvtClrTm = 0xABCD;
+               Clr_AllUse();
+		RamData.EvtClrTm = 0;
+          }           
         }
         gui_RefreshEvent|=flgEtPara_Fee;
         return 0;
@@ -994,6 +1007,7 @@ const struct STDATAOFFSET   stdataoffset[]=
   _offset_unitlist(_offset_PEA_COLLECT_,FlashInfo.SetInfo.s62056Password[2],_OPER_STORE_Copy_),              
    _offset_unitlist_spec(_offset_PEA_HNUM_,   FlashInfo.SafeInfo.H_Num,6,_OPER_STORE_Copy_),            //      户号
   _offset_unitlist_spec(_offset_PEA_ENUM_,   FlashInfo.SafeInfo.E_Num ,6,_OPER_STORE_Copy_),  //u8 H_Num[6]; //User Number//Meter Number       //      表号	 
+  _offset_unitlist(_offset_Group_,FlashInfo.SetInfo.cGroupdef,_OPER_STORE_Copy_),
           
 };
 
