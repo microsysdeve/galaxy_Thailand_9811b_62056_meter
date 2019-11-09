@@ -1003,10 +1003,10 @@ const struct STDATAOFFSET   stdataoffset[]=
   _offset_unitlist(_offset_Password2_,  FlashInfo.SetInfo.s62056Password[1],_OPER_STORE_Copy_),
   _offset_unitlist(_offset_Password3_,  FlashInfo.SetInfo.s62056Password[2],_OPER_STORE_Copy_),  
   
-  _offset_unitlist(_offset_PEA_CODE_,   FlashInfo.SetInfo.s62056Password[2],_OPER_STORE_Copy_),      
-  _offset_unitlist(_offset_PEA_COLLECT_,FlashInfo.SetInfo.s62056Password[2],_OPER_STORE_Copy_),              
-   _offset_unitlist_spec(_offset_PEA_HNUM_,   FlashInfo.SafeInfo.H_Num,6,_OPER_STORE_Copy_),            //      户号
-  _offset_unitlist_spec(_offset_PEA_ENUM_,   FlashInfo.SafeInfo.E_Num ,6,_OPER_STORE_Copy_),  //u8 H_Num[6]; //User Number//Meter Number       //      表号	 
+  _offset_unitlist(_offset_PEA_CODE_,   FlashInfo.SetInfo.sPEA_CODE,_OPER_STORE_Copy_),      
+  _offset_unitlist(_offset_PEA_COLLECT_,FlashInfo.SetInfo.PEA_COLLECT,_OPER_STORE_Copy_),              
+   _offset_unitlist_spec(_offset_PEA_HNUM_,FlashInfo.SafeInfo.H_Num,6,_OPER_STORE_Copy_),            //      户号
+  _offset_unitlist(_offset_PEA_ENUM_,   FlashInfo.SetInfo.E_Num ,_OPER_STORE_Copy_),  //u8 H_Num[6]; //User Number//Meter Number       //      表号	 
   _offset_unitlist(_offset_Group_,FlashInfo.SetInfo.cGroupdef,_OPER_STORE_Copy_),
           
 };
@@ -1034,11 +1034,13 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
     uint8 ucData[16];
     uint8 ASCII[32];       
   struct STDATAOFFSET code  *stp;
-    if(Const_DataCOmWR==cmd)                    //写
-    {
-        stp =(struct STDATAOFFSET code *)dataoffset_search(index);
+  
+    stp =(struct STDATAOFFSET code *)dataoffset_search(index);
         if ( NULL == stp )
           return 0;
+    if(Const_DataCOmWR==cmd)                    //写
+    {
+        
         switch ( stp->ctype)
         {
         case _OPER_STORE_Copy_:
@@ -1079,7 +1081,18 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
         }
         return 0;
     }
-    
+    //=============读出
+       switch ( stp->ctype)
+        {
+          case _OPER_STORE_Copy_:
+            CopyRam((char *)pvoid , (char *)stp->iAddr, stp->clen);              
+            return stp->clen;    
+         
+        
+        
+        }
+         return 0;    
+   
 
     if(index<ConstE2DataTableCnt)                 //读取指定E2地址和数据长度的数据
     {
