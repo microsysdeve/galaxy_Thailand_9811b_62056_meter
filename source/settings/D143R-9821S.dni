@@ -9,7 +9,7 @@ TriggerName=main
 LimitSize=0
 ByteLimit=50
 [DebugChecksum]
-Checksum=1928754152
+Checksum=1053673132
 [CallStack]
 ShowArgs=0
 [Disassembly]
@@ -218,19 +218,22 @@ Fmt99={W}0:stAdcFun.stAdcData[1].cVol	3	0
 Fmt100={W}0:stAdcFun.stAdcData[2].cVol	3	0
 Fmt101={W}0:stGaljl	4	0
 Fmt102={W}0:stp	4	0
-Fmt103={W}0:streg	4	0
-Fmt104={W}0:tempvalue.lword	4	0
-Fmt105={W}0:u32PMdatal	4	0
-Fmt106={W}0:ui_E2Address	4	0
-Fmt107={W}0:uitmp	4	0
-Fmt108={W}0:ul_Dat	4	0
-Fmt109={W}0:ul_div	4	0
-Fmt110={W}0:x	4	0
-Fmt111={W}0:zp.bjlcalgetchanel	4	0
+Fmt103={W}0:stp->iAddr	4	0
+Fmt104={W}0:streg	4	0
+Fmt105={W}0:tempvalue.lword	4	0
+Fmt106={W}0:u32PMdatal	4	0
+Fmt107={W}0:ui_E2Address	4	0
+Fmt108={W}0:uitmp	4	0
+Fmt109={W}0:ul_Dat	4	0
+Fmt110={W}0:ul_div	4	0
+Fmt111={W}0:x	4	0
+Fmt112={W}0:zp.bjlcalgetchanel	4	0
 [Breakpoints]
-Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\TRx.c}.4247.6" 1 0 0 0 "" 0 ""
-Bp1=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\mainapp.c}.1000.4" 1 0 0 0 "" 0 ""
-Count=2
+Bp0=_ "STD_CODE" "{$PROJ_DIR$\..\epson_rm8025fa\meter_m11\src\TRx.c}.4247.6" 0 0 0 0 "" 0 ""
+Bp1=_ "STD_CODE" "{$PROJ_DIR$\Src\Prcfrm.c}.80.13" 0 0 0 0 "" 0 ""
+Bp2=_ "STD_CODE" "LogicalCode:0x8B94" 0 0 0 0 "" 0 ""
+Bp3=_ "STD_CODE" "{$PROJ_DIR$\Src\Ptl_1107.c}.1125.18" 1 0 0 0 "" 0 ""
+Count=4
 [Log file]
 LoggingEnabled=_ 0
 LogFile=_ ""

@@ -26,14 +26,30 @@ enum DATAOFFSET
 {
     _offset_Password1_,
     _offset_Password2_,
+    _offset_Password3_,
+    _offset_PEA_CODE_,          
+    _offset_PEA_COLLECT_,               
+    _offset_PEA_ENUM_,          //      表号
+    _offset_PEA_HNUM_,          //      户号
     _offset_End_,
 }; 
 
 #define         _offset(st)                      ((unsigned short)(&st))
 #define         _len(st)                      ((unsigned char)(sizeof(st)))
 
-#define         _offset_unitlist(no,datap,opertype)            {no, _offset(datap),_len(datap),opertype}  
+#define _offset_unitlist(no,datap,opertype)            {no, _offset(datap),_len(datap),opertype}  
+#define _offset_unitlist_spec(no,datap,len ,opertype)       {no, _offset(datap),len,opertype}  
 
+
+enum ENUMDATAOPER
+{
+    _OPER_NULL_ = 0,
+    _OPER_Normal_Copy_,
+    _OPER_STORE_Copy_,
+    _OPER_END_  ,
+};
+      
+      
 
 const uint8 code guc_PcComEd[]=
 {
@@ -256,17 +272,26 @@ const GS_IECCOM    gs_OBSCom[]=
 
     //表号
     {"0.0.0",           ")",            0x00,       IEC_RW,     _E2DataProc_},
+    
+    
+    {"96.30.1",         ")",            _offset_PEA_CODE_,       IEC_RW,     _E2DataProc_},    //PEA CODE
+    {"96.30.2",         ")",            _offset_PEA_COLLECT_,    IEC_RW,     _E2DataProc_},    //COLLECT
+    {"96.30.3",         ")",            _offset_PEA_HNUM_,       IEC_RW,     _E2DataProc_},    //USER NO  //      户号
+    {"96.30.4",         ")",            _offset_PEA_ENUM_,       IEC_RW,     _E2DataProc_},    //PEA NO//      表号
+    
+    
     {"96.97.1",         ")",            0x01,       IEC_RW,     _E2DataProc_},    //写入结算日1
     {"96.97.2",         ")",            0x02,       IEC_RW,     _E2DataProc_},    //写入结算日2
     {"96.97.3",         ")",            0x03,       IEC_RW,     _E2DataProc_},    //写入结算日3
     {"0.8.0",           "*min)",        0x04,       IEC_RW,     _E2DataProc_},    //需量周期
-    {"96.1.3",          ")",            0x05,       IEC_RO,     _E2DataProc_},    //生产日期
+    {"96.1.3",          ")",            0x00,       IEC_RO,     _FlashDataProc_},    //生产日期
     {"96.2.5",          ")",            0x06,       IEC_RO,     _E2DataProc_},    //校表日期
     {"96.2.2",          ")",            0x07,       IEC_RO,     _E2DataProc_},    //费率修改日期
     {"96.8.0",          "*min)",        0x08,       IEC_RW,     _E2DataProc_},    //负荷记录周期
  
     {"96.96.1",         ")",            _offset_Password1_,       IEC_WO,     _E2DataProc_},    //写入P1密码
     {"96.96.2",         ")",            _offset_Password2_,       IEC_WO,     _E2DataProc_},    //写入P2码
+    {"96.96.3",         ")",            _offset_Password3_,       IEC_WO,     _E2DataProc_},    //写入P3码
 
     {"96.6.1",          ")",            0x0b,       IEC_RO,     _E2DataProc_},    //电表状态字
 
@@ -288,8 +313,8 @@ const GS_IECCOM    gs_OBSCom[]=
     {"31.7.0",          "*A)",          0x02,       IEC_RO,     _ReadInsData_},    //电流
     
     //清零命令
-    {"FF.0.0",          ")",            0x00,       IEC_WO,     0x08},
-    {"FF.0.1",          ")",            0x01,       IEC_WO,     0x09},
+    {"FF.0.0",          ")",            0x00,       IEC_WO,     _DateAndTimeProc_},
+    {"FF.0.1",          ")",            0x01,       IEC_WO,     _DateAndTimeProc_},
  
 };
 
@@ -318,6 +343,8 @@ const uint8 code Cosnt_OBSLen=dim(gs_OBSCom);
     DateAndTimeProc,            //读取日期和时间    6 
     ReadInsData,                //读取瞬时数据      7
     ClearMeterProc,             //清零电量处理      8
+    FlashDataProc,              //  Flash读取数据 
+    
     AutoJB,                     //自动校表
 
 };
@@ -956,10 +983,18 @@ const  uint8 code ConstE2DataTableCnt=dim(gs_E2DataTable);
 * @修改人:  
 * @修改内容:  
 ===========================================================================================*/
+
 const struct STDATAOFFSET   stdataoffset[]=
 {
-  _offset_unitlist(_offset_Password1_,FlashInfo.SetInfo.s62056Password[0],0),
-  _offset_unitlist(_offset_Password2_,FlashInfo.SetInfo.s62056Password[1],0),
+  _offset_unitlist(_offset_Password1_,  FlashInfo.SetInfo.s62056Password[0],_OPER_STORE_Copy_),
+  _offset_unitlist(_offset_Password2_,  FlashInfo.SetInfo.s62056Password[1],_OPER_STORE_Copy_),
+  _offset_unitlist(_offset_Password3_,  FlashInfo.SetInfo.s62056Password[2],_OPER_STORE_Copy_),  
+  
+  _offset_unitlist(_offset_PEA_CODE_,   FlashInfo.SetInfo.s62056Password[2],_OPER_STORE_Copy_),      
+  _offset_unitlist(_offset_PEA_COLLECT_,FlashInfo.SetInfo.s62056Password[2],_OPER_STORE_Copy_),              
+   _offset_unitlist_spec(_offset_PEA_HNUM_,   FlashInfo.SafeInfo.H_Num,6,_OPER_STORE_Copy_),            //      户号
+  _offset_unitlist_spec(_offset_PEA_ENUM_,   FlashInfo.SafeInfo.E_Num ,6,_OPER_STORE_Copy_),  //u8 H_Num[6]; //User Number//Meter Number       //      表号	 
+          
 };
 
 const struct STDATAOFFSET code  *dataoffset_search( unsigned char  cNo)
@@ -990,8 +1025,15 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
         stp =(struct STDATAOFFSET code *)dataoffset_search(index);
         if ( NULL == stp )
           return 0;
-        if ( 0 == stp->ctype )
-          Copy_FlashInfo((char *)stp->iAddr,(char *)pvoid,stp->clen);
+        switch ( stp->ctype)
+        {
+        case _OPER_STORE_Copy_:
+              Copy_FlashInfo((char *)stp->iAddr,(char *)pvoid,stp->clen);              
+         return 0;    
+         
+        
+        
+        }
          return 0;    
         
         if(gs_E2DataTable[index].ucAtb&ASC2BCD)
@@ -1024,6 +1066,70 @@ uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid)
         return 0;
     }
     
+
+    if(index<ConstE2DataTableCnt)                 //读取指定E2地址和数据长度的数据
+    {
+        if(index==0x0b)
+        {
+            ucData[0]=0;//opt =====================guc_MeterSysSta;     //ucData[0]=guc_MeterSysSta;
+        }
+        else if((index>=0x0f)&&(index<=0x11))        //费率
+        {
+            BE_ReadP(gs_E2DataTable[index].uiE2Adrr,ASCII,8);
+            //把8个字节的BCD转换成4个字节的BCD
+            for(uint8 i=0;i<4;i++)
+            {
+                ucData[i]=((ASCII[2*i]&0x0F)|((ASCII[2*i+1]&0x0F)<<4));
+            }
+        } 
+        else 
+        {
+          //opt====================  BE_ReadP(gs_E2DataTable[index].uiE2Adrr,ucData,gs_E2DataTable[index].ucLen);
+          CopyRam ( ucData,(char *)(gs_E2DataTable[index].uiE2Adrr),gs_E2DataTable[index].ucLen);
+        }
+ 
+
+        BCD2ASCII(ucData,ASCII,gs_E2DataTable[index].ucLen);    //把读取的数据转化成ASCII
+
+        if((index==0x05)||(index==0x06))        //生产和校表日期
+        {
+            DateFormat(0,ASCII);                  //转化日期
+            MemCpy(pvoid,ASCII,8);
+            return  8;
+        } 
+        else if(index==0x07)                    //费率修改日期
+        {
+            DateAndTmFormat(ASCII);             //转化日期和时间的格式
+            MemCpy(pvoid,ASCII,14);
+            return 14;
+        }
+    }
+ 
+    MemCpy(pvoid,ASCII,gs_E2DataTable[index].ucLen*2);
+    return gs_E2DataTable[index].ucLen*2;
+}
+
+
+uint32 FlashDataProc(uint8 index,uint8 cmd,void *pvoid)
+{
+    uint8 ucData[16];
+    uint8 ASCII[32];       
+    
+       if(Const_DataCOmWR==cmd)                    //写
+      return 0;
+      
+    switch ( index)
+    {
+    case 0:             //读出生产日期
+          CopyRam( pvoid ,(char *)FData.DftSet.MakeTime ,sizeof(FData.DftSet.MakeTime));
+          return 10;
+          
+    default:
+      return 0;
+    }
+      
+        
+ 
 
     if(index<ConstE2DataTableCnt)                 //读取指定E2地址和数据长度的数据
     {

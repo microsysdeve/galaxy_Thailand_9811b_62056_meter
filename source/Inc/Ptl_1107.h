@@ -183,6 +183,8 @@ uint32 ReadHisDemad(uint8 index,uint8 cmd,void *pvoid);
 uint32 DateAndTimeProc(uint8 index,uint8 cmd,void *pvoid);
 uint32 ReadBodyOpOrMdTrDate(uint8 index,uint8 cmd,void *pvoid);
 uint32 E2DataProc(uint8 index,uint8 cmd,void *pvoid);
+uint32 FlashDataProc(uint8 index,uint8 cmd,void *pvoid);
+
 uint32 ClearMeterProc(uint8 index,uint8 cmd,void *pvoid);
 uint32 DoNoting(uint8 index,uint8 cmd,void *pvoid);
 uint32 ReadPowDnJl(uint8 index,uint8 cmd,void *pviod);
@@ -197,10 +199,11 @@ uint8 FindObsiPoint(uint8* Obsi,uint8 len);
     _ReadHisDemad_,               //读取历史需量      2
     _ReadBodyOpOrMdTrDate_,       //开表盖和线盖事件   3
     _ReadPowDnJl_,                //掉电记录         4
-    _E2DataProc_,                 //读取E2数据       5
+    _E2DataProc_,                 //读取E2数据       5    
     _DateAndTimeProc_,            //读取日期和时间    6 
     _ReadInsData_,                //读取瞬时数据      7
     _ClearMeterProc_,             //清零电量处理      8
+    _FlashDataProc_,                 //读取FLASH据       9
     _AutoJB_,                     //自动校表
     _ENUMOBSMFUNLIST_End_, 
 
