@@ -280,6 +280,7 @@ const GS_IECCOM    gs_OBSCom[]=
     {"96.30.3",         ")",            _offset_PEA_HNUM_,       IEC_RW,     _E2DataProc_},    //USER NO  //      户号
     {"96.30.4",         ")",            _offset_PEA_ENUM_,       IEC_RW,     _E2DataProc_},    //PEA NO//      表号
     {"96.30.5",         ")",            _offset_Group_,          IEC_RW,     _E2DataProc_},    //PEA NO//      显示序号
+    {"96.30.6",         ")",            _offset_Group_,          IEC_RW,     _E2DataProc_},    //报警状态字
     
     {"96.31",           ")",            0,         IEC_RO,      _ReadAlmFroze_},    //开端钮盖时间及次数
     {"96.31*1",         ")",            0x1,       IEC_RO,      _ReadAlmFroze_},    //上1次开端钮盖时间及次数
