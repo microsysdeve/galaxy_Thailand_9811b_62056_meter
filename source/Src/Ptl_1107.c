@@ -32,6 +32,8 @@ enum DATAOFFSET
     _offset_PEA_ENUM_,          //      表号
     _offset_PEA_HNUM_,          //      户号
     _offset_Group_, 
+    _offset_Fig2Alm_, 
+    
     _offset_End_,
 }; 
 
@@ -125,6 +127,16 @@ const uint8 code guc_InitCmd[]=
 * @修改人:
 * @修改内容:  
 ===========================================================================================*/
+
+enum  ENUMREADINS
+{
+      _Vol_,
+      _LCurr_,
+      _NCurr_,
+      _LPower_,  
+      _NPower_,
+      _Pfc_,
+};
     
     
     
@@ -280,7 +292,7 @@ const GS_IECCOM    gs_OBSCom[]=
     {"96.30.3",         ")",            _offset_PEA_HNUM_,       IEC_RW,     _E2DataProc_},    //USER NO  //      户号
     {"96.30.4",         ")",            _offset_PEA_ENUM_,       IEC_RW,     _E2DataProc_},    //PEA NO//      表号
     {"96.30.5",         ")",            _offset_Group_,          IEC_RW,     _E2DataProc_},    //PEA NO//      显示序号
-    {"96.30.6",         ")",            _offset_Group_,          IEC_RW,     _E2DataProc_},    //报警状态字
+    {"96.30.6",         ")",            _offset_Fig2Alm_,          IEC_RW,     _E2DataProc_},    //报警状态字
     
     {"96.31",           ")",            0,         IEC_RO,      _ReadAlmFroze_},    //开端钮盖时间及次数
     {"96.31*1",         ")",            0x1,       IEC_RO,      _ReadAlmFroze_},    //上1次开端钮盖时间及次数
@@ -323,8 +335,14 @@ const GS_IECCOM    gs_OBSCom[]=
     { "0.9.2",          ")",            0x00,       IEC_RW,     _DateAndTimeProc_},    //日期
     { "0.9.5",          ")",            0x02,       IEC_RW,     _DateAndTimeProc_},    //星期
     
-    {"32.7.0",          "*V)",          0x01,       IEC_RO,     _ReadInsData_},    //电压
-    {"31.7.0",          "*A)",          0x02,       IEC_RO,     _ReadInsData_},    //电流
+    {"32.7.0",          "*V)",           _Vol_,       IEC_RO,     _ReadInsData_},    //电压
+    {"31.7.0",          "*A)",           _LCurr_,       IEC_RO,     _ReadInsData_},    //电流
+    {"31.7.1",          "*A)",          _NCurr_,       IEC_RO,     _ReadInsData_},    //电流
+    
+    {"33.7.0",          "*KW)",           _LPower_,       IEC_RO,     _ReadInsData_},    //L线功率
+    {"33.7.1",          "*KW)",         _NPower_,       IEC_RO,     _ReadInsData_},    //N线功率
+    {"34.7.0",          ")",          _Pfc_,       IEC_RO,     _ReadInsData_},    //功率因数
+    
     
     //清零命令
     {"FF.0.0",          ")",            0x09,       IEC_WO,     _DateAndTimeProc_},
@@ -1020,6 +1038,7 @@ const struct STDATAOFFSET   stdataoffset[]=
    _offset_unitlist_spec(_offset_PEA_HNUM_,FlashInfo.SafeInfo.H_Num,6,_OPER_STORE_Copy_),            //      户号
   _offset_unitlist(_offset_PEA_ENUM_,   FlashInfo.SetInfo.E_Num ,_OPER_STORE_Copy_),  //u8 H_Num[6]; //User Number//Meter Number       //      表号	 
   _offset_unitlist(_offset_Group_,FlashInfo.SetInfo.cGroupdef,_OPER_STORE_Copy_),
+  _offset_unitlist( _offset_Fig2Alm_,FlashInfo.RunInfo.cFig2Alm,_OPER_STORE_Copy_),
           
 };
 
@@ -1256,31 +1275,55 @@ uint32 ReadInsData(uint8 index,uint8 cmd,void *pvoid)
 {
     Word32 ulData;
     uint8 ASCII[10];
-    if(index==0x01)
+    
+    switch ( index )
     {
-        ulData.lword=EnyB_CalRMS(RMSU);
-    }
-    else
-    {
-        ulData.lword=EnyB_CalRMS(RMSI1);
-    }
-
-    if(index==0x01)
-    {
+    case   _Vol_:
+        ulData.lword=EnyB_CalRMS(RMSU);        
         BCD2ASCII(ulData.byte,ASCII,2);    //把读取的数据转化成ASCII
         MemCpy((uint8*)pvoid,ASCII,3);
         ((uint8*)pvoid)[3]='.';
         ((uint8*)pvoid)[4]=ASCII[3];
         return 5;
-
-    }else
-    {
+        
+    case _LCurr_ :
+    case _NCurr_:
+      ulData.lword= ( _LCurr_ ==index )?RamData.Iph.sVI:RamData.I_z.sVI;// EnyB_CalRMS(RMSI1);  
+      ulData.lword = Hex2BCD(ulData.lword);
         BCD2ASCII(ulData.byte,ASCII,3);    //把读取的数据转化成ASCII
         MemCpy((uint8*)pvoid,ASCII,3);
         ((uint8*)pvoid)[3]='.';
         MemCpy((uint8*)pvoid+4,ASCII+3,3);
         return 7;
-    }
+        
+       /*
+    case  _LPower_:      
+    case _NPower_:
+      
+      ulData.lword= ( _LPower_ ==index )?RamData.Pph.sVI:RamData.Pphb.sVI;// EnyB_CalRMS(RMSI1);            
+      ulData.lword = Hex2BCD(labs(ulData.lword));
+        BCD2ASCII(ulData.byte,ASCII,3);    //把读取的数据转化成ASCII
+        i = strlen (ASCII);
+        for ( j = 0; i<3 )
+            
+        MemCpy((uint8*)pvoid,ASCII,3);
+        ((uint8*)pvoid)[3]='.';
+        MemCpy((uint8*)pvoid+4,ASCII+3,3);
+      
+        return strlen(pvoid);//7;
+        */
+          
+    case _Pfc_:
+         ulData.lword=RamData.Pfph ;
+         ulData.lword = Hex2BCD(labs(ulData.lword));
+         BCD2ASCII(ulData.byte,ASCII,2);    //把读取的数据转化成ASCII
+         ((uint8*)pvoid)[0]=ASCII[0];
+         ((uint8*)pvoid)[1]='.';
+         ((uint8*)pvoid)[2]=ASCII[1];
+         ((uint8*)pvoid)[3]=ASCII[2];
+         ((uint8*)pvoid)[4]=ASCII[3];        
+        return 5;
+    }  
 }
 /*=========================================================================================\n
 * @function_name: ReadPowDnJl
